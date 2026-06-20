@@ -580,3 +580,8 @@ em.accent { font-style: italic; color: var(--warm-clay); }
 
 /* (9) particles visible on inner-page green headers too */
 .page-hero .hero-canvas { opacity: 0.5; }
+
+/* secondary outline button for dark sections (e.g. contact band) */
+.btn-outline-on-dark { background: transparent; color: var(--soft-cream); border: 1px solid var(--sage); }
+.btn-outline-on-dark:hover { background: var(--soft-cream); color: var(--deep-forest); border-color: var(--soft-cream); }
+.contact-ctas { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }

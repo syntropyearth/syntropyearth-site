@@ -64,7 +64,14 @@
 }
 </script>
 
-<!-- Analytics managed via GTM-WG7CWTHG (injected by Netlify Snippet Injection) -->
+<!-- ===== GOOGLE ANALYTICS 4 — replace G-SRYX1DSMRX with your Measurement ID ===== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SRYX1DSMRX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SRYX1DSMRX');
+</script>
 </head>
 
 <body>
@@ -379,7 +386,10 @@
       <p class="label eyebrow" style="color:var(--sage);">Contact</p>
       <p class="contact-lead reveal">If you're working on something where climate and health meet: an exposed access programme, a CSR budget that needs a strategy, a reporting deadline closing in, a venture at the intersection. Let's talk.</p>
       <p class="contact-sub reveal">The first conversation is simple: what you're facing, and whether I'm the right person to help.</p>
-      <a class="btn btn-on-dark reveal" href="https://calendar.app.google/tR6mVMNSphduvNSk7" target="_blank" rel="noopener">Start a conversation <span class="arrow">&rarr;</span></a>
+      <div class="contact-ctas">
+        <a class="btn btn-on-dark reveal" href="https://calendar.app.google/tR6mVMNSphduvNSk7" target="_blank" rel="noopener">Start a conversation <span class="arrow">&rarr;</span></a>
+        <a class="btn btn-outline-on-dark reveal" href="mailto:hello@syntropyearth.com">Or email me directly <span class="arrow">&rarr;</span></a>
+      </div>
     </div>
   </div>
 </section>
