@@ -1,6 +1,19 @@
 [build]
   publish = "."
 
+# Canonical domain redirects — must come before path-based rules
+[[redirects]]
+  from = "https://reliable-conkies-700067.netlify.app/*"
+  to = "https://syntropyearth.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.syntropyearth.com/*"
+  to = "https://syntropyearth.com/:splat"
+  status = 301
+  force = true
+
 # Clean URLs: serve /services/index.html at /services
 [[redirects]]
   from = "/services.html"

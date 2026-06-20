@@ -1,3 +1,1 @@
-# Canonical domain redirects — force all traffic to the primary domain
-https://reliable-conkies-700067.netlify.app/*  https://syntropyearth.com/:splat  301!
-https://www.syntropyearth.com/*                https://syntropyearth.com/:splat  301!
+# Canonical domain redirects are handled in netlify.toml [[redirects]] blocks.
