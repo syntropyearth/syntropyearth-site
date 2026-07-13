@@ -1,0 +1,1157 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Climate-Access Exposure -- Syntropy Earth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-page:#FDFAF5; --bg-surface:#FFFFFF; --bg-cream:#FAF4E8; --bg-dark:#1E4435; --bg-footer:#143025;
+    --text:#22322A; --text-muted:#5C6A60; --text-faint:#93A89C;
+    --forest:#356B4E; --red:#9E3B2A; --red-dark:#7A2D1E; --clay:#CF9B7D; --clay-pale:#F0DED0;
+    --monsoon:#3D6478; --monsoon-deep:#2A4A5A; --sky:#8BA8B6; --sky-pale:#DAE8EE;
+    --sage:#8AAE98; --mist:#C4D9CC; --pale-sage:#E8F0EB;
+    --border:rgba(30,68,53,0.10); --border-strong:rgba(30,68,53,0.18);
+    --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+    --body:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    --mono:"Space Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+    --maxw:920px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg-page); color:var(--text); font-family:var(--body);
+    font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:28px 22px 80px}
+  .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:.20em; text-transform:uppercase; color:var(--forest); margin:0 0 12px}
+  h1,h2,h3{font-family:var(--display); color:var(--bg-dark); font-weight:500; line-height:1.12; margin:0}
+  h1{font-size:clamp(30px,6vw,46px); letter-spacing:.005em}
+  h2{font-size:clamp(24px,4.5vw,34px)}
+  h3{font-size:20px}
+  p{margin:0 0 16px}
+  .lead{font-size:18px; color:var(--text-muted); max-width:60ch}
+  .muted{color:var(--text-muted)}
+  .faint{color:var(--text-faint)}
+  a{color:var(--forest)}
+
+  /* header */
+  .top{display:flex; align-items:center; gap:12px; margin-bottom:34px}
+  .top .name{font-family:var(--display); font-size:19px; color:var(--bg-dark); font-weight:500; letter-spacing:.02em}
+  .top .tag{font-family:var(--mono); font-size:9px; letter-spacing:.20em; text-transform:uppercase; color:var(--red)}
+  .mark{flex:0 0 auto}
+  .topbar-site-link{margin-left:auto; font-family:var(--mono); font-size:11px; letter-spacing:.05em; color:var(--forest); text-decoration:none; white-space:nowrap; opacity:.8}
+  .topbar-site-link:hover{opacity:1; text-decoration:underline}
+
+  /* buttons */
+  .btn{font-family:var(--body); font-weight:500; font-size:15px; border:0; border-radius:7px; padding:13px 24px; cursor:pointer; transition:background .15s,transform .05s; text-decoration:none; display:inline-block; line-height:1.2}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--red); color:var(--bg-cream)}
+  .btn-primary:hover{background:var(--red-dark)}
+  .btn-ghost{background:transparent; color:var(--bg-dark); border:1px solid var(--forest)}
+  .btn-ghost:hover{background:var(--pale-sage)}
+  .btn-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:8px}
+  .btn:focus-visible, a:focus-visible, .tile:focus-visible, input:focus-visible, button:focus-visible{outline:2px solid var(--monsoon); outline-offset:2px}
+
+  /* sector tiles */
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; margin-top:26px}
+  .tile{background:var(--bg-surface); border:1px solid var(--border); border-radius:10px; padding:20px; cursor:pointer; text-align:left; transition:border-color .15s,box-shadow .15s,transform .1s; font:inherit; color:inherit; box-shadow:0 1px 3px rgba(30,68,53,.05)}
+  .tile:hover{border-color:var(--forest); box-shadow:0 4px 14px rgba(30,68,53,.10); transform:translateY(-2px)}
+  .tile .label{font-family:var(--mono); font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--forest); display:block; margin-top:10px}
+  .tile h3{margin:4px 0 6px; font-size:21px}
+  .tile p{font-size:13.5px; color:var(--text-muted); margin:0}
+
+  /* fork cards */
+  .cards{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px}
+  .card{background:var(--bg-surface); border:1px solid var(--border); border-radius:10px; padding:26px; box-shadow:0 1px 3px rgba(30,68,53,.06)}
+  .card.lead{border-color:var(--border-strong)}
+  .card h3{margin-bottom:8px}
+  .card p{font-size:14px; color:var(--text-muted)}
+
+  /* progress */
+  .prog{height:4px; background:var(--pale-sage); border-radius:3px; overflow:hidden; margin:6px 0 26px}
+  .prog>span{display:block; height:100%; background:var(--forest); width:0; transition:width .3s ease}
+  .stepmeta{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px}
+  .stepmeta .count{font-family:var(--mono); font-size:11px; letter-spacing:.12em; color:var(--text-faint)}
+
+  /* questions */
+  .q{margin-bottom:8px}
+  .q .qtext{font-family:var(--display); font-size:24px; color:var(--bg-dark); line-height:1.18; margin-bottom:4px}
+  .q .qhint{font-size:13px; color:var(--text-muted); margin-bottom:18px}
+  .q .qhint .unit{font-family:var(--mono); font-size:11px; color:var(--monsoon); letter-spacing:.04em}
+  .gaptag{display:inline-block; font-family:var(--mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--clay); border:1px solid var(--clay-pale); background:var(--clay-pale); border-radius:4px; padding:2px 7px; margin-left:8px; vertical-align:middle}
+  .opts{display:flex; flex-direction:column; gap:9px}
+  .opt{display:flex; align-items:center; gap:11px; border:1px solid var(--border); background:var(--bg-surface); border-radius:8px; padding:12px 15px; cursor:pointer; font:inherit; font-size:15px; color:var(--text); text-align:left; transition:border-color .12s,background .12s}
+  .opt:hover{border-color:var(--sage)}
+  .opt[aria-checked="true"]{border-color:var(--forest); background:var(--pale-sage)}
+  .opt .dot{flex:0 0 auto; width:16px; height:16px; border-radius:50%; border:2px solid var(--mist); position:relative}
+  .opt[aria-checked="true"] .dot{border-color:var(--forest)}
+  .opt[aria-checked="true"] .dot::after{content:""; position:absolute; inset:3px; border-radius:50%; background:var(--forest)}
+  .opt.multi .dot{border-radius:4px}
+  .opt.multi[aria-checked="true"] .dot::after{border-radius:1px}
+  .opt.unsure{border-style:dashed}
+  .opt.unsure[aria-checked="true"]{border-color:var(--clay); background:var(--clay-pale)}
+  .opt.unsure[aria-checked="true"] .dot{border-color:var(--clay)}
+  .opt.unsure[aria-checked="true"] .dot::after{background:var(--clay)}
+  .navline{display:flex; justify-content:space-between; margin-top:26px; gap:12px}
+  .linkbtn{background:none; border:0; color:var(--forest); font:inherit; font-weight:500; cursor:pointer; padding:13px 4px}
+  .linkbtn:hover{text-decoration:underline}
+  .linkbtn[disabled]{color:var(--text-faint); cursor:default; text-decoration:none}
+
+  /* result */
+  .gauge-wrap{display:flex; flex-direction:column; align-items:center; text-align:center; padding:8px 0 4px}
+  .gauge{width:240px; height:240px; max-width:72vw}
+  .band-name{font-family:var(--display); font-size:clamp(26px,7vw,38px); line-height:1; margin-top:-150px; margin-bottom:120px; position:relative; z-index:2}
+  .band-sub{font-family:var(--mono); font-size:10px; letter-spacing:.20em; text-transform:uppercase; color:var(--text-faint)}
+  .readline{font-family:var(--display); font-size:22px; color:var(--bg-dark); text-align:center; max-width:30ch; margin:6px auto 18px; line-height:1.25}
+  .bench{background:var(--sky-pale); border:1px solid rgba(61,100,120,.18); border-radius:9px; padding:16px 18px; text-align:center; max-width:520px; margin:0 auto 6px}
+  .bench .b1{font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--monsoon); margin-bottom:6px}
+  .bench .b2{font-size:16px; color:var(--monsoon-deep)}
+  .bench strong{color:var(--monsoon-deep)}
+
+  /* credibility line */
+  .cred{font-size:12px; color:var(--text-faint); line-height:1.5; max-width:60ch; margin:22px auto 0; text-align:center; border-top:1px solid var(--border); padding-top:14px}
+  .illus{display:inline-block; font-family:var(--mono); font-size:8.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--clay); border:1px solid var(--clay-pale); background:var(--clay-pale); border-radius:4px; padding:2px 6px; margin-left:6px}
+
+  /* overview contributors */
+  .contribs{display:grid; grid-template-columns:1fr; gap:10px; max-width:560px; margin:18px auto 0}
+  .contrib{display:flex; align-items:center; gap:14px; background:var(--bg-surface); border:1px solid var(--border); border-radius:8px; padding:13px 16px}
+  .contrib .rank{font-family:var(--mono); font-size:12px; color:var(--text-faint); flex:0 0 auto; width:22px}
+  .contrib .meta{flex:1}
+  .contrib .meta .dn{font-weight:500; color:var(--bg-dark); font-size:15px}
+  .contrib .meta .fc{font-size:13px; color:var(--text-muted)}
+  .contrib .lvl{font-family:var(--mono); font-size:10px; letter-spacing:.10em; text-transform:uppercase; padding:4px 9px; border-radius:5px; flex:0 0 auto}
+
+  /* gate */
+  .gate{background:var(--bg-cream); border:1px solid var(--border-strong); border-radius:12px; padding:30px; max-width:560px; margin:8px auto 0}
+  .gate h2{margin-bottom:8px}
+  .gate .glead{font-size:15px; color:var(--text-muted); margin-bottom:20px}
+  .field{margin-bottom:14px}
+  .field label{display:block; font-size:13px; font-weight:500; color:var(--bg-dark); margin-bottom:5px}
+  .field .opt-note{font-weight:400; color:var(--text-faint)}
+  .field input{width:100%; font:inherit; font-size:15px; padding:12px 14px; border:1px solid var(--border-strong); border-radius:8px; background:var(--bg-surface); color:var(--text)}
+  .field input:focus{border-color:var(--forest); outline:2px solid var(--monsoon); outline-offset:1px}
+  .err{color:var(--red); font-size:12.5px; margin-top:5px; display:none}
+  .reassure{font-size:12px; color:var(--text-faint); margin-top:12px; line-height:1.5}
+
+  /* detail */
+  .dimreads{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:22px 0}
+  .dimcard{background:var(--bg-surface); border:1px solid var(--border); border-left:3px solid var(--monsoon); border-radius:8px; padding:16px 18px}
+  .dimcard .dh{display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:6px}
+  .dimcard .dn{font-family:var(--display); font-size:18px; color:var(--bg-dark)}
+  .dimcard .bd{font-family:var(--mono); font-size:9.5px; letter-spacing:.10em; text-transform:uppercase; padding:3px 8px; border-radius:5px; flex:0 0 auto}
+  .dimcard p{font-size:13.5px; color:var(--text-muted); margin:0}
+  .dimcard.gap{border-left-color:var(--clay); border-left-style:dashed}
+
+  /* 4x4 grid */
+  .gridtable{width:100%; border-collapse:separate; border-spacing:4px; margin:8px 0 6px; font-size:12px}
+  .gridtable th{font-family:var(--mono); font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-faint); font-weight:400; padding:4px; text-align:center}
+  .gridtable th.row{text-align:left; max-width:120px}
+  .gridtable td{height:34px; border-radius:5px; text-align:center; color:#fff; font-family:var(--mono); font-size:9px; letter-spacing:.06em; text-transform:uppercase}
+  .gridtable td.gapcell{color:var(--clay); background:repeating-linear-gradient(45deg,#F0DED0,#F0DED0 4px,#FAF4E8 4px,#FAF4E8 8px); border:1px dashed var(--clay)}
+
+  .findings{background:var(--clay-pale); border:1px solid rgba(207,155,125,.4); border-radius:9px; padding:18px 20px; margin:18px 0}
+  .findings h3{font-size:17px; margin-bottom:8px}
+  .findings ul{margin:0; padding-left:18px}
+  .findings li{font-size:14px; color:var(--text); margin-bottom:7px}
+  .findings li:last-child{margin-bottom:0}
+
+  .nextmetrics{margin:18px 0}
+  .nextmetrics h3{font-size:17px; margin-bottom:8px}
+  .nextmetrics ul{margin:0; padding-left:18px}
+  .nextmetrics li{font-size:14px; color:var(--text-muted); margin-bottom:6px}
+
+  .cta-block{background:var(--bg-dark); border-radius:12px; padding:30px; text-align:center; margin-top:26px; color:var(--bg-cream)}
+  .cta-block h2{color:var(--bg-cream)}
+  .cta-block p{color:var(--sage); max-width:46ch; margin:10px auto 18px}
+  .cta-block .micro{font-size:12px; color:var(--sage); margin-top:14px}
+
+  .confirm{background:var(--pale-sage); border:1px solid rgba(53,107,78,.3); border-radius:9px; padding:16px 18px; font-size:14px; color:var(--bg-dark); margin-bottom:18px}
+
+  /* startup / ngo read */
+  .read-block{background:var(--bg-surface); border:1px solid var(--border); border-radius:10px; padding:26px; box-shadow:0 1px 3px rgba(30,68,53,.05)}
+  .read-block .rline{font-family:var(--display); font-size:22px; color:var(--bg-dark); line-height:1.3; margin-bottom:14px}
+
+  .footer-note{margin-top:48px; padding-top:18px; border-top:1px solid var(--border); font-size:12px; color:var(--text-faint); line-height:1.6}
+  .site-footer{background:#143025; margin-top:60px; padding:34px 24px 30px}
+  .sf-inner{max-width:780px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap}
+  .sf-brand{display:flex; align-items:center; gap:10px}
+  .sf-name{font-family:'Cormorant Garamond',Georgia,serif; font-size:21px; color:#FDFAF5; letter-spacing:.01em}
+  .sf-links{display:flex; gap:22px; flex-wrap:wrap}
+  .sf-links a{font-family:'DM Sans',system-ui,sans-serif; font-size:13.5px; color:#C4D9CC; text-decoration:none; border-bottom:1px solid transparent; transition:border-color .15s,color .15s}
+  .sf-links a:hover{color:#FDFAF5; border-bottom-color:#8AAE98}
+  .sf-note{max-width:780px; margin:18px auto 0; font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.02em; color:#6E8A78; line-height:1.7}
+
+  .back-top{background:none; border:0; color:var(--forest); font:inherit; font-size:13px; cursor:pointer; padding:0; margin-bottom:18px}
+  .back-top:hover{text-decoration:underline}
+
+  @media (max-width:680px){
+    .cards{grid-template-columns:1fr}
+    .dimreads{grid-template-columns:1fr}
+    .wrap{padding:22px 16px 64px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important; animation:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top" id="topbar">
+    <span class="mark" aria-hidden="true" id="topbar-reset" role="button" tabindex="0" title="Back to the start" style="cursor:pointer">
+      <svg width="34" height="34" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="21" stroke="#1E4435" stroke-width="0.5" opacity="0.25"/>
+        <path d="M 24,3 A 21,21 0 1,1 3,24" stroke="#1E4435" stroke-width="1.75" stroke-linecap="round"/>
+        <path d="M 24,9 A 15,15 0 1,1 9,24" stroke="#356B4E" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M 24,15 A 9,9 0 0,1 33,24" stroke="#9E3B2A" stroke-width="1.4" stroke-linecap="round"/>
+        <circle cx="24" cy="24" r="2.5" fill="#1E4435"/>
+      </svg>
+    </span>
+    <span id="topbar-reset2" role="button" tabindex="0" title="Back to the start" style="cursor:pointer">
+      <span class="name">Syntropy Earth</span><br>
+      <span class="tag">Climate-Access Exposure</span>
+    </span>
+    <a href="https://syntropyearth.com" class="topbar-site-link">syntropyearth.com &rsaquo;</a>
+  </header>
+  <main id="app" aria-live="polite"></main>
+  </div>
+  <footer class="site-footer">
+    <div class="sf-inner">
+      <div class="sf-brand">
+        <svg width="26" height="26" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M 24,4 A 20,20 0 1,1 4,24" stroke="#FAF4E8" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M 24,10 A 14,14 0 1,1 10,24" stroke="#8AAE98" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M 24,16 A 8,8 0 0,1 32,24" stroke="#CF9B7D" stroke-width="1.3" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="2.3" fill="#FAF4E8"/>
+        </svg>
+        <span class="sf-name">Syntropy Earth</span>
+      </div>
+      <nav class="sf-links" aria-label="Footer">
+        <a href="https://syntropyearth.com/terms">Terms of use</a>
+        <a href="https://syntropyearth.com/privacy">Privacy</a>
+        <a href="https://syntropyearth.com/contact">Contact</a>
+      </nav>
+    </div>
+    <p class="sf-note">A directional self-assessment. Peer benchmark derived from FY2024-25 BRSR disclosures of 59 listed Indian companies. British English throughout.</p>
+  </footer>
+
+<script>
+/* ============================================================
+   CONFIG -- v1.2 CALIBRATED BUILD (10 July 2026).
+   Peer benchmark and bands derived from the 59-company FY2024-25 BRSR
+   working set (CAST-master-v11 -> CAST-calibration-v1.xlsx). Region
+   hazard ordinals remain Syntropy Earth judgement values, rescaled to
+   a 0.15..0.60 base and sanity-checked against CEEW zone findings;
+   the Tier 2 dataset pass can replace the ordinals without touching
+   the engine. Booking, enquiry, sectors, dimensions, forces, weights,
+   benchmark, bands, questions below.
+   ============================================================ */
+
+var BOOKING_URL = "https://calendar.app.google/7qwXU9yThRKFBQjC9";
+var ENQUIRY_EMAIL = "abhijithmagal@syntropyearth.com"; // lighter route for NGO + startup
+
+var DIMS = [
+  {id:"PR", name:"Physical reach",        blurb:"can people and goods get to where care or service happens"},
+  {id:"SC", name:"Supply-chain integrity",blurb:"do inputs, cold chains and distribution hold"},
+  {id:"WF", name:"Workforce availability",blurb:"can the people who deliver the work show up and function"},
+  {id:"DC", name:"Demand continuity",     blurb:"do facilities, programmes and customers keep operating"}
+];
+var FORCES = [
+  {id:"heat",    name:"Heat"},
+  {id:"monsoon", name:"Monsoon / flood"},
+  {id:"air",     name:"Air quality"},
+  {id:"drought", name:"Water stress"}
+];
+
+/* Sector definitions. Group A shares the corporate input set; weighting differs.
+   Group B (NGO, Startup) uses its own template. */
+var SECTORS = {
+  pharma:{ name:"Pharma & Healthcare", group:"A", lead:"SC", second:"DC",
+    rationale:"Temperature-sensitive product and continuity of care.",
+    weights:{SC:1.4, DC:1.25, PR:1.0, WF:1.0} },
+  fmcg:{ name:"FMCG", group:"A", lead:"SC", second:"PR",
+    rationale:"Distribution and raw-material exposure.",
+    weights:{SC:1.4, PR:1.25, WF:1.0, DC:1.0} },
+  realestate:{ name:"Real Estate", group:"A", lead:"WF", second:"DC",
+    rationale:"Outdoor labour heat exposure and asset continuity.",
+    weights:{WF:1.4, DC:1.25, PR:1.0, SC:1.0} },
+  it:{ name:"IT & Services", group:"A", lead:"DC", second:"PR",
+    rationale:"Indoor workforce, so facility operations and CSR beneficiary access lead.",
+    weights:{DC:1.4, PR:1.25, WF:1.0, SC:1.0} },
+  ngo:{ name:"NGO / Programme", group:"B", template:"ngo",
+    rationale:"Scored on whether the people served can reach programmes under climate stress, and whether programmes keep running." },
+  startup:{ name:"Startup / Founder", group:"B", template:"startup",
+    rationale:"A light qualifier that routes to founder advisory, not a vulnerability score." }
+};
+
+/* Tier 2 -- region hazard calibration. ILLUSTRATIVE 0..3 per force.
+   Replace this object with the real IMD / CEEW / Lancet Countdown / NDMA table. */
+var REGIONS = [
+  {id:"ncr",       name:"Delhi NCR (North)",        h:{heat:3, monsoon:2, air:3, drought:2}},
+  {id:"mh",        name:"Mumbai / Maharashtra (West)",h:{heat:2, monsoon:3, air:2, drought:1}},
+  {id:"guj",       name:"Gujarat (West)",            h:{heat:3, monsoon:2, air:2, drought:3}},
+  {id:"ka",        name:"Bengaluru / Karnataka (South)",h:{heat:2, monsoon:2, air:2, drought:2}},
+  {id:"tn",        name:"Tamil Nadu (South)",        h:{heat:3, monsoon:3, air:1, drought:2}},
+  {id:"tg",        name:"Hyderabad / Telangana (South)",h:{heat:3, monsoon:2, air:2, drought:3}},
+  {id:"wb",        name:"Kolkata / West Bengal (East)",h:{heat:2, monsoon:3, air:3, drought:1}},
+  {id:"rj",        name:"Rajasthan (North-West)",    h:{heat:3, monsoon:1, air:2, drought:3}},
+  {id:"pan",       name:"Pan-India / multiple zones",h:{heat:3, monsoon:3, air:3, drought:3}}
+];
+
+/* Tier 1 -- CALIBRATED peer benchmark, derived from FY2024-25 BRSR disclosures of the
+   59-company working set (CAST-master-v11), each company scored through this same
+   engine (see CAST-calibration-v1.xlsx for the full mapping and per-company scores).
+   dims = per-dimension sector means, ready for the v2 arc callouts.
+   caveat renders on the result and overview screens where present. */
+var BENCHMARK = {
+  pharma:{ agg:0.549, n:21, depth:"full", dims:{PR:0.597, SC:0.535, WF:0.516, DC:0.552},
+    caveat:"The pharma peer set includes hospital chains and a contract research organisation alongside formulations manufacturers; their operating models differ." },
+  fmcg:{ agg:0.470, n:15, depth:"full", dims:{PR:0.481, SC:0.478, WF:0.452, DC:0.463} },
+  realestate:{ agg:0.474, n:12, depth:"full", dims:{PR:0.488, SC:0.473, WF:0.452, DC:0.488} },
+  it:{ agg:0.531, n:11, depth:"full", dims:{PR:0.525, SC:0.555, WF:0.525, DC:0.525} }
+};
+
+/* Bands -- labelled, all from brand tokens, escalating. Never colour alone. */
+/* Thresholds anchored to the calibrated 59-company distribution: the typical
+   disclosed peer sits Moderate; Elevated marks top-quartile concentration; High
+   sits beyond anything the peer set shows on disclosure alone, so it is only
+   reachable through what a respondent adds (incidents, outdoor share, untracked
+   losses). Derivation in CAST-calibration-v1.xlsx, sheet 5. */
+var BANDS = [
+  {id:"low",      name:"Low exposure",      max:0.43, colour:"#356B4E"},
+  {id:"moderate", name:"Moderate exposure", max:0.57, colour:"#3D6478"},
+  {id:"elevated", name:"Elevated exposure", max:0.72, colour:"#CF9B7D", textColour:"#9E3B2A"},
+  {id:"high",     name:"High exposure",     max:1.01, colour:"#7A2D1E"}
+];
+var GAP_COLOUR = "#C4D9CC";
+function bandFor(agg){ for(var i=0;i<BANDS.length;i++){ if(agg < BANDS[i].max) return BANDS[i]; } return BANDS[BANDS.length-1]; }
+function levelLabel(v){ return v==null ? "Data gap" : (v<0.34?"Low":(v<0.67?"Med":"High")); }
+function levelColour(v){ if(v==null) return GAP_COLOUR; if(v<0.34) return "#356B4E"; if(v<0.67) return "#3D6478"; return "#7A2D1E"; }
+
+/* ---- Group A corporate question set (Section 5). Standard / Gap marked. ---- */
+var Q_GROUP_A = [
+  {id:"regions", type:"multi", std:true,
+   text:"Where do you operate in India?",
+   hint:"Select every zone you run sites, supply, or programmes in.",
+   options: REGIONS.map(function(r){return {v:r.id, t:r.name};}) },
+
+  {id:"sites", type:"single", std:true,
+   text:"How many operating sites or facilities?",
+   hint:"A rough band is fine.",
+   options:[{v:"1",t:"1"},{v:"2-5",t:"2 to 5"},{v:"6-20",t:"6 to 20"},{v:"21-50",t:"21 to 50"},{v:"50+",t:"More than 50"}] },
+
+  {id:"contracted", type:"single", std:true,
+   text:"What share of your workforce is contracted rather than permanent?",
+   hint:"BRSR asks for this split, so it should be to hand. A band is fine.",
+   options:[{v:"u25",t:"Under 25%"},{v:"25-50",t:"25 to 50%"},{v:"50-75",t:"50 to 75%"},{v:"o75",t:"Over 75%"},{v:"unsure",t:"Unsure",unsure:true}] },
+
+  {id:"outdoor", type:"single", std:false,
+   text:"What share of your workforce is in outdoor or field roles?",
+   hint:"The people most exposed to heat and monsoon disruption.",
+   options:[{v:"u10",t:"Under 10%"},{v:"10-30",t:"10 to 30%"},{v:"30-60",t:"30 to 60%"},{v:"o60",t:"Over 60%"},{v:"unsure",t:"Not tracked",unsure:true}] },
+
+  {id:"trackdisrupt", type:"single", std:false,
+   text:"Do you track heat- or flood-related disruption to operations?",
+   hint:"Tracking it is rarer than you would expect.",
+   options:[{v:"systematic",t:"Yes, systematically"},{v:"informal",t:"Informally"},{v:"no",t:"No"},{v:"unsure",t:"Unsure",unsure:true}] },
+
+  {id:"water", type:"single", std:false,
+   text:"How water-dependent is your operation, and where does the water come from?",
+   hint:"Tanker and groundwater reliance is the water-stress signal.",
+   options:[{v:"high-tanker",t:"High use, partly tanker or groundwater"},{v:"high-municipal",t:"High use, mostly municipal or recycled"},{v:"low",t:"Low-water operation"},{v:"unsure",t:"Unsure",unsure:true}] },
+
+  {id:"csrcontingency", type:"single", std:false,
+   text:"Do your CSR programmes carry any climate contingency?",
+   hint:"A plan for what happens to the programme when a climate event hits.",
+   options:[{v:"yes",t:"Yes"},{v:"no",t:"No"},{v:"unsure",t:"Unsure",unsure:true}] },
+
+  {id:"reporting", type:"single", std:true,
+   text:"What is your reporting obligation?",
+   hint:"This sets how hard the disclosure clock is ticking.",
+   options:[{v:"brsr",t:"BRSR Core applies"},{v:"voluntary",t:"Voluntary ESG report"},{v:"hq",t:"Global HQ mandate"},{v:"none",t:"None"},{v:"unsure",t:"Unsure",unsure:true}] },
+
+  {id:"incident", type:"single", std:false,
+   text:"Has a weather- or climate-attributed event disrupted operations in the last two years?",
+   hint:"The single highest-signal question. It surfaces the incident nobody labelled as climate.",
+   options:[{v:"yes",t:"Yes"},{v:"no",t:"No"},{v:"unsure",t:"Unsure",unsure:true}] }
+];
+
+/* ---- NGO question set (Section 5) ---- */
+var Q_NGO = [
+  {id:"regions", type:"multi", std:true,
+   text:"Where do your programmes run in India?",
+   hint:"Select every zone.",
+   options: REGIONS.map(function(r){return {v:r.id, t:r.name};}) },
+  {id:"reach", type:"single", std:true,
+   text:"How do beneficiaries reach the programme?",
+   hint:"How people and the programme meet.",
+   options:[{v:"travel",t:"They travel to a site"},{v:"doorstep",t:"Home or doorstep delivery"},{v:"digital",t:"Digital"},{v:"mixed",t:"Mixed"}] },
+  {id:"reached", type:"single", std:true,
+   text:"How many beneficiaries do you reach a year?",
+   hint:"A band is fine.",
+   options:[{v:"u1k",t:"Under 1,000"},{v:"1-10k",t:"1,000 to 10,000"},{v:"10-100k",t:"10,000 to 100,000"},{v:"o100k",t:"Over 100,000"}] },
+  {id:"disrupt", type:"single", std:false,
+   text:"Has heat, flood, or water stress disrupted a programme in the last two years?",
+   hint:"Realised disruption, not hypothetical.",
+   options:[{v:"yes",t:"Yes"},{v:"no",t:"No"},{v:"unsure",t:"Unsure",unsure:true}] },
+  {id:"contingency", type:"single", std:false,
+   text:"Do your programmes have any climate-contingency plan?",
+   hint:"What keeps the programme running when an event hits.",
+   options:[{v:"yes",t:"Yes"},{v:"no",t:"No"}] },
+  {id:"funding", type:"single", std:true,
+   text:"What is your primary funding source?",
+   hint:"",
+   options:[{v:"csr",t:"CSR grants"},{v:"found",t:"Foundations"},{v:"gov",t:"Government"},{v:"mixed",t:"Mixed"}] },
+  {id:"funderask", type:"single", std:true,
+   text:"Do funders ask for climate-resilience or adaptation reporting?",
+   hint:"",
+   options:[{v:"yes",t:"Yes"},{v:"increasing",t:"Increasingly"},{v:"no",t:"No"}] }
+];
+
+/* ---- Startup light qualifier (Section 5, 14A) ---- */
+var Q_STARTUP = [
+  {id:"sellsinto", type:"single", std:true,
+   text:"Which sector does your product sell into?",
+   hint:"",
+   options:[{v:"pharma",t:"Pharma & Healthcare"},{v:"fmcg",t:"FMCG"},{v:"realestate",t:"Real Estate"},{v:"it",t:"IT & Services"},{v:"public",t:"Public / government"},{v:"multi",t:"Multiple"}] },
+  {id:"problem", type:"single", std:true,
+   text:"What climate-access problem does your product address?",
+   hint:"",
+   options:[{v:"reach",t:"Physical reach / last mile"},{v:"supply",t:"Supply-chain or cold-chain integrity"},{v:"workforce",t:"Workforce / heat exposure"},{v:"continuity",t:"Facility or service continuity"},{v:"data",t:"Measurement and disclosure"}] },
+  {id:"stage", type:"single", std:true,
+   text:"What stage are you at?",
+   hint:"",
+   options:[{v:"idea",t:"Idea"},{v:"pilot",t:"Pilot"},{v:"revenue",t:"Revenue"},{v:"scaling",t:"Scaling"}] },
+  {id:"sellsto", type:"single", std:true,
+   text:"Who do you sell to?",
+   hint:"",
+   options:[{v:"csr",t:"CSR or sustainability buyers"},{v:"ops",t:"Operations buyers"},{v:"both",t:"Both"}] }
+];
+
+/* ============================================================
+   SCORING ENGINE -- pure functions. Illustrative logic.
+   Honest-gap rule: an unsure / not-tracked answer that governs a
+   cell scores that cell as a Data Gap and is never guessed.
+   ============================================================ */
+
+function regionHazard(selected){
+  // mean of selected region hazard vectors per force, normalised 0..1
+  var acc={heat:0,monsoon:0,air:0,drought:0}, n=0;
+  (selected||[]).forEach(function(rid){
+    var r=REGIONS.filter(function(x){return x.id===rid;})[0];
+    if(r){ n++; for(var f in r.h){ acc[f]+=r.h[f]; } }
+  });
+  /* Calibrated scale (v1.2): the regional hazard sets the BASE of each cell inside
+     0.15..0.60, leaving the upper range for what the respondent discloses. The raw
+     0..3 ordinals previously mapped straight onto 0..1, which saturated every cell
+     for multi-zone operators and made all large respondents read High -- the defect
+     flagged in the prototype-feedback round. Default (pre-selection) = midpoint. */
+  var out={};
+  for(var f in acc){ out[f]= n? 0.15 + ((acc[f]/n)/3)*0.45 : 0.375; }
+  return out;
+}
+
+function scoreGroupA(sectorId, a){
+  var sector = SECTORS[sectorId];
+  var haz = regionHazard(a.regions);
+  // base cell = regional hazard for that force, before answer modifiers
+  var cell = {}; var gap = {};
+  DIMS.forEach(function(d){ cell[d.id]={}; gap[d.id]={};
+    FORCES.forEach(function(f){ cell[d.id][f.id]= haz[f.id]; gap[d.id][f.id]=false; });
+  });
+
+  function bump(dim,force,amt){ cell[dim][force]=Math.min(1, cell[dim][force]+amt); }
+  function markGap(dim,force){ gap[dim][force]=true; }
+
+  // Q sites: more sites widen operational exposure on PR and DC
+  var siteAmt = {"1":-0.05,"2-5":0,"6-20":0.06,"21-50":0.12,"50+":0.18}[a.sites]||0;
+  ["heat","monsoon","air","drought"].forEach(function(f){ bump("PR",f,siteAmt); bump("DC",f,siteAmt*0.7); });
+
+  // Q outdoor share -> workforce heat & monsoon
+  if(a.outdoor==="unsure"){ markGap("WF","heat"); }
+  else{
+    var oa={"u10":-0.05,"10-30":0.08,"30-60":0.18,"o60":0.28}[a.outdoor]||0;
+    bump("WF","heat",oa); bump("WF","monsoon",oa*0.6); bump("WF","air",oa*0.4);
+  }
+
+  // Q contracted -> workforce availability vulnerability
+  if(a.contracted!=="unsure"){
+    var ca={"u25":-0.04,"25-50":0.05,"50-75":0.12,"o75":0.18}[a.contracted]||0;
+    bump("WF","heat",ca*0.6); bump("WF","monsoon",ca*0.6);
+  }
+
+  // Q water -> drought exposure on SC and DC
+  if(a.water==="unsure"){ markGap("SC","drought"); markGap("DC","drought"); }
+  else{
+    var wa={"high-tanker":0.26,"high-municipal":0.08,"low":-0.06}[a.water]||0;
+    bump("SC","drought",wa); bump("DC","drought",wa*0.8);
+  }
+
+  // Q track disruption -> monitoring gap (does not lower real exposure)
+  if(a.trackdisrupt==="no"||a.trackdisrupt==="unsure"){ markGap("DC","heat"); markGap("DC","monsoon"); }
+
+  // Q CSR contingency -> programme/demand resilience gap
+  if(a.csrcontingency==="no"||a.csrcontingency==="unsure"){ markGap("DC","drought"); }
+
+  // Q incident -> realised exposure raises the sector lead + second dimension
+  if(a.incident==="yes"){
+    FORCES.forEach(function(f){ bump(sector.lead,f.id,0.16); bump(sector.second,f.id,0.10); });
+  } else if(a.incident==="unsure"){
+    // the unlabelled incident -- gap on lead dimension heat & monsoon
+    markGap(sector.lead,"heat"); markGap(sector.lead,"monsoon");
+  }
+
+  // apply per-sector dimension weights, build per-dimension value + grid
+  var grid = []; var dimVals = {}; var weightSum=0, weightedAcc=0; var gapCount=0;
+  DIMS.forEach(function(d){
+    var w = sector.weights[d.id]||1;
+    var row = {dim:d, cells:[]};
+    var dAcc=0, dN=0;
+    FORCES.forEach(function(f){
+      var isGap = gap[d.id][f.id];
+      var v = isGap? null : Math.max(0, Math.min(1, cell[d.id][f.id]));
+      row.cells.push({force:f, v:v, gap:isGap});
+      if(isGap){ gapCount++; }
+      else { dAcc+=v; dN++; }
+    });
+    var dVal = dN? dAcc/dN : null;
+    dimVals[d.id] = {val:dVal, w:w, dim:d, row:row};
+    if(dVal!=null){ weightedAcc += dVal*w; weightSum += w; }
+    grid.push(row);
+  });
+
+  var agg = weightSum? weightedAcc/weightSum : 0.4;
+  var band = bandFor(agg);
+
+  // per-dimension read lines
+  var reads = DIMS.map(function(d){
+    var dv = dimVals[d.id];
+    if(dv.val==null){
+      return {dim:d, gap:true, band:"Data gap", colour:GAP_COLOUR,
+        line:"You are not measuring this, so we cannot read it. That blind spot is itself a finding."};
+    }
+    // dominant force in this dimension
+    var dom=null, domv=-1;
+    dv.row.cells.forEach(function(c){ if(!c.gap && c.v>domv){ domv=c.v; dom=c.force; } });
+    var lvl = levelLabel(dv.val);
+    var lead = (d.id===sector.lead)?" This is the dimension we would expect to lead for your sector.":"";
+    return {dim:d, gap:false, band:lvl+" exposure", colour:levelColour(dv.val),
+      line: dom ? (lvl==="High"?"Concentrated":(lvl==="Med"?"Some":"Limited"))+" exposure, driven mainly by "+dom.name.toLowerCase()+"."+lead
+                : "Read across the four climate forces."+lead };
+  });
+
+  // named data gaps
+  var dataGaps = [];
+  if(a.outdoor==="unsure") dataGaps.push("Outdoor and field workforce share is not tracked, so heat exposure to your people cannot be quantified.");
+  if(a.water==="unsure") dataGaps.push("Water sourcing mix is unclear, so water-stress exposure to operations is unread.");
+  if(a.trackdisrupt==="no"||a.trackdisrupt==="unsure") dataGaps.push("Heat and flood disruption is not tracked, so repeat operational losses go unattributed.");
+  if(a.csrcontingency==="no"||a.csrcontingency==="unsure") dataGaps.push("CSR programmes carry no stated climate contingency, so a single event can stall delivery.");
+  if(a.incident==="unsure") dataGaps.push("A recent disruption may not have been recorded as climate-attributed. Unlabelled incidents are the most common gap.");
+
+  // suggested next metrics
+  var nextMetrics = [
+    "Outdoor-hours lost to heat advisories, by site and season",
+    "Cold-chain or distribution breaks attributed to monsoon or flooding",
+    "A single climate-contingency clause inside each CSR programme",
+    "An incident log that tags weather-attributed operational losses"
+  ];
+
+  // benchmark comparison
+  var bm = BENCHMARK[sectorId];
+  var comp;
+  if(agg < bm.agg - 0.06) comp = {word:"ahead of", detail:"You sit below the disclosed-peer read for "+sector.name+"."};
+  else if(agg > bm.agg + 0.06) comp = {word:"behind", detail:"You sit above the disclosed-peer read for "+sector.name+", meaning more exposed than the sample."};
+  else comp = {word:"in line with", detail:"You sit close to the disclosed-peer read for "+sector.name+"."};
+
+  // headline driver: the dimension carrying the most exposure, and its dominant force
+  var topDim=null, topVal=-1, topForce=null;
+  DIMS.forEach(function(d){
+    var dv=dimVals[d.id];
+    if(dv.val!=null && dv.val>topVal){
+      topVal=dv.val; topDim=d;
+      var dom=null, dm=-1; dv.row.cells.forEach(function(c){ if(!c.gap && c.v>dm){ dm=c.v; dom=c.force; } });
+      topForce=dom;
+    }
+  });
+  var headlineDriver = topDim ? {dim:topDim.name, force: topForce?topForce.name:null} : null;
+
+  return {kind:"A", sectorId:sectorId, sector:sector, agg:agg, band:band,
+    grid:grid, reads:reads, dataGaps:dataGaps, nextMetrics:nextMetrics,
+    gapCount:gapCount, benchmark:bm, comp:comp, headlineDriver:headlineDriver};
+}
+
+function scoreNGO(a){
+  // simple internal rubric, not a corporate peer set
+  var haz = regionHazard(a.regions);
+  var reachRisk = {travel:0.7, doorstep:0.45, digital:0.25, mixed:0.5}[a.reach]||0.5;
+  var realised = a.disrupt==="yes"?0.25:(a.disrupt==="unsure"?0:0);
+  var contingencyGap = (a.contingency==="no");
+  var maxHaz = Math.max(haz.heat,haz.monsoon,haz.drought);
+  var agg = Math.min(1, (reachRisk*0.5 + maxHaz*0.35 + realised) + (contingencyGap?0.12:0));
+  var band = bandFor(agg);
+
+  var reads = [
+    {dim:{name:"Beneficiary reach"}, band: reachRisk>0.6?"At risk":"Holds", colour: reachRisk>0.6?"#7A2D1E":"#356B4E",
+     line: a.reach==="travel" ? "Beneficiaries travel to you, so heat and monsoon directly block access."
+          : a.reach==="digital" ? "Digital delivery is resilient to physical disruption, though power and connectivity remain dependencies."
+          : "A mixed model spreads the risk across reach channels."},
+    {dim:{name:"Programme continuity"}, band: contingencyGap?"Fragile":"Planned", colour: contingencyGap?"#7A2D1E":"#356B4E",
+     line: contingencyGap ? "No climate-contingency plan means one event can stop delivery. This is the gap the diagnostic closes."
+          : "A contingency plan is in place, which is rarer than it should be."},
+    {dim:{name:"Funder pressure"}, band: (a.funderask==="yes"||a.funderask==="increasing")?"Rising":"Low", colour:"#3D6478",
+     line: (a.funderask==="yes"||a.funderask==="increasing") ? "Funders are asking for resilience reporting, so naming this now is a funding advantage."
+          : "Funders are not yet asking, which is the window to be ahead of the ask."}
+  ];
+  var dataGaps = [];
+  if(a.disrupt==="unsure") dataGaps.push("Past programme disruption is not recorded, so realised climate impact cannot be shown to funders.");
+  if(contingencyGap) dataGaps.push("No climate-contingency plan exists for programmes under stress.");
+  var nextMetrics = [
+    "Days of programme delivery lost to heat, flood, or water stress",
+    "A contingency route for each delivery channel",
+    "Beneficiary reach held during the last climate event"
+  ];
+  return {kind:"NGO", sector:SECTORS.ngo, agg:agg, band:band, reads:reads,
+    dataGaps:dataGaps, nextMetrics:nextMetrics};
+}
+
+function readStartup(a){
+  var sells = {pharma:"Pharma & Healthcare",fmcg:"FMCG",realestate:"Real Estate",it:"IT & Services",public:"the public sector",multi:"several sectors"}[a.sellsinto]||"your market";
+  var problem = {reach:"physical reach and last-mile access",supply:"supply-chain and cold-chain integrity",workforce:"workforce and heat exposure",continuity:"facility and service continuity",data:"measurement and disclosure"}[a.problem]||"climate-access";
+  var stage = {idea:"at the idea stage",pilot:"in pilot",revenue:"in revenue",scaling:"scaling"}[a.stage]||"";
+  var buyer = {csr:"CSR and sustainability buyers",ops:"operations buyers",both:"both CSR and operations buyers"}[a.sellsto]||"your buyers";
+  var line = "You are building for "+sells+", solving "+problem+", "+stage+", selling to "+buyer+".";
+  var note;
+  if(a.sellsto==="csr"||a.sellsto==="both"){
+    note = "Selling into CSR and sustainability budgets is the same door Syntropy Earth uses. The fastest conversation is how your product attaches to a budget already obligated to move, rather than waiting for climate to enter the buyer's value proposition.";
+  } else {
+    note = "Selling to operations buyers means your wedge is a cost or continuity line, not a disclosure line. The useful conversation is how to make the operational loss visible enough to fund.";
+  }
+  return {kind:"STARTUP", sector:SECTORS.startup, line:line, note:note};
+}
+
+/* ============================================================
+   STATE + RENDER
+   ============================================================ */
+
+var state = { screen:"landing", sectorId:null, path:null, revealed:0, answers:{}, result:null };
+var _scrollNext=false;
+var app = document.getElementById("app");
+
+function el(html){ var d=document.createElement("div"); d.innerHTML=html.trim(); return d.firstChild; }
+function go(screen){ state.screen=screen; render(); window.scrollTo({top:0,behavior:"smooth"}); }
+function questionsFor(){
+  if(state.sectorId==="ngo") return Q_NGO;
+  if(state.sectorId==="startup") return Q_STARTUP;
+  return Q_GROUP_A;
+}
+var CRED = "This is a directional read. Peer figures come from the FY2024-25 BRSR disclosures of 59 listed Indian companies, each scored on the same model you just answered. Treat it as the start of the conversation, not an audited verdict.";
+
+function render(){
+  app.innerHTML="";
+  if(state.screen==="landing") return renderLanding();
+  if(state.screen==="fork") return renderFork();
+  if(state.screen==="overview") return renderOverview();
+  if(state.screen==="assess") return renderAssess();
+  if(state.screen==="result") return renderResult();
+  if(state.screen==="gate") return renderGate();
+  if(state.screen==="detail") return renderDetail();
+  if(state.screen==="startupread") return renderStartupRead();
+  if(state.screen==="enquiry") return renderEnquiry();
+  if(state.screen==="enquirydone") return renderEnquiryDone();
+}
+
+/* ---- Landing + sector pick ---- */
+function renderLanding(){
+  var w = el('<section></section>');
+  w.appendChild(el('<p class="eyebrow">Self-assessment · under three minutes</p>'));
+  w.appendChild(el('<h1>How exposed is your access to a warming climate?</h1>'));
+  w.appendChild(el('<p class="lead">Heat keeps people from care. Floods break cold chains and supply routes. Drought stresses operations. Pick your sector to see where the exposure concentrates, then score your own.</p>'));
+  var grid = el('<div class="grid"></div>');
+  Object.keys(SECTORS).forEach(function(id){
+    var s=SECTORS[id];
+    var leadTxt = s.group==="A" ? DIMS.filter(function(d){return d.id===s.lead;})[0].name : (id==="ngo"?"Programme reach and continuity":"Founder qualifier");
+    var tile = el('<button class="tile" type="button" aria-label="Choose '+s.name+'">'+
+      '<svg width="22" height="22" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M 24,9 A 15,15 0 1,1 9,24" stroke="#356B4E" stroke-width="2" stroke-linecap="round"/><path d="M 24,15 A 9,9 0 0,1 33,24" stroke="#9E3B2A" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="24" r="2.5" fill="#1E4435"/></svg>'+
+      '<h3>'+s.name+'</h3>'+
+      '<p>'+s.rationale+'</p>'+
+      '<span class="label">Leads on · '+leadTxt+'</span>'+
+    '</button>');
+    tile.addEventListener("click", function(){ state.sectorId=id; state.answers={}; state.revealed=0;
+      if(id==="startup"){ state.path="assess"; go("assess"); } else { go("fork"); } });
+    grid.appendChild(tile);
+  });
+  w.appendChild(grid);
+  w.appendChild(el('<p class="cred" style="margin-top:30px">'+CRED+'</p>'));
+  app.appendChild(w);
+}
+
+/* ---- Fork ---- */
+function renderFork(){
+  var s=SECTORS[state.sectorId];
+  var w=el('<section></section>');
+  w.appendChild(backBtn("landing","All sectors"));
+  w.appendChild(el('<p class="eyebrow">'+s.name+'</p>'));
+  w.appendChild(el('<h2>Two ways in.</h2>'));
+  var cards=el('<div class="cards"></div>');
+  var c1=el('<div class="card"><h3>See how your sector looks</h3><p>No figures needed. A picture of where '+s.name+' typically sits and the forces that drive it.</p><div class="btn-row"><button class="btn btn-ghost" type="button">View the sector picture</button></div></div>');
+  c1.querySelector("button").addEventListener("click",function(){go("overview");});
+  var c2=el('<div class="card lead"><h3>Score your own exposure</h3><p>Answer eight to ten questions with figures you have to hand. See your band against peers straight away.</p><div class="btn-row"><button class="btn btn-primary" type="button">Start the assessment</button></div></div>');
+  c2.querySelector("button").addEventListener("click",function(){state.answers={};state.revealed=0;go("assess");});
+  cards.appendChild(c1); cards.appendChild(c2);
+  w.appendChild(cards);
+  app.appendChild(w);
+}
+
+/* ---- Industry Overview (zero input, reads Tier 1 illustrative) ---- */
+function renderOverview(){
+  var id=state.sectorId, s=SECTORS[id];
+  var w=el('<section></section>');
+  w.appendChild(backBtn("fork","Back"));
+  w.appendChild(el('<p class="eyebrow">Sector picture · '+s.name+'</p>'));
+
+  if(s.group==="A"){
+    var bm=BENCHMARK[id];
+    var band=bandFor(bm.agg);
+    w.appendChild(el('<h2 style="margin-bottom:6px">Where '+s.name+' tends to sit</h2>'));
+    var g=buildGauge(bm.agg, band);
+    w.appendChild(g);
+    // top contributors: build a quick illustrative profile from weights + a default hazard
+    var contribs = sectorContributors(id);
+    var cwrap=el('<div class="contribs"></div>');
+    cwrap.appendChild(el('<p class="band-sub" style="text-align:center;margin:0 0 4px">The forces driving it<span class="illus">peer sample · n='+bm.n+'</span></p>'));
+    contribs.forEach(function(c,i){
+      var node=el('<div class="contrib"><span class="rank">'+(i+1)+'</span>'+
+        '<div class="meta"><div class="dn">'+c.dim+'</div><div class="fc">most exposed to '+c.force+'</div></div>'+
+        '<span class="lvl" style="background:'+c.colour+';color:#fff">'+c.level+'</span></div>');
+      cwrap.appendChild(node);
+    });
+    w.appendChild(cwrap);
+    if(bm.caveat) w.appendChild(el('<p class="cred" style="margin-top:10px">'+bm.caveat+'</p>'));
+  } else {
+    w.appendChild(el('<h2>'+s.name+'</h2>'));
+    w.appendChild(el('<p class="lead">'+s.rationale+'</p>'));
+  }
+
+  var prompt=el('<div style="text-align:center;margin-top:26px">'+
+    '<p class="readline">This is where '+s.name+' sits. Where do you sit?</p>'+
+    '<div class="btn-row" style="justify-content:center"><button class="btn btn-primary" type="button">Score your own exposure</button></div></div>');
+  prompt.querySelector("button").addEventListener("click",function(){state.answers={};state.revealed=0;go("assess");});
+  w.appendChild(prompt);
+  w.appendChild(el('<p class="cred">'+CRED+'</p>'));
+  app.appendChild(w);
+  drawGauge();
+}
+
+function sectorContributors(id){
+  // Ranked by the real per-dimension benchmark means from the 59-company sample.
+  // The dominant-force line is the model's expectation per dimension, since the
+  // peer extraction holds per-dimension values, not per-cell values.
+  var bm=BENCHMARK[id];
+  var defaultForce={SC:"monsoon / flood",DC:"heat",WF:"heat",PR:"monsoon / flood"};
+  var ranked = DIMS.slice().sort(function(a,b){ return (bm.dims[b.id]||0)-(bm.dims[a.id]||0); }).slice(0,3);
+  return ranked.map(function(d){ var v=bm.dims[d.id];
+    return {dim:d.name, force:defaultForce[d.id], level:levelLabel(v), colour:levelColour(v)}; });
+}
+
+/* ---- Assessment ---- */
+/* Progressive reveal: answered questions stay visible, the next reveals below,
+   the page auto-scrolls to it. One controlled re-render per change, so nothing stacks. */
+function isAnswered(q){ var a=state.answers[q.id]; return q.type==="multi" ? (Array.isArray(a)&&a.length>0) : !!a; }
+
+function buildQuestion(q,i,total){
+  var active = (i===state.revealed);
+  var card=el('<div class="q" id="qcard-'+i+'"'+(active?'':' style="opacity:.92"')+'></div>');
+  card.appendChild(el('<div class="qtext">'+q.text+(q.std===false?'<span class="gaptag">often not tracked</span>':'')+'</div>'));
+  if(q.hint) card.appendChild(el('<div class="qhint">'+q.hint+'</div>'));
+  var current = state.answers[q.id];
+  var opts=el('<div class="opts" role="'+(q.type==="multi"?"group":"radiogroup")+'" aria-label="'+q.text.replace(/"/g,'')+'"></div>');
+  q.options.forEach(function(o){
+    var checked = q.type==="multi" ? (Array.isArray(current)&&current.indexOf(o.v)>-1) : current===o.v;
+    var btn=el('<button class="opt'+(q.type==="multi"?" multi":"")+(o.unsure?" unsure":"")+'" role="'+(q.type==="multi"?"checkbox":"radio")+'" type="button" aria-checked="'+(checked?"true":"false")+'"><span class="dot" aria-hidden="true"></span><span>'+o.t+'</span></button>');
+    btn.addEventListener("click",function(){
+      if(q.type==="multi"){
+        var arr=Array.isArray(state.answers[q.id])?state.answers[q.id].slice():[];
+        var ix=arr.indexOf(o.v); if(ix>-1) arr.splice(ix,1); else arr.push(o.v);
+        state.answers[q.id]=arr; renderAssess();
+      } else {
+        state.answers[q.id]=o.v;
+        if(active && i<total-1){ state.revealed=i+1; _scrollNext=true; }
+        renderAssess();
+      }
+    });
+    opts.appendChild(btn);
+  });
+  card.appendChild(opts);
+
+  if(q.type==="multi" && active){
+    var sel = Array.isArray(current)&&current.length>0;
+    var cont=el('<div style="margin-top:16px"><button class="btn btn-primary" type="button"'+(sel?'':' disabled style="opacity:.45;cursor:default"')+'>'+(i<total-1?'Continue':'See result')+'</button></div>');
+    if(sel) cont.querySelector("button").addEventListener("click",function(){ if(i<total-1){ state.revealed=i+1; _scrollNext=true; renderAssess(); } else { advance(); } });
+    card.appendChild(cont);
+  }
+  return card;
+}
+
+function renderAssess(){
+  app.innerHTML="";
+  var qs=questionsFor(); var s=SECTORS[state.sectorId];
+  if(state.revealed==null) state.revealed=0;
+  if(state.revealed>qs.length-1) state.revealed=qs.length-1;
+  var w=el('<section></section>');
+  w.appendChild(backBtn(state.sectorId==="startup"?"landing":"fork", state.sectorId==="startup"?"All sectors":"Back to the fork"));
+
+  var answered=0; qs.forEach(function(q){ if(isAnswered(q)) answered++; });
+  var pct=Math.round((answered/qs.length)*100);
+  w.appendChild(el('<div class="stepmeta"><span class="eyebrow" style="margin:0">'+s.name+'</span><span class="count">'+answered+' / '+qs.length+' answered</span></div>'));
+  w.appendChild(el('<div class="prog"><span style="width:'+pct+'%"></span></div>'));
+
+  var stack=el('<div></div>');
+  for(var i=0;i<=state.revealed;i++){ stack.appendChild(buildQuestion(qs[i], i, qs.length)); }
+  w.appendChild(stack);
+
+  var lastIdx=qs.length-1;
+  if(state.revealed===lastIdx && isAnswered(qs[lastIdx]) && qs[lastIdx].type!=="multi"){
+    var done=el('<div style="text-align:center;margin-top:26px"><button class="btn btn-primary" id="seeResult" type="button">See result</button></div>');
+    done.querySelector("button").addEventListener("click", advance);
+    w.appendChild(done);
+  }
+  app.appendChild(w);
+
+  if(_scrollNext){ _scrollNext=false; scrollActive(); }
+}
+
+function scrollActive(){
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  var beh = reduce ? "auto" : "smooth";
+  requestAnimationFrame(function(){
+    var target = document.getElementById("seeResult") || document.getElementById("qcard-"+state.revealed);
+    if(target) target.scrollIntoView({behavior:beh, block:"center"});
+  });
+}
+
+function advance(){
+  if(state.sectorId==="startup"){ state.result=readStartup(state.answers); go("startupread"); return; }
+  if(state.sectorId==="ngo"){ state.result=scoreNGO(state.answers); }
+  else { state.result=scoreGroupA(state.sectorId, state.answers); }
+  go("result");
+}
+
+/* ---- Result (ungated) ---- */
+function renderResult(){
+  var r=state.result;
+  var w=el('<section></section>');
+  w.appendChild(el('<p class="eyebrow" style="text-align:center">Your read · '+r.sector.name+'</p>'));
+  w.appendChild(buildGauge(r.agg, r.band));
+
+  var readline;
+  if(r.kind==="NGO"){
+    var sev = r.reads.filter(function(x){ return x.colour==="#7A2D1E"; })[0] || r.reads[0];
+    readline = "Your programmes carry "+r.band.name.toLowerCase()+", concentrated in "+sev.dim.name.toLowerCase()+".";
+  } else {
+    var d=r.headlineDriver;
+    readline = d ? ("Your exposure concentrates in "+d.dim.toLowerCase()+(d.force?", driven by "+d.force.toLowerCase():"")+".")
+                 : ("Your operations carry "+r.band.name.toLowerCase()+".");
+  }
+  w.appendChild(el('<p class="readline">'+readline+'</p>'));
+
+  if(r.kind==="A"){
+    var bm=r.benchmark;
+    w.appendChild(el('<div class="bench"><div class="b1">Against your peers <span class="illus">BRSR FY2024-25 · n='+bm.n+'</span></div>'+
+      '<div class="b2">You sit <strong>'+r.comp.word+'</strong> the '+r.sector.name+' sample. '+r.comp.detail+'</div>'+
+      (bm.caveat?'<div class="b2" style="margin-top:6px;font-size:12.5px;opacity:.75">'+bm.caveat+'</div>':'')+'</div>'));
+  }
+
+  var cta=el('<div style="text-align:center;margin-top:22px"></div>');
+  cta.appendChild(el('<p class="readline" style="font-size:18px;max-width:34ch">There is more under this number. The four dimensions show where the exposure concentrates, and where you are flying blind.</p>'));
+  var row=el('<div class="btn-row" style="justify-content:center"></div>');
+  var b1=el('<button class="btn btn-primary" type="button">Unlock the full breakdown</button>');
+  b1.addEventListener("click",function(){go("gate");});
+  row.appendChild(b1);
+  cta.appendChild(row);
+  w.appendChild(cta);
+
+  w.appendChild(el('<p class="cred">'+CRED+'</p>'));
+  w.appendChild(startAgain());
+  app.appendChild(w);
+  drawGauge();
+}
+
+/* ---- Gate ---- */
+function renderGate(){
+  var w=el('<section></section>');
+  w.appendChild(backBtn("result","Back to your result"));
+  var g=el('<div class="gate"></div>');
+  g.appendChild(el('<p class="eyebrow">One step</p>'));
+  g.appendChild(el('<h2>See the full per-dimension breakdown and take it with you.</h2>'));
+  g.appendChild(el('<p class="glead">The breakdown, your named data gaps and the report, sent to your inbox.</p>'));
+
+  var f1=el('<div class="field"><label for="g-email">Work email</label><input id="g-email" type="email" autocomplete="email" placeholder="you@company.com"><div class="err" id="e-email">A valid work email, please.</div></div>');
+  var f2=el('<div class="field"><label for="g-company">Company or organisation</label><input id="g-company" type="text" autocomplete="organization" placeholder="Your organisation"><div class="err" id="e-company">Tell us who this is for.</div></div>');
+  var f3=el('<div class="field"><label for="g-name">Name <span class="opt-note">(optional)</span></label><input id="g-name" type="text" autocomplete="name" placeholder="Your name"></div>');
+  var f4=el('<div class="field"><label for="g-role">Role <span class="opt-note">(optional)</span></label><input id="g-role" type="text" placeholder="e.g. Head of CSR"></div>');
+  g.appendChild(f1); g.appendChild(f2); g.appendChild(f3); g.appendChild(f4);
+
+  var submit=el('<button class="btn btn-primary" type="button" style="width:100%;margin-top:4px">Send my breakdown</button>');
+  submit.addEventListener("click", function(){ submitGate(); });
+  g.appendChild(submit);
+  g.appendChild(el('<p class="reassure">No list, no sequence. One email with your result, and a note to us so we know who to follow up with. A personal address is a low-value lead, which is why the company line matters.</p>'));
+  w.appendChild(g);
+  app.appendChild(w);
+}
+
+function submitGate(){
+  var email=document.getElementById("g-email").value.trim();
+  var company=document.getElementById("g-company").value.trim();
+  var name=document.getElementById("g-name").value.trim();
+  var role=document.getElementById("g-role").value.trim();
+  var ok=true;
+  var emailValid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  document.getElementById("e-email").style.display = emailValid?"none":"block";
+  document.getElementById("e-company").style.display = company?"none":"block";
+  if(!emailValid||!company) return;
+
+  var r=state.result;
+  var payload={
+    timestamp:new Date().toISOString(),
+    email:email, company:company, name:name||null, role:role||null,
+    sector:r.sector.name, sectorId:state.sectorId||null,
+    kind:r.kind,
+    band:r.band?r.band.name:null,
+    aggregate:r.agg!=null?Math.round(r.agg*100)/100:null,
+    regions:state.answers.regions||null,
+    dimensions:(r.reads||[]).map(function(x){return {dim:x.dim.name, band:x.band};}),
+    dataGaps:r.dataGaps||[]
+  };
+  captureLead(payload).then(function(){ state.captured=payload; go("detail"); });
+}
+
+/* Lead capture -> Google Sheets via a Google Apps Script Web App.
+   Paste the deployed Web App URL below (ends in /exec). See the deployment
+   guide for the exact Apps Script code and deployment steps. Leaving this
+   blank does not break the tool -- it falls back to window.storage, then
+   to a console log, so the flow always completes for the respondent. */
+var SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxEj7K-rsdyTrSdJpuw1Z4BSoZttO6TXKUp6n0G9aCUmuVTLRAKR83LosW1eqM5Ao6HZg/exec";
+
+function captureLead(payload){
+  var sent = false;
+  if(SHEETS_ENDPOINT && SHEETS_ENDPOINT.indexOf("https://script.google.com") === 0){
+    try{
+      fetch(SHEETS_ENDPOINT, {
+        method:"POST",
+        mode:"no-cors", // Apps Script does not return CORS headers; no-cors fires the
+                         // request and lets the row write, we just cannot read the response.
+        headers:{"Content-Type":"text/plain;charset=utf-8"}, // avoids a preflight OPTIONS request
+        body: JSON.stringify(payload)
+      });
+      sent = true;
+      console.log("[CAVS] sent to Google Sheets endpoint", payload);
+    }catch(e){ console.log("[CAVS] Sheets endpoint failed, falling back", e); }
+  }
+  try{
+    if(window.storage && typeof window.storage.set==="function"){
+      var key="cavs:lead:"+Date.now();
+      return Promise.resolve(window.storage.set(key, JSON.stringify(payload)))
+        .then(function(){ console.log("[CAVS] captured to window.storage", key, payload); })
+        .catch(function(e){ console.log("[CAVS] storage failed, prototype continues", e); });
+    }
+  }catch(e){ console.log("[CAVS] storage unavailable", e); }
+  if(!sent) console.log("[CAVS] capture (no Sheets endpoint configured yet)", payload);
+  return Promise.resolve();
+}
+
+/* ---- Unlocked detail ---- */
+function renderDetail(){
+  var r=state.result;
+  var w=el('<section></section>');
+  w.appendChild(el('<div class="confirm">Your breakdown is below. '+(state.captured?state.captured.email:"Your details")+' and this result are logged for follow-up. <span class="faint">(An emailed PDF copy is a planned next step, not live yet -- the diagnostic call is the fastest way to walk through this in the meantime.)</span></div>'));
+  w.appendChild(el('<p class="eyebrow">Full breakdown · '+r.sector.name+'</p>'));
+  w.appendChild(el('<h2 style="margin-bottom:4px">'+r.band.name+'</h2>'));
+
+  // per-dimension reads
+  var dr=el('<div class="dimreads"></div>');
+  (r.reads||[]).forEach(function(x){
+    var node=el('<div class="dimcard'+(x.gap?" gap":"")+'">'+
+      '<div class="dh"><span class="dn">'+x.dim.name+'</span><span class="bd" style="background:'+x.colour+';color:'+(x.colour===GAP_COLOUR?"#5C6A60":"#fff")+'">'+x.band+'</span></div>'+
+      '<p>'+x.line+'</p></div>');
+    dr.appendChild(node);
+  });
+  w.appendChild(dr);
+
+  // 4x4 grid for Group A
+  if(r.kind==="A" && r.grid){
+    w.appendChild(el('<p class="band-sub" style="margin:6px 0 4px">The model · access dimensions against climate forces<span class="illus">Syntropy Earth model</span></p>'));
+    /* v1.2 fix: bare <tr>/<td> strings are stripped by innerHTML parsing inside a
+       div, which left a text node and threw HierarchyRequestError -- the unlocked
+       detail screen crashed on every Group A read. Rows are now built with
+       createElement, which parses nowhere and works everywhere. */
+    var t=el('<table class="gridtable"><thead><tr><th class="row"></th>'+FORCES.map(function(f){return '<th>'+f.name+'</th>';}).join("")+'</tr></thead><tbody></tbody></table>');
+    var tb=t.querySelector("tbody");
+    r.grid.forEach(function(row){
+      var tr=document.createElement("tr");
+      var th=document.createElement("th"); th.className="row"; th.textContent=row.dim.name;
+      tr.appendChild(th);
+      row.cells.forEach(function(c){
+        var td=document.createElement("td");
+        if(c.gap){ td.className="gapcell"; td.textContent="gap"; }
+        else { td.style.background=levelColour(c.v); td.textContent=levelLabel(c.v); }
+        tr.appendChild(td);
+      });
+      tb.appendChild(tr);
+    });
+    w.appendChild(t);
+  }
+
+  // data gaps
+  if(r.dataGaps && r.dataGaps.length){
+    var f=el('<div class="findings"><h3>What you are not measuring</h3><ul></ul></div>');
+    var ul=f.querySelector("ul");
+    r.dataGaps.forEach(function(d){ ul.appendChild(el('<li>'+d+'</li>')); });
+    w.appendChild(f);
+  }
+
+  // next metrics
+  if(r.nextMetrics && r.nextMetrics.length){
+    var nm=el('<div class="nextmetrics"><h3>The metrics worth starting with</h3><ul></ul></div>');
+    var nul=nm.querySelector("ul");
+    r.nextMetrics.forEach(function(m){ nul.appendChild(el('<li>'+m+'</li>')); });
+    w.appendChild(nm);
+  }
+
+  // CTA: book diagnostic (primary) + email Abhijith directly (secondary)
+  var subj = encodeURIComponent("Climate-access read -- "+r.sector.name+(r.band?(" -- "+r.band.name):""));
+  var body = encodeURIComponent("Hi Abhijith,\n\nI ran the climate-access assessment for "+(state.captured&&state.captured.company?state.captured.company:"our organisation")+" ("+r.sector.name+") and came out at "+(r.band?r.band.name:"a read")+". I would like to talk it through.\n\n");
+  var mailto = "mailto:"+ENQUIRY_EMAIL+"?subject="+subj+"&body="+body;
+  var cta=el('<div class="cta-block"><h2>Close the gap, not just name it.</h2>'+
+    '<p>This read points at where your access is exposed. The diagnostic conversation turns it into a measured picture and a plan you can fund.</p>'+
+    '<a class="btn btn-primary" href="'+BOOKING_URL+'" target="_blank" rel="noopener">Book the 30-minute diagnostic</a>'+
+    '<p class="micro" style="margin-top:16px"><a href="'+mailto+'" style="color:var(--clay)">Or email Abhijith directly</a> &nbsp;·&nbsp; no pitch, a working conversation</p></div>');
+  w.appendChild(cta);
+  w.appendChild(el('<p class="cred">'+CRED+'</p>'));
+  w.appendChild(startAgain());
+  app.appendChild(w);
+}
+
+/* ---- Startup read + enquiry route ---- */
+function renderStartupRead(){
+  var r=state.result;
+  var w=el('<section></section>');
+  w.appendChild(backBtn("landing","All sectors"));
+  w.appendChild(el('<p class="eyebrow">Founder read</p>'));
+  var rb=el('<div class="read-block"><p class="rline">'+r.line+'</p><p class="muted">'+r.note+'</p></div>');
+  w.appendChild(rb);
+  var cta=el('<div class="cta-block"><h2>This is a founder conversation, not a scoring exercise.</h2>'+
+    '<p>A startup has no CSR or disclosure obligation, so a vulnerability band would be dishonest. The useful next step is a direct conversation about positioning and the buyer.</p>'+
+    '<button class="btn btn-primary" type="button">Send a founder enquiry</button></div>');
+  cta.querySelector("button").addEventListener("click",function(){go("enquiry");});
+  w.appendChild(cta);
+  w.appendChild(startAgain("Start again with a different sector"));
+  app.appendChild(w);
+}
+
+/* ---- Enquiry (lighter route for startup + NGO who prefer it) ---- */
+function renderEnquiry(){
+  var w=el('<section></section>');
+  w.appendChild(backBtn(state.sectorId==="startup"?"startupread":"detail","Back"));
+  var g=el('<div class="gate"></div>');
+  g.appendChild(el('<p class="eyebrow">Founder enquiry</p>'));
+  g.appendChild(el('<h2>Tell us where you are.</h2>'));
+  g.appendChild(el('<p class="glead">This routes straight to Abhijith, not into a sequence.</p>'));
+  g.appendChild(el('<div class="field"><label for="q-name">Name</label><input id="q-name" type="text" autocomplete="name" placeholder="Your name"></div>'));
+  g.appendChild(el('<div class="field"><label for="q-email">Email</label><input id="q-email" type="email" autocomplete="email" placeholder="you@company.com"><div class="err" id="qe-email">A valid email, please.</div></div>'));
+  g.appendChild(el('<div class="field"><label for="q-org">Company or venture</label><input id="q-org" type="text" placeholder="Your venture"></div>'));
+  g.appendChild(el('<div class="field"><label for="q-note">A line on what you are building <span class="opt-note">(optional)</span></label><input id="q-note" type="text" placeholder="One sentence is fine"></div>'));
+  var submit=el('<button class="btn btn-primary" type="button" style="width:100%">Send enquiry</button>');
+  submit.addEventListener("click",function(){
+    var email=document.getElementById("q-email").value.trim();
+    var valid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    document.getElementById("qe-email").style.display=valid?"none":"block";
+    if(!valid) return;
+    var payload={ timestamp:new Date().toISOString(), kind:"enquiry", route:"founder-advisory",
+      name:document.getElementById("q-name").value.trim()||null, email:email,
+      org:document.getElementById("q-org").value.trim()||null,
+      note:document.getElementById("q-note").value.trim()||null,
+      sector:state.result?state.result.sector.name:null };
+    captureLead(payload).then(function(){ state.captured=payload; go("enquirydone"); });
+  });
+  g.appendChild(submit);
+  g.appendChild(el('<p class="reassure">This is logged for follow-up, and Abhijith replies directly by email at '+ENQUIRY_EMAIL+'.</p>'));
+  w.appendChild(g);
+  app.appendChild(w);
+}
+function renderEnquiryDone(){
+  var w=el('<section style="text-align:center;padding-top:20px"></section>');
+  w.appendChild(el('<p class="eyebrow">Sent</p>'));
+  w.appendChild(el('<h2>Thank you. This is with Abhijith.</h2>'));
+  w.appendChild(el('<p class="lead" style="margin:12px auto 22px">A reply comes from a person, not an autoresponder.</p>'));
+  w.appendChild((function(){var b=el('<button class="btn btn-ghost" type="button">Back to the start</button>');b.addEventListener("click",function(){resetHome();});return b;})());
+  app.appendChild(w);
+}
+
+/* ---- shared bits ---- */
+function backBtn(to,label){ var b=el('<button class="back-top" type="button">‹ '+label+'</button>'); b.addEventListener("click",function(){go(to);}); return b; }
+function resetHome(){ state={screen:"landing", sectorId:null, path:null, revealed:0, answers:{}, result:null}; _scrollNext=false; render(); window.scrollTo({top:0,behavior:"smooth"}); }
+function startAgain(label){ var d=el('<div style="text-align:center;margin-top:18px"><button class="back-top" type="button" style="font-size:14px">'+(label||"Start again with a different sector")+'</button></div>'); d.querySelector("button").addEventListener("click",resetHome); return d; }
+
+/* Converging-arc gauge -- the signature element, echoing the logo.
+   A sweep proportional to the aggregate, the band name at the nucleus. */
+var _pendingGauge=null;
+function buildGauge(agg, band){
+  var wrap=el('<div class="gauge-wrap"></div>');
+  var txtColour = band.textColour || band.colour;
+  var svg='<svg class="gauge" viewBox="0 0 100 100" role="img" aria-label="'+band.name+'">'+
+    '<circle cx="50" cy="50" r="42" fill="none" stroke="#E8F0EB" stroke-width="1.2"/>'+
+    '<path class="g-track g1" d="" fill="none" stroke="#E8F0EB" stroke-width="6" stroke-linecap="round"/>'+
+    '<path class="g-track g2" d="" fill="none" stroke="#E8F0EB" stroke-width="5" stroke-linecap="round"/>'+
+    '<path class="g-track g3" d="" fill="none" stroke="#E8F0EB" stroke-width="4" stroke-linecap="round"/>'+
+    '<path class="g-fill f1" d="" fill="none" stroke="'+band.colour+'" stroke-width="6" stroke-linecap="round" opacity="0.95"/>'+
+    '<path class="g-fill f2" d="" fill="none" stroke="'+band.colour+'" stroke-width="5" stroke-linecap="round" opacity="0.75"/>'+
+    '<path class="g-fill f3" d="" fill="none" stroke="'+band.colour+'" stroke-width="4" stroke-linecap="round" opacity="0.55"/>'+
+    '<circle cx="50" cy="50" r="2.6" fill="#1E4435"/>'+
+  '</svg>';
+  wrap.appendChild(el(svg));
+  wrap.appendChild(el('<div class="band-name" style="color:'+txtColour+'">'+band.name.replace(" exposure","")+'<br><span class="band-sub">exposure</span></div>'));
+  _pendingGauge={agg:agg};
+  return wrap;
+}
+function arcPath(cx,cy,r,startAng,endAng){
+  function pt(a){ var rad=(a-90)*Math.PI/180; return [cx+r*Math.cos(rad), cy+r*Math.sin(rad)]; }
+  var s=pt(startAng), e=pt(endAng);
+  var large = (endAng-startAng)>180?1:0;
+  return "M "+s[0].toFixed(2)+" "+s[1].toFixed(2)+" A "+r+" "+r+" 0 "+large+" 1 "+e[0].toFixed(2)+" "+e[1].toFixed(2);
+}
+function drawGauge(){
+  if(!_pendingGauge) return;
+  var agg=_pendingGauge.agg; _pendingGauge=null;
+  var svg=app.querySelector(".gauge"); if(!svg) return;
+  var radii=[34,26,18], widthStart=270; // arcs sweep from top, three converging rings
+  var full=300; // degrees of usable sweep
+  var tracks=svg.querySelectorAll(".g-track");
+  var fills=svg.querySelectorAll(".g-fill");
+  var startAng=-150; // begin upper-left
+  for(var i=0;i<3;i++){
+    var r=radii[i];
+    tracks[i].setAttribute("d", arcPath(50,50,r,startAng,startAng+full));
+    var sweep = full*Math.max(0.04, Math.min(1,agg)) * (1 - i*0.12);
+    fills[i].setAttribute("d", arcPath(50,50,r,startAng,startAng+sweep));
+    // animate via stroke-dash unless reduced motion
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+    if(!reduce && typeof fills[i].getTotalLength === "function"){
+      var len=fills[i].getTotalLength();
+      fills[i].style.strokeDasharray=len; fills[i].style.strokeDashoffset=len;
+      fills[i].style.transition="stroke-dashoffset 0.9s ease "+(i*0.12)+"s";
+      requestAnimationFrame(function(node){return function(){ node.style.strokeDashoffset=0; };}(fills[i]));
+    }
+  }
+}
+
+var _tb=document.getElementById("topbar-reset"), _tb2=document.getElementById("topbar-reset2");
+[_tb,_tb2].forEach(function(el){
+  if(el){ el.addEventListener("click",resetHome); el.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); resetHome(); } }); }
+});
+render();
+</script>
+</body>
+</html>
