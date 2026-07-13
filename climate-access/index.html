@@ -111,6 +111,9 @@
   .bench .b1{font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--monsoon); margin-bottom:6px}
   .bench .b2{font-size:16px; color:var(--monsoon-deep)}
   .bench strong{color:var(--monsoon-deep)}
+  .bandmeaning{background:var(--clay-pale); border:1px solid rgba(207,155,125,.35); border-radius:9px; padding:16px 18px; text-align:left; max-width:560px; margin:14px auto 6px}
+  .bandmeaning .b1{font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--red-dark); text-align:center}
+  .bandmeaning .b2{font-size:14.5px; line-height:1.65; color:var(--bg-dark)}
 
   /* credibility line */
   .cred{font-size:12px; color:var(--text-faint); line-height:1.5; max-width:60ch; margin:22px auto 0; text-align:center; border-top:1px solid var(--border); padding-top:14px}
@@ -144,6 +147,7 @@
   .dimcard .dn{font-family:var(--display); font-size:18px; color:var(--bg-dark)}
   .dimcard .bd{font-family:var(--mono); font-size:9.5px; letter-spacing:.10em; text-transform:uppercase; padding:3px 8px; border-radius:5px; flex:0 0 auto}
   .dimcard p{font-size:13.5px; color:var(--text-muted); margin:0}
+  .dimcard p.dimcontext{margin-top:9px; padding-top:9px; border-top:1px solid var(--border); font-size:12.8px; line-height:1.6; color:var(--text-faint)}
   .dimcard.gap{border-left-color:var(--clay); border-left-style:dashed}
 
   /* 4x4 grid */
@@ -328,6 +332,40 @@ var GAP_COLOUR = "#C4D9CC";
 function bandFor(agg){ for(var i=0;i<BANDS.length;i++){ if(agg < BANDS[i].max) return BANDS[i]; } return BANDS[BANDS.length-1]; }
 function levelLabel(v){ return v==null ? "Data gap" : (v<0.34?"Low":(v<0.67?"Med":"High")); }
 function levelColour(v){ if(v==null) return GAP_COLOUR; if(v<0.34) return "#356B4E"; if(v<0.67) return "#3D6478"; return "#7A2D1E"; }
+
+/* What each band actually means, grounded in the real 59-company distribution
+   (CAST-calibration-v1.xlsx, sheet 5: min 0.372, P25 0.452, median 0.505,
+   P75 0.603, max 0.676). Shown on the free result screen -- the substance a
+   respondent gets before any gate, not just a colour and a word. */
+var BAND_MEANING = {
+  low: "Below the 25th percentile of the 59-company working set (0.452). On disclosure alone, nobody in the peer set lands here without a real practice behind it: certified water-positive operations, zero-discharge-by-design, or a tested climate-linked continuity plan. If this is you, it is a genuine data point for a CSR report, a tender response, or a board conversation, not just a green tick.",
+  moderate: "This is where the typical disclosed peer sits. Every sector mean in the working set falls between 0.47 and 0.55, and the median across all 59 companies is 0.505. Moderate is not a warning and not a clean bill either. It means one or two dimensions are carrying the exposure while the others hold steady. The breakdown below shows you which.",
+  elevated: "Above the 75th percentile (0.603). Sixteen of the 59 companies in the working set land here on disclosure alone, so you are not alone, but you are in the quartile where a single climate event stops reading as a one-off and starts reading as a pattern. This is a board-level conversation, not a CSR line item.",
+  high: "Beyond the highest score recorded anywhere in the 59-company working set (0.676). No company reaches this band from public disclosure alone. A High read here means something you told us goes further than what your peers put in their BRSR filings: a realised incident, a large outdoor workforce share, or losses nobody is tracking yet. High is earned by your own answers, not assumed by the model."
+};
+
+/* Real, sourced anchors per dimension: what genuine strength and genuine risk
+   actually look like in the 59-company working set, not a generic description.
+   Every fact here traces to a named company's own BRSR disclosure (see
+   CAST-master-v11.xlsx / memory.md). Shown on the unlocked detail screen. */
+var DIMENSION_CONTEXT = {
+  PR: {
+    low: "The strongest real example in the working set: Embassy Office Parks REIT names flood-resistant plantations at specific sites (Embassy Manyata, Embassy Tech Zone) as a physical adaptation measure, not a general policy line.",
+    high: "The pattern that most often drives this dimension up is not scale by itself: it is a footprint spread across many sites or a wide geography with no site-level continuity plan to match it."
+  },
+  SC: {
+    low: "Two real examples from the working set: Dabur India has five water-stress-area units certified water-positive, recharge exceeding withdrawal; Tata Consumer Products recharges 700 million litres a year. Both treat water as a managed input, not just an exposure line.",
+    high: "TCS names 23 distinct water-stress zones across 49 offices in nine countries, the most granular water-stress disclosure in the working set. Infosys reports 1.96 million KL of annual withdrawal, the largest figure in the sample, driven by workforce scale rather than water intensity per person. Naming the zones, not just the volume, is what a genuine supply-chain read looks like."
+  },
+  WF: {
+    blindspot: "Not one of the 59 companies in the working set discloses outdoor or field workforce heat exposure. It is the single biggest disclosure blind spot in the entire dataset. If your own answer here was \"not sure,\" you are not behind the pack, you are exactly at the pack's own blind spot, which is not the same thing as safe.",
+    context: "The scale behind that blind spot, from outside this dataset: ILO projects the world on course to lose the equivalent of 80 million full-time jobs to heat by 2030, worth around US$2.4 trillion a year (ILO, Working on a Warmer Planet). That is the number this dimension is quietly standing in for."
+  },
+  DC: {
+    low: "Two of the strongest disclosures in the working set sit here: Embassy Office Parks REIT ran a genuine TCFD assessment in FY2023 that now feeds an active 3-to-5-year adaptation roadmap, and Britannia Industries has a TCFD-aligned physical risk assessment scenario-modelled to 2030, 2040, and 2050. Both moved past a policy statement into an actual forward plan.",
+    high: "The clearest admission of realised climate disruption anywhere in the working set: Jyothy Labs disclosed directly that floods, droughts, and cyclones in South India disrupted business in FY25. Most companies in the sample describe risk in the future tense. Very few admit it already happened."
+  }
+};
 
 /* ---- Group A corporate question set (Section 5). Standard / Gap marked. ---- */
 var Q_GROUP_A = [
@@ -523,22 +561,38 @@ function scoreGroupA(sectorId, a){
 
   var agg = weightSum? weightedAcc/weightSum : 0.4;
   var band = bandFor(agg);
+  var bm = BENCHMARK[sectorId];
 
-  // per-dimension read lines
+  // per-dimension read lines -- grounded against the real peer figure (bm.dims)
+  // and a sourced anchor fact, not just a templated sentence.
   var reads = DIMS.map(function(d){
     var dv = dimVals[d.id];
+    var peerVal = bm.dims[d.id];
+    var peerLabel = levelLabel(peerVal);
+    var dctx = DIMENSION_CONTEXT[d.id];
     if(dv.val==null){
-      return {dim:d, gap:true, band:"Data gap", colour:GAP_COLOUR,
-        line:"You are not measuring this, so we cannot read it. That blind spot is itself a finding."};
+      var gapLine = "You are not measuring this, so we cannot read it. That blind spot is itself a finding.";
+      if(d.id==="WF" && dctx && dctx.blindspot) gapLine += " " + dctx.blindspot;
+      return {dim:d, gap:true, band:"Data gap", colour:GAP_COLOUR, line:gapLine,
+        context: (d.id==="WF" && dctx) ? dctx.context : null};
     }
     // dominant force in this dimension
     var dom=null, domv=-1;
     dv.row.cells.forEach(function(c){ if(!c.gap && c.v>domv){ domv=c.v; dom=c.force; } });
     var lvl = levelLabel(dv.val);
     var lead = (d.id===sector.lead)?" This is the dimension we would expect to lead for your sector.":"";
+    var line = dom ? (lvl==="High"?"Concentrated":(lvl==="Med"?"Some":"Limited"))+" exposure, driven mainly by "+dom.name.toLowerCase()+"."+lead
+                   : "Read across the four climate forces."+lead;
+    var peerLine = "The sector peer figure for this dimension is "+peerVal.toFixed(2)+" ("+peerLabel+"), from the 59-company working set. "+
+      (dv.val < peerVal - 0.05 ? "You read below that." : dv.val > peerVal + 0.05 ? "You read above that." : "You sit close to it.");
+    var anchor = null;
+    if(dctx){
+      if(lvl==="Low" && dctx.low) anchor = dctx.low;
+      else if(lvl==="High" && dctx.high) anchor = dctx.high;
+      if(d.id==="WF" && dctx.blindspot) anchor = dctx.blindspot + (dctx.context?" "+dctx.context:"");
+    }
     return {dim:d, gap:false, band:lvl+" exposure", colour:levelColour(dv.val),
-      line: dom ? (lvl==="High"?"Concentrated":(lvl==="Med"?"Some":"Limited"))+" exposure, driven mainly by "+dom.name.toLowerCase()+"."+lead
-                : "Read across the four climate forces."+lead };
+      line: line, context: peerLine + (anchor ? " " + anchor : "")};
   });
 
   // named data gaps
@@ -558,7 +612,6 @@ function scoreGroupA(sectorId, a){
   ];
 
   // benchmark comparison
-  var bm = BENCHMARK[sectorId];
   var comp;
   if(agg < bm.agg - 0.06) comp = {word:"ahead of", detail:"You sit below the disclosed-peer read for "+sector.name+"."};
   else if(agg > bm.agg + 0.06) comp = {word:"behind", detail:"You sit above the disclosed-peer read for "+sector.name+", meaning more exposed than the sample."};
@@ -862,6 +915,10 @@ function renderResult(){
       (bm.caveat?'<div class="b2" style="margin-top:6px;font-size:12.5px;opacity:.75">'+bm.caveat+'</div>':'')+'</div>'));
   }
 
+  if(BAND_MEANING[r.band.id]){
+    w.appendChild(el('<div class="bandmeaning"><p class="b1" style="margin-bottom:6px">What '+r.band.name.toLowerCase()+' actually means</p><p class="b2">'+BAND_MEANING[r.band.id]+'</p></div>'));
+  }
+
   var cta=el('<div style="text-align:center;margin-top:22px"></div>');
   cta.appendChild(el('<p class="readline" style="font-size:18px;max-width:34ch">There is more under this number. The four dimensions show where the exposure concentrates, and where you are flying blind.</p>'));
   var row=el('<div class="btn-row" style="justify-content:center"></div>');
@@ -973,7 +1030,9 @@ function renderDetail(){
   (r.reads||[]).forEach(function(x){
     var node=el('<div class="dimcard'+(x.gap?" gap":"")+'">'+
       '<div class="dh"><span class="dn">'+x.dim.name+'</span><span class="bd" style="background:'+x.colour+';color:'+(x.colour===GAP_COLOUR?"#5C6A60":"#fff")+'">'+x.band+'</span></div>'+
-      '<p>'+x.line+'</p></div>');
+      '<p>'+x.line+'</p>'+
+      (x.context ? '<p class="dimcontext">'+x.context+'</p>' : '')+
+      '</div>');
     dr.appendChild(node);
   });
   w.appendChild(dr);
