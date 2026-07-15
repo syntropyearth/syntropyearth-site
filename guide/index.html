@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) — GA4 property G-SRYX1DSMRX, matches sitewide install -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SRYX1DSMRX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SRYX1DSMRX');
+</script>
+<!-- Google Tag Manager — currently inactive. Once the container is created (see
+     analytics-and-gtm-setup.md), uncomment this block, replace GTM-XXXXXXX with the
+     real container ID, and remove the gtag.js block above so tracking isn't double-counted.
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syntropy Guide — Climate-Health Resource Library | Syntropy Earth</title>
+<meta name="description" content="A free, plain-English resource library on climate risk, health equity and CSR compliance. Glossary, regulations library, role guides, downloadable tools — built by Syntropy Earth.">
+<link rel="stylesheet" href="/styles.css">
+<style>
+/* ============================================================
+   SYNTROPY GUIDE — supplementary styles only
+   Everything else (nav, footer, hero, section, card, btn, label,
+   lead, wrap, pull-quote, faq, citations, h4) comes from the real
+   /styles.css, linked above. This file covers ONLY the handful of
+   components that page doesn't already have: glossary entries,
+   pagination, the framework comparison table, the stats band, and
+   the breadcrumb trail.
+   ============================================================ */
+
+/* ---- Breadcrumb (no equivalent in the base system) ---- */
+.breadcrumb {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--text-faint);
+  margin-bottom: var(--gutter, 24px);
+}
+.breadcrumb a { color: var(--text-muted); }
+
+/* ---- Guide category / role / template tiles ----
+   Reuses the real .card shell; only the tag-pill row is new. */
+.g-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media (min-width: 640px) { .g-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .g-grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
+.g-grid .card h4 a { color: var(--deep-forest); }
+.g-grid .card h4 a:hover { color: var(--red-earth); }
+.g-grid .card p { font-size: 13px; color: var(--text-muted); margin-top: 0.5rem; }
+
+.tag-row { margin-top: 1rem; }
+.tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--pale-sage);
+  color: var(--forest);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+.tag.tag-clay { background: var(--pale-clay); color: var(--dark-red-earth); }
+.tag.tag-blue { background: var(--sky-pale); color: var(--monsoon-blue); }
+
+/* ---- Framework comparison table ---- */
+table.compare {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 2rem 0;
+}
+table.compare th, table.compare td {
+  border: 1px solid var(--hr);
+  padding: 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+table.compare th {
+  font-family: var(--sans);
+  font-weight: 500;
+  color: var(--deep-forest);
+  background: var(--pale-sage);
+}
+
+/* ---- Glossary ---- */
+.glossary-entry { border-bottom: 1px solid var(--hr); padding: 1.5rem 0; }
+.glossary-entry dt { font-family: var(--serif); font-size: 22px; color: var(--deep-forest); font-weight: 400; }
+.glossary-entry dd { margin: 0.5rem 0 0; color: var(--text); font-size: 15px; line-height: 1.7; }
+
+.glossary-jump { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 2.5rem; }
+.glossary-jump a, .glossary-jump .jump-empty {
+  font-family: var(--mono);
+  font-size: 12px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.glossary-jump a { border: 1px solid var(--hr); color: var(--forest); }
+.glossary-jump a:hover { background: var(--pale-sage); }
+.glossary-jump .jump-empty { border: 1px dashed var(--hr); color: var(--text-faint); cursor: default; }
+
+/* ---- Pagination ---- */
+.pagination { display: flex; gap: 6px; align-items: center; margin: 2.5rem 0; flex-wrap: wrap; }
+.page-btn {
+  font-family: var(--mono);
+  font-size: 12px;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--hr);
+  background: var(--white);
+  color: var(--forest);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.page-btn:hover:not(:disabled) { background: var(--pale-sage); }
+.page-btn.active { background: var(--red-earth); border-color: var(--red-earth); color: var(--soft-cream); }
+.page-btn:disabled { opacity: 0.35; cursor: default; }
+.page-btn.page-nav { min-width: auto; padding: 0 12px; }
+
+/* ---- Live stats band ---- */
+.stats-band { background: var(--deep-forest); border-bottom: 1px solid var(--hr-on-dark); }
+.stats-row { display: flex; justify-content: space-between; flex-wrap: wrap; padding: 1.5rem var(--gutter); gap: 1rem; }
+.stat-item { display: flex; flex-direction: column; align-items: flex-start; min-width: 140px; }
+.stat-number { font-family: var(--serif); font-weight: 400; font-size: 34px; color: var(--soft-cream); line-height: 1; }
+.stat-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-top: 0.5rem; }
+
+/* ---- Guide industry/detail tiles (plain card content, no tag-pill) ---- */
+.g-grid .card h4.h4 { margin-bottom: 0.4rem; }
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Syntropy Guide",
+  "description": "A free climate-health and CSR resource library covering terminology, regulation, role-based guidance and downloadable tools.",
+  "url": "https://syntropyearth.com/guide/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Syntropy Earth",
+    "url": "https://syntropyearth.com"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Abhijith Magal L"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Climate & CSR Glossary", "url": "https://syntropyearth.com/guide/glossary.html" },
+      { "@type": "ListItem", "position": 2, "name": "Regulations & Standards Library", "url": "https://syntropyearth.com/guide/regulations-library.html" },
+      { "@type": "ListItem", "position": 3, "name": "Role-Based Guides", "url": "https://syntropyearth.com/guide/role-guides/" },
+      { "@type": "ListItem", "position": 4, "name": "Templates & Tools", "url": "https://syntropyearth.com/guide/templates-tools/" }
+    ]
+  }
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) — inactive, see head comment
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+-->
+
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/" aria-label="Syntropy Earth home">
+      <svg class="mark mark-draw" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path class="arc" d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+        <path class="arc arc-2" d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+        <path class="arc arc-3" d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+        <circle class="dot" cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+      </svg>
+      <span class="wordmark">Syntropy Earth</span>
+    </a>
+    <div class="nav-links">
+      <a href="/services">Services</a>
+      <a href="/thinking">Thinking</a>
+      <a href="/guide/">Guide</a>
+      <a href="/about">About</a>
+      <a class="btn btn-primary" href="/#contact">Work with us</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/services">Services</a>
+  <a href="/thinking">Thinking</a>
+  <a href="/guide/">Guide</a>
+  <a href="/about">About</a>
+  <a class="btn btn-primary" href="/#contact">Work with us</a>
+</div>
+
+<section class="page-hero">
+  <div class="hero-glow"></div>
+  <div class="wrap page-hero-inner">
+    <span class="label">Syntropy Guide · Free Resource Library</span>
+    <h1>Climate change is a healthcare story. Here's the plain-English version.</h1>
+    <p class="lead">This is the reference library behind our advisory work — a running, free collection of terms, frameworks, regulations and tools built for the people who have to act on climate risk without a climate science background. No sign-up. No paywall. Sourced, dated, and corrected when it's wrong.</p>
+    <a href="#categories" class="btn btn-primary">Browse the library</a>
+    <a href="/guide/templates-tools/" class="btn btn-outline-on-dark" style="margin-left:12px;">Get a template</a>
+  </div>
+</section>
+
+<section class="stats-band">
+  <div class="wrap stats-row" id="guide-stats">
+    <div class="stat-item">
+      <span class="stat-number" id="stat-terms">60</span>
+      <span class="stat-label">Terms defined</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" id="stat-templates">1</span>
+      <span class="stat-label">Free templates</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" id="stat-frameworks">5</span>
+      <span class="stat-label">Frameworks compared</span>
+    </div>
+  </div>
+</section>
+
+<section class="section section--warm" id="categories">
+  <div class="wrap">
+    <span class="label">Nine Sections, Growing Every Month</span>
+    <h2>What's in the guide</h2>
+    <p class="lead" style="max-width:680px;">Everything here answers one question a real person asked us on a call, a workshop, or a proposal. We build it once, in public, so the next person doesn't have to ask.</p>
+
+    <div class="g-grid cols-3" style="margin-top:40px;">
+
+      <div class="card">
+        <span class="label">01 · Live</span>
+        <h4 class="h4"><a href="/guide/glossary.html">The Glossary</a></h4>
+        <p>Plain-English definitions for every term you'll hit in a sustainability report, a CSR meeting, or a climate risk conversation — no jargon left unexplained.</p>
+        <div class="tag-row"><span class="tag">A–Z</span><span class="tag">Schema-marked</span></div>
+      </div>
+
+      <div class="card">
+        <span class="label">02 · Live</span>
+        <h4 class="h4"><a href="/guide/regulations-library.html">Regulations &amp; Standards Library</a></h4>
+        <p>BRSR, GRI, TCFD, ESRS, SDGs and India-specific rules, decoded and compared — what each one actually requires, and who has to file it.</p>
+        <div class="tag-row"><span class="tag">India</span><span class="tag tag-blue">Global</span></div>
+      </div>
+
+      <div class="card">
+        <span class="label">03 · Live</span>
+        <h4 class="h4"><a href="/guide/role-guides/">Role-Based Guides</a></h4>
+        <p>What climate risk means for your specific seat — CSR head, sustainability lead, HR/duty-of-care owner, or CFO signing off the budget.</p>
+        <div class="tag-row"><span class="tag">By role</span></div>
+      </div>
+
+      <div class="card">
+        <span class="label">04 · Live</span>
+        <h4 class="h4"><a href="/guide/templates-tools/">Templates &amp; Tools</a></h4>
+        <p>Trackers, checklists and self-assessments you can download and use today. No email gate. Built from the same rigour we use with paying clients.</p>
+        <div class="tag-row"><span class="tag">Free download</span></div>
+      </div>
+
+      <div class="card">
+        <span class="label">05 · In progress</span>
+        <h4 class="h4">Business Decision Guides</h4>
+        <p>Structured "should we / how do we" answers to the calls that come up most: budgeting a CSR programme, choosing a reporting framework, briefing a board on climate exposure.</p>
+        <div class="tag-row"><span class="tag">Decision trees</span></div>
+      </div>
+
+      <div class="card">
+        <span class="label">06 · In progress</span>
+        <h4 class="h4">Sector Playbooks</h4>
+        <p>Pharma, FMCG, manufacturing, IT, financial services, cement and metals, telecom, retail — what climate-health exposure looks like in each, and where CSR budgets already point.</p>
+        <div class="tag-row"><span class="tag">By sector</span></div>
+      </div>
+
+      <div class="card">
+        <span class="label">07 · In progress</span>
+        <h4 class="h4">Climate-Health &amp; Equity Library</h4>
+        <p>The evidence base connecting climate change to health outcomes — heat, air quality, food security, access disruption — with sources you can cite in your own reporting.</p>
+        <div class="tag-row"><span class="tag">Evidence-based</span></div>
+      </div>
+
+      <div class="card">
+        <span class="label">08 · In progress</span>
+        <h4 class="h4">India Policy &amp; Deadline Tracker</h4>
+        <p>Filing windows, notification updates, and state-level heat action plans — the calendar version of the moving budgets we build our whole approach around.</p>
+        <div class="tag-row"><span class="tag">India</span><span class="tag tag-clay">Dated</span></div>
+      </div>
+
+      <div class="card">
+        <span class="label">09 · Planned</span>
+        <h4 class="h4">Reading List &amp; Tool Directory</h4>
+        <p>Reports, courses and external tools worth your time, with a one-line verdict on each rather than a link dump.</p>
+        <div class="tag-row"><span class="tag">Curated</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="wrap">
+    <span class="label">Why This Exists</span>
+    <h2>We're not trying to keep this to ourselves</h2>
+    <p class="lead" style="max-width:680px;">The scoring methods and diagnostic frameworks we use with clients stay ours. The context underneath them doesn't need to. If a plain definition of BRSR assurance requirements helps you make a better decision this week, that's a good use of an afternoon, whether or not you ever become a client.</p>
+    <blockquote class="pull-quote">Climate change didn't wait for a budget line to open. Neither should the information.</blockquote>
+  </div>
+</section>
+
+<section class="section section--warm">
+  <div class="wrap">
+    <span class="label">Recently Added</span>
+    <h2>Latest in the guide</h2>
+    <div class="g-grid cols-3" style="margin-top:32px;">
+      <div class="card">
+        <span class="meta">Glossary · Updated this week</span>
+        <h4 class="h4"><a href="/guide/glossary.html#brsr">BRSR Assurance</a></h4>
+        <p>What "reasonable" vs "limited" assurance actually means for your Section 135 filing.</p>
+      </div>
+      <div class="card">
+        <span class="meta">Template · New</span>
+        <h4 class="h4"><a href="/guide/templates-tools/">Climate-Health Materiality Tracker</a></h4>
+        <p>A working spreadsheet structure for scoring which climate risks matter most to your operations.</p>
+      </div>
+      <div class="card">
+        <span class="meta">Role Guide · New</span>
+        <h4 class="h4"><a href="/guide/role-guides/csr-manager.html">The CSR Manager's Guide to Climate-Health Spend</a></h4>
+        <p>Where climate-health fits inside a Section 135 budget, and how to defend the line item.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--forest">
+  <div class="wrap" style="text-align:center;">
+    <h2>Have a question the guide doesn't answer yet?</h2>
+    <p class="lead" style="max-width:520px; margin:0 auto 24px;">That's usually the most useful signal we get. Tell us what you were trying to find.</p>
+    <a href="https://syntropyearth.com/contact" class="btn btn-primary">Ask Syntropy Earth</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+          <path d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+        </svg>
+        <span class="wordmark">Syntropy Earth</span>
+      </div>
+      <p class="footer-tag">Advisory &middot; Strategy &middot; Impact</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4 class="h4">Navigate</h4>
+        <a href="/services">Services</a>
+        <a href="/thinking">Thinking</a>
+        <a href="/guide/">Guide</a>
+        <a href="/about">About</a>
+        <a href="/#contact">Work with us</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="h4">Connect</h4>
+        <a href="https://www.linkedin.com/in/abhijithmagal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@abhijithmagal" target="_blank" rel="noopener">YouTube</a>
+        <a href="mailto:hello@syntropyearth.com">hello@syntropyearth.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
+    <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved.</span>
+    <span>Bengaluru, India &middot; Working globally</span>
+  </div>
+  <div class="wrap" style="padding-top:24px;">
+    <div style="margin-top:8px;">
+      <a href="/" class="btn btn-outline-on-dark">Back to Syntropy Earth</a>
+      <a href="mailto:hello@syntropyearth.com" class="btn btn-primary" style="margin-left:12px;">Email us directly</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Fire a named event distinct from the default page_view, so "landed on the
+   Guide hub" is a one-click filter in GA4 rather than a page-path search. */
+if (typeof gtag === 'function') {
+  gtag('event', 'guide_section_view', {
+    section: 'guide_hub',
+    page_location: window.location.href
+  });
+}
+
+/* Live stats band — pulls current counts from a published Google Sheet.
+   Publish the Guide's Content sheet to the web as CSV (File > Share > Publish
+   to web > select the sheet > CSV), paste that URL below, and this updates
+   itself with no rebuild needed. Falls back silently to the static numbers
+   already in the HTML if the fetch fails or the URL isn't set yet. */
+(function () {
+  var SHEET_CSV_URL = ""; // e.g. "https://docs.google.com/spreadsheets/d/e/2PACX-xxxx/pub?gid=0&single=true&output=csv"
+  if (!SHEET_CSV_URL) return;
+
+  fetch(SHEET_CSV_URL)
+    .then(function (r) { return r.text(); })
+    .then(function (csv) {
+      var rows = csv.trim().split("\n").map(function (r) { return r.split(","); });
+      var header = rows[0].map(function (h) { return h.trim().toLowerCase(); });
+      var data = {};
+      rows.slice(1).forEach(function (row) {
+        var key = row[header.indexOf("stat_key")];
+        var val = row[header.indexOf("stat_value")];
+        if (key) data[key.trim()] = (val || "").trim();
+      });
+      if (data.terms) document.getElementById("stat-terms").textContent = data.terms;
+      if (data.templates) document.getElementById("stat-templates").textContent = data.templates;
+      if (data.frameworks) document.getElementById("stat-frameworks").textContent = data.frameworks;
+    })
+    .catch(function () { /* fail silent — static fallback numbers stay visible */ });
+})();
+</script>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) — GA4 property G-SRYX1DSMRX, matches sitewide install -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SRYX1DSMRX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SRYX1DSMRX');
+</script>
+<!-- Google Tag Manager — currently inactive. Once the container is created (see
+     analytics-and-gtm-setup.md), uncomment this block, replace GTM-XXXXXXX with the
+     real container ID, and remove the gtag.js block above so tracking isn't double-counted.
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Climate &amp; CSR Glossary — Syntropy Guide | Syntropy Earth</title>
+<meta name="description" content="Plain-English definitions of climate, health and CSR terms — BRSR, TCFD, Scope 1/2/3, materiality assessment, duty of care and more.">
+<link rel="stylesheet" href="/styles.css">
+<style>
+/* ============================================================
+   SYNTROPY GUIDE — supplementary styles only
+   Everything else (nav, footer, hero, section, card, btn, label,
+   lead, wrap, pull-quote, faq, citations, h4) comes from the real
+   /styles.css, linked above. This file covers ONLY the handful of
+   components that page doesn't already have: glossary entries,
+   pagination, the framework comparison table, the stats band, and
+   the breadcrumb trail.
+   ============================================================ */
+
+/* ---- Breadcrumb (no equivalent in the base system) ---- */
+.breadcrumb {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--text-faint);
+  margin-bottom: var(--gutter, 24px);
+}
+.breadcrumb a { color: var(--text-muted); }
+
+/* ---- Guide category / role / template tiles ----
+   Reuses the real .card shell; only the tag-pill row is new. */
+.g-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media (min-width: 640px) { .g-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .g-grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
+.g-grid .card h4 a { color: var(--deep-forest); }
+.g-grid .card h4 a:hover { color: var(--red-earth); }
+.g-grid .card p { font-size: 13px; color: var(--text-muted); margin-top: 0.5rem; }
+
+.tag-row { margin-top: 1rem; }
+.tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--pale-sage);
+  color: var(--forest);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+.tag.tag-clay { background: var(--pale-clay); color: var(--dark-red-earth); }
+.tag.tag-blue { background: var(--sky-pale); color: var(--monsoon-blue); }
+
+/* ---- Framework comparison table ---- */
+table.compare {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 2rem 0;
+}
+table.compare th, table.compare td {
+  border: 1px solid var(--hr);
+  padding: 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+table.compare th {
+  font-family: var(--sans);
+  font-weight: 500;
+  color: var(--deep-forest);
+  background: var(--pale-sage);
+}
+
+/* ---- Glossary ---- */
+.glossary-entry { border-bottom: 1px solid var(--hr); padding: 1.5rem 0; }
+.glossary-entry dt { font-family: var(--serif); font-size: 22px; color: var(--deep-forest); font-weight: 400; }
+.glossary-entry dd { margin: 0.5rem 0 0; color: var(--text); font-size: 15px; line-height: 1.7; }
+
+.glossary-jump { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 2.5rem; }
+.glossary-jump a, .glossary-jump .jump-empty {
+  font-family: var(--mono);
+  font-size: 12px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.glossary-jump a { border: 1px solid var(--hr); color: var(--forest); }
+.glossary-jump a:hover { background: var(--pale-sage); }
+.glossary-jump .jump-empty { border: 1px dashed var(--hr); color: var(--text-faint); cursor: default; }
+
+/* ---- Pagination ---- */
+.pagination { display: flex; gap: 6px; align-items: center; margin: 2.5rem 0; flex-wrap: wrap; }
+.page-btn {
+  font-family: var(--mono);
+  font-size: 12px;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--hr);
+  background: var(--white);
+  color: var(--forest);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.page-btn:hover:not(:disabled) { background: var(--pale-sage); }
+.page-btn.active { background: var(--red-earth); border-color: var(--red-earth); color: var(--soft-cream); }
+.page-btn:disabled { opacity: 0.35; cursor: default; }
+.page-btn.page-nav { min-width: auto; padding: 0 12px; }
+
+/* ---- Live stats band ---- */
+.stats-band { background: var(--deep-forest); border-bottom: 1px solid var(--hr-on-dark); }
+.stats-row { display: flex; justify-content: space-between; flex-wrap: wrap; padding: 1.5rem var(--gutter); gap: 1rem; }
+.stat-item { display: flex; flex-direction: column; align-items: flex-start; min-width: 140px; }
+.stat-number { font-family: var(--serif); font-weight: 400; font-size: 34px; color: var(--soft-cream); line-height: 1; }
+.stat-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-top: 0.5rem; }
+
+/* ---- Guide industry/detail tiles (plain card content, no tag-pill) ---- */
+.g-grid .card h4.h4 { margin-bottom: 0.4rem; }
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "name": "Syntropy Guide Glossary",
+  "description": "Plain-English glossary of climate-health, CSR and sustainability reporting terms.",
+  "hasDefinedTerm": [
+    { "@type": "DefinedTerm", "name": 'Adaptation (climate)', "description": "Adjusting systems, infrastructure or operations to reduce harm from climate impacts that are already happening or locked in — distinct from mitigation, which aims to reduce future emissions. A hospital installing solar-backed power for heatwave-driven demand spikes is adaptation. A hospital cutting its own carbon footprint is mitigation. Most corporate climate strategies need both, but budget almost always moves toward mitigation first because it's easier to report against a target." },
+    { "@type": "DefinedTerm", "name": 'Air Quality Index (AQI)', "description": "A standardised scale, calculated differently by country, that converts measured pollutant concentrations — commonly PM2.5, PM10, ozone and nitrogen dioxide — into a single number and category, from 'good' to 'severe', so the public can gauge pollution risk without reading raw data. India's AQI, published by the Central Pollution Control Board, runs on a 0-500 scale with different breakpoints to the US EPA's version, so the same air quality can register a different category depending on which country's index is quoted." },
+    { "@type": "DefinedTerm", "name": 'Biodiversity', "description": 'The variety of life in a given area, from genes to species to ecosystems — increasingly treated as a distinct disclosure and risk category alongside climate, since a stable climate does not guarantee a stable ecosystem, and companies can degrade biodiversity while hitting every carbon target on paper.' },
+    { "@type": "DefinedTerm", "name": 'BRSR', "description": "The Business Responsibility and Sustainability Report — India's mandatory ESG disclosure format, required annually from the top 1,000 listed companies by market capitalisation as set by SEBI. BRSR Core, a smaller set of key performance indicators within the full report, is subject to a phased assurance requirement, meaning an external party has to verify the numbers, not just the company itself." },
+    { "@type": "DefinedTerm", "name": 'BRSR Core', "description": "The refined subset of key performance indicators inside the full BRSR, introduced by SEBI in 2023, covering measurable climate and social metrics such as greenhouse gas emissions intensity, water use, and workforce diversity. BRSR Core carries a phased external assurance requirement, starting with India's largest listed companies and expanding to cover the full top 1,000 by FY 2026-27." },
+    { "@type": "DefinedTerm", "name": 'Carbon Footprint', "description": 'The total greenhouse gas emissions caused directly and indirectly by an organisation, product, or individual, usually expressed in tonnes of carbon dioxide equivalent (CO2e) to make different gases comparable on a single scale.' },
+    { "@type": "DefinedTerm", "name": 'Carbon Neutral', "description": "A state where an organisation's carbon dioxide emissions are balanced by an equivalent amount removed or offset, often achieved partly or wholly through purchased carbon credits rather than direct reduction — a narrower and generally less rigorous claim than net zero, which requires deeper emissions cuts before offsetting the remainder." },
+    { "@type": "DefinedTerm", "name": 'Carbon Offset', "description": "A credit representing one tonne of carbon dioxide, or equivalent, either avoided or removed from the atmosphere elsewhere, purchased to compensate for emissions a company hasn't eliminated directly. Offset quality varies enormously — a credit from a well-verified forest conservation project and one from a poorly monitored scheme can carry the same paperwork but very different real-world impact." },
+    { "@type": "DefinedTerm", "name": 'Climate Justice', "description": 'The recognition that the people and countries who have contributed least to climate change are often the most exposed to its harms, and that climate response should account for that imbalance rather than treat everyone as equally responsible or equally vulnerable.' },
+    { "@type": "DefinedTerm", "name": 'Climate Resilience', "description": 'The capacity of a system — a person, a community, a supply chain, a health programme — to absorb a climate shock and keep functioning, or recover quickly afterward, rather than collapsing under the stress.' },
+    { "@type": "DefinedTerm", "name": 'Climate Risk (Physical vs Transition)', "description": 'The two broad categories used in climate risk disclosure. Physical risk is direct damage from climate events — floods, heatwaves, storms. Transition risk is the financial exposure that comes from the shift to a low-carbon economy — a stranded fossil fuel asset, a carbon price, a regulation that makes an existing business model obsolete.' },
+    { "@type": "DefinedTerm", "name": 'COP (Conference of the Parties)', "description": 'The annual United Nations climate summit where countries that signed the UN Framework Convention on Climate Change negotiate and review global climate commitments — the venue where agreements like the Paris Agreement get made and revisited.' },
+    { "@type": "DefinedTerm", "name": 'CSR (Section 135)', "description": "In India, CSR is not voluntary. Section 135 of the Companies Act, 2013 requires qualifying companies — based on net worth, turnover or net profit thresholds — to spend at least 2% of their average net profit of the preceding three years on CSR activities, and to report on it. This is the single largest reason 'climate-health advisory' has a route to budget at all: the spend is already mandated, the only open question is where it goes." },
+    { "@type": "DefinedTerm", "name": 'Decarbonisation', "description": 'The process of reducing the amount of carbon dioxide emitted by an activity, sector, or economy, typically through a combination of energy efficiency, renewable energy, and structural changes to how something is produced or delivered.' },
+    { "@type": "DefinedTerm", "name": 'Disaster Risk Reduction (DRR)', "description": 'A systematic approach to reducing the damage disasters cause, focused on prevention and preparedness rather than response after the fact — early warning systems, resilient infrastructure, and evacuation planning all sit inside DRR, not just relief funding after an event.' },
+    { "@type": "DefinedTerm", "name": 'Double Materiality', "description": "A reporting approach, central to the EU's ESRS, requiring a company to assess both financial materiality — how sustainability issues affect the company's finances — and impact materiality — how the company's operations affect people and the environment — rather than only asking whether an issue matters to the bottom line." },
+    { "@type": "DefinedTerm", "name": 'Duty of Care (employer)', "description": "An employer's legal and moral obligation to protect the health and safety of its workforce. In climate-exposed sectors, this increasingly extends to heat stress management for outdoor and field workers, indoor air quality standards, and travel risk during extreme weather events — none of which appear in a traditional HSE policy written before 2015." },
+    { "@type": "DefinedTerm", "name": 'Emissions Intensity', "description": "A company's greenhouse gas emissions measured relative to a unit of output — revenue, product volume, or floor area — rather than as an absolute number. Intensity can fall even while total emissions rise, if output grows faster than emissions do, which is why regulators increasingly ask for both figures side by side." },
+    { "@type": "DefinedTerm", "name": 'ESG (Environmental, Social and Governance)', "description": "An umbrella term for the non-financial factors used to assess a company's sustainability and ethical impact, spanning environmental performance, social relationships with employees, communities and supply chains, and governance quality such as board structure and anti-corruption controls." },
+    { "@type": "DefinedTerm", "name": 'ESRS', "description": "European Sustainability Reporting Standards, developed by EFRAG and adopted by the European Commission, underpinning the EU's Corporate Sustainability Reporting Directive (CSRD). Relevant to Indian companies with EU-listed parents, EU subsidiaries, or significant EU revenue exposure. ESRS uses 'double materiality' — a company must report both how sustainability issues affect its finances, and how its operations affect people and the environment. The exact scope of which companies must comply is under active revision by the European Commission's simplification package, so confirm current thresholds before relying on a specific number." },
+    { "@type": "DefinedTerm", "name": 'Extreme Heat Event', "description": "A period of unusually high temperatures relative to a location's normal range, defined locally rather than by a single global threshold, since 40°C carries very different health and infrastructure risk in a city built for heat than in one that isn't." },
+    { "@type": "DefinedTerm", "name": 'Flood Risk', "description": 'The likelihood and potential severity of flooding at a given location, increasingly assessed using climate-adjusted models rather than historical rainfall records alone, since past flood patterns are becoming a less reliable guide to future ones.' },
+    { "@type": "DefinedTerm", "name": 'Fossil Fuel', "description": 'Coal, oil, and natural gas — energy sources formed from the remains of ancient organisms, whose combustion is the largest single source of the greenhouse gas emissions driving climate change.' },
+    { "@type": "DefinedTerm", "name": 'GHG Protocol (Greenhouse Gas Protocol)', "description": 'The most widely used international accounting standard for measuring and reporting greenhouse gas emissions, developed by the World Resources Institute and the World Business Council for Sustainable Development — the methodology underlying the Scope 1, 2 and 3 emissions categories used across nearly every major reporting framework.' },
+    { "@type": "DefinedTerm", "name": 'Green Bond', "description": 'A bond whose proceeds are earmarked specifically for projects with environmental benefits, such as renewable energy or clean transport, distinguishing it from a conventional bond only by that use-of-proceeds commitment.' },
+    { "@type": "DefinedTerm", "name": 'GRI', "description": "The Global Reporting Initiative — the most widely used voluntary sustainability reporting framework globally, built around universal, sector, and topic-specific standards. Unlike BRSR, GRI is not mandatory anywhere by default, but it's frequently used as the common language between a mandatory framework and international stakeholder expectations." },
+    { "@type": "DefinedTerm", "name": 'Health Equity', "description": 'The principle that everyone should have a fair opportunity to be as healthy as possible, which requires actively addressing the social, economic and environmental conditions — including climate exposure — that create unequal health outcomes, rather than assuming equal access produces equal results.' },
+    { "@type": "DefinedTerm", "name": 'Heat Action Plan', "description": "A structured, location-specific plan for reducing heat-related illness and death during extreme heat events, typically covering early warning triggers, public communication, cooling infrastructure, and protocols for high-risk groups such as outdoor workers and the elderly. India's city and state heat action plans, pioneered by Ahmedabad after its 2010 heatwave, are among the most studied models globally." },
+    { "@type": "DefinedTerm", "name": 'Heat Island Effect', "description": "The tendency of urban areas to be significantly warmer than surrounding rural areas, caused by concentrated concrete, asphalt, and reduced vegetation absorbing and retaining heat — meaning a city's official temperature reading can understate what its most built-up neighbourhoods actually experience." },
+    { "@type": "DefinedTerm", "name": 'Impact Investing', "description": 'Investment made with the explicit intention of generating measurable social or environmental benefit alongside a financial return, distinguished from traditional ESG investing by that intentionality and by the expectation of tracked, reported impact outcomes.' },
+    { "@type": "DefinedTerm", "name": 'IPCC (Intergovernmental Panel on Climate Change)', "description": 'The United Nations body responsible for assessing the science of climate change, publishing periodic Assessment Reports that synthesise the global peer-reviewed research and serve as the most widely cited scientific reference point in climate policy.' },
+    { "@type": "DefinedTerm", "name": 'ISSB (International Sustainability Standards Board)', "description": 'The standard-setting body created by the IFRS Foundation in 2021 to build a global baseline for sustainability disclosure, whose first two standards — IFRS S1 and IFRS S2 — absorbed and effectively replaced the TCFD framework after TCFD formally disbanded in October 2023.' },
+    { "@type": "DefinedTerm", "name": 'Just Transition', "description": 'The principle that the shift to a low-carbon economy should not fall unfairly on workers and communities dependent on high-carbon industries, such as coal, and should include deliberate support for retraining, alternative employment, and economic diversification.' },
+    { "@type": "DefinedTerm", "name": 'Life Cycle Assessment (LCA)', "description": 'A method for evaluating the total environmental impact of a product across its entire life, from raw material extraction through manufacturing, use, and disposal, rather than looking only at emissions from the factory gate.' },
+    { "@type": "DefinedTerm", "name": 'Loss and Damage', "description": 'A term in international climate negotiations referring to the harms from climate change that go beyond what adaptation can prevent, and to the financing mechanisms, still being built out through the UN process, meant to help vulnerable countries recover from those harms.' },
+    { "@type": "DefinedTerm", "name": 'Materiality Assessment', "description": "A structured exercise to identify which sustainability and climate issues actually matter to a company's operations, financial performance and stakeholders, usually run through surveys, workshops and data review, then plotted on a matrix. It's the step that should happen before a CSR budget is allocated, not after — and it's the step most companies skip, which is why so many CSR programmes end up funding whatever got pitched loudest rather than what's actually material." },
+    { "@type": "DefinedTerm", "name": 'Mitigation (climate)', "description": 'Action taken to reduce or prevent greenhouse gas emissions, distinct from adaptation, which responds to climate impacts already underway. Switching to renewable energy is mitigation; building a flood wall is adaptation.' },
+    { "@type": "DefinedTerm", "name": 'MoEFCC (Ministry of Environment, Forest and Climate Change)', "description": "India's central government ministry responsible for environmental policy, climate regulation, and forest and wildlife conservation — the body that issues most of the environmental notifications and clearances relevant to Indian companies' compliance obligations." },
+    { "@type": "DefinedTerm", "name": 'NDC (Nationally Determined Contribution)', "description": "Each country's self-defined climate action plan under the Paris Agreement, stating its emissions reduction target and the policies intended to reach it. NDCs are reviewed and expected to be strengthened roughly every five years, though actual ambition varies significantly by country." },
+    { "@type": "DefinedTerm", "name": 'Net Zero', "description": "A state where any greenhouse gas emissions an organisation still produces are balanced by an equivalent amount removed from the atmosphere, typically targeted for a future year — 2050 is the most common corporate horizon. A credible net zero commitment specifies interim targets, covers Scope 1, 2 and material Scope 3 emissions, and doesn't lean on offsets to avoid actual reduction — most public commitments fail at least one of these three tests." },
+    { "@type": "DefinedTerm", "name": 'Occupational Heat Exposure', "description": 'The health risk faced by workers, particularly those working outdoors or in unventilated indoor spaces, from prolonged exposure to high temperatures — a workplace safety issue increasingly regulated through WBGT-based work-rest guidelines rather than left to informal judgement.' },
+    { "@type": "DefinedTerm", "name": 'Paris Agreement', "description": 'The 2015 international treaty, adopted at COP21, committing signatory countries to hold global warming well below 2°C above pre-industrial levels, and to pursue efforts to limit it to 1.5°C — the reference targets behind almost every corporate net zero commitment made since.' },
+    { "@type": "DefinedTerm", "name": 'Patient Access Programme', "description": 'A structured initiative, usually run by a pharmaceutical company or NGO, designed to help patients obtain medicines or treatment they might otherwise be unable to afford or reach, spanning pricing schemes, donation programmes, and last-mile distribution efforts.' },
+    { "@type": "DefinedTerm", "name": 'Physical Climate Risk', "description": 'Direct, tangible risk to people, assets, or operations from climate-related events and trends — both acute shocks like floods and storms, and chronic shifts like rising average temperatures or sea level.' },
+    { "@type": "DefinedTerm", "name": 'PM2.5', "description": 'Fine particulate matter measuring 2.5 micrometres or smaller in diameter — small enough to penetrate deep into the lungs and enter the bloodstream — and the pollutant most consistently linked to respiratory and cardiovascular disease in air quality research.' },
+    { "@type": "DefinedTerm", "name": 'Renewable Energy', "description": 'Energy generated from sources that naturally replenish on a human timescale — solar, wind, hydro, geothermal — as distinct from fossil fuels, which do not.' },
+    { "@type": "DefinedTerm", "name": 'Risk Register', "description": 'A structured, living document that logs identified risks — climate or otherwise — against their likelihood, severity, and mitigation owner, giving an organisation one place to track exposure instead of scattering it across memos and meeting notes. The Climate-Health Materiality Tracker in this guide is a simplified version of a climate risk register.' },
+    { "@type": "DefinedTerm", "name": 'Scope 1, 2 and 3 Emissions', "description": "The GHG Protocol's classification for a company's carbon footprint. Scope 1 is direct emissions from owned or controlled sources (a company's own vehicles, boilers). Scope 2 is indirect emissions from purchased electricity, heat or steam. Scope 3 is everything else in the value chain — supplier emissions, business travel, product use and disposal — and is usually the largest share of a company's footprint, and the hardest to measure accurately." },
+    { "@type": "DefinedTerm", "name": 'SDG (Sustainable Development Goals)', "description": 'A set of 17 global goals adopted by all United Nations member states in 2015, covering poverty, health, education, climate, and more, intended as a shared blueprint for governments, businesses and civil society through 2030. SDG 3 (Good Health and Well-Being) and SDG 13 (Climate Action) are the two most directly relevant to climate-health work.' },
+    { "@type": "DefinedTerm", "name": 'SROI (Social Return on Investment)', "description": "A framework for expressing the social, environmental and economic value created by a programme in monetary terms, producing a ratio — for example, '₹4 of social value for every ₹1 spent' — that's useful for comparing programmes but sensitive to the assumptions used to build it." },
+    { "@type": "DefinedTerm", "name": 'Stakeholder Engagement', "description": "The structured process of identifying and consulting the people and groups affected by or interested in a company's decisions — employees, communities, investors, regulators — used both to inform strategy and, in frameworks like GRI, as a formal reporting requirement in its own right." },
+    { "@type": "DefinedTerm", "name": 'Supply Chain Resilience', "description": 'The ability of a supply chain to keep functioning, or recover quickly, when disrupted by a shock — a climate event, a geopolitical disruption, a single-source supplier failure — rather than breaking down entirely.' },
+    { "@type": "DefinedTerm", "name": 'TCFD', "description": 'The Task Force on Climate-related Financial Disclosures, a disclosure framework built around four pillars — governance, strategy, risk management, and metrics and targets — designed to help companies report the financial impact of climate risk to investors. TCFD formally disbanded in October 2023 once its recommendations were folded into the IFRS Sustainability Disclosure Standards (ISSB), but the four-pillar structure is still the reference model most reporting frameworks, including parts of BRSR, are built on.' },
+    { "@type": "DefinedTerm", "name": 'Transition Risk', "description": 'The financial risk a company faces from the shift to a low-carbon economy — changing regulation, shifting consumer demand, new carbon pricing, or a technology becoming obsolete — as distinct from physical climate risk.' },
+    { "@type": "DefinedTerm", "name": 'Triple Bottom Line', "description": "A framework for evaluating business performance across three dimensions — people, planet, and profit — rather than financial return alone, popularised in the 1990s as an early precursor to today's ESG reporting." },
+    { "@type": "DefinedTerm", "name": 'UNFCCC (United Nations Framework Convention on Climate Change)', "description": 'The 1992 international treaty that established the annual COP process and remains the overarching legal framework under which the Paris Agreement and other climate accords sit.' },
+    { "@type": "DefinedTerm", "name": 'Value Chain Emissions', "description": "Emissions occurring across a company's full value chain — upstream from suppliers and downstream from product use and disposal — largely overlapping with Scope 3 and typically the largest and hardest-to-measure share of a company's total footprint." },
+    { "@type": "DefinedTerm", "name": 'Vulnerability (climate)', "description": 'The degree to which a person, community, or system is susceptible to harm from climate impacts, shaped by exposure (how much climate stress they face), sensitivity (how much that stress affects them), and adaptive capacity (how much ability they have to respond) — three factors that mean two places facing identical flooding can experience very different outcomes.' },
+    { "@type": "DefinedTerm", "name": 'Water Stress', "description": "A measure of the pressure on a region's water resources relative to available supply, used to flag areas where demand from agriculture, industry, and households risks outstripping what's sustainably available — a growing input into corporate site-selection and supply chain risk assessment." },
+    { "@type": "DefinedTerm", "name": 'WBGT', "description": "Wet-Bulb Globe Temperature — a composite heat stress measure that combines air temperature, humidity, wind speed, sun angle and cloud cover — a more accurate indicator of the physiological danger of heat than air temperature alone. Occupational heat safety guidelines and heat action plans are built on WBGT thresholds, not the number you see on a weather app, which is why two cities reporting the 'same' temperature can carry very different health risk." }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) — inactive, see head comment
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+-->
+
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/" aria-label="Syntropy Earth home">
+      <svg class="mark mark-draw" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path class="arc" d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+        <path class="arc arc-2" d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+        <path class="arc arc-3" d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+        <circle class="dot" cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+      </svg>
+      <span class="wordmark">Syntropy Earth</span>
+    </a>
+    <div class="nav-links">
+      <a href="/services">Services</a>
+      <a href="/thinking">Thinking</a>
+      <a href="/guide/">Guide</a>
+      <a href="/about">About</a>
+      <a class="btn btn-primary" href="/#contact">Work with us</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/services">Services</a>
+  <a href="/thinking">Thinking</a>
+  <a href="/guide/">Guide</a>
+  <a href="/about">About</a>
+  <a class="btn btn-primary" href="/#contact">Work with us</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px;">
+  <div class="hero-glow"></div>
+  <div class="wrap page-hero-inner">
+    <div class="breadcrumb"><a href="/guide/">Guide</a> / Glossary</div>
+    <span class="label">Section 01 · Glossary</span>
+    <h1>The Climate-Health &amp; CSR Glossary</h1>
+    <p class="lead" style="max-width:640px;">Every term defined in one sentence you could say out loud in a meeting, followed by the context that actually matters. New entries added weekly. This is a working sample — the live version will run the full A to Z.</p>
+  </div>
+</section>
+
+<section class="section section--warm" style="padding-top:0;">
+  <div class="wrap">
+
+    <div class="glossary-jump">
+      <a href="#adaptation" data-page="0" class="jump-letter">A</a>
+      <a href="#biodiversity" data-page="0" class="jump-letter">B</a>
+      <a href="#carbon-footprint" data-page="0" class="jump-letter">C</a>
+      <a href="#decarbonisation" data-page="1" class="jump-letter">D</a>
+      <a href="#emissions-intensity" data-page="1" class="jump-letter">E</a>
+      <a href="#flood-risk" data-page="1" class="jump-letter">F</a>
+      <a href="#ghg-protocol" data-page="1" class="jump-letter">G</a>
+      <a href="#health-equity" data-page="2" class="jump-letter">H</a>
+      <a href="#impact-investing" data-page="2" class="jump-letter">I</a>
+      <a href="#just-transition" data-page="2" class="jump-letter">J</a>
+      <span class="jump-empty" title="No entries yet">K</span>
+      <a href="#life-cycle-assessment" data-page="2" class="jump-letter">L</a>
+      <a href="#materiality" data-page="2" class="jump-letter">M</a>
+      <a href="#ndc" data-page="3" class="jump-letter">N</a>
+      <a href="#occupational-heat-exposure" data-page="3" class="jump-letter">O</a>
+      <a href="#paris-agreement" data-page="3" class="jump-letter">P</a>
+      <span class="jump-empty" title="No entries yet">Q</span>
+      <a href="#renewable-energy" data-page="3" class="jump-letter">R</a>
+      <a href="#scope-emissions" data-page="3" class="jump-letter">S</a>
+      <a href="#tcfd" data-page="4" class="jump-letter">T</a>
+      <a href="#unfccc" data-page="4" class="jump-letter">U</a>
+      <a href="#value-chain-emissions" data-page="4" class="jump-letter">V</a>
+      <a href="#water-stress" data-page="4" class="jump-letter">W</a>
+      <span class="jump-empty" title="No entries yet">X</span>
+      <span class="jump-empty" title="No entries yet">Y</span>
+      <span class="jump-empty" title="No entries yet">Z</span>
+    </div>
+    <p class="meta" style="margin-top:-24px; margin-bottom:32px;">60 of an eventual 100+ terms live. Greyed letters are on the roadmap, not missing by accident.</p>
+
+        <dl class="glossary-page" data-page="0" style="display:block;">
+      <div class="glossary-entry" id="adaptation">
+        <dt>Adaptation (climate)</dt>
+        <dd>Adjusting systems, infrastructure or operations to reduce harm from climate impacts that are already happening or locked in — distinct from mitigation, which aims to reduce future emissions. A hospital installing solar-backed power for heatwave-driven demand spikes is adaptation. A hospital cutting its own carbon footprint is mitigation. Most corporate climate strategies need both, but budget almost always moves toward mitigation first because it's easier to report against a target.</dd>
+      </div>
+      <div class="glossary-entry" id="air-quality-index">
+        <dt>Air Quality Index (AQI)</dt>
+        <dd>A standardised scale, calculated differently by country, that converts measured pollutant concentrations — commonly PM2.5, PM10, ozone and nitrogen dioxide — into a single number and category, from "good" to "severe", so the public can gauge pollution risk without reading raw data. India's AQI, published by the Central Pollution Control Board, runs on a 0-500 scale with different breakpoints to the US EPA's version, so the same air quality can register a different category depending on which country's index is quoted.</dd>
+      </div>
+      <div class="glossary-entry" id="biodiversity">
+        <dt>Biodiversity</dt>
+        <dd>The variety of life in a given area, from genes to species to ecosystems — increasingly treated as a distinct disclosure and risk category alongside climate, since a stable climate does not guarantee a stable ecosystem, and companies can degrade biodiversity while hitting every carbon target on paper.</dd>
+      </div>
+      <div class="glossary-entry" id="brsr">
+        <dt>BRSR</dt>
+        <dd>The Business Responsibility and Sustainability Report — India's mandatory ESG disclosure format, required annually from the top 1,000 listed companies by market capitalisation as set by SEBI. BRSR Core, a smaller set of key performance indicators within the full report, is subject to a phased assurance requirement, meaning an external party has to verify the numbers, not just the company itself.</dd>
+      </div>
+      <div class="glossary-entry" id="brsr-core">
+        <dt>BRSR Core</dt>
+        <dd>The refined subset of key performance indicators inside the full BRSR, introduced by SEBI in 2023, covering measurable climate and social metrics such as greenhouse gas emissions intensity, water use, and workforce diversity. BRSR Core carries a phased external assurance requirement, starting with India's largest listed companies and expanding to cover the full top 1,000 by FY 2026-27.</dd>
+      </div>
+      <div class="glossary-entry" id="carbon-footprint">
+        <dt>Carbon Footprint</dt>
+        <dd>The total greenhouse gas emissions caused directly and indirectly by an organisation, product, or individual, usually expressed in tonnes of carbon dioxide equivalent (CO2e) to make different gases comparable on a single scale.</dd>
+      </div>
+      <div class="glossary-entry" id="carbon-neutral">
+        <dt>Carbon Neutral</dt>
+        <dd>A state where an organisation's carbon dioxide emissions are balanced by an equivalent amount removed or offset, often achieved partly or wholly through purchased carbon credits rather than direct reduction — a narrower and generally less rigorous claim than net zero, which requires deeper emissions cuts before offsetting the remainder.</dd>
+      </div>
+      <div class="glossary-entry" id="carbon-offset">
+        <dt>Carbon Offset</dt>
+        <dd>A credit representing one tonne of carbon dioxide, or equivalent, either avoided or removed from the atmosphere elsewhere, purchased to compensate for emissions a company hasn't eliminated directly. Offset quality varies enormously — a credit from a well-verified forest conservation project and one from a poorly monitored scheme can carry the same paperwork but very different real-world impact.</dd>
+      </div>
+      <div class="glossary-entry" id="climate-justice">
+        <dt>Climate Justice</dt>
+        <dd>The recognition that the people and countries who have contributed least to climate change are often the most exposed to its harms, and that climate response should account for that imbalance rather than treat everyone as equally responsible or equally vulnerable.</dd>
+      </div>
+      <div class="glossary-entry" id="climate-resilience">
+        <dt>Climate Resilience</dt>
+        <dd>The capacity of a system — a person, a community, a supply chain, a health programme — to absorb a climate shock and keep functioning, or recover quickly afterward, rather than collapsing under the stress.</dd>
+      </div>
+      <div class="glossary-entry" id="climate-risk">
+        <dt>Climate Risk (Physical vs Transition)</dt>
+        <dd>The two broad categories used in climate risk disclosure. Physical risk is direct damage from climate events — floods, heatwaves, storms. Transition risk is the financial exposure that comes from the shift to a low-carbon economy — a stranded fossil fuel asset, a carbon price, a regulation that makes an existing business model obsolete.</dd>
+      </div>
+      <div class="glossary-entry" id="cop">
+        <dt>COP (Conference of the Parties)</dt>
+        <dd>The annual United Nations climate summit where countries that signed the UN Framework Convention on Climate Change negotiate and review global climate commitments — the venue where agreements like the Paris Agreement get made and revisited.</dd>
+      </div>
+    </dl>
+    <dl class="glossary-page" data-page="1" style="display:none;">
+      <div class="glossary-entry" id="csr">
+        <dt>CSR (Section 135)</dt>
+        <dd>In India, CSR is not voluntary. Section 135 of the Companies Act, 2013 requires qualifying companies — based on net worth, turnover or net profit thresholds — to spend at least 2% of their average net profit of the preceding three years on CSR activities, and to report on it. This is the single largest reason "climate-health advisory" has a route to budget at all: the spend is already mandated, the only open question is where it goes.</dd>
+      </div>
+      <div class="glossary-entry" id="decarbonisation">
+        <dt>Decarbonisation</dt>
+        <dd>The process of reducing the amount of carbon dioxide emitted by an activity, sector, or economy, typically through a combination of energy efficiency, renewable energy, and structural changes to how something is produced or delivered.</dd>
+      </div>
+      <div class="glossary-entry" id="disaster-risk-reduction">
+        <dt>Disaster Risk Reduction (DRR)</dt>
+        <dd>A systematic approach to reducing the damage disasters cause, focused on prevention and preparedness rather than response after the fact — early warning systems, resilient infrastructure, and evacuation planning all sit inside DRR, not just relief funding after an event.</dd>
+      </div>
+      <div class="glossary-entry" id="double-materiality">
+        <dt>Double Materiality</dt>
+        <dd>A reporting approach, central to the EU's ESRS, requiring a company to assess both financial materiality — how sustainability issues affect the company's finances — and impact materiality — how the company's operations affect people and the environment — rather than only asking whether an issue matters to the bottom line.</dd>
+      </div>
+      <div class="glossary-entry" id="duty-of-care">
+        <dt>Duty of Care (employer)</dt>
+        <dd>An employer's legal and moral obligation to protect the health and safety of its workforce. In climate-exposed sectors, this increasingly extends to heat stress management for outdoor and field workers, indoor air quality standards, and travel risk during extreme weather events — none of which appear in a traditional HSE policy written before 2015.</dd>
+      </div>
+      <div class="glossary-entry" id="emissions-intensity">
+        <dt>Emissions Intensity</dt>
+        <dd>A company's greenhouse gas emissions measured relative to a unit of output — revenue, product volume, or floor area — rather than as an absolute number. Intensity can fall even while total emissions rise, if output grows faster than emissions do, which is why regulators increasingly ask for both figures side by side.</dd>
+      </div>
+      <div class="glossary-entry" id="esg">
+        <dt>ESG (Environmental, Social and Governance)</dt>
+        <dd>An umbrella term for the non-financial factors used to assess a company's sustainability and ethical impact, spanning environmental performance, social relationships with employees, communities and supply chains, and governance quality such as board structure and anti-corruption controls.</dd>
+      </div>
+      <div class="glossary-entry" id="esrs">
+        <dt>ESRS</dt>
+        <dd>European Sustainability Reporting Standards, developed by EFRAG and adopted by the European Commission, underpinning the EU's Corporate Sustainability Reporting Directive (CSRD). Relevant to Indian companies with EU-listed parents, EU subsidiaries, or significant EU revenue exposure. ESRS uses "double materiality" — a company must report both how sustainability issues affect its finances, and how its operations affect people and the environment. The exact scope of which companies must comply is under active revision by the European Commission's simplification package, so confirm current thresholds before relying on a specific number.</dd>
+      </div>
+      <div class="glossary-entry" id="extreme-heat-event">
+        <dt>Extreme Heat Event</dt>
+        <dd>A period of unusually high temperatures relative to a location's normal range, defined locally rather than by a single global threshold, since 40°C carries very different health and infrastructure risk in a city built for heat than in one that isn't.</dd>
+      </div>
+      <div class="glossary-entry" id="flood-risk">
+        <dt>Flood Risk</dt>
+        <dd>The likelihood and potential severity of flooding at a given location, increasingly assessed using climate-adjusted models rather than historical rainfall records alone, since past flood patterns are becoming a less reliable guide to future ones.</dd>
+      </div>
+      <div class="glossary-entry" id="fossil-fuel">
+        <dt>Fossil Fuel</dt>
+        <dd>Coal, oil, and natural gas — energy sources formed from the remains of ancient organisms, whose combustion is the largest single source of the greenhouse gas emissions driving climate change.</dd>
+      </div>
+      <div class="glossary-entry" id="ghg-protocol">
+        <dt>GHG Protocol (Greenhouse Gas Protocol)</dt>
+        <dd>The most widely used international accounting standard for measuring and reporting greenhouse gas emissions, developed by the World Resources Institute and the World Business Council for Sustainable Development — the methodology underlying the Scope 1, 2 and 3 emissions categories used across nearly every major reporting framework.</dd>
+      </div>
+    </dl>
+    <dl class="glossary-page" data-page="2" style="display:none;">
+      <div class="glossary-entry" id="green-bond">
+        <dt>Green Bond</dt>
+        <dd>A bond whose proceeds are earmarked specifically for projects with environmental benefits, such as renewable energy or clean transport, distinguishing it from a conventional bond only by that use-of-proceeds commitment.</dd>
+      </div>
+      <div class="glossary-entry" id="gri">
+        <dt>GRI</dt>
+        <dd>The Global Reporting Initiative — the most widely used voluntary sustainability reporting framework globally, built around universal, sector, and topic-specific standards. Unlike BRSR, GRI is not mandatory anywhere by default, but it's frequently used as the common language between a mandatory framework and international stakeholder expectations.</dd>
+      </div>
+      <div class="glossary-entry" id="health-equity">
+        <dt>Health Equity</dt>
+        <dd>The principle that everyone should have a fair opportunity to be as healthy as possible, which requires actively addressing the social, economic and environmental conditions — including climate exposure — that create unequal health outcomes, rather than assuming equal access produces equal results.</dd>
+      </div>
+      <div class="glossary-entry" id="heat-action-plan">
+        <dt>Heat Action Plan</dt>
+        <dd>A structured, location-specific plan for reducing heat-related illness and death during extreme heat events, typically covering early warning triggers, public communication, cooling infrastructure, and protocols for high-risk groups such as outdoor workers and the elderly. India's city and state heat action plans, pioneered by Ahmedabad after its 2010 heatwave, are among the most studied models globally.</dd>
+      </div>
+      <div class="glossary-entry" id="heat-island-effect">
+        <dt>Heat Island Effect</dt>
+        <dd>The tendency of urban areas to be significantly warmer than surrounding rural areas, caused by concentrated concrete, asphalt, and reduced vegetation absorbing and retaining heat — meaning a city's official temperature reading can understate what its most built-up neighbourhoods actually experience.</dd>
+      </div>
+      <div class="glossary-entry" id="impact-investing">
+        <dt>Impact Investing</dt>
+        <dd>Investment made with the explicit intention of generating measurable social or environmental benefit alongside a financial return, distinguished from traditional ESG investing by that intentionality and by the expectation of tracked, reported impact outcomes.</dd>
+      </div>
+      <div class="glossary-entry" id="ipcc">
+        <dt>IPCC (Intergovernmental Panel on Climate Change)</dt>
+        <dd>The United Nations body responsible for assessing the science of climate change, publishing periodic Assessment Reports that synthesise the global peer-reviewed research and serve as the most widely cited scientific reference point in climate policy.</dd>
+      </div>
+      <div class="glossary-entry" id="issb">
+        <dt>ISSB (International Sustainability Standards Board)</dt>
+        <dd>The standard-setting body created by the IFRS Foundation in 2021 to build a global baseline for sustainability disclosure, whose first two standards — IFRS S1 and IFRS S2 — absorbed and effectively replaced the TCFD framework after TCFD formally disbanded in October 2023.</dd>
+      </div>
+      <div class="glossary-entry" id="just-transition">
+        <dt>Just Transition</dt>
+        <dd>The principle that the shift to a low-carbon economy should not fall unfairly on workers and communities dependent on high-carbon industries, such as coal, and should include deliberate support for retraining, alternative employment, and economic diversification.</dd>
+      </div>
+      <div class="glossary-entry" id="life-cycle-assessment">
+        <dt>Life Cycle Assessment (LCA)</dt>
+        <dd>A method for evaluating the total environmental impact of a product across its entire life, from raw material extraction through manufacturing, use, and disposal, rather than looking only at emissions from the factory gate.</dd>
+      </div>
+      <div class="glossary-entry" id="loss-and-damage">
+        <dt>Loss and Damage</dt>
+        <dd>A term in international climate negotiations referring to the harms from climate change that go beyond what adaptation can prevent, and to the financing mechanisms, still being built out through the UN process, meant to help vulnerable countries recover from those harms.</dd>
+      </div>
+      <div class="glossary-entry" id="materiality">
+        <dt>Materiality Assessment</dt>
+        <dd>A structured exercise to identify which sustainability and climate issues actually matter to a company's operations, financial performance and stakeholders, usually run through surveys, workshops and data review, then plotted on a matrix. It's the step that should happen before a CSR budget is allocated, not after — and it's the step most companies skip, which is why so many CSR programmes end up funding whatever got pitched loudest rather than what's actually material.</dd>
+      </div>
+    </dl>
+    <dl class="glossary-page" data-page="3" style="display:none;">
+      <div class="glossary-entry" id="mitigation">
+        <dt>Mitigation (climate)</dt>
+        <dd>Action taken to reduce or prevent greenhouse gas emissions, distinct from adaptation, which responds to climate impacts already underway. Switching to renewable energy is mitigation; building a flood wall is adaptation.</dd>
+      </div>
+      <div class="glossary-entry" id="moefcc">
+        <dt>MoEFCC (Ministry of Environment, Forest and Climate Change)</dt>
+        <dd>India's central government ministry responsible for environmental policy, climate regulation, and forest and wildlife conservation — the body that issues most of the environmental notifications and clearances relevant to Indian companies' compliance obligations.</dd>
+      </div>
+      <div class="glossary-entry" id="ndc">
+        <dt>NDC (Nationally Determined Contribution)</dt>
+        <dd>Each country's self-defined climate action plan under the Paris Agreement, stating its emissions reduction target and the policies intended to reach it. NDCs are reviewed and expected to be strengthened roughly every five years, though actual ambition varies significantly by country.</dd>
+      </div>
+      <div class="glossary-entry" id="net-zero">
+        <dt>Net Zero</dt>
+        <dd>A state where any greenhouse gas emissions an organisation still produces are balanced by an equivalent amount removed from the atmosphere, typically targeted for a future year — 2050 is the most common corporate horizon. A credible net zero commitment specifies interim targets, covers Scope 1, 2 and material Scope 3 emissions, and doesn't lean on offsets to avoid actual reduction — most public commitments fail at least one of these three tests.</dd>
+      </div>
+      <div class="glossary-entry" id="occupational-heat-exposure">
+        <dt>Occupational Heat Exposure</dt>
+        <dd>The health risk faced by workers, particularly those working outdoors or in unventilated indoor spaces, from prolonged exposure to high temperatures — a workplace safety issue increasingly regulated through WBGT-based work-rest guidelines rather than left to informal judgement.</dd>
+      </div>
+      <div class="glossary-entry" id="paris-agreement">
+        <dt>Paris Agreement</dt>
+        <dd>The 2015 international treaty, adopted at COP21, committing signatory countries to hold global warming well below 2°C above pre-industrial levels, and to pursue efforts to limit it to 1.5°C — the reference targets behind almost every corporate net zero commitment made since.</dd>
+      </div>
+      <div class="glossary-entry" id="patient-access-programme">
+        <dt>Patient Access Programme</dt>
+        <dd>A structured initiative, usually run by a pharmaceutical company or NGO, designed to help patients obtain medicines or treatment they might otherwise be unable to afford or reach, spanning pricing schemes, donation programmes, and last-mile distribution efforts.</dd>
+      </div>
+      <div class="glossary-entry" id="physical-climate-risk">
+        <dt>Physical Climate Risk</dt>
+        <dd>Direct, tangible risk to people, assets, or operations from climate-related events and trends — both acute shocks like floods and storms, and chronic shifts like rising average temperatures or sea level.</dd>
+      </div>
+      <div class="glossary-entry" id="pm25">
+        <dt>PM2.5</dt>
+        <dd>Fine particulate matter measuring 2.5 micrometres or smaller in diameter — small enough to penetrate deep into the lungs and enter the bloodstream — and the pollutant most consistently linked to respiratory and cardiovascular disease in air quality research.</dd>
+      </div>
+      <div class="glossary-entry" id="renewable-energy">
+        <dt>Renewable Energy</dt>
+        <dd>Energy generated from sources that naturally replenish on a human timescale — solar, wind, hydro, geothermal — as distinct from fossil fuels, which do not.</dd>
+      </div>
+      <div class="glossary-entry" id="risk-register">
+        <dt>Risk Register</dt>
+        <dd>A structured, living document that logs identified risks — climate or otherwise — against their likelihood, severity, and mitigation owner, giving an organisation one place to track exposure instead of scattering it across memos and meeting notes. The Climate-Health Materiality Tracker in this guide is a simplified version of a climate risk register.</dd>
+      </div>
+      <div class="glossary-entry" id="scope-emissions">
+        <dt>Scope 1, 2 and 3 Emissions</dt>
+        <dd>The GHG Protocol's classification for a company's carbon footprint. Scope 1 is direct emissions from owned or controlled sources (a company's own vehicles, boilers). Scope 2 is indirect emissions from purchased electricity, heat or steam. Scope 3 is everything else in the value chain — supplier emissions, business travel, product use and disposal — and is usually the largest share of a company's footprint, and the hardest to measure accurately.</dd>
+      </div>
+    </dl>
+    <dl class="glossary-page" data-page="4" style="display:none;">
+      <div class="glossary-entry" id="sdg">
+        <dt>SDG (Sustainable Development Goals)</dt>
+        <dd>A set of 17 global goals adopted by all United Nations member states in 2015, covering poverty, health, education, climate, and more, intended as a shared blueprint for governments, businesses and civil society through 2030. SDG 3 (Good Health and Well-Being) and SDG 13 (Climate Action) are the two most directly relevant to climate-health work.</dd>
+      </div>
+      <div class="glossary-entry" id="sroi">
+        <dt>SROI (Social Return on Investment)</dt>
+        <dd>A framework for expressing the social, environmental and economic value created by a programme in monetary terms, producing a ratio — for example, "₹4 of social value for every ₹1 spent" — that's useful for comparing programmes but sensitive to the assumptions used to build it.</dd>
+      </div>
+      <div class="glossary-entry" id="stakeholder-engagement">
+        <dt>Stakeholder Engagement</dt>
+        <dd>The structured process of identifying and consulting the people and groups affected by or interested in a company's decisions — employees, communities, investors, regulators — used both to inform strategy and, in frameworks like GRI, as a formal reporting requirement in its own right.</dd>
+      </div>
+      <div class="glossary-entry" id="supply-chain-resilience">
+        <dt>Supply Chain Resilience</dt>
+        <dd>The ability of a supply chain to keep functioning, or recover quickly, when disrupted by a shock — a climate event, a geopolitical disruption, a single-source supplier failure — rather than breaking down entirely.</dd>
+      </div>
+      <div class="glossary-entry" id="tcfd">
+        <dt>TCFD</dt>
+        <dd>The Task Force on Climate-related Financial Disclosures, a disclosure framework built around four pillars — governance, strategy, risk management, and metrics and targets — designed to help companies report the financial impact of climate risk to investors. TCFD formally disbanded in October 2023 once its recommendations were folded into the IFRS Sustainability Disclosure Standards (ISSB), but the four-pillar structure is still the reference model most reporting frameworks, including parts of BRSR, are built on.</dd>
+      </div>
+      <div class="glossary-entry" id="transition-risk">
+        <dt>Transition Risk</dt>
+        <dd>The financial risk a company faces from the shift to a low-carbon economy — changing regulation, shifting consumer demand, new carbon pricing, or a technology becoming obsolete — as distinct from physical climate risk.</dd>
+      </div>
+      <div class="glossary-entry" id="triple-bottom-line">
+        <dt>Triple Bottom Line</dt>
+        <dd>A framework for evaluating business performance across three dimensions — people, planet, and profit — rather than financial return alone, popularised in the 1990s as an early precursor to today's ESG reporting.</dd>
+      </div>
+      <div class="glossary-entry" id="unfccc">
+        <dt>UNFCCC (United Nations Framework Convention on Climate Change)</dt>
+        <dd>The 1992 international treaty that established the annual COP process and remains the overarching legal framework under which the Paris Agreement and other climate accords sit.</dd>
+      </div>
+      <div class="glossary-entry" id="value-chain-emissions">
+        <dt>Value Chain Emissions</dt>
+        <dd>Emissions occurring across a company's full value chain — upstream from suppliers and downstream from product use and disposal — largely overlapping with Scope 3 and typically the largest and hardest-to-measure share of a company's total footprint.</dd>
+      </div>
+      <div class="glossary-entry" id="vulnerability">
+        <dt>Vulnerability (climate)</dt>
+        <dd>The degree to which a person, community, or system is susceptible to harm from climate impacts, shaped by exposure (how much climate stress they face), sensitivity (how much that stress affects them), and adaptive capacity (how much ability they have to respond) — three factors that mean two places facing identical flooding can experience very different outcomes.</dd>
+      </div>
+      <div class="glossary-entry" id="water-stress">
+        <dt>Water Stress</dt>
+        <dd>A measure of the pressure on a region's water resources relative to available supply, used to flag areas where demand from agriculture, industry, and households risks outstripping what's sustainably available — a growing input into corporate site-selection and supply chain risk assessment.</dd>
+      </div>
+      <div class="glossary-entry" id="wbgt">
+        <dt>WBGT</dt>
+        <dd>Wet-Bulb Globe Temperature — a composite heat stress measure that combines air temperature, humidity, wind speed, sun angle and cloud cover — a more accurate indicator of the physiological danger of heat than air temperature alone. Occupational heat safety guidelines and heat action plans are built on WBGT thresholds, not the number you see on a weather app, which is why two cities reporting the "same" temperature can carry very different health risk.</dd>
+      </div>
+    </dl>
+    <div class="pagination" id="glossary-pagination">
+      <button class="page-btn page-nav" onclick="prevPage()" id="prev-btn" disabled>&larr; Prev</button>
+      <button class="page-btn active" data-page="0" onclick="goToPage(0)">1</button>
+      <button class="page-btn" data-page="1" onclick="goToPage(1)">2</button>
+      <button class="page-btn" data-page="2" onclick="goToPage(2)">3</button>
+      <button class="page-btn" data-page="3" onclick="goToPage(3)">4</button>
+      <button class="page-btn" data-page="4" onclick="goToPage(4)">5</button>
+      <button class="page-btn page-nav" onclick="nextPage()" id="next-btn">Next &rarr;</button>
+    </div>
+
+    <p class="meta" style="margin-top:40px;">Sources checked against SEBI, MoEFCC, GHG Protocol, and IFRS/ISSB primary documentation. Flag an error and we'll correct it within 48 hours.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+          <path d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+        </svg>
+        <span class="wordmark">Syntropy Earth</span>
+      </div>
+      <p class="footer-tag">Advisory &middot; Strategy &middot; Impact</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4 class="h4">Navigate</h4>
+        <a href="/services">Services</a>
+        <a href="/thinking">Thinking</a>
+        <a href="/guide/">Guide</a>
+        <a href="/about">About</a>
+        <a href="/#contact">Work with us</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="h4">Connect</h4>
+        <a href="https://www.linkedin.com/in/abhijithmagal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@abhijithmagal" target="_blank" rel="noopener">YouTube</a>
+        <a href="mailto:hello@syntropyearth.com">hello@syntropyearth.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
+    <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved.</span>
+    <span>Bengaluru, India &middot; Working globally</span>
+  </div>
+  <div class="wrap" style="padding-top:24px;">
+    <div style="margin-top:8px;">
+      <a href="/" class="btn btn-outline-on-dark">Back to Syntropy Earth</a>
+      <a href="mailto:hello@syntropyearth.com" class="btn btn-primary" style="margin-left:12px;">Email us directly</a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+var GLOSSARY_TOTAL_PAGES = 5;
+var GLOSSARY_CURRENT_PAGE = 0;
+
+function goToPage(n) {
+  if (n < 0 || n >= GLOSSARY_TOTAL_PAGES) return;
+  document.querySelectorAll(".glossary-page").forEach(function (el) {
+    el.style.display = (parseInt(el.dataset.page, 10) === n) ? "block" : "none";
+  });
+  document.querySelectorAll(".pagination .page-btn[data-page]").forEach(function (btn) {
+    btn.classList.toggle("active", parseInt(btn.dataset.page, 10) === n);
+  });
+  document.getElementById("prev-btn").disabled = (n === 0);
+  document.getElementById("next-btn").disabled = (n === GLOSSARY_TOTAL_PAGES - 1);
+  GLOSSARY_CURRENT_PAGE = n;
+}
+function prevPage() { goToPage(GLOSSARY_CURRENT_PAGE - 1); }
+function nextPage() { goToPage(GLOSSARY_CURRENT_PAGE + 1); }
+
+/* A-Z jump: switch to the right page, then scroll the term into view */
+document.querySelectorAll(".jump-letter").forEach(function (link) {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    var page = parseInt(this.dataset.page, 10);
+    var targetId = this.getAttribute("href").slice(1);
+    goToPage(page);
+    requestAnimationFrame(function () {
+      var el = document.getElementById(targetId);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+});
+</script>
+<script src="/js/main.js"></script>
+</body>
+</html>

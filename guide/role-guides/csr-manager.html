@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) — GA4 property G-SRYX1DSMRX, matches sitewide install -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SRYX1DSMRX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SRYX1DSMRX');
+</script>
+<!-- Google Tag Manager — currently inactive. Once the container is created (see
+     analytics-and-gtm-setup.md), uncomment this block, replace GTM-XXXXXXX with the
+     real container ID, and remove the gtag.js block above so tracking isn't double-counted.
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The CSR Manager's Guide to Climate-Health Spend — Syntropy Guide</title>
+<meta name="description" content="Where climate-health fits inside a Section 135 CSR budget, and how to defend the line item to leadership.">
+<link rel="stylesheet" href="/styles.css">
+<style>
+/* ============================================================
+   SYNTROPY GUIDE — supplementary styles only
+   Everything else (nav, footer, hero, section, card, btn, label,
+   lead, wrap, pull-quote, faq, citations, h4) comes from the real
+   /styles.css, linked above. This file covers ONLY the handful of
+   components that page doesn't already have: glossary entries,
+   pagination, the framework comparison table, the stats band, and
+   the breadcrumb trail.
+   ============================================================ */
+
+/* ---- Breadcrumb (no equivalent in the base system) ---- */
+.breadcrumb {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--text-faint);
+  margin-bottom: var(--gutter, 24px);
+}
+.breadcrumb a { color: var(--text-muted); }
+
+/* ---- Guide category / role / template tiles ----
+   Reuses the real .card shell; only the tag-pill row is new. */
+.g-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media (min-width: 640px) { .g-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .g-grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
+.g-grid .card h4 a { color: var(--deep-forest); }
+.g-grid .card h4 a:hover { color: var(--red-earth); }
+.g-grid .card p { font-size: 13px; color: var(--text-muted); margin-top: 0.5rem; }
+
+.tag-row { margin-top: 1rem; }
+.tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--pale-sage);
+  color: var(--forest);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+.tag.tag-clay { background: var(--pale-clay); color: var(--dark-red-earth); }
+.tag.tag-blue { background: var(--sky-pale); color: var(--monsoon-blue); }
+
+/* ---- Framework comparison table ---- */
+table.compare {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 2rem 0;
+}
+table.compare th, table.compare td {
+  border: 1px solid var(--hr);
+  padding: 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+table.compare th {
+  font-family: var(--sans);
+  font-weight: 500;
+  color: var(--deep-forest);
+  background: var(--pale-sage);
+}
+
+/* ---- Glossary ---- */
+.glossary-entry { border-bottom: 1px solid var(--hr); padding: 1.5rem 0; }
+.glossary-entry dt { font-family: var(--serif); font-size: 22px; color: var(--deep-forest); font-weight: 400; }
+.glossary-entry dd { margin: 0.5rem 0 0; color: var(--text); font-size: 15px; line-height: 1.7; }
+
+.glossary-jump { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 2.5rem; }
+.glossary-jump a, .glossary-jump .jump-empty {
+  font-family: var(--mono);
+  font-size: 12px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.glossary-jump a { border: 1px solid var(--hr); color: var(--forest); }
+.glossary-jump a:hover { background: var(--pale-sage); }
+.glossary-jump .jump-empty { border: 1px dashed var(--hr); color: var(--text-faint); cursor: default; }
+
+/* ---- Pagination ---- */
+.pagination { display: flex; gap: 6px; align-items: center; margin: 2.5rem 0; flex-wrap: wrap; }
+.page-btn {
+  font-family: var(--mono);
+  font-size: 12px;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--hr);
+  background: var(--white);
+  color: var(--forest);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.page-btn:hover:not(:disabled) { background: var(--pale-sage); }
+.page-btn.active { background: var(--red-earth); border-color: var(--red-earth); color: var(--soft-cream); }
+.page-btn:disabled { opacity: 0.35; cursor: default; }
+.page-btn.page-nav { min-width: auto; padding: 0 12px; }
+
+/* ---- Live stats band ---- */
+.stats-band { background: var(--deep-forest); border-bottom: 1px solid var(--hr-on-dark); }
+.stats-row { display: flex; justify-content: space-between; flex-wrap: wrap; padding: 1.5rem var(--gutter); gap: 1rem; }
+.stat-item { display: flex; flex-direction: column; align-items: flex-start; min-width: 140px; }
+.stat-number { font-family: var(--serif); font-weight: 400; font-size: 34px; color: var(--soft-cream); line-height: 1; }
+.stat-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-top: 0.5rem; }
+
+/* ---- Guide industry/detail tiles (plain card content, no tag-pill) ---- */
+.g-grid .card h4.h4 { margin-bottom: 0.4rem; }
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The CSR Manager's Guide to Climate-Health Spend",
+  "description": "Where climate-health fits inside a Section 135 CSR budget, and how to defend the line item to leadership.",
+  "author": { "@type": "Person", "name": "Abhijith Magal L" },
+  "publisher": { "@type": "Organization", "name": "Syntropy Earth", "url": "https://syntropyearth.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does climate-health work qualify as a Schedule VII CSR activity in India?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Climate-health programmes typically map to at least three Schedule VII categories at once: promoting health care (including preventive health care), environmental sustainability, and disaster management including relief and rehabilitation." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a climate-health diagnostic run inside an existing CSR health programme rather than as a new one?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. A climate-health diagnostic is best framed as a resilience audit of a programme already funded, not a request for new budget — this is usually the easier internal approval." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) — inactive, see head comment
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+-->
+
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/" aria-label="Syntropy Earth home">
+      <svg class="mark mark-draw" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path class="arc" d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+        <path class="arc arc-2" d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+        <path class="arc arc-3" d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+        <circle class="dot" cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+      </svg>
+      <span class="wordmark">Syntropy Earth</span>
+    </a>
+    <div class="nav-links">
+      <a href="/services">Services</a>
+      <a href="/thinking">Thinking</a>
+      <a href="/guide/">Guide</a>
+      <a href="/about">About</a>
+      <a class="btn btn-primary" href="/#contact">Work with us</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/services">Services</a>
+  <a href="/thinking">Thinking</a>
+  <a href="/guide/">Guide</a>
+  <a href="/about">About</a>
+  <a class="btn btn-primary" href="/#contact">Work with us</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:24px;">
+  <div class="hero-glow"></div>
+  <div class="wrap page-hero-inner">
+    <div class="breadcrumb"><a href="/guide/">Guide</a> / <a href="/guide/role-guides/">Role Guides</a> / CSR Manager</div>
+    <span class="label">Role Guide · CSR Manager</span>
+    <h1>Where climate-health fits inside your CSR budget</h1>
+    <p class="lead" style="max-width:640px;">You already have the budget. The question isn't whether to spend on climate-health — it's how to make the case that this line item is the defensible one, not the sentimental one.</p>
+    <p class="meta" style="margin-top:16px;">This guide runs on two tracks. <a href="#track-1">Track 1</a> is for budgeting and defending the spend — start here if you already know CSR and just need the pitch. <a href="#track-2">Track 2</a> is climate literacy — start here if the terminology itself, or the different flavours of CSR, is what's slowing you down. A CSR manager at a pharma company and one at a cement company are working from different mandates, different pressure points, and often different vocabulary, so pick the track that matches where you actually are.</p>
+  </div>
+</section>
+
+<section class="section section--warm" style="padding-top:0;">
+  <div class="wrap">
+
+    <span class="label" id="track-1">Track 1 · Budgeting and Defending the Spend</span>
+
+    <h3>The problem you're actually solving</h3>
+    <p>Section 135 gives you a mandated 2% of average net profit and a list of eligible activities under Schedule VII. Most of that list gets interpreted narrowly — education, sanitation, rural development — because it's what's always been funded and it's the safest thing to put in front of a committee. Climate-health rarely gets pitched because nobody on the committee has seen it framed as a Schedule VII activity before, not because it doesn't qualify.</p>
+
+    <h3>Where it fits, specifically</h3>
+    <p>Climate-health work maps cleanly onto at least three existing Schedule VII categories: promoting health care (including preventive health care), environmental sustainability, and disaster management including relief and rehabilitation. A programme that strengthens a rural clinic's ability to stay operational through a heatwave or flood sits inside all three simultaneously — which is unusual, and worth saying out loud in the proposal, because most CSR line items only touch one category.</p>
+
+    <h3>The argument that lands with a finance-literate committee</h3>
+    <p>Don't lead with impact language. Lead with continuity language. A health access programme that collapses every monsoon season isn't just an equity gap — it's a programme that's failing to deliver the ROI the company already committed capital to. Climate-health diagnostic work isn't a new ask; it's risk management on an existing investment.</p>
+
+    <blockquote class="pull-quote">The pitch isn't "care about climate." The pitch is "protect the programme you already funded."</blockquote>
+
+    <h3>What to ask for first</h3>
+    <p>Not a multi-year commitment. A diagnostic. Score the climate resilience of one existing health or access programme against a full climate-health year — geographic access, supply chain integrity, workforce availability, financial and demand continuity — and bring the committee a number, not a narrative. Numbers get approved faster than stories in a CSR committee, because numbers are defensible in an audit.</p>
+
+    <h3>Common objections, and how to answer them</h3>
+    <p><strong>"We already have a health programme."</strong> Good — this isn't a new programme, it's a resilience audit of the one you have. The ask is smaller than it sounds.</p>
+    <p><strong>"Climate isn't in our CSR policy document."</strong> Check the policy against Schedule VII directly, not against the document your predecessor wrote in 2018. Environmental sustainability and disaster management are both already there.</p>
+    <p><strong>"How do we report this for BRSR?"</strong> A climate-health diagnostic produces exactly the kind of structured, principle-aligned data BRSR Core assurance is starting to ask for. This is one of the few CSR spends that also strengthens your compliance filing.</p>
+
+    <h3>It depends on your industry</h3>
+    <p>Section 135 applies the same 2% rule to every qualifying company, but what a committee will actually approve, and what counts as a credible climate-health angle, shifts by sector. A few patterns worth knowing before you walk in:</p>
+
+    <div class="g-grid cols-3" style="margin-top:16px;">
+      <div class="card">
+        <h4 class="h4">Pharma</h4>
+        <p>The easiest sector to make this case in. Patient access programmes already exist; climate-health framing is a resilience audit of something the committee already funds, not a new ask.</p>
+      </div>
+      <div class="card">
+        <h4 class="h4">FMCG</h4>
+        <p>Supply chain and agricultural sourcing disruption is the entry point — climate-health framing works best attached to smallholder or rural distribution network programmes already in place.</p>
+      </div>
+      <div class="card">
+        <h4 class="h4">Manufacturing &amp; cement/metals</h4>
+        <p>Occupational heat exposure for the workforce is the most defensible angle, since it sits inside existing HSE and duty-of-care obligations rather than requiring a new programme category.</p>
+      </div>
+      <div class="card">
+        <h4 class="h4">IT &amp; financial services</h4>
+        <p>No direct operational climate exposure, so the case usually runs through BRSR reporting quality and employee wellbeing rather than physical infrastructure resilience.</p>
+      </div>
+      <div class="card">
+        <h4 class="h4">Telecom</h4>
+        <p>Network infrastructure resilience during extreme weather is a genuine business continuity issue that overlaps cleanly with disaster management under Schedule VII.</p>
+      </div>
+      <div class="card">
+        <h4 class="h4">Retail</h4>
+        <p>Cold chain and last-mile logistics disruption during heat and flood events is the most concrete, budget-committee-friendly framing available in this sector.</p>
+      </div>
+    </div>
+
+    <h3>Related in the guide</h3>
+    <div class="g-grid cols-3" style="margin-top:16px;">
+      <div class="card">
+        <span class="meta">Glossary</span>
+        <h4 class="h4"><a href="/guide/glossary.html#csr">CSR — Section 135</a></h4>
+      </div>
+      <div class="card">
+        <span class="meta">Glossary</span>
+        <h4 class="h4"><a href="/guide/glossary.html#materiality">Materiality Assessment</a></h4>
+      </div>
+      <div class="card">
+        <span class="meta">Template</span>
+        <h4 class="h4"><a href="/guide/templates-tools/">Climate-Health Materiality Tracker</a></h4>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="wrap">
+    <span class="label" id="track-2">Track 2 · Climate Literacy for CSR Managers</span>
+    <h2>If Track 1 assumed too much, start here</h2>
+    <p class="lead" style="max-width:640px;">CSR isn't one thing. Understanding the shape of it, before trying to fit climate-health into it, makes the rest of this guide land faster.</p>
+
+    <h3>CSR isn't a single activity type — it's four</h3>
+    <p>Environmental responsibility covers sustainability, climate action, waste management and conservation. Ethical responsibility covers fair business practices, transparency and governance. Philanthropic responsibility covers donations, education, healthcare and community welfare. Economic responsibility covers long-term value creation alongside social objectives. Climate-health work usually sits across environmental and philanthropic at once — which is exactly why it doesn't fit neatly into whichever single bucket your existing CSR policy was originally written around.</p>
+
+    <h3>The frameworks you'll hear referenced, in one line each</h3>
+    <p><strong>Schedule VII</strong> is the list of eligible CSR activity categories under the Companies Act. <strong>BRSR</strong> is India's separate, mandatory ESG disclosure format for large listed companies — a different obligation to CSR spend, though the two increasingly overlap in the data they ask for. <strong>GRI</strong> and <strong>ISSB/TCFD</strong> are international voluntary or investor-facing standards, useful mainly if your company reports globally. The full breakdown, with links to each framework's own documentation, is in the <a href="/guide/regulations-library.html">Regulations &amp; Standards Library</a>.</p>
+
+    <h3>What actually counts as an eligible CSR activity</h3>
+    <p>Schedule VII lists broad categories rather than a specific checklist: eradicating hunger and poverty, promoting education, promoting gender equality, ensuring environmental sustainability, protecting national heritage, benefiting armed forces veterans, promoting sports, contributing to relief funds, contributing to technology incubators, rural development, and disaster management including relief, rehabilitation and reconstruction. Climate-health programmes typically draw on the environmental sustainability, healthcare, and disaster management categories at once.</p>
+
+    <h3>Where to go next</h3>
+    <p>Once the vocabulary stops being the obstacle, <a href="#track-1">Track 1</a> above walks through the actual budgeting conversation. If you want to go deeper on any single term, the <a href="/guide/glossary.html">full glossary</a> now covers 60 climate, health and CSR terms with the same one-paragraph, no-jargon format used throughout this guide.</p>
+
+    <p>If reading isn't how you'd rather absorb this, we also run short working sessions and workshops that cover exactly this ground with your CSR committee in the room, rather than one person taking notes and reporting back. <a href="mailto:hello@syntropyearth.com">Ask about a session</a>.</p>
+  </div>
+</section>
+
+<section class="section section--warm">
+  <div class="wrap">
+    <h3>Abbreviations used on this page</h3>
+    <div class="g-grid cols-3" style="margin-top:16px;">
+      <div class="card"><h4 class="h4"><a href="/guide/glossary.html#csr">CSR</a></h4><p>Corporate Social Responsibility</p></div>
+      <div class="card"><h4 class="h4"><a href="/guide/glossary.html#brsr">BRSR</a></h4><p>Business Responsibility and Sustainability Report</p></div>
+      <div class="card"><h4 class="h4"><a href="/guide/glossary.html#brsr-core">BRSR Core</a></h4><p>Assured subset of BRSR indicators</p></div>
+      <div class="card"><h4 class="h4"><a href="/guide/glossary.html#gri">GRI</a></h4><p>Global Reporting Initiative</p></div>
+      <div class="card"><h4 class="h4"><a href="/guide/glossary.html#issb">ISSB</a></h4><p>International Sustainability Standards Board</p></div>
+      <div class="card"><h4 class="h4"><a href="/guide/glossary.html#materiality">Materiality</a></h4><p>What matters most, and to whom</p></div>
+    </div>
+
+    <p class="meta" style="margin-top:32px;">Every figure and rule on this page is checked against a primary source, not a summary of one. The 2% average-net-profit spend requirement and Schedule VII activity categories come directly from <a href="https://www.indiacode.nic.in/show-data?actid=AC_CEN_22_29_00008_201318_1517807327856&sectionId=1326&sectionno=135&orderno=139" target="_blank" rel="noopener">Section 135 of the Companies Act, 2013, as published on India Code, the Government of India's official legislative portal</a>. BRSR Core assurance detail is checked against the <a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" rel="noopener">SEBI circular that established BRSR</a>. If something here goes stale, <a href="mailto:hello@syntropyearth.com">tell us</a> and we'll fix it.</p>
+  </div>
+</section>
+
+<section class="section section--forest">
+  <div class="wrap" style="text-align:center;">
+    <h2>Want the diagnostic version of this, run on your own programme?</h2>
+    <p class="lead" style="max-width:520px; margin:0 auto 24px;">CAST scores your existing health or access programme against a full climate-health year in six weeks.</p>
+    <a href="https://syntropyearth.com/contact" class="btn btn-primary">Talk to Syntropy Earth</a>
+    <a href="mailto:hello@syntropyearth.com?subject=Workshop%20enquiry" class="btn btn-outline-on-dark" style="margin-left:12px;">Ask about a workshop</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+          <path d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+        </svg>
+        <span class="wordmark">Syntropy Earth</span>
+      </div>
+      <p class="footer-tag">Advisory &middot; Strategy &middot; Impact</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4 class="h4">Navigate</h4>
+        <a href="/services">Services</a>
+        <a href="/thinking">Thinking</a>
+        <a href="/guide/">Guide</a>
+        <a href="/about">About</a>
+        <a href="/#contact">Work with us</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="h4">Connect</h4>
+        <a href="https://www.linkedin.com/in/abhijithmagal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@abhijithmagal" target="_blank" rel="noopener">YouTube</a>
+        <a href="mailto:hello@syntropyearth.com">hello@syntropyearth.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
+    <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved.</span>
+    <span>Bengaluru, India &middot; Working globally</span>
+  </div>
+  <div class="wrap" style="padding-top:24px;">
+    <div style="margin-top:8px;">
+      <a href="/" class="btn btn-outline-on-dark">Back to Syntropy Earth</a>
+      <a href="mailto:hello@syntropyearth.com" class="btn btn-primary" style="margin-left:12px;">Email us directly</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

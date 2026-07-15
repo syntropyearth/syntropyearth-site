@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) — GA4 property G-SRYX1DSMRX, matches sitewide install -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SRYX1DSMRX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SRYX1DSMRX');
+</script>
+<!-- Google Tag Manager — currently inactive. Once the container is created (see
+     analytics-and-gtm-setup.md), uncomment this block, replace GTM-XXXXXXX with the
+     real container ID, and remove the gtag.js block above so tracking isn't double-counted.
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Role-Based Guides — Syntropy Guide | Syntropy Earth</title>
+<meta name="description" content="What climate-health risk means for your specific role — CSR manager, sustainability lead, HR duty-of-care owner, CFO, or operations head.">
+<link rel="stylesheet" href="/styles.css">
+<style>
+/* ============================================================
+   SYNTROPY GUIDE — supplementary styles only
+   Everything else (nav, footer, hero, section, card, btn, label,
+   lead, wrap, pull-quote, faq, citations, h4) comes from the real
+   /styles.css, linked above. This file covers ONLY the handful of
+   components that page doesn't already have: glossary entries,
+   pagination, the framework comparison table, the stats band, and
+   the breadcrumb trail.
+   ============================================================ */
+
+/* ---- Breadcrumb (no equivalent in the base system) ---- */
+.breadcrumb {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--text-faint);
+  margin-bottom: var(--gutter, 24px);
+}
+.breadcrumb a { color: var(--text-muted); }
+
+/* ---- Guide category / role / template tiles ----
+   Reuses the real .card shell; only the tag-pill row is new. */
+.g-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media (min-width: 640px) { .g-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .g-grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
+.g-grid .card h4 a { color: var(--deep-forest); }
+.g-grid .card h4 a:hover { color: var(--red-earth); }
+.g-grid .card p { font-size: 13px; color: var(--text-muted); margin-top: 0.5rem; }
+
+.tag-row { margin-top: 1rem; }
+.tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--pale-sage);
+  color: var(--forest);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+.tag.tag-clay { background: var(--pale-clay); color: var(--dark-red-earth); }
+.tag.tag-blue { background: var(--sky-pale); color: var(--monsoon-blue); }
+
+/* ---- Framework comparison table ---- */
+table.compare {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 2rem 0;
+}
+table.compare th, table.compare td {
+  border: 1px solid var(--hr);
+  padding: 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+table.compare th {
+  font-family: var(--sans);
+  font-weight: 500;
+  color: var(--deep-forest);
+  background: var(--pale-sage);
+}
+
+/* ---- Glossary ---- */
+.glossary-entry { border-bottom: 1px solid var(--hr); padding: 1.5rem 0; }
+.glossary-entry dt { font-family: var(--serif); font-size: 22px; color: var(--deep-forest); font-weight: 400; }
+.glossary-entry dd { margin: 0.5rem 0 0; color: var(--text); font-size: 15px; line-height: 1.7; }
+
+.glossary-jump { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 2.5rem; }
+.glossary-jump a, .glossary-jump .jump-empty {
+  font-family: var(--mono);
+  font-size: 12px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.glossary-jump a { border: 1px solid var(--hr); color: var(--forest); }
+.glossary-jump a:hover { background: var(--pale-sage); }
+.glossary-jump .jump-empty { border: 1px dashed var(--hr); color: var(--text-faint); cursor: default; }
+
+/* ---- Pagination ---- */
+.pagination { display: flex; gap: 6px; align-items: center; margin: 2.5rem 0; flex-wrap: wrap; }
+.page-btn {
+  font-family: var(--mono);
+  font-size: 12px;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--hr);
+  background: var(--white);
+  color: var(--forest);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.page-btn:hover:not(:disabled) { background: var(--pale-sage); }
+.page-btn.active { background: var(--red-earth); border-color: var(--red-earth); color: var(--soft-cream); }
+.page-btn:disabled { opacity: 0.35; cursor: default; }
+.page-btn.page-nav { min-width: auto; padding: 0 12px; }
+
+/* ---- Live stats band ---- */
+.stats-band { background: var(--deep-forest); border-bottom: 1px solid var(--hr-on-dark); }
+.stats-row { display: flex; justify-content: space-between; flex-wrap: wrap; padding: 1.5rem var(--gutter); gap: 1rem; }
+.stat-item { display: flex; flex-direction: column; align-items: flex-start; min-width: 140px; }
+.stat-number { font-family: var(--serif); font-weight: 400; font-size: 34px; color: var(--soft-cream); line-height: 1; }
+.stat-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-top: 0.5rem; }
+
+/* ---- Guide industry/detail tiles (plain card content, no tag-pill) ---- */
+.g-grid .card h4.h4 { margin-bottom: 0.4rem; }
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Role-Based Guides — Syntropy Guide",
+  "description": "What climate-health risk means for a specific seat — CSR manager, sustainability lead, HR duty-of-care owner, CFO, operations head, or pharma access programme lead.",
+  "isPartOf": { "@type": "CollectionPage", "name": "Syntropy Guide", "url": "https://syntropyearth.com/guide/" },
+  "publisher": { "@type": "Organization", "name": "Syntropy Earth", "url": "https://syntropyearth.com" }
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) — inactive, see head comment
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+-->
+
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/" aria-label="Syntropy Earth home">
+      <svg class="mark mark-draw" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path class="arc" d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+        <path class="arc arc-2" d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+        <path class="arc arc-3" d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+        <circle class="dot" cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+      </svg>
+      <span class="wordmark">Syntropy Earth</span>
+    </a>
+    <div class="nav-links">
+      <a href="/services">Services</a>
+      <a href="/thinking">Thinking</a>
+      <a href="/guide/">Guide</a>
+      <a href="/about">About</a>
+      <a class="btn btn-primary" href="/#contact">Work with us</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/services">Services</a>
+  <a href="/thinking">Thinking</a>
+  <a href="/guide/">Guide</a>
+  <a href="/about">About</a>
+  <a class="btn btn-primary" href="/#contact">Work with us</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px;">
+  <div class="hero-glow"></div>
+  <div class="wrap page-hero-inner">
+    <div class="breadcrumb"><a href="/guide/">Guide</a> / Role-Based Guides</div>
+    <span class="label">Section 03 · Role-Based Guides</span>
+    <h1>Find the guide written for your seat</h1>
+    <p class="lead" style="max-width:640px;">"Climate risk" means something different depending on whether you're the one budgeting for it, reporting it, or being held accountable for it in a boardroom. Each guide starts from what actually lands on your desk.</p>
+  </div>
+</section>
+
+<section class="section section--warm" style="padding-top:0;">
+  <div class="wrap">
+    <div class="g-grid cols-3">
+      <div class="card">
+        <span class="label">Live</span>
+        <h4 class="h4"><a href="/guide/role-guides/csr-manager.html">CSR Manager</a></h4>
+        <p>Where climate-health fits inside a Section 135 budget, and how to defend the line item to leadership.</p>
+      </div>
+      <div class="card">
+        <span class="label">Planned</span>
+        <h4 class="h4">Sustainability / ESG Lead</h4>
+        <p>Turning BRSR filing obligations into a genuine climate strategy, not just a compliance exercise.</p>
+      </div>
+      <div class="card">
+        <span class="label">Planned</span>
+        <h4 class="h4">HR / Duty-of-Care Owner</h4>
+        <p>Heat, air quality and travel risk as employee wellbeing obligations, not HSE footnotes.</p>
+      </div>
+      <div class="card">
+        <span class="label">Planned</span>
+        <h4 class="h4">CFO / Finance Lead</h4>
+        <p>How to read a climate risk register the way you'd read any other financial exposure.</p>
+      </div>
+      <div class="card">
+        <span class="label">Planned</span>
+        <h4 class="h4">Operations / Supply Chain Head</h4>
+        <p>Where climate disruption actually breaks a supply chain, and how to price the fix before it happens.</p>
+      </div>
+      <div class="card">
+        <span class="label">Planned</span>
+        <h4 class="h4">Pharma Access Programme Lead</h4>
+        <p>Climate resilience as a design requirement for patient access programmes, not an add-on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+          <path d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+        </svg>
+        <span class="wordmark">Syntropy Earth</span>
+      </div>
+      <p class="footer-tag">Advisory &middot; Strategy &middot; Impact</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4 class="h4">Navigate</h4>
+        <a href="/services">Services</a>
+        <a href="/thinking">Thinking</a>
+        <a href="/guide/">Guide</a>
+        <a href="/about">About</a>
+        <a href="/#contact">Work with us</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="h4">Connect</h4>
+        <a href="https://www.linkedin.com/in/abhijithmagal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@abhijithmagal" target="_blank" rel="noopener">YouTube</a>
+        <a href="mailto:hello@syntropyearth.com">hello@syntropyearth.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
+    <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved.</span>
+    <span>Bengaluru, India &middot; Working globally</span>
+  </div>
+  <div class="wrap" style="padding-top:24px;">
+    <div style="margin-top:8px;">
+      <a href="/" class="btn btn-outline-on-dark">Back to Syntropy Earth</a>
+      <a href="mailto:hello@syntropyearth.com" class="btn btn-primary" style="margin-left:12px;">Email us directly</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>
