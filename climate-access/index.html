@@ -112,6 +112,10 @@
   .bench .b2{font-size:16px; color:var(--monsoon-deep)}
   .bench strong{color:var(--monsoon-deep)}
   .bandmeaning{background:var(--clay-pale); border:1px solid rgba(207,155,125,.35); border-radius:9px; padding:16px 18px; text-align:left; max-width:560px; margin:14px auto 6px}
+  .callout{background:var(--sky-pale); border:1px solid rgba(61,100,120,.25); border-radius:10px; padding:20px 22px; max-width:560px; margin:20px auto}
+  .callout-label{font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--monsoon); margin-bottom:8px}
+  .callout p{font-size:14px; line-height:1.65; color:var(--bg-dark); margin:0 0 10px}
+  .callout p:last-child{margin-bottom:0}
   .bandmeaning .b1{font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--red-dark); text-align:center}
   .bandmeaning .b2{font-size:14.5px; line-height:1.65; color:var(--bg-dark)}
 
@@ -148,12 +152,14 @@
   .dimcard .bd{font-family:var(--mono); font-size:9.5px; letter-spacing:.10em; text-transform:uppercase; padding:3px 8px; border-radius:5px; flex:0 0 auto}
   .dimcard p{font-size:13.5px; color:var(--text-muted); margin:0}
   .dimcard p.dimcontext{margin-top:9px; padding-top:9px; border-top:1px solid var(--border); font-size:12.8px; line-height:1.6; color:var(--text-faint)}
+  .dimcard p.dimaction{margin-top:9px; padding-top:9px; border-top:1px dashed var(--sage); font-size:12.8px; line-height:1.6; color:var(--forest)}
+  .dimaction-label{font-family:var(--mono); font-size:9.5px; letter-spacing:.10em; text-transform:uppercase; color:var(--forest); font-weight:600}
   .dimcard.gap{border-left-color:var(--clay); border-left-style:dashed}
 
   /* 4x4 grid */
-  .gridtable{width:100%; border-collapse:separate; border-spacing:4px; margin:8px 0 6px; font-size:12px}
+  .gridtable{width:100%; table-layout:fixed; border-collapse:separate; border-spacing:4px; margin:8px 0 6px; font-size:12px}
   .gridtable th{font-family:var(--mono); font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-faint); font-weight:400; padding:4px; text-align:center}
-  .gridtable th.row{text-align:left; max-width:120px}
+  .gridtable th.row{text-align:left; width:26%}
   .gridtable td{height:34px; border-radius:5px; text-align:center; color:#fff; font-family:var(--mono); font-size:9px; letter-spacing:.06em; text-transform:uppercase}
   .gridtable td.gapcell{color:var(--clay); background:repeating-linear-gradient(45deg,#F0DED0,#F0DED0 4px,#FAF4E8 4px,#FAF4E8 8px); border:1px dashed var(--clay)}
 
@@ -291,16 +297,85 @@ var SECTORS = {
 
 /* Tier 2 -- region hazard calibration. ILLUSTRATIVE 0..3 per force.
    Replace this object with the real IMD / CEEW / Lancet Countdown / NDMA table. */
+/* State-level hazard table (v1.3). Eight states/UTs carry their original
+   calibration-era values (dl replaces ncr as the state-accurate id; mh/guj/ka/
+   tn/tg/wb/rj unchanged). Every other state inherits its zone's average,
+   documented here rather than individually researched -- the same honest
+   limitation flagged since the calibration build, now scoped to states
+   instead of hidden behind "Elsewhere in India". Zone averages are Syntropy
+   Earth judgement values, CEEW-direction-checked (western/central more
+   drought-vulnerable, northern/eastern more flood-vulnerable, India Zonal
+   Council groupings per MHA, mha.gov.in/en/page/zonal-council). */
 var REGIONS = [
-  {id:"ncr",       name:"Delhi NCR (North)",        h:{heat:3, monsoon:2, air:3, drought:2}},
-  {id:"mh",        name:"Mumbai / Maharashtra (West)",h:{heat:2, monsoon:3, air:2, drought:1}},
-  {id:"guj",       name:"Gujarat (West)",            h:{heat:3, monsoon:2, air:2, drought:3}},
-  {id:"ka",        name:"Bengaluru / Karnataka (South)",h:{heat:2, monsoon:2, air:2, drought:2}},
-  {id:"tn",        name:"Tamil Nadu (South)",        h:{heat:3, monsoon:3, air:1, drought:2}},
-  {id:"tg",        name:"Hyderabad / Telangana (South)",h:{heat:3, monsoon:2, air:2, drought:3}},
-  {id:"wb",        name:"Kolkata / West Bengal (East)",h:{heat:2, monsoon:3, air:3, drought:1}},
-  {id:"rj",        name:"Rajasthan (North-West)",    h:{heat:3, monsoon:1, air:2, drought:3}},
-  {id:"pan",       name:"Pan-India / multiple zones",h:{heat:3, monsoon:3, air:3, drought:3}}
+  {id:"dl",  name:"Delhi",          h:{heat:3, monsoon:2, air:3, drought:2}},
+  {id:"mh",  name:"Maharashtra",    h:{heat:2, monsoon:3, air:2, drought:1}},
+  {id:"guj", name:"Gujarat",        h:{heat:3, monsoon:2, air:2, drought:3}},
+  {id:"ka",  name:"Karnataka",      h:{heat:2, monsoon:2, air:2, drought:2}},
+  {id:"tn",  name:"Tamil Nadu",     h:{heat:3, monsoon:3, air:1, drought:2}},
+  {id:"tg",  name:"Telangana",      h:{heat:3, monsoon:2, air:2, drought:3}},
+  {id:"wb",  name:"West Bengal",    h:{heat:2, monsoon:3, air:3, drought:1}},
+  {id:"rj",  name:"Rajasthan",      h:{heat:3, monsoon:1, air:2, drought:3}},
+  {id:"pan", name:"Pan-India / multiple zones", h:{heat:3, monsoon:3, air:3, drought:3}},
+
+  {id:"z-north",     name:"Northern zone (average)",      h:{heat:3, monsoon:2, air:3, drought:2}},
+  {id:"z-central",   name:"Central zone (average)",       h:{heat:3, monsoon:2, air:2, drought:3}},
+  {id:"z-east",      name:"Eastern zone (average)",       h:{heat:2, monsoon:3, air:3, drought:1}},
+  {id:"z-west",      name:"Western zone (average)",       h:{heat:3, monsoon:2, air:2, drought:3}},
+  {id:"z-south",     name:"Southern zone (average)",      h:{heat:3, monsoon:3, air:1, drought:2}},
+  {id:"z-northeast", name:"North-Eastern zone (average)", h:{heat:2, monsoon:3, air:2, drought:1}},
+
+  {id:"hr", name:"Haryana",              h:{heat:3, monsoon:2, air:3, drought:2}},
+  {id:"pb", name:"Punjab",               h:{heat:3, monsoon:2, air:3, drought:2}},
+  {id:"hp", name:"Himachal Pradesh",     h:{heat:3, monsoon:2, air:3, drought:2}},
+  {id:"jk", name:"Jammu & Kashmir",      h:{heat:3, monsoon:2, air:3, drought:2}},
+  {id:"la", name:"Ladakh",               h:{heat:3, monsoon:2, air:3, drought:2}},
+  {id:"ch", name:"Chandigarh",           h:{heat:3, monsoon:2, air:3, drought:2}},
+  {id:"up", name:"Uttar Pradesh",        h:{heat:3, monsoon:2, air:2, drought:3}},
+  {id:"mp", name:"Madhya Pradesh",       h:{heat:3, monsoon:2, air:2, drought:3}},
+  {id:"cg", name:"Chhattisgarh",         h:{heat:3, monsoon:2, air:2, drought:3}},
+  {id:"uk", name:"Uttarakhand",          h:{heat:3, monsoon:2, air:2, drought:3}},
+  {id:"bh", name:"Bihar",                h:{heat:2, monsoon:3, air:3, drought:1}},
+  {id:"jh", name:"Jharkhand",            h:{heat:2, monsoon:3, air:3, drought:1}},
+  {id:"od", name:"Odisha",               h:{heat:2, monsoon:3, air:3, drought:1}},
+  {id:"goa",name:"Goa",                  h:{heat:3, monsoon:2, air:2, drought:3}},
+  {id:"dnhdd",name:"Dadra & Nagar Haveli and Daman & Diu", h:{heat:3, monsoon:2, air:2, drought:3}},
+  {id:"ap", name:"Andhra Pradesh",       h:{heat:3, monsoon:3, air:1, drought:2}},
+  {id:"kl", name:"Kerala",               h:{heat:3, monsoon:3, air:1, drought:2}},
+  {id:"py", name:"Puducherry",           h:{heat:3, monsoon:3, air:1, drought:2}},
+  {id:"an", name:"Andaman & Nicobar Islands", h:{heat:3, monsoon:3, air:1, drought:2}},
+  {id:"ld", name:"Lakshadweep",          h:{heat:3, monsoon:3, air:1, drought:2}},
+  {id:"as", name:"Assam",                h:{heat:2, monsoon:3, air:2, drought:1}},
+  {id:"ar", name:"Arunachal Pradesh",    h:{heat:2, monsoon:3, air:2, drought:1}},
+  {id:"mn", name:"Manipur",              h:{heat:2, monsoon:3, air:2, drought:1}},
+  {id:"ml", name:"Meghalaya",            h:{heat:2, monsoon:3, air:2, drought:1}},
+  {id:"mz", name:"Mizoram",              h:{heat:2, monsoon:3, air:2, drought:1}},
+  {id:"nl", name:"Nagaland",             h:{heat:2, monsoon:3, air:2, drought:1}},
+  {id:"tr", name:"Tripura",              h:{heat:2, monsoon:3, air:2, drought:1}},
+  {id:"sk", name:"Sikkim",               h:{heat:2, monsoon:3, air:2, drought:1}}
+];
+
+/* Zone -> state grouping for the two-step region picker. zoneRegionId is the
+   REGIONS entry used when a respondent skips state selection and accepts the
+   zone-level average. Grouping is the real India Zonal Council structure
+   (States Reorganisation Act, 1956; North-East per the North Eastern Council
+   Act, 1972), not an invented bucket. */
+var ZONES = [
+  {id:"z-north", name:"Northern", states:[
+    {id:"dl",name:"Delhi"},{id:"hr",name:"Haryana"},{id:"pb",name:"Punjab"},
+    {id:"hp",name:"Himachal Pradesh"},{id:"jk",name:"Jammu & Kashmir"},{id:"la",name:"Ladakh"},
+    {id:"rj",name:"Rajasthan"},{id:"ch",name:"Chandigarh"}]},
+  {id:"z-central", name:"Central", states:[
+    {id:"up",name:"Uttar Pradesh"},{id:"mp",name:"Madhya Pradesh"},{id:"cg",name:"Chhattisgarh"},{id:"uk",name:"Uttarakhand"}]},
+  {id:"z-east", name:"Eastern", states:[
+    {id:"wb",name:"West Bengal"},{id:"bh",name:"Bihar"},{id:"jh",name:"Jharkhand"},{id:"od",name:"Odisha"}]},
+  {id:"z-west", name:"Western", states:[
+    {id:"mh",name:"Maharashtra"},{id:"guj",name:"Gujarat"},{id:"goa",name:"Goa"},{id:"dnhdd",name:"Dadra & Nagar Haveli and Daman & Diu"}]},
+  {id:"z-south", name:"Southern", states:[
+    {id:"ka",name:"Karnataka"},{id:"tn",name:"Tamil Nadu"},{id:"tg",name:"Telangana"},{id:"ap",name:"Andhra Pradesh"},
+    {id:"kl",name:"Kerala"},{id:"py",name:"Puducherry"},{id:"an",name:"Andaman & Nicobar Islands"},{id:"ld",name:"Lakshadweep"}]},
+  {id:"z-northeast", name:"North-Eastern", states:[
+    {id:"as",name:"Assam"},{id:"ar",name:"Arunachal Pradesh"},{id:"mn",name:"Manipur"},{id:"ml",name:"Meghalaya"},
+    {id:"mz",name:"Mizoram"},{id:"nl",name:"Nagaland"},{id:"tr",name:"Tripura"},{id:"sk",name:"Sikkim"}]}
 ];
 
 /* Tier 1 -- CALIBRATED peer benchmark, derived from FY2024-25 BRSR disclosures of the
@@ -367,12 +442,35 @@ var DIMENSION_CONTEXT = {
   }
 };
 
+/* Gap-to-programme mapping (Batch 3): one honest course-correction line per
+   dimension, for a genuine data gap and for a genuinely high read. Phrased
+   as the practical next step, deliberately not a pitch -- this tool is a
+   lead-generation surface less than one month after launch, not a closer.
+   Any Syntropy Earth capability mention stays a single soft clause. */
+var ACTION_MAP = {
+  PR: {
+    gap: "Start here: log which sites or delivery points lost service days last year, and why. That single sheet is the seed of a physical-reach metric.",
+    high: "The fastest lever is usually redundancy, not new infrastructure: a documented backup route or site for your highest-traffic locations closes more exposure than most retrofits."
+  },
+  SC: {
+    gap: "Start here: map which suppliers or facilities sit in a named water-stress zone (the WRI Aqueduct tool is free and public). That single map is the seed of a supply-chain metric.",
+    high: "The fastest lever is usually a second source or a storage buffer for your most water-stressed input, not a full water-recycling retrofit."
+  },
+  WF: {
+    gap: "Start here: this is the sector's own blind spot, so there is no shame in a gap. A simple heat-index-triggered rescheduling policy for outdoor or field staff is the cheapest first metric to start tracking.",
+    high: "The fastest lever is shifting outdoor or field work hours around a documented heat-index threshold, not new equipment spend."
+  },
+  DC: {
+    gap: "Start here: tag your existing incident log, even a basic one, with a weather-attributed flag. That single column is the seed of a demand-continuity metric.",
+    high: "The fastest lever is a written contingency clause inside your highest-value programme, naming what happens to delivery when a climate event hits."
+  }
+};
+
 /* ---- Group A corporate question set (Section 5). Standard / Gap marked. ---- */
 var Q_GROUP_A = [
-  {id:"regions", type:"multi", std:true,
+  {id:"regions", type:"regioncascade", std:true,
    text:"Where do you operate in India?",
-   hint:"Select every zone you run sites, supply, or programmes in.",
-   options: REGIONS.map(function(r){return {v:r.id, t:r.name};}) },
+   hint:"Pick the zone or zones first, then narrow to states if you know them." },
 
   {id:"sites", type:"single", std:true,
    text:"How many operating sites or facilities?",
@@ -417,10 +515,9 @@ var Q_GROUP_A = [
 
 /* ---- NGO question set (Section 5) ---- */
 var Q_NGO = [
-  {id:"regions", type:"multi", std:true,
+  {id:"regions", type:"regioncascade", std:true,
    text:"Where do your programmes run in India?",
-   hint:"Select every zone.",
-   options: REGIONS.map(function(r){return {v:r.id, t:r.name};}) },
+   hint:"Pick the zone or zones first, then narrow to states if you know them." },
   {id:"reach", type:"single", std:true,
    text:"How do beneficiaries reach the programme?",
    hint:"How people and the programme meet.",
@@ -570,11 +667,13 @@ function scoreGroupA(sectorId, a){
     var peerVal = bm.dims[d.id];
     var peerLabel = levelLabel(peerVal);
     var dctx = DIMENSION_CONTEXT[d.id];
+    var amap = ACTION_MAP[d.id];
     if(dv.val==null){
       var gapLine = "You are not measuring this, so we cannot read it. That blind spot is itself a finding.";
       if(d.id==="WF" && dctx && dctx.blindspot) gapLine += " " + dctx.blindspot;
       return {dim:d, gap:true, band:"Data gap", colour:GAP_COLOUR, line:gapLine,
-        context: (d.id==="WF" && dctx) ? dctx.context : null};
+        context: (d.id==="WF" && dctx) ? dctx.context : null,
+        action: amap ? amap.gap : null};
     }
     // dominant force in this dimension
     var dom=null, domv=-1;
@@ -592,7 +691,8 @@ function scoreGroupA(sectorId, a){
       if(d.id==="WF" && dctx.blindspot) anchor = dctx.blindspot + (dctx.context?" "+dctx.context:"");
     }
     return {dim:d, gap:false, band:lvl+" exposure", colour:levelColour(dv.val),
-      line: line, context: peerLine + (anchor ? " " + anchor : "")};
+      line: line, context: peerLine + (anchor ? " " + anchor : ""),
+      action: (lvl==="High" && amap) ? amap.high : null};
   });
 
   // named data gaps
@@ -687,7 +787,7 @@ function readStartup(a){
    STATE + RENDER
    ============================================================ */
 
-var state = { screen:"landing", sectorId:null, path:null, revealed:0, answers:{}, result:null };
+var state = { screen:"geo", sectorId:null, path:null, revealed:0, answers:{}, result:null, gateAnswers:{} };
 var _scrollNext=false;
 var app = document.getElementById("app");
 
@@ -698,10 +798,37 @@ function questionsFor(){
   if(state.sectorId==="startup") return Q_STARTUP;
   return Q_GROUP_A;
 }
+/* Gate-stage commercial context (Batch 2). Both fields are optional but
+   encouraged, sit on the unlock gate (not the scorecard, which stays a pure
+   exposure read), and exist to make the personal follow-up informed rather
+   than generic. Spend areas are Schedule VII-grounded, phrased at the level
+   a CSR manager actually recognises. Budget driver condenses ten real-world
+   variations into six, "not sure" kept deliberately as a genuine pipeline
+   signal, not a dead end. */
+var CSR_SPEND_AREAS = [
+  "Education & skilling","Health & health equity","Water, sanitation & WASH",
+  "Rural & village development","Livelihoods & women's empowerment",
+  "Environment, climate & sustainability","Air quality & pollution control",
+  "Disaster relief & rehabilitation","Sports development","Heritage, art & culture",
+  "Slum area development / urban infrastructure","Armed forces veterans & dependents welfare",
+  "Contribution to PM / CM relief funds","Other","No active CSR programme yet"
+];
+var BUDGET_DRIVERS = [
+  {v:"s135", t:"Section 135 mandated CSR spend"},
+  {v:"csrfdn", t:"CSR plus foundation or discretionary budget"},
+  {v:"hq", t:"Global HQ mandate (SBTi target, duty of care, funding window)"},
+  {v:"grant", t:"Grant or DFI funded"},
+  {v:"brsr", t:"BRSR or compliance clock"},
+  {v:"none", t:"No dedicated budget yet / not sure"}
+];
+
 var CRED = "This is a directional read. Peer figures come from the FY2024-25 BRSR disclosures of 59 listed Indian companies, each scored on the same model you just answered. Treat it as the start of the conversation, not an audited verdict.";
 
 function render(){
   app.innerHTML="";
+  if(state.screen==="geo") return renderGeo();
+  if(state.screen==="geo-outside") return renderGeoOutside();
+  if(state.screen==="geo-outside-done") return renderGeoOutsideDone();
   if(state.screen==="landing") return renderLanding();
   if(state.screen==="fork") return renderFork();
   if(state.screen==="overview") return renderOverview();
@@ -714,12 +841,73 @@ function render(){
   if(state.screen==="enquirydone") return renderEnquiryDone();
 }
 
+/* ---- Geography fork -- the first question, per the batch-3 build ---- */
+function renderGeo(){
+  var w = el('<section></section>');
+  w.appendChild(el('<p class="eyebrow">Before we start</p>'));
+  w.appendChild(el('<h1>Are you assessing an organisation based in India?</h1>'));
+  w.appendChild(el('<p class="lead">This tool is built and scored against FY2024-25 BRSR disclosures of 59 listed Indian companies. That is the honest scope, so we ask up front rather than after three minutes of your time.</p>'));
+  var cards=el('<div class="cards"></div>');
+  var c1=el('<div class="card lead"><h3>Based in India</h3><p>Score your organisation against the real India benchmark.</p><div class="btn-row"><button class="btn btn-primary" type="button">Continue</button></div></div>');
+  c1.querySelector("button").addEventListener("click", function(){ state.geo="in"; go("landing"); });
+  var c2=el('<div class="card"><h3>Outside India</h3><p>See what a global version would need, and reach Abhijith directly.</p><div class="btn-row"><button class="btn btn-ghost" type="button">Tell us where you operate</button></div></div>');
+  c2.querySelector("button").addEventListener("click", function(){ state.geo="out"; go("geo-outside"); });
+  cards.appendChild(c1); cards.appendChild(c2);
+  w.appendChild(cards);
+  app.appendChild(w);
+}
+
+/* ---- Outside-India: honest message, a genuine invitation, and a light enquiry gate,
+   not a hard wall -- the tool stays explorable so feedback on the global build has
+   something concrete to react to. ---- */
+function renderGeoOutside(){
+  var w = el('<section></section>');
+  w.appendChild(backBtn("geo","Back"));
+  w.appendChild(el('<div class="callout"><p class="callout-label">Building the global version</p>'+
+    '<p>This scorecard is calibrated on India-specific BRSR disclosures, so a straight run for an organisation outside India would give you a directional read grounded in the wrong regulatory and climate context. It would not be honest, so we are not offering it as one.</p>'+
+    '<p>A global version, built on GRI and international sustainability standards, is genuinely underway. If you tell us where you operate and what a useful read would need to cover for your context, that goes straight into the build, not a form nobody reads.</p></div>'));
+  var g=el('<div class="gate" style="margin-top:22px"></div>');
+  var f1=el('<div class="field"><label for="go-email">Email</label><input id="go-email" type="email" placeholder="you@company.com"><div class="err" id="e-go-email">A valid email, please.</div></div>');
+  var f2=el('<div class="field"><label for="go-company">Company or organisation</label><input id="go-company" type="text" placeholder="Your organisation"></div>');
+  var f3=el('<div class="field"><label for="go-country">Country <span class="opt-note">(optional)</span></label><input id="go-country" type="text" placeholder="Where you operate"></div>');
+  var f4=el('<div class="field"><label for="go-note">What would a useful read need to cover? <span class="opt-note">(optional)</span></label><input id="go-note" type="text" placeholder="Standard you report against, sectors, anything else"></div>');
+  g.appendChild(f1); g.appendChild(f2); g.appendChild(f3); g.appendChild(f4);
+  var submit=el('<button class="btn btn-primary" type="button" style="width:100%;margin-top:4px">Send to Abhijith</button>');
+  submit.addEventListener("click", function(){
+    var email=document.getElementById("go-email").value.trim();
+    var emailValid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    document.getElementById("e-go-email").style.display = emailValid?"none":"block";
+    if(!emailValid) return;
+    var payload={ timestamp:new Date().toISOString(), kind:"enquiry", route:"outside-india",
+      email:email, company:document.getElementById("go-company").value.trim()||null,
+      note:[document.getElementById("go-country").value.trim(), document.getElementById("go-note").value.trim()].filter(Boolean).join(" -- ")||null };
+    captureLead(payload).then(function(){ go("geo-outside-done"); });
+  });
+  g.appendChild(submit);
+  var explore=el('<button class="btn btn-ghost" type="button" style="width:100%;margin-top:10px">Explore the India tool anyway</button>');
+  explore.addEventListener("click", function(){ state.geo="in"; go("landing"); });
+  g.appendChild(explore);
+  w.appendChild(g);
+  app.appendChild(w);
+}
+
+function renderGeoOutsideDone(){
+  var w=el('<section style="text-align:center"></section>');
+  w.appendChild(el('<h2>Noted, thank you.</h2>'));
+  w.appendChild(el('<p class="lead">Abhijith replies personally, usually within a day or two. In the meantime, the India build is open if you want to see how the model itself works.</p>'));
+  var btn=el('<button class="btn btn-primary" type="button">Explore the India tool</button>');
+  btn.addEventListener("click", function(){ state.geo="in"; go("landing"); });
+  w.appendChild(btn);
+  app.appendChild(w);
+}
+
 /* ---- Landing + sector pick ---- */
 function renderLanding(){
   var w = el('<section></section>');
   w.appendChild(el('<p class="eyebrow">Self-assessment · under three minutes</p>'));
   w.appendChild(el('<h1>How exposed is your access to a warming climate?</h1>'));
   w.appendChild(el('<p class="lead">Heat keeps people from care. Floods break cold chains and supply routes. Drought stresses operations. Pick your sector to see where the exposure concentrates, then score your own.</p>'));
+  w.appendChild(el('<p class="cred" style="max-width:560px;margin:0 auto 18px">Built for organisations operating in India, scored against FY2024-25 BRSR disclosures of 59 listed Indian companies. A global version on GRI and international standards is being built. Operating elsewhere? Write to <a href="mailto:abhijithmagal@syntropyearth.com" style="color:inherit">abhijithmagal@syntropyearth.com</a>.</p>'));
   var grid = el('<div class="grid"></div>');
   Object.keys(SECTORS).forEach(function(id){
     var s=SECTORS[id];
@@ -810,9 +998,85 @@ function sectorContributors(id){
 /* ---- Assessment ---- */
 /* Progressive reveal: answered questions stay visible, the next reveals below,
    the page auto-scrolls to it. One controlled re-render per change, so nothing stacks. */
-function isAnswered(q){ var a=state.answers[q.id]; return q.type==="multi" ? (Array.isArray(a)&&a.length>0) : !!a; }
+function isAnswered(q){ var a=state.answers[q.id]; return (q.type==="multi"||q.type==="regioncascade") ? (Array.isArray(a)&&a.length>0) : !!a; }
+
+/* Two-step region picker: zone(s) first, then states within the chosen
+   zone(s), or skip straight to the zone-level average. state.answers._zones
+   holds the intermediate zone selection; state.answers.regions holds the
+   final REGIONS ids the scoring engine reads, exactly as before. */
+function buildRegionCascade(q,i,total){
+  var active = (i===state.revealed);
+  var card=el('<div class="q" id="qcard-'+i+'"'+(active?'':' style="opacity:.92"')+'></div>');
+  var zonesChosen = Array.isArray(state.answers._zones) ? state.answers._zones : [];
+  var regionsChosen = Array.isArray(state.answers.regions) ? state.answers.regions : [];
+  var phaseB = zonesChosen.length>0 && zonesChosen.indexOf("pan")===-1;
+
+  if(!phaseB){
+    card.appendChild(el('<div class="qtext">'+q.text+'</div>'));
+    if(q.hint) card.appendChild(el('<div class="qhint">'+q.hint+'</div>'));
+    var opts=el('<div class="opts" role="group" aria-label="'+q.text.replace(/"/g,'')+'"></div>');
+    ZONES.concat([{id:"pan", name:"Pan-India, or not sure exactly"}]).forEach(function(z){
+      var checked = zonesChosen.indexOf(z.id)>-1;
+      var btn=el('<button class="opt multi" role="checkbox" type="button" aria-checked="'+(checked?"true":"false")+'"><span class="dot" aria-hidden="true"></span><span>'+z.name+'</span></button>');
+      btn.addEventListener("click", function(){
+        var arr = Array.isArray(state.answers._zones)?state.answers._zones.slice():[];
+        var ix = arr.indexOf(z.id);
+        if(z.id==="pan"){ arr = ix>-1 ? [] : ["pan"]; }
+        else { var pix=arr.indexOf("pan"); if(pix>-1) arr.splice(pix,1); if(ix>-1) arr.splice(arr.indexOf(z.id),1); else arr.push(z.id); }
+        state.answers._zones = arr;
+        state.answers.regions = (arr.indexOf("pan")>-1) ? ["pan"] : [];
+        renderAssess();
+      });
+      opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+    if(zonesChosen.length>0){
+      var isPan = zonesChosen.indexOf("pan")>-1;
+      var cont=el('<div style="margin-top:16px"><button class="btn btn-primary" type="button">'+(isPan?(i<total-1?"Continue":"See result"):"Choose states")+'</button></div>');
+      cont.querySelector("button").addEventListener("click", function(){
+        if(isPan){ if(i<total-1){ state.revealed=i+1; _scrollNext=true; renderAssess(); } else { advance(); } }
+        else { renderAssess(); }
+      });
+      card.appendChild(cont);
+    }
+    return card;
+  }
+
+  card.appendChild(el('<div class="qtext">Which states specifically?</div>'));
+  card.appendChild(el('<div class="qhint">Pick as many as apply, or skip and we will use a zone-level average.</div>'));
+  var backLink=el('<button type="button" class="opt" style="margin-bottom:10px;font-size:12px;padding:6px 12px">&lsaquo; Change region</button>');
+  backLink.addEventListener("click", function(){ state.answers._zones=[]; state.answers.regions=[]; renderAssess(); });
+  card.appendChild(backLink);
+  var stateList=[];
+  zonesChosen.forEach(function(zid){ var z=ZONES.filter(function(x){return x.id===zid;})[0]; if(z) stateList=stateList.concat(z.states); });
+  var opts2=el('<div class="opts" role="group"></div>');
+  stateList.forEach(function(st){
+    var checked = regionsChosen.indexOf(st.id)>-1;
+    var btn=el('<button class="opt multi" role="checkbox" type="button" aria-checked="'+(checked?"true":"false")+'"><span class="dot" aria-hidden="true"></span><span>'+st.name+'</span></button>');
+    btn.addEventListener("click", function(){
+      var arr = Array.isArray(state.answers.regions)?state.answers.regions.slice():[];
+      var ix = arr.indexOf(st.id); if(ix>-1) arr.splice(ix,1); else arr.push(st.id);
+      state.answers.regions = arr; renderAssess();
+    });
+    opts2.appendChild(btn);
+  });
+  card.appendChild(opts2);
+
+  var hasSel = regionsChosen.length>0;
+  var cont2=el('<div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-ghost" type="button" id="rcSkip">Skip -- use the zone average</button><button class="btn btn-primary" type="button" id="rcNext"'+(hasSel?'':' disabled style="opacity:.45;cursor:default"')+'>'+(i<total-1?"Continue":"See result")+'</button></div>');
+  cont2.querySelector("#rcSkip").addEventListener("click", function(){
+    state.answers.regions = zonesChosen.slice();
+    if(i<total-1){ state.revealed=i+1; _scrollNext=true; renderAssess(); } else { advance(); }
+  });
+  if(hasSel) cont2.querySelector("#rcNext").addEventListener("click", function(){
+    if(i<total-1){ state.revealed=i+1; _scrollNext=true; renderAssess(); } else { advance(); }
+  });
+  card.appendChild(cont2);
+  return card;
+}
 
 function buildQuestion(q,i,total){
+  if(q.type==="regioncascade") return buildRegionCascade(q,i,total);
   var active = (i===state.revealed);
   var card=el('<div class="q" id="qcard-'+i+'"'+(active?'':' style="opacity:.92"')+'></div>');
   card.appendChild(el('<div class="qtext">'+q.text+(q.std===false?'<span class="gaptag">often not tracked</span>':'')+'</div>'));
@@ -864,7 +1128,7 @@ function renderAssess(){
   w.appendChild(stack);
 
   var lastIdx=qs.length-1;
-  if(state.revealed===lastIdx && isAnswered(qs[lastIdx]) && qs[lastIdx].type!=="multi"){
+  if(state.revealed===lastIdx && isAnswered(qs[lastIdx]) && qs[lastIdx].type!=="multi" && qs[lastIdx].type!=="regioncascade"){
     var done=el('<div style="text-align:center;margin-top:26px"><button class="btn btn-primary" id="seeResult" type="button">See result</button></div>');
     done.querySelector("button").addEventListener("click", advance);
     w.appendChild(done);
@@ -949,6 +1213,37 @@ function renderGate(){
   var f4=el('<div class="field"><label for="g-role">Role <span class="opt-note">(optional)</span></label><input id="g-role" type="text" placeholder="e.g. Head of CSR"></div>');
   g.appendChild(f1); g.appendChild(f2); g.appendChild(f3); g.appendChild(f4);
 
+  var f5=el('<div class="field"><label>Where does your CSR budget currently go? <span class="opt-note">(optional, pick any that apply)</span></label></div>');
+  var spendWrap=el('<div class="opts" role="group"></div>');
+  CSR_SPEND_AREAS.forEach(function(area){
+    var btn=el('<button class="opt multi" role="checkbox" type="button" aria-checked="false" style="font-size:12.5px;padding:8px 12px"><span class="dot" aria-hidden="true"></span><span>'+area+'</span></button>');
+    btn.addEventListener("click", function(){
+      var arr = Array.isArray(state.gateAnswers && state.gateAnswers.csrSpend) ? state.gateAnswers.csrSpend.slice() : [];
+      var ix = arr.indexOf(area); if(ix>-1) arr.splice(ix,1); else arr.push(area);
+      state.gateAnswers = state.gateAnswers || {}; state.gateAnswers.csrSpend = arr;
+      var checked = ix===-1;
+      btn.setAttribute("aria-checked", checked?"true":"false");
+      btn.classList.toggle("selected", checked);
+    });
+    spendWrap.appendChild(btn);
+  });
+  f5.appendChild(spendWrap);
+  g.appendChild(f5);
+
+  var f6=el('<div class="field"><label>What drives your climate or CSR budget? <span class="opt-note">(optional, helps us prepare before a call)</span></label></div>');
+  var driverWrap=el('<div class="opts" role="radiogroup"></div>');
+  BUDGET_DRIVERS.forEach(function(d){
+    var btn=el('<button class="opt" role="radio" type="button" aria-checked="false" style="font-size:12.5px;padding:8px 12px"><span class="dot" aria-hidden="true"></span><span>'+d.t+'</span></button>');
+    btn.addEventListener("click", function(){
+      state.gateAnswers = state.gateAnswers || {}; state.gateAnswers.budgetDriver = d.v; state.gateAnswers.budgetDriverLabel = d.t;
+      driverWrap.querySelectorAll(".opt").forEach(function(o){ o.setAttribute("aria-checked","false"); o.classList.remove("selected"); });
+      btn.setAttribute("aria-checked","true"); btn.classList.add("selected");
+    });
+    driverWrap.appendChild(btn);
+  });
+  f6.appendChild(driverWrap);
+  g.appendChild(f6);
+
   var submit=el('<button class="btn btn-primary" type="button" style="width:100%;margin-top:4px">Send my breakdown</button>');
   submit.addEventListener("click", function(){ submitGate(); });
   g.appendChild(submit);
@@ -978,7 +1273,10 @@ function submitGate(){
     aggregate:r.agg!=null?Math.round(r.agg*100)/100:null,
     regions:state.answers.regions||null,
     dimensions:(r.reads||[]).map(function(x){return {dim:x.dim.name, band:x.band};}),
-    dataGaps:r.dataGaps||[]
+    dataGaps:r.dataGaps||[],
+    answers:state.answers||null,
+    csrSpend:(state.gateAnswers && state.gateAnswers.csrSpend) || null,
+    budgetDriver:(state.gateAnswers && state.gateAnswers.budgetDriverLabel) || null
   };
   captureLead(payload).then(function(){ state.captured=payload; go("detail"); });
 }
@@ -1021,7 +1319,7 @@ function captureLead(payload){
 function renderDetail(){
   var r=state.result;
   var w=el('<section></section>');
-  w.appendChild(el('<div class="confirm">Your breakdown is below. '+(state.captured?state.captured.email:"Your details")+' and this result are logged for follow-up. <span class="faint">(An emailed PDF copy is a planned next step, not live yet -- the diagnostic call is the fastest way to walk through this in the meantime.)</span></div>'));
+  w.appendChild(el('<div class="confirm">Your breakdown is below, and a recap email is on its way to '+(state.captured?state.captured.email:"you")+' -- worth checking spam the first time. <span class="faint">Abhijith personally reviews every submission and follows up with a tailored read, usually within a day or two, so no need to wait by the inbox. The diagnostic call is the fastest route if you want to move sooner.</span></div>'));
   w.appendChild(el('<p class="eyebrow">Full breakdown · '+r.sector.name+'</p>'));
   w.appendChild(el('<h2 style="margin-bottom:4px">'+r.band.name+'</h2>'));
 
@@ -1032,6 +1330,7 @@ function renderDetail(){
       '<div class="dh"><span class="dn">'+x.dim.name+'</span><span class="bd" style="background:'+x.colour+';color:'+(x.colour===GAP_COLOUR?"#5C6A60":"#fff")+'">'+x.band+'</span></div>'+
       '<p>'+x.line+'</p>'+
       (x.context ? '<p class="dimcontext">'+x.context+'</p>' : '')+
+      (x.action ? '<p class="dimaction"><span class="dimaction-label">Where to start</span> '+x.action+'</p>' : '')+
       '</div>');
     dr.appendChild(node);
   });
