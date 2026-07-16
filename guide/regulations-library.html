@@ -3,13 +3,14 @@
 <head>
 <!-- Analytics managed via GTM-WG7CWTHG (injected by Netlify Snippet Injection) -->
 <meta charset="UTF-8">
+<link rel="canonical" href="https://syntropyearth.com/guide/regulations-library.html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Regulations &amp; Standards Library — Syntropy Guide | Syntropy Earth</title>
+<title>Regulations &amp; Standards Library, Syntropy Guide</title>
 <meta name="description" content="BRSR vs GRI vs TCFD vs ESRS, decoded and compared. Which sustainability reporting framework applies to your company, and what it actually requires.">
 <link rel="stylesheet" href="/styles.css">
 <style>
 /* ============================================================
-   SYNTROPY GUIDE — supplementary styles only
+   SYNTROPY GUIDE, supplementary styles only
    Everything else (nav, footer, hero, section, card, btn, label,
    lead, wrap, pull-quote, faq, citations, h4) comes from the real
    /styles.css, linked above. This file covers ONLY the handful of
@@ -57,15 +58,22 @@
 /* ---- Framework comparison table ---- */
 table.compare {
   width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
   font-size: 13px;
   margin: 2rem 0;
 }
+table.compare col.col-name { width: 16%; }
+table.compare col.col-status { width: 16%; }
+table.compare col.col-applies { width: 26%; }
+table.compare col.col-distinct { width: 30%; }
+table.compare col.col-source { width: 12%; }
 table.compare th, table.compare td {
   border: 1px solid var(--hr);
   padding: 1rem;
   text-align: left;
   vertical-align: top;
+  word-wrap: break-word;
 }
 table.compare th {
   font-family: var(--sans);
@@ -73,6 +81,13 @@ table.compare th {
   color: var(--deep-forest);
   background: var(--pale-sage);
 }
+table.compare td strong a,
+table.compare td strong a:visited {
+  color: var(--red-earth);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+table.compare td strong a:hover { color: var(--dark-red-earth); }
 
 /* ---- Glossary ---- */
 .glossary-entry { border-bottom: 1px solid var(--hr); padding: 1.5rem 0; }
@@ -144,7 +159,7 @@ table.compare th {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Which sustainability reporting framework applies to your company?",
-  "description": "BRSR, GRI, TCFD, ESRS and the SDGs compared — which are mandatory, who they apply to, and what makes each distinct.",
+  "description": "BRSR, GRI, TCFD, ESRS and the SDGs compared, which are mandatory, who they apply to, and what makes each distinct.",
   "author": { "@type": "Person", "name": "Abhijith Magal L" },
   "publisher": { "@type": "Organization", "name": "Syntropy Earth", "url": "https://syntropyearth.com" }
 }
@@ -219,6 +234,9 @@ table.compare th {
 <section class="section section--warm" style="padding-top:2.5rem;">
   <div class="wrap">
     <table class="compare">
+      <colgroup>
+        <col class="col-name"><col class="col-status"><col class="col-applies"><col class="col-distinct"><col class="col-source">
+      </colgroup>
       <thead>
         <tr>
           <th>Framework</th>
@@ -240,48 +258,48 @@ table.compare th {
           <td><strong><a href="/guide/frameworks/gri.html">GRI</a></strong><br><span class="meta">Global Reporting Initiative</span></td>
           <td>Voluntary</td>
           <td>Any organisation, any sector, any geography</td>
-          <td>The most widely recognised global baseline — often used to translate BRSR data for international audiences</td>
+          <td>The most widely recognised global baseline, often used to translate BRSR data for international audiences</td>
           <td><a href="https://www.globalreporting.org/" target="_blank" rel="noopener">globalreporting.org &#8599;</a></td>
         </tr>
         <tr>
           <td><strong><a href="/guide/frameworks/tcfd-issb.html">TCFD → ISSB</a></strong><br><span class="meta">Task Force on Climate-related Financial Disclosures</span></td>
           <td>Disbanded Oct 2023; recommendations now sit inside ISSB standards</td>
           <td>Investors, lenders, and any company reporting climate financial risk</td>
-          <td>The four-pillar structure — governance, strategy, risk management, metrics &amp; targets — still underpins most modern climate disclosure, including IFRS S2</td>
+          <td>The four-pillar structure, governance, strategy, risk management, metrics &amp; targets, still underpins most modern climate disclosure, including IFRS S2</td>
           <td><a href="https://www.ifrs.org/groups/international-sustainability-standards-board/" target="_blank" rel="noopener">ifrs.org (ISSB) &#8599;</a></td>
         </tr>
         <tr>
           <td><strong><a href="/guide/frameworks/esrs.html">ESRS</a></strong><br><span class="meta">European Sustainability Reporting Standards</span></td>
           <td><span class="tag tag-clay">Mandatory</span> under EU CSRD, for companies within scope</td>
-          <td>EU-listed companies and non-EU companies above EU revenue/presence thresholds — thresholds are currently being revised upward under the EU's Omnibus simplification package, so confirm the current figure rather than relying on a number here</td>
-          <td>Requires "double materiality" — impact on the company's finances, and the company's impact on people and planet</td>
+          <td>EU-listed companies and non-EU companies above EU revenue/presence thresholds, thresholds are currently being revised upward under the EU's Omnibus simplification package, so confirm the current figure rather than relying on a number here</td>
+          <td>Requires "double materiality", impact on the company's finances, and the company's impact on people and planet</td>
           <td><a href="https://finance.ec.europa.eu/financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en" target="_blank" rel="noopener">European Commission &#8599;</a></td>
         </tr>
         <tr>
           <td><strong><a href="/guide/frameworks/sdgs.html">SDGs</a></strong><br><span class="meta">UN Sustainable Development Goals</span></td>
           <td>Voluntary (aspirational)</td>
           <td>Governments, NGOs, and companies choosing to align reporting narratives</td>
-          <td>Not a disclosure standard — a shared vocabulary for connecting programme outcomes to a global goal (most relevant here: SDG 3 and SDG 13)</td>
+          <td>Not a disclosure standard, a shared vocabulary for connecting programme outcomes to a global goal (most relevant here: SDG 3 and SDG 13)</td>
           <td><a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">sdgs.un.org &#8599;</a></td>
         </tr>
         <tr>
           <td><strong><a href="/guide/frameworks/sasb.html">SASB</a></strong><br><span class="meta">Sustainability Accounting Standards Board</span></td>
           <td>Voluntary; industry-specific metrics now referenced inside ISSB standards</td>
           <td>Companies wanting sector-specific, investor-focused metrics</td>
-          <td>Consolidated into the IFRS Foundation in 2022 — SASB no longer operates as a standalone body, but its industry metrics live on inside IFRS S1</td>
+          <td>Consolidated into the IFRS Foundation in 2022, SASB no longer operates as a standalone body, but its industry metrics live on inside IFRS S1</td>
           <td><a href="https://www.ifrs.org/groups/international-sustainability-standards-board/" target="_blank" rel="noopener">ifrs.org &#8599;</a></td>
         </tr>
         <tr>
           <td><strong><a href="/guide/frameworks/cdp.html">CDP</a></strong><br><span class="meta">formerly Carbon Disclosure Project</span></td>
           <td>Voluntary, but frequently required by investors and large customers</td>
           <td>Companies responding to investor or supply-chain disclosure requests</td>
-          <td>A questionnaire-based disclosure system, not a standard-setter — scores companies annually on climate, water and forests data</td>
+          <td>A questionnaire-based disclosure system, not a standard-setter, scores companies annually on climate, water and forests data</td>
           <td><a href="https://www.cdp.net/en" target="_blank" rel="noopener">cdp.net &#8599;</a></td>
         </tr>
       </tbody>
     </table>
 
-    <p class="small" style="margin-top:12px; color:var(--text-faint);">Click on any framework name above to go deeper — each one links to a dedicated page covering its structure, mechanics, and how it relates to the others.</p>
+    <p class="small" style="margin-top:12px; color:var(--text-faint);">Click on any framework name above to go deeper, each one links to a dedicated page covering its structure, mechanics, and how it relates to the others.</p>
 
     <blockquote class="pull-quote" style="margin-top:2.8rem; margin-bottom:2.8rem;">The mandatory framework decides your deadline. The voluntary ones decide your credibility.</blockquote>
 
@@ -293,7 +311,7 @@ table.compare th {
   <div class="wrap">
     <span class="label">In Their Own Words</span>
     <h2>Each framework, explained the way its own documentation explains it</h2>
-    <p class="lead" style="max-width:640px;">Same information as the table above, written out in full, with a direct link to primary source documentation for each — not a summary of a summary.</p>
+    <p class="lead" style="max-width:640px;">Same information as the table above, written out in full, with a direct link to primary source documentation for each, not a summary of a summary.</p>
 
     <dl style="margin-top:32px;">
       <div class="glossary-entry" style="display:block;">
@@ -314,15 +332,31 @@ table.compare th {
       </div>
       <div class="glossary-entry" style="display:block;">
         <dt>SDGs (Sustainable Development Goals)</dt>
-        <dd>Seventeen goals adopted by all UN member states in 2015 as a shared blueprint for people and planet through 2030, maintained by the <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">United Nations Sustainable Development Goals</a> programme. Not a reporting standard — a vocabulary companies use to connect programme outcomes to global priorities.</dd>
+        <dd>Seventeen goals adopted by all UN member states in 2015 as a shared blueprint for people and planet through 2030, maintained by the <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">United Nations Sustainable Development Goals</a> programme. Not a reporting standard, a vocabulary companies use to connect programme outcomes to global priorities.</dd>
       </div>
       <div class="glossary-entry" style="display:block; border-bottom:none;">
         <dt>CDP</dt>
-        <dd>A global disclosure system run by <a href="https://www.cdp.net/en" target="_blank" rel="noopener">CDP</a>, not a standard-setter, through which companies, cities and regions report environmental data — climate, water security and forests — that gets scored annually and used heavily by investors and large corporate buyers as a supplier screening tool.</dd>
+        <dd>A global disclosure system run by <a href="https://www.cdp.net/en" target="_blank" rel="noopener">CDP</a>, not a standard-setter, through which companies, cities and regions report environmental data, climate, water security and forests, that gets scored annually and used heavily by investors and large corporate buyers as a supplier screening tool.</dd>
       </div>
     </dl>
 
-    <p class="meta" style="margin-top:24px;">India-specific entries in this library are checked against SEBI and MoEFCC notifications at time of publication and re-verified quarterly. This page is educational context, not filing advice — confirm applicability thresholds with your company secretary or auditor before acting.</p>
+    <p class="meta" style="margin-top:24px;">India-specific entries in this library are checked against SEBI and MoEFCC notifications at time of publication and re-verified quarterly. This page is educational context, not filing advice, confirm applicability thresholds with your company secretary or auditor before acting.</p>
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="wrap">
+    <span class="label">Not a Framework, but the Origin of All of Them</span>
+    <h2>Where all of this actually comes from</h2>
+    <p class="lead" style="max-width:640px;">None of the seven frameworks above are mandatory globally by accident, they trace back to a specific COP decision. If you want the full thirty-year history in one table, plus the 2030/2047/2050/2070 targets everyone quotes, that's a dedicated page.</p>
+    <a href="/guide/frameworks/cop.html" class="btn btn-primary">See the full COP history &amp; global targets</a>
+  </div>
+</section>
+
+<section class="section section--warm" style="padding-top:2.5rem;">
+  <div class="wrap">
+    <h3>Abbreviations used on this page</h3>
+    <p class="small" style="margin-top:12px; line-height:2;"><a href="/guide/frameworks/brsr.html">BRSR</a>: Business Responsibility and Sustainability Report &middot; <a href="/guide/frameworks/gri.html">GRI</a>: Global Reporting Initiative &middot; <a href="/guide/frameworks/tcfd-issb.html">TCFD</a>: Task Force on Climate-related Financial Disclosures &middot; <a href="/guide/frameworks/tcfd-issb.html">ISSB</a>: International Sustainability Standards Board &middot; <a href="/guide/frameworks/esrs.html">ESRS</a>: European Sustainability Reporting Standards &middot; <a href="/guide/frameworks/esrs.html">CSRD</a>: Corporate Sustainability Reporting Directive &middot; <a href="/guide/frameworks/sdgs.html">SDG</a>: Sustainable Development Goals &middot; <a href="/guide/frameworks/sasb.html">SASB</a>: Sustainability Accounting Standards Board &middot; <a href="/guide/frameworks/cdp.html">CDP</a>: Carbon Disclosure Project (now known simply as CDP) &middot; <a href="/guide/frameworks/cop.html">COP</a>: Conference of the Parties &middot; <a href="/guide/glossary.html#esg">ESG</a>: Environmental, Social and Governance</p>
   </div>
 </section>
 
