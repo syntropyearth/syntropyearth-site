@@ -1,24 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) — GA4 property G-SRYX1DSMRX, matches sitewide install -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SRYX1DSMRX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SRYX1DSMRX');
-</script>
-<!-- Google Tag Manager — currently inactive. Once the container is created (see
-     analytics-and-gtm-setup.md), uncomment this block, replace GTM-XXXXXXX with the
-     real container ID, and remove the gtag.js block above so tracking isn't double-counted.
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
--->
-
+<!-- Analytics managed via GTM-WG7CWTHG (injected by Netlify Snippet Injection) -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Role-Based Guides — Syntropy Guide | Syntropy Earth</title>
@@ -140,6 +123,21 @@ table.compare th {
 /* ---- Guide industry/detail tiles (plain card content, no tag-pill) ---- */
 .g-grid .card h4.h4 { margin-bottom: 0.4rem; }
 
+
+/* ---- Live / planned status labels ---- */
+.status-live { color: var(--forest) !important; }
+.status-planned { color: var(--red-earth) !important; }
+
+/* ---- Body-copy spacing fix ----
+   The real stylesheet resets all margins to zero by default and relies on
+   specific classes (.prose, .about-prose, etc.) to restore paragraph
+   spacing. Guide-only sections use plain <p>/<h3> for body copy, so give
+   those the same breathing room directly rather than requiring every
+   paragraph to carry a class. */
+.section .wrap > p:not(.lead):not(.small):not(.meta) { margin-bottom: 1.2rem; line-height: 1.75; }
+.section .wrap > h3 { margin: 2rem 0 0.8rem; }
+.section .wrap > h4.h4 { margin-bottom: 0.6rem; }
+.section .wrap > blockquote.pull-quote { margin: 2.2rem 0; }
 </style>
 <script type="application/ld+json">
 {
@@ -153,10 +151,6 @@ table.compare th {
 </script>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) — inactive, see head comment
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
--->
 
 
 <nav class="nav" aria-label="Primary">
@@ -189,7 +183,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <section class="page-hero" style="padding-bottom:40px;">
-  <div class="hero-glow"></div>
+  <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap page-hero-inner">
     <div class="breadcrumb"><a href="/guide/">Guide</a> / Role-Based Guides</div>
     <span class="label">Section 03 · Role-Based Guides</span>
@@ -198,36 +193,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="section section--warm" style="padding-top:0;">
+<section class="section section--warm" style="padding-top:2.5rem;">
   <div class="wrap">
     <div class="g-grid cols-3">
       <div class="card">
-        <span class="label">Live</span>
+        <span class="label status-live">Live</span>
         <h4 class="h4"><a href="/guide/role-guides/csr-manager.html">CSR Manager</a></h4>
         <p>Where climate-health fits inside a Section 135 budget, and how to defend the line item to leadership.</p>
       </div>
       <div class="card">
-        <span class="label">Planned</span>
+        <span class="label status-planned">Planned</span>
         <h4 class="h4">Sustainability / ESG Lead</h4>
         <p>Turning BRSR filing obligations into a genuine climate strategy, not just a compliance exercise.</p>
       </div>
       <div class="card">
-        <span class="label">Planned</span>
+        <span class="label status-planned">Planned</span>
         <h4 class="h4">HR / Duty-of-Care Owner</h4>
         <p>Heat, air quality and travel risk as employee wellbeing obligations, not HSE footnotes.</p>
       </div>
       <div class="card">
-        <span class="label">Planned</span>
+        <span class="label status-planned">Planned</span>
         <h4 class="h4">CFO / Finance Lead</h4>
         <p>How to read a climate risk register the way you'd read any other financial exposure.</p>
       </div>
       <div class="card">
-        <span class="label">Planned</span>
+        <span class="label status-planned">Planned</span>
         <h4 class="h4">Operations / Supply Chain Head</h4>
         <p>Where climate disruption actually breaks a supply chain, and how to price the fix before it happens.</p>
       </div>
       <div class="card">
-        <span class="label">Planned</span>
+        <span class="label status-planned">Planned</span>
         <h4 class="h4">Pharma Access Programme Lead</h4>
         <p>Climate resilience as a design requirement for patient access programmes, not an add-on.</p>
       </div>
@@ -248,6 +243,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="wordmark">Syntropy Earth</span>
       </div>
       <p class="footer-tag">Advisory &middot; Strategy &middot; Impact</p>
+      <div style="margin-top:20px;">
+        <a href="/" class="btn btn-outline-on-dark">Back to Syntropy Earth</a>
+        <a href="mailto:hello@syntropyearth.com" class="btn btn-primary" style="margin-left:12px;">Email us directly</a>
+      </div>
     </div>
     <div class="footer-cols">
       <div class="footer-col">
@@ -268,13 +267,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
     <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved.</span>
-    <span>Bengaluru, India &middot; Working globally</span>
-  </div>
-  <div class="wrap" style="padding-top:24px;">
-    <div style="margin-top:8px;">
-      <a href="/" class="btn btn-outline-on-dark">Back to Syntropy Earth</a>
-      <a href="mailto:hello@syntropyearth.com" class="btn btn-primary" style="margin-left:12px;">Email us directly</a>
-    </div>
   </div>
 </footer>
 

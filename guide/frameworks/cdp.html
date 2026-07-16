@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Analytics managed via GTM-WG7CWTHG (injected by Netlify Snippet Injection) -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDP — How the Scoring Actually Works — Syntropy Guide</title>
+<meta name="description" content="CDP decoded: why it's a scored questionnaire rather than a reporting standard, how the A to D- scoring works, and why it's often a direct investor or customer request.">
+<link rel="stylesheet" href="/styles.css">
+<style>
+
+/* Framework deep-dive page supplement — reuses real .flow/.card/.g-grid
+   components from /styles.css; only the pillar-wheel needs new rules. */
+.pillar-wheel { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 2rem 0; }
+@media (min-width: 700px) { .pillar-wheel.cols-2 { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) { .pillar-wheel.cols-3 { grid-template-columns: repeat(3, 1fr); } }
+.pillar-box {
+  background: var(--white); border: 1px solid var(--hr); border-radius: var(--radius-sm);
+  padding: 1.25rem; border-top: 3px solid var(--forest);
+}
+.pillar-box .pb-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--red-earth); margin-bottom: 0.5rem; display:block; }
+.pillar-box h4 { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--deep-forest); margin-bottom: 0.4rem; }
+.pillar-box p { font-size: 13px; line-height: 1.6; color: var(--text-muted); }
+.matrix-2x2 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px; background: var(--hr); border: 1px solid var(--hr); margin: 2rem 0; max-width: 560px; }
+.matrix-2x2 .mq { background: var(--white); padding: 1.25rem; }
+.matrix-2x2 .mq.hi { background: var(--pale-sage); }
+.matrix-2x2 .mq h4 { font-size: 13px; font-weight: 500; color: var(--deep-forest); margin-bottom: 0.3rem; }
+.matrix-2x2 .mq p { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+.related-frameworks { display: flex; flex-wrap: wrap; gap: 8px; margin: 1rem 0 2rem; }
+.related-frameworks a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--forest); border: 1px solid var(--hr); padding: 6px 12px; border-radius: 20px; }
+.related-frameworks a:hover { background: var(--pale-sage); }
+.section .wrap > p:not(.lead):not(.small):not(.meta) { margin-bottom: 1.2rem; line-height: 1.75; }
+.section .wrap > h3 { margin: 2rem 0 0.8rem; }
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "CDP",
+  "description": "CDP decoded: why it's a scored questionnaire rather than a reporting standard, how the A to D- scoring works, and why it's often a direct investor or customer request.",
+  "author": { "@type": "Person", "name": "Abhijith Magal L" },
+  "publisher": { "@type": "Organization", "name": "Syntropy Earth", "url": "https://syntropyearth.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Guide", "item": "https://syntropyearth.com/guide/" },
+    { "@type": "ListItem", "position": 2, "name": "Regulations & Standards", "item": "https://syntropyearth.com/guide/regulations-library.html" },
+    { "@type": "ListItem", "position": 3, "name": "CDP" }
+  ]
+}
+</script>
+
+</head>
+
+<body>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/" aria-label="Syntropy Earth home">
+      <svg class="mark mark-draw" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path class="arc" d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+        <path class="arc arc-2" d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+        <path class="arc arc-3" d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+        <circle class="dot" cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+      </svg>
+      <span class="wordmark">Syntropy Earth</span>
+    </a>
+    <div class="nav-links">
+      <a href="/services">Services</a>
+      <a href="/thinking">Thinking</a>
+      <a href="/guide/">Guide</a>
+      <a href="/about">About</a>
+      <a class="btn btn-primary" href="/#contact">Work with us</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/services">Services</a>
+  <a href="/thinking">Thinking</a>
+  <a href="/guide/">Guide</a>
+  <a href="/about">About</a>
+  <a class="btn btn-primary" href="/#contact">Work with us</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:24px;">
+  <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap page-hero-inner">
+    <div class="breadcrumb"><a href="/guide/">Guide</a> / <a href="/guide/regulations-library.html">Regulations &amp; Standards</a> / CDP</div>
+    <span class="label">Framework Deep Dive · CDP</span>
+    <h1>CDP</h1>
+    <p class="lead" style="max-width:640px;">A scored questionnaire, not a reporting standard — decoded: how the A to D- scoring actually works, and why a strong GRI or BRSR report doesn't automatically mean a strong CDP score.</p>
+  </div>
+</section>
+
+
+<main>
+
+<section class="section section--warm">
+  <div class="wrap">
+    <h2>What it actually is</h2>
+    <p>CDP — formerly the Carbon Disclosure Project, now known simply as CDP — is a global non-profit that runs a questionnaire-based environmental disclosure system for companies, cities, states, and regions. It is not a standard-setter like GRI or ESRS; it's closer to a structured survey with a scoring mechanism attached, covering climate change, water security, and forests.</p>
+    <p>What makes CDP distinct is who asks for it: CDP disclosure is frequently a direct request from investors or large corporate customers running supplier assessments, rather than a self-initiated voluntary report. A company can find itself needing to respond to a CDP questionnaire because a major customer requires it as a condition of doing business, independent of any regulatory obligation.</p>
+
+    <h3>How the scoring works</h3>
+    <div class="flow">
+      <div class="flow-step"><span class="flow-tag">Step 1</span><p>Company completes CDP's detailed questionnaire, covering governance, risk management, targets, and actual performance data for the relevant theme (climate, water, or forests).</p></div>
+      <div class="flow-arrow">&darr;</div>
+      <div class="flow-step"><span class="flow-tag">Step 2</span><p>CDP scores the response on a scale from D- (disclosure only) through C, B, up to A (leadership), based on both completeness and demonstrated action, not disclosure alone.</p></div>
+      <div class="flow-arrow">&darr;</div>
+      <div class="flow-step"><span class="flow-tag">Step 3</span><p>Scores are published and used by investors and corporate customers as a supplier or portfolio screening input.</p></div>
+    </div>
+
+    <h3>Why the distinction from a "standard" matters</h3>
+    <p>Because CDP is a scored questionnaire rather than a disclosure standard, a company can hold a strong GRI or BRSR report and still score poorly on CDP if it hasn't specifically completed CDP's own process. The two aren't substitutes — a thorough sustainability programme will typically need to respond to CDP directly when asked, not just point to its other reporting.</p>
+
+    <p class="small" style="margin-top:8px;">Related in the Guide: <a href="/guide/regulations-library.html">Regulations &amp; Standards Library</a></p>
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="wrap">
+    <h3>How CDP relates to other frameworks</h3>
+    <div class="related-frameworks">
+      <a href="/guide/frameworks/gri.html">GRI — broader voluntary standard</a>
+      <a href="/guide/frameworks/tcfd-issb.html">TCFD → ISSB — CDP's questionnaire aligns closely with these pillars</a>
+    </div>
+    <p>CDP's questionnaire structure has moved closer to TCFD/ISSB's four-pillar logic over time, so a company already organising its climate governance, strategy, risk management, and metrics along TCFD lines has a meaningfully easier time completing a strong CDP response.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+          <path d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+        </svg>
+        <span class="wordmark">Syntropy Earth</span>
+      </div>
+      <p class="footer-tag">Advisory &middot; Strategy &middot; Impact</p>
+      <div style="margin-top:20px;">
+        <a href="/" class="btn btn-outline-on-dark">Back to Syntropy Earth</a>
+        <a href="mailto:hello@syntropyearth.com" class="btn btn-primary" style="margin-left:12px;">Email us directly</a>
+      </div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4 class="h4">Navigate</h4>
+        <a href="/services">Services</a>
+        <a href="/thinking">Thinking</a>
+        <a href="/guide/">Guide</a>
+        <a href="/about">About</a>
+        <a href="/#contact">Work with us</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="h4">Connect</h4>
+        <a href="https://www.linkedin.com/in/abhijithmagal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@abhijithmagal" target="_blank" rel="noopener">YouTube</a>
+        <a href="mailto:hello@syntropyearth.com">hello@syntropyearth.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
+    <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>
+

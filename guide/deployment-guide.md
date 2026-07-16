@@ -4,7 +4,20 @@
 
 Yes — drop the `guide` folder into the root of your `syntropyearth.com` GitHub repository, exactly as it is, then push. Netlify is already watching that repo (per your existing setup) and will redeploy automatically. No build step, no config changes, because this is plain HTML/CSS/JS like the rest of the site.
 
-## Step 1 — Where exactly the folder goes
+## Step 0 — Four existing files also need replacing (do this first or last, doesn't matter)
+
+Separate from the `guide` folder, four files that already exist in your repo need to be replaced with updated versions — these add the Guide link to navigation and remove the "Bengaluru, India" footer line:
+
+| Repo path | Replace with |
+|---|---|
+| `index.html` (repo root) | `real-site-updates/index.html` |
+| `services/index.html` | `real-site-updates/services-index.html` |
+| `thinking/index.html` | `real-site-updates/thinking-index.html` |
+| `about/index.html` | `real-site-updates/about-index.html` |
+
+For each: open the real file on GitHub, click the pencil to edit, select all, delete, paste in the corresponding replacement file's content, commit. Every one of these diffs is small and specific — nav order fix, Guide link added in three places, one footer line removed — nothing else changes. Do this the same way as the earlier single-file nav update.
+
+## Step 1 — Where the Guide folder goes
 
 Confirmed against your actual repository (`syntropyearth/syntropyearth-site`): your root already holds `index.html` alongside folders like `about/`, `climate-access/`, `services/`, `thinking/`, plus `js/`, `images/`, `styles.css`, `netlify.toml` and `_redirects`. The Guide fits the same pattern exactly — add a `guide` folder at that same root level, alongside `about/`, `services/`, etc.:
 
@@ -23,6 +36,14 @@ your-repo/
     ├── index.html
     ├── glossary.html
     ├── regulations-library.html
+    ├── frameworks/
+    │   ├── brsr.html
+    │   ├── gri.html
+    │   ├── tcfd-issb.html
+    │   ├── esrs.html
+    │   ├── sdgs.html
+    │   ├── sasb.html
+    │   └── cdp.html
     ├── role-guides/
     │   ├── index.html
     │   └── csr-manager.html

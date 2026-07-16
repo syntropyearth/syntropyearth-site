@@ -1,24 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) — GA4 property G-SRYX1DSMRX, matches sitewide install -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SRYX1DSMRX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SRYX1DSMRX');
-</script>
-<!-- Google Tag Manager — currently inactive. Once the container is created (see
-     analytics-and-gtm-setup.md), uncomment this block, replace GTM-XXXXXXX with the
-     real container ID, and remove the gtag.js block above so tracking isn't double-counted.
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
--->
-
+<!-- Analytics managed via GTM-WG7CWTHG (injected by Netlify Snippet Injection) -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Climate-Health Materiality Tracker — Free Template | Syntropy Guide</title>
@@ -140,6 +123,21 @@ table.compare th {
 /* ---- Guide industry/detail tiles (plain card content, no tag-pill) ---- */
 .g-grid .card h4.h4 { margin-bottom: 0.4rem; }
 
+
+/* ---- Live / planned status labels ---- */
+.status-live { color: var(--forest) !important; }
+.status-planned { color: var(--red-earth) !important; }
+
+/* ---- Body-copy spacing fix ----
+   The real stylesheet resets all margins to zero by default and relies on
+   specific classes (.prose, .about-prose, etc.) to restore paragraph
+   spacing. Guide-only sections use plain <p>/<h3> for body copy, so give
+   those the same breathing room directly rather than requiring every
+   paragraph to carry a class. */
+.section .wrap > p:not(.lead):not(.small):not(.meta) { margin-bottom: 1.2rem; line-height: 1.75; }
+.section .wrap > h3 { margin: 2rem 0 0.8rem; }
+.section .wrap > h4.h4 { margin-bottom: 0.6rem; }
+.section .wrap > blockquote.pull-quote { margin: 2.2rem 0; }
 </style>
 <script type="application/ld+json">
 {
@@ -166,10 +164,6 @@ table.compare th {
 </script>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) — inactive, see head comment
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
--->
 
 
 <nav class="nav" aria-label="Primary">
@@ -202,20 +196,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <section class="page-hero" style="padding-bottom:24px;">
-  <div class="hero-glow"></div>
+  <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap page-hero-inner">
     <div class="breadcrumb"><a href="/guide/">Guide</a> / <a href="/guide/templates-tools/">Templates &amp; Tools</a> / Materiality Tracker</div>
     <span class="label">Template · Spreadsheet</span>
     <h1>Climate-Health Materiality Tracker</h1>
     <p class="lead" style="max-width:640px;">Score which climate risks actually threaten a health or access programme, across four dimensions, before you commit budget to fixing any of them. Free. No email required.</p>
     <a href="/guide/templates-tools/climate-health-materiality-tracker.xlsx" class="btn btn-primary" download
-       onclick="if(typeof gtag==='function'){gtag('event','template_download',{template_name:'climate_health_materiality_tracker',file_type:'xlsx'});}">
+       onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({'event':'template_download','template_name':'climate_health_materiality_tracker','file_type':'xlsx'});">
        Download the .xlsx</a>
     <p class="meta" style="margin-top:12px;">GA4 also logs this automatically as <code>file_download</code> via Enhanced Measurement — this button additionally fires a named <code>template_download</code> event so this specific asset is a one-click filter in reporting.</p>
   </div>
 </section>
 
-<section class="section section--warm" style="padding-top:0;">
+<section class="section section--warm" style="padding-top:2.5rem;">
   <div class="wrap">
     <h3>What's inside</h3>
     <p>Two tabs. An instructions sheet explaining the scoring logic, and a working tracker with four sample risk entries already scored so you can see the format in use. The tracker scores every risk on Likelihood x Severity (1 to 5 each), auto-calculates a priority tier, and summarises how many High, Medium and Low priority risks you're carrying.</p>
@@ -249,7 +244,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap" style="text-align:center;">
     <h2>Scored mostly High or Medium?</h2>
     <p class="lead" style="max-width:520px; margin:0 auto 24px;">That's usually the signal a full CAST diagnostic will pay for itself.</p>
-    <a href="https://syntropyearth.com/contact" class="btn btn-primary">Talk to Syntropy Earth</a>
+    <a href="/#contact" class="btn btn-primary">Talk to Syntropy Earth</a>
   </div>
 </section>
 
@@ -266,6 +261,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="wordmark">Syntropy Earth</span>
       </div>
       <p class="footer-tag">Advisory &middot; Strategy &middot; Impact</p>
+      <div style="margin-top:20px;">
+        <a href="/" class="btn btn-outline-on-dark">Back to Syntropy Earth</a>
+        <a href="mailto:hello@syntropyearth.com" class="btn btn-primary" style="margin-left:12px;">Email us directly</a>
+      </div>
     </div>
     <div class="footer-cols">
       <div class="footer-col">
@@ -286,13 +285,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
     <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved.</span>
-    <span>Bengaluru, India &middot; Working globally</span>
-  </div>
-  <div class="wrap" style="padding-top:24px;">
-    <div style="margin-top:8px;">
-      <a href="/" class="btn btn-outline-on-dark">Back to Syntropy Earth</a>
-      <a href="mailto:hello@syntropyearth.com" class="btn btn-primary" style="margin-left:12px;">Email us directly</a>
-    </div>
   </div>
 </footer>
 

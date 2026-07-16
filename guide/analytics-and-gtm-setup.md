@@ -1,51 +1,35 @@
-# Analytics & GTM Setup — Syntropy Guide
+# Analytics & GTM — Corrected Against the Real Setup
 
-## What's already wired into every Guide page
+This whole document changed from the earlier version. Your real page source (from `thinking-index.html`, `about-index.html`, `services-index.html`) showed a single comment on every page:
 
-Every page in this folder now carries the same GA4 snippet already live sitewide (`G-SRYX1DSMRX`), so as soon as this folder is part of syntropyearth.com, standard pageviews on every Guide page start counting immediately — no extra setup needed for that baseline.
+```html
+<!-- Analytics managed via GTM-WG7CWTHG (injected by Netlify Snippet Injection) -->
+```
 
-On top of the default `page_view` event, two custom events are already built in:
+That means GTM is **already live**, container `GTM-WG7CWTHG`, injected automatically into every page's `<head>` by a Netlify Snippet Injection rule in your site settings — not something added per-page in the HTML. My earlier draft of this document assumed GTM hadn't been set up yet and walked you through installing it manually. That assumption was wrong, and everything Guide-related has now been corrected to match reality:
 
-- **`guide_section_view`** — fires once when someone lands on the Guide hub (`index.html`). Filter by this event name in GA4 to get a direct count of hub landings, rather than filtering page paths.
-- **`template_download`** — fires when someone clicks the materiality tracker's download button, with `template_name` and `file_type` parameters. This is in addition to GA4's automatic `file_download` event (see below), so you can look up downloads either by this event or by filename.
+- Every Guide page's fake hardcoded `gtag.js` block is removed
+- Every Guide page now carries the same one-line comment your real pages use, for consistency (Netlify's snippet injection applies to every page on the domain regardless of what's in that page's own source, so this comment is documentation, not functional code — but keeping it consistent matters if anyone reads the source later)
+- The custom `guide_section_view` and `template_download` events now push directly to `window.dataLayer`, which is the correct pattern for GTM (there is no `gtag()` function loaded on this site, since GTM isn't using the gtag.js library)
 
-## Step 1 — Confirm Enhanced Measurement is on (5 minutes, does most of the work)
+## What this means for tracking
 
-GA4 properties track file downloads automatically through **Enhanced Measurement**, on by default unless someone switched it off:
+Because GTM is already live sitewide, no setup is required for baseline tracking — pageviews across every Guide page start counting the moment the folder is deployed. Nothing needs to be done to activate this.
 
-1. GA4 → Admin → Data Streams → select the web stream for syntropyearth.com
-2. Open "Enhanced measurement" → confirm **File downloads** is toggled on
-3. That's it. Any click on a link ending in `.xlsx`, `.pdf`, `.doc`, `.zip` etc. now logs a `file_download` event automatically, with `file_name`, `file_extension`, and `link_url` as parameters — no code required, and it will pick up every future template you add without touching the site again.
+## Confirming your GTM tags actually capture what you want
 
-## Step 2 — Reading the numbers
+You'll need to check your GTM container (tagmanager.google.com, container `GTM-WG7CWTHG`) for two things:
 
-GA4 → Reports → Engagement → Events:
+1. **Is a GA4 Configuration tag set up, firing on All Pages?** If yes, standard pageviews, plus the two custom events below, will show in your GA4 property automatically. If you're not sure, this is worth a five-minute check in the GTM interface rather than guessing.
+2. **File download tracking** — GA4 tracks file downloads (like the materiality tracker's `.xlsx`) automatically through Enhanced Measurement, independent of GTM, as long as it's toggled on in your GA4 property (Admin → Data Streams → your web stream → Enhanced Measurement → File downloads). This has nothing to do with GTM and doesn't need any code.
 
-- **`guide_section_view`** → count of Guide hub landings
-- **`file_download`** or **`template_download`** → filter by `file_name` or `template_name` to see downloads per asset
-- **Page path** → `/guide/` and below, standard pageview breakdown by URL, if you want the full page-by-page picture rather than just the named events
+## The two custom events already wired into the Guide
 
-For a persistent dashboard instead of digging through the Events report each time, GA4's free "Explore" tab can build a table of event name x count x trend with about five clicks, or you can pull the same into a free Looker Studio report connected directly to your GA4 property — no extra credentials, no Sheets pipeline needed for this part.
+- **`guide_section_view`** — fires once when someone lands on `/guide/`, pushed via `window.dataLayer.push({...})`. To see this in GA4, you'll need a GTM trigger listening for this custom event name, connected to a GA4 Event tag. If that trigger doesn't exist yet in your GTM container, the event pushes to the dataLayer but nothing captures it downstream — worth checking.
+- **`template_download`** — fires when the materiality tracker's download button is clicked, same dataLayer pattern, with `template_name` and `file_type` parameters.
 
-## Step 3 — Setting up Google Tag Manager (the pending item)
+If you want these two events actually flowing into GA4 rather than just sitting in the dataLayer unclaimed, that's a GTM configuration task (add a Custom Event trigger for each event name, wire it to a GA4 Event tag) — not a code task. Happy to walk through the exact GTM click-path if you want, once you've had a look at what's already configured in the container.
 
-You don't strictly need GTM to get the tracking above — it's already running through the hardcoded GA4 snippet. GTM is worth setting up because it lets you add or change tracking (new events, new pixels, scroll-depth tracking) without touching site code again. Here's the setup, start to finish:
+## What I can't verify from here
 
-1. Go to [tagmanager.google.com](https://tagmanager.google.com), create an account (name it "Syntropy Earth") and a container (name it "syntropyearth.com", platform: Web)
-2. GTM gives you two code blocks — one for `<head>`, one right after `<body>`. Every HTML file across **both** sites needs both blocks (this is a sitewide change, not Guide-only)
-3. In GTM, create a new Tag → type "Google Analytics: GA4 Configuration" → Measurement ID `G-SRYX1DSMRX` → Trigger: "All Pages" → save and name it something findable like "GA4 – Base Config"
-4. Publish the container (top-right "Submit" button in GTM)
-5. **Once the GTM tags are live and verified working** (use GTM's Preview mode against the live site before publishing), remove the hardcoded `gtag.js` snippet from every page — including the ones in this folder — so GA4 isn't double-counting every pageview through two separate code paths
-6. In each Guide page's `<head>`, there's already a commented-out GTM block sitting directly under the gtag.js snippet, with `GTM-XXXXXXX` as a placeholder. Swap that for your real container ID, uncomment it, and repeat for the `<body>` noscript block
-
-Do this as one clean pass across the whole site, not just the Guide folder — partial migration is how double-counting bugs happen.
-
-### Recreating the two custom events in GTM (optional upgrade, once GTM is live)
-
-Once GTM is running the GA4 tag, `guide_section_view` and `template_download` can move from hardcoded `gtag()` calls into GTM triggers instead — a Click trigger on the download button's CSS class, and a Page View trigger scoped to the hub URL. Not necessary to do immediately; the hardcoded version works fine standalone and can keep running until you're ready to move it.
-
-## What this setup gets you, concretely
-
-- A running count of hub landings, distinct from total site traffic
-- A per-asset download count as the template library grows, with zero extra code needed for each new file
-- A single place (GTM) to add future tracking — a newsletter signup, a workshop RSVP click, scroll depth on the longer role guides — without editing HTML again once it's live
+I don't have access to your actual GTM container contents, only the fact that it's installed and its ID. Everything above about "check whether X tag exists" is genuinely something only you (or whoever set up `GTM-WG7CWTHG`) can confirm by opening the container.

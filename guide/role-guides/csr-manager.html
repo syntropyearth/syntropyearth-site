@@ -1,24 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) — GA4 property G-SRYX1DSMRX, matches sitewide install -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SRYX1DSMRX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SRYX1DSMRX');
-</script>
-<!-- Google Tag Manager — currently inactive. Once the container is created (see
-     analytics-and-gtm-setup.md), uncomment this block, replace GTM-XXXXXXX with the
-     real container ID, and remove the gtag.js block above so tracking isn't double-counted.
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
--->
-
+<!-- Analytics managed via GTM-WG7CWTHG (injected by Netlify Snippet Injection) -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The CSR Manager's Guide to Climate-Health Spend — Syntropy Guide</title>
@@ -140,6 +123,21 @@ table.compare th {
 /* ---- Guide industry/detail tiles (plain card content, no tag-pill) ---- */
 .g-grid .card h4.h4 { margin-bottom: 0.4rem; }
 
+
+/* ---- Live / planned status labels ---- */
+.status-live { color: var(--forest) !important; }
+.status-planned { color: var(--red-earth) !important; }
+
+/* ---- Body-copy spacing fix ----
+   The real stylesheet resets all margins to zero by default and relies on
+   specific classes (.prose, .about-prose, etc.) to restore paragraph
+   spacing. Guide-only sections use plain <p>/<h3> for body copy, so give
+   those the same breathing room directly rather than requiring every
+   paragraph to carry a class. */
+.section .wrap > p:not(.lead):not(.small):not(.meta) { margin-bottom: 1.2rem; line-height: 1.75; }
+.section .wrap > h3 { margin: 2rem 0 0.8rem; }
+.section .wrap > h4.h4 { margin-bottom: 0.6rem; }
+.section .wrap > blockquote.pull-quote { margin: 2.2rem 0; }
 </style>
 <script type="application/ld+json">
 {
@@ -171,10 +169,6 @@ table.compare th {
 </script>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) — inactive, see head comment
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
--->
 
 
 <nav class="nav" aria-label="Primary">
@@ -207,7 +201,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <section class="page-hero" style="padding-bottom:24px;">
-  <div class="hero-glow"></div>
+  <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap page-hero-inner">
     <div class="breadcrumb"><a href="/guide/">Guide</a> / <a href="/guide/role-guides/">Role Guides</a> / CSR Manager</div>
     <span class="label">Role Guide · CSR Manager</span>
@@ -217,7 +212,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="section section--warm" style="padding-top:0;">
+<section class="section section--warm" style="padding-top:2.5rem;">
   <div class="wrap">
 
     <span class="label" id="track-1">Track 1 · Budgeting and Defending the Spend</span>
@@ -315,14 +310,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="section section--warm">
   <div class="wrap">
     <h3>Abbreviations used on this page</h3>
-    <div class="g-grid cols-3" style="margin-top:16px;">
-      <div class="card"><h4 class="h4"><a href="/guide/glossary.html#csr">CSR</a></h4><p>Corporate Social Responsibility</p></div>
-      <div class="card"><h4 class="h4"><a href="/guide/glossary.html#brsr">BRSR</a></h4><p>Business Responsibility and Sustainability Report</p></div>
-      <div class="card"><h4 class="h4"><a href="/guide/glossary.html#brsr-core">BRSR Core</a></h4><p>Assured subset of BRSR indicators</p></div>
-      <div class="card"><h4 class="h4"><a href="/guide/glossary.html#gri">GRI</a></h4><p>Global Reporting Initiative</p></div>
-      <div class="card"><h4 class="h4"><a href="/guide/glossary.html#issb">ISSB</a></h4><p>International Sustainability Standards Board</p></div>
-      <div class="card"><h4 class="h4"><a href="/guide/glossary.html#materiality">Materiality</a></h4><p>What matters most, and to whom</p></div>
-    </div>
+    <p class="small" style="margin-top:12px; line-height:2;"><a href="/guide/glossary.html#csr">CSR</a>: Corporate Social Responsibility &middot; <a href="/guide/glossary.html#brsr">BRSR</a>: Business Responsibility and Sustainability Report &middot; <a href="/guide/glossary.html#brsr-core">BRSR Core</a>: assured subset of BRSR indicators &middot; <a href="/guide/glossary.html#gri">GRI</a>: Global Reporting Initiative &middot; <a href="/guide/glossary.html#issb">ISSB</a>: International Sustainability Standards Board</p>
 
     <p class="meta" style="margin-top:32px;">Every figure and rule on this page is checked against a primary source, not a summary of one. The 2% average-net-profit spend requirement and Schedule VII activity categories come directly from <a href="https://www.indiacode.nic.in/show-data?actid=AC_CEN_22_29_00008_201318_1517807327856&sectionId=1326&sectionno=135&orderno=139" target="_blank" rel="noopener">Section 135 of the Companies Act, 2013, as published on India Code, the Government of India's official legislative portal</a>. BRSR Core assurance detail is checked against the <a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" rel="noopener">SEBI circular that established BRSR</a>. If something here goes stale, <a href="mailto:hello@syntropyearth.com">tell us</a> and we'll fix it.</p>
   </div>
@@ -332,8 +320,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap" style="text-align:center;">
     <h2>Want the diagnostic version of this, run on your own programme?</h2>
     <p class="lead" style="max-width:520px; margin:0 auto 24px;">CAST scores your existing health or access programme against a full climate-health year in six weeks.</p>
-    <a href="https://syntropyearth.com/contact" class="btn btn-primary">Talk to Syntropy Earth</a>
-    <a href="mailto:hello@syntropyearth.com?subject=Workshop%20enquiry" class="btn btn-outline-on-dark" style="margin-left:12px;">Ask about a workshop</a>
+    <a href="/services" class="btn btn-primary">Explore what Syntropy Earth offers</a>
+    <a href="mailto:hello@syntropyearth.com" class="btn btn-outline-on-dark" style="margin-left:12px;">Drop us an email</a>
   </div>
 </section>
 
@@ -350,6 +338,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="wordmark">Syntropy Earth</span>
       </div>
       <p class="footer-tag">Advisory &middot; Strategy &middot; Impact</p>
+      <div style="margin-top:20px;">
+        <a href="/" class="btn btn-outline-on-dark">Back to Syntropy Earth</a>
+        <a href="mailto:hello@syntropyearth.com" class="btn btn-primary" style="margin-left:12px;">Email us directly</a>
+      </div>
     </div>
     <div class="footer-cols">
       <div class="footer-col">
@@ -370,13 +362,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
     <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved.</span>
-    <span>Bengaluru, India &middot; Working globally</span>
-  </div>
-  <div class="wrap" style="padding-top:24px;">
-    <div style="margin-top:8px;">
-      <a href="/" class="btn btn-outline-on-dark">Back to Syntropy Earth</a>
-      <a href="mailto:hello@syntropyearth.com" class="btn btn-primary" style="margin-left:12px;">Email us directly</a>
-    </div>
   </div>
 </footer>
 

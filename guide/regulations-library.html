@@ -1,24 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) — GA4 property G-SRYX1DSMRX, matches sitewide install -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SRYX1DSMRX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SRYX1DSMRX');
-</script>
-<!-- Google Tag Manager — currently inactive. Once the container is created (see
-     analytics-and-gtm-setup.md), uncomment this block, replace GTM-XXXXXXX with the
-     real container ID, and remove the gtag.js block above so tracking isn't double-counted.
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
--->
-
+<!-- Analytics managed via GTM-WG7CWTHG (injected by Netlify Snippet Injection) -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Regulations &amp; Standards Library — Syntropy Guide | Syntropy Earth</title>
@@ -140,6 +123,21 @@ table.compare th {
 /* ---- Guide industry/detail tiles (plain card content, no tag-pill) ---- */
 .g-grid .card h4.h4 { margin-bottom: 0.4rem; }
 
+
+/* ---- Live / planned status labels ---- */
+.status-live { color: var(--forest) !important; }
+.status-planned { color: var(--red-earth) !important; }
+
+/* ---- Body-copy spacing fix ----
+   The real stylesheet resets all margins to zero by default and relies on
+   specific classes (.prose, .about-prose, etc.) to restore paragraph
+   spacing. Guide-only sections use plain <p>/<h3> for body copy, so give
+   those the same breathing room directly rather than requiring every
+   paragraph to carry a class. */
+.section .wrap > p:not(.lead):not(.small):not(.meta) { margin-bottom: 1.2rem; line-height: 1.75; }
+.section .wrap > h3 { margin: 2rem 0 0.8rem; }
+.section .wrap > h4.h4 { margin-bottom: 0.6rem; }
+.section .wrap > blockquote.pull-quote { margin: 2.2rem 0; }
 </style>
 <script type="application/ld+json">
 {
@@ -176,10 +174,6 @@ table.compare th {
 </script>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) — inactive, see head comment
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
--->
 
 
 <nav class="nav" aria-label="Primary">
@@ -212,7 +206,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <section class="page-hero" style="padding-bottom:40px;">
-  <div class="hero-glow"></div>
+  <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap page-hero-inner">
     <div class="breadcrumb"><a href="/guide/">Guide</a> / Regulations &amp; Standards</div>
     <span class="label">Section 02 · Regulations &amp; Standards Library</span>
@@ -221,7 +216,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="section section--warm" style="padding-top:0;">
+<section class="section section--warm" style="padding-top:2.5rem;">
   <div class="wrap">
     <table class="compare">
       <thead>
@@ -235,49 +230,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </thead>
       <tbody>
         <tr>
-          <td><strong>BRSR</strong><br><span class="meta">Business Responsibility &amp; Sustainability Report</span></td>
+          <td><strong><a href="/guide/frameworks/brsr.html">BRSR</a></strong><br><span class="meta">Business Responsibility &amp; Sustainability Report</span></td>
           <td><span class="tag tag-clay">Mandatory</span> in India</td>
           <td>Top 1,000 listed companies by market cap (SEBI-mandated)</td>
           <td>Nine-principle structure; BRSR Core subset carries a phased external assurance requirement</td>
           <td><a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" rel="noopener">SEBI circular &#8599;</a></td>
         </tr>
         <tr>
-          <td><strong>GRI</strong><br><span class="meta">Global Reporting Initiative</span></td>
+          <td><strong><a href="/guide/frameworks/gri.html">GRI</a></strong><br><span class="meta">Global Reporting Initiative</span></td>
           <td>Voluntary</td>
           <td>Any organisation, any sector, any geography</td>
           <td>The most widely recognised global baseline — often used to translate BRSR data for international audiences</td>
           <td><a href="https://www.globalreporting.org/" target="_blank" rel="noopener">globalreporting.org &#8599;</a></td>
         </tr>
         <tr>
-          <td><strong>TCFD → ISSB</strong><br><span class="meta">Task Force on Climate-related Financial Disclosures</span></td>
+          <td><strong><a href="/guide/frameworks/tcfd-issb.html">TCFD → ISSB</a></strong><br><span class="meta">Task Force on Climate-related Financial Disclosures</span></td>
           <td>Disbanded Oct 2023; recommendations now sit inside ISSB standards</td>
           <td>Investors, lenders, and any company reporting climate financial risk</td>
           <td>The four-pillar structure — governance, strategy, risk management, metrics &amp; targets — still underpins most modern climate disclosure, including IFRS S2</td>
           <td><a href="https://www.ifrs.org/groups/international-sustainability-standards-board/" target="_blank" rel="noopener">ifrs.org (ISSB) &#8599;</a></td>
         </tr>
         <tr>
-          <td><strong>ESRS</strong><br><span class="meta">European Sustainability Reporting Standards</span></td>
+          <td><strong><a href="/guide/frameworks/esrs.html">ESRS</a></strong><br><span class="meta">European Sustainability Reporting Standards</span></td>
           <td><span class="tag tag-clay">Mandatory</span> under EU CSRD, for companies within scope</td>
           <td>EU-listed companies and non-EU companies above EU revenue/presence thresholds — thresholds are currently being revised upward under the EU's Omnibus simplification package, so confirm the current figure rather than relying on a number here</td>
           <td>Requires "double materiality" — impact on the company's finances, and the company's impact on people and planet</td>
           <td><a href="https://finance.ec.europa.eu/financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en" target="_blank" rel="noopener">European Commission &#8599;</a></td>
         </tr>
         <tr>
-          <td><strong>SDGs</strong><br><span class="meta">UN Sustainable Development Goals</span></td>
+          <td><strong><a href="/guide/frameworks/sdgs.html">SDGs</a></strong><br><span class="meta">UN Sustainable Development Goals</span></td>
           <td>Voluntary (aspirational)</td>
           <td>Governments, NGOs, and companies choosing to align reporting narratives</td>
           <td>Not a disclosure standard — a shared vocabulary for connecting programme outcomes to a global goal (most relevant here: SDG 3 and SDG 13)</td>
           <td><a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">sdgs.un.org &#8599;</a></td>
         </tr>
         <tr>
-          <td><strong>SASB</strong><br><span class="meta">Sustainability Accounting Standards Board</span></td>
+          <td><strong><a href="/guide/frameworks/sasb.html">SASB</a></strong><br><span class="meta">Sustainability Accounting Standards Board</span></td>
           <td>Voluntary; industry-specific metrics now referenced inside ISSB standards</td>
           <td>Companies wanting sector-specific, investor-focused metrics</td>
           <td>Consolidated into the IFRS Foundation in 2022 — SASB no longer operates as a standalone body, but its industry metrics live on inside IFRS S1</td>
           <td><a href="https://www.ifrs.org/groups/international-sustainability-standards-board/" target="_blank" rel="noopener">ifrs.org &#8599;</a></td>
         </tr>
         <tr>
-          <td><strong>CDP</strong><br><span class="meta">formerly Carbon Disclosure Project</span></td>
+          <td><strong><a href="/guide/frameworks/cdp.html">CDP</a></strong><br><span class="meta">formerly Carbon Disclosure Project</span></td>
           <td>Voluntary, but frequently required by investors and large customers</td>
           <td>Companies responding to investor or supply-chain disclosure requests</td>
           <td>A questionnaire-based disclosure system, not a standard-setter — scores companies annually on climate, water and forests data</td>
@@ -286,7 +281,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </tbody>
     </table>
 
-    <blockquote class="pull-quote">The mandatory framework decides your deadline. The voluntary ones decide your credibility.</blockquote>
+    <p class="small" style="margin-top:12px; color:var(--text-faint);">Click on any framework name above to go deeper — each one links to a dedicated page covering its structure, mechanics, and how it relates to the others.</p>
+
+    <blockquote class="pull-quote" style="margin-top:2.8rem; margin-bottom:2.8rem;">The mandatory framework decides your deadline. The voluntary ones decide your credibility.</blockquote>
 
     <p>If you only have to satisfy one regulator, start there and treat the rest as translation layers, not separate projects. Most of the CSR budget conversations we sit in on are really BRSR conversations wearing a GRI vocabulary because that's the language the sustainability team learned first.</p>
   </div>
@@ -299,29 +296,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="lead" style="max-width:640px;">Same information as the table above, written out in full, with a direct link to primary source documentation for each — not a summary of a summary.</p>
 
     <dl style="margin-top:32px;">
-      <div class="glossary-entry">
+      <div class="glossary-entry" style="display:block;">
         <dt>BRSR (Business Responsibility &amp; Sustainability Report)</dt>
-        <dd>India's mandatory ESG disclosure format, required annually from the top 1,000 listed companies by market capitalisation as set by SEBI, covering governance, environmental and social performance across nine principles. Source: <a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" rel="noopener">SEBI Circular, May 2021</a>.</dd>
+        <dd>India's mandatory ESG disclosure format, required annually from the top 1,000 listed companies by market capitalisation as set by the <a href="https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html" target="_blank" rel="noopener">Securities and Exchange Board of India (SEBI)</a>, covering governance, environmental and social performance across nine principles.</dd>
       </div>
-      <div class="glossary-entry">
+      <div class="glossary-entry" style="display:block;">
         <dt>GRI (Global Reporting Initiative)</dt>
-        <dd>An independent international standards organisation providing the common global language for sustainability reporting since 2000, used by organisations in more than 100 countries. Source: <a href="https://www.globalreporting.org/" target="_blank" rel="noopener">globalreporting.org</a>.</dd>
+        <dd>An independent international standards organisation, the <a href="https://www.globalreporting.org/" target="_blank" rel="noopener">Global Reporting Initiative</a>, has provided the common global language for sustainability reporting since 2000, used by organisations in more than 100 countries.</dd>
       </div>
-      <div class="glossary-entry">
+      <div class="glossary-entry" style="display:block;">
         <dt>TCFD and its successor, ISSB</dt>
-        <dd>The Financial Stability Board confirmed in 2023 that TCFD's work was complete, with its recommendations fully incorporated into the ISSB's IFRS S1 and IFRS S2 standards. A company applying IFRS S2 meets the TCFD recommendations without needing to report against TCFD separately. Source: <a href="https://www.ifrs.org/sustainability/tcfd/" target="_blank" rel="noopener">IFRS Foundation, ISSB and TCFD</a>.</dd>
+        <dd>The <a href="https://www.ifrs.org/sustainability/tcfd/" target="_blank" rel="noopener">IFRS Foundation confirms</a> that TCFD's work was completed in 2023, with its recommendations fully incorporated into the ISSB's IFRS S1 and IFRS S2 standards. A company applying IFRS S2 meets the TCFD recommendations without needing to report against TCFD separately.</dd>
       </div>
-      <div class="glossary-entry">
+      <div class="glossary-entry" style="display:block;">
         <dt>ESRS (European Sustainability Reporting Standards)</dt>
-        <dd>Developed by EFRAG and adopted by the European Commission as the mandatory disclosure standard under the Corporate Sustainability Reporting Directive (CSRD). Which companies fall within scope is currently under revision through the EU's Omnibus simplification process, so treat any specific employee or revenue threshold as provisional until confirmed against the current text. Source: <a href="https://finance.ec.europa.eu/financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en" target="_blank" rel="noopener">European Commission, Corporate Sustainability Reporting</a>.</dd>
+        <dd>Developed by EFRAG and adopted by the <a href="https://finance.ec.europa.eu/financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en" target="_blank" rel="noopener">European Commission</a> as the mandatory disclosure standard under the Corporate Sustainability Reporting Directive (CSRD). Which companies fall within scope is currently under revision through the EU's Omnibus simplification process, so treat any specific employee or revenue threshold as provisional until confirmed against the current text.</dd>
       </div>
-      <div class="glossary-entry">
+      <div class="glossary-entry" style="display:block;">
         <dt>SDGs (Sustainable Development Goals)</dt>
-        <dd>Seventeen goals adopted by all UN member states in 2015 as a shared blueprint for people and planet through 2030. Not a reporting standard — a vocabulary companies use to connect programme outcomes to global priorities. Source: <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">United Nations, Sustainable Development Goals</a>.</dd>
+        <dd>Seventeen goals adopted by all UN member states in 2015 as a shared blueprint for people and planet through 2030, maintained by the <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">United Nations Sustainable Development Goals</a> programme. Not a reporting standard — a vocabulary companies use to connect programme outcomes to global priorities.</dd>
       </div>
-      <div class="glossary-entry" style="border-bottom:none;">
+      <div class="glossary-entry" style="display:block; border-bottom:none;">
         <dt>CDP</dt>
-        <dd>A global disclosure system, not a standard-setter, through which companies, cities and regions report environmental data — climate, water security and forests — that gets scored annually and used heavily by investors and large corporate buyers as a supplier screening tool. Source: <a href="https://www.cdp.net/en" target="_blank" rel="noopener">cdp.net</a>.</dd>
+        <dd>A global disclosure system run by <a href="https://www.cdp.net/en" target="_blank" rel="noopener">CDP</a>, not a standard-setter, through which companies, cities and regions report environmental data — climate, water security and forests — that gets scored annually and used heavily by investors and large corporate buyers as a supplier screening tool.</dd>
       </div>
     </dl>
 
@@ -342,6 +339,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="wordmark">Syntropy Earth</span>
       </div>
       <p class="footer-tag">Advisory &middot; Strategy &middot; Impact</p>
+      <div style="margin-top:20px;">
+        <a href="/" class="btn btn-outline-on-dark">Back to Syntropy Earth</a>
+        <a href="mailto:hello@syntropyearth.com" class="btn btn-primary" style="margin-left:12px;">Email us directly</a>
+      </div>
     </div>
     <div class="footer-cols">
       <div class="footer-col">
@@ -362,13 +363,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
     <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved.</span>
-    <span>Bengaluru, India &middot; Working globally</span>
-  </div>
-  <div class="wrap" style="padding-top:24px;">
-    <div style="margin-top:8px;">
-      <a href="/" class="btn btn-outline-on-dark">Back to Syntropy Earth</a>
-      <a href="mailto:hello@syntropyearth.com" class="btn btn-primary" style="margin-left:12px;">Email us directly</a>
-    </div>
   </div>
 </footer>
 

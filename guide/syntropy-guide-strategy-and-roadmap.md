@@ -173,25 +173,50 @@ Structured content (glossary entries, templates, role guides) is staged in `synt
 ```
 syntropy-guide/
 ├── syntropy-guide-strategy-and-roadmap.md      ← this file
-├── deployment-guide.md                          ← exact steps to go live
-├── analytics-and-gtm-setup.md                   ← GA4/GTM setup and download tracking, step by step
-├── nav-integration.md                           ← homepage nav snippet + what I still need from you
+├── deployment-guide.md                          ← exact steps to go live, including the 4 real-site file swaps
+├── analytics-and-gtm-setup.md                   ← corrected against your real GTM-WG7CWTHG setup
+├── nav-integration.md                           ← resolved — see below
 ├── syntropy-guide-cms-template.xlsx             ← Google Sheets CMS starter (Content + Stats tabs)
-├── index.html                                   ← Guide hub, live stats band, CSS inlined
-├── glossary.html                                ← 60 live entries, paginated, full A-Z jump nav
-├── regulations-library.html                     ← 7 frameworks compared + cited, Article + FAQPage schema
+├── index.html                                   ← Guide hub, canvas particles, no stats ribbon
+├── glossary.html                                ← 68 entries, icons, 6-page pagination, full A-Z jump nav
+├── regulations-library.html                     ← 7 frameworks, each hyperlinked to its own deep-dive page
+├── frameworks/
+│   ├── brsr.html                                ← 9 principles, BRSR Core, reporting-process flow diagram
+│   ├── gri.html                                 ← 3-tier standards structure, report-building flow
+│   ├── tcfd-issb.html                           ← 4 pillars, TCFD→ISSB succession, scenario analysis
+│   ├── esrs.html                                ← double-materiality 2x2 diagram, live scope caveat
+│   ├── sdgs.html                                ← SDG 3/13 focus, how alignment claims are actually used
+│   ├── sasb.html                                ← consolidation into IFRS Foundation, explained with a flow
+│   └── cdp.html                                 ← scoring mechanism, why it's not a substitute for GRI/BRSR
 ├── role-guides/
-│   ├── index.html                               ← role guide hub, 6 roles mapped
-│   └── csr-manager.html                         ← two-track guide, industry variation, cited footer
-├── templates-tools/
-│   ├── index.html                                ← templates hub + suggestion prompt
-│   ├── climate-health-materiality-tracker.html  ← download landing page, tracked download button
-│   └── climate-health-materiality-tracker.xlsx  ← working spreadsheet, formulas verified
-└── assets/
-    └── guide-styles.css                          ← reference copy of the stylesheet (now inlined per page, kept here as the source of truth for edits)
+│   ├── index.html                               ← role guide hub, live/planned colour-coded
+│   └── csr-manager.html                         ← two tracks, industry cards, single-line abbreviations, 2 clean CTAs
+└── templates-tools/
+    ├── index.html                                ← templates hub, suggestion prompt
+    ├── climate-health-materiality-tracker.html  ← download landing page, tracked download button
+    └── climate-health-materiality-tracker.xlsx  ← working spreadsheet, formulas verified
+
+real-site-updates/                                ← NOT part of the guide/ folder — see Step 0 of the deployment guide
+├── index.html                                    ← homepage, nav order fixed, Bengaluru line removed
+├── services-index.html                           ← Guide added to nav, Bengaluru line removed
+├── thinking-index.html                           ← Guide added to nav, Bengaluru line removed
+└── about-index.html                               ← Guide added to nav, Bengaluru line removed
 ```
 
-**What changed in this pass (third round):** Home and Contact added to every page's nav, the wordmark now links back to syntropyearth.com, a dark-section button contrast bug is fixed, a live decorative arc-and-dot motif matches the homepage's hero treatment, the glossary expanded from 11 to 60 real entries with genuine client-side pagination (12 per page) and a full 26-letter jump nav, the regulations page expanded to 7 frameworks with verified links to each framework's own official documentation, the CSR manager guide now runs two tracks (budgeting vs climate literacy) plus an industry-variation section and a cited abbreviations footer, the templates page has a "suggest a template" prompt, capitalisation of "guide" as a common noun is now consistent throughout, and every page ends with explicit "back to home" and "email us directly" buttons. `deployment-guide.md` was added with the exact GitHub/Netlify path.
+**What changed in this pass (fourth round — the real-deploy correction pass):**
+
+- **Root cause fixes, not patches:** the "cramped text" bug across every page traced back to your real stylesheet's global CSS reset (`margin: 0` on everything) — bare `<p>`/`<h3>` tags outside a named component got zero spacing. Fixed with one supplementary CSS rule per page rather than hand-patching every paragraph. The "content touching the header" bug was a `padding-top:0` override I'd added on six pages; reduced to a sane value everywhere.
+- **Analytics corrected against reality:** your real pages showed GTM (`GTM-WG7CWTHG`) already live sitewide via Netlify Snippet Injection — not the hardcoded `gtag.js` I'd built earlier. Removed the fake snippet from every Guide page, matched the real one-line comment, and switched custom events to `dataLayer.push()` since no `gtag()` function exists on this site.
+- **Live decorative element restored:** every Guide page's hero was missing the `<canvas class="hero-canvas">` particle element your real inner pages have — added to match exactly.
+- **Nav order was inconsistent** between the homepage (Guide after About) and the Guide's own pages (Guide before About) — standardised to Services / Thinking / Guide / About / Work with us everywhere, including in the four real site files.
+- **7 new framework deep-dive pages** — BRSR, GRI, TCFD→ISSB, ESRS, SDGs, SASB, CDP — each with a structural diagram (principle grids, a double-materiality matrix, process-flow diagrams built from your site's own `.flow` component), hyperlinked directly from the regulations comparison table.
+- **Glossary**: 60 → 68 entries (broke the round number, filled K and Q), every entry now has a small category icon (six icon types: regulation, climate, health, heat, finance, measurement).
+- **Citations**: "In Their Own Words" section no longer has trailing "Source: [link]" footers — the organisation name is now hyperlinked inline, in-sentence.
+- **CSR manager guide**: redundant CTA pair fixed (was two near-identical "email me" buttons — now "Explore what Syntropy Earth offers" + "Drop us an email"), abbreviations section rebuilt as a single reference line instead of a card grid.
+- **Live/planned status** on every card grid now colour-coded — green for live, red for planned/in-progress — instead of uniform grey.
+- **Footer CTA buttons** moved from after the copyright line to directly under the logo and tagline, left-aligned, matching where they should sit structurally.
+- **"Bengaluru, India · Working globally"** removed from every footer across both the Guide and the four real site files; memory updated so it doesn't get reintroduced.
+- Stats ribbon on the hub page removed entirely; "Get a template" button removed, "Browse the library" spacing fixed.
 
 Everything else named in Section 3 is still architecture, not yet content — the categories, page structures, and phasing are specified precisely enough that filling them in from here is a writing task, not a design task.
 

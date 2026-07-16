@@ -1,24 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) — GA4 property G-SRYX1DSMRX, matches sitewide install -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SRYX1DSMRX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SRYX1DSMRX');
-</script>
-<!-- Google Tag Manager — currently inactive. Once the container is created (see
-     analytics-and-gtm-setup.md), uncomment this block, replace GTM-XXXXXXX with the
-     real container ID, and remove the gtag.js block above so tracking isn't double-counted.
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
--->
-
+<!-- Analytics managed via GTM-WG7CWTHG (injected by Netlify Snippet Injection) -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Templates &amp; Tools — Syntropy Guide | Syntropy Earth</title>
@@ -140,6 +123,21 @@ table.compare th {
 /* ---- Guide industry/detail tiles (plain card content, no tag-pill) ---- */
 .g-grid .card h4.h4 { margin-bottom: 0.4rem; }
 
+
+/* ---- Live / planned status labels ---- */
+.status-live { color: var(--forest) !important; }
+.status-planned { color: var(--red-earth) !important; }
+
+/* ---- Body-copy spacing fix ----
+   The real stylesheet resets all margins to zero by default and relies on
+   specific classes (.prose, .about-prose, etc.) to restore paragraph
+   spacing. Guide-only sections use plain <p>/<h3> for body copy, so give
+   those the same breathing room directly rather than requiring every
+   paragraph to carry a class. */
+.section .wrap > p:not(.lead):not(.small):not(.meta) { margin-bottom: 1.2rem; line-height: 1.75; }
+.section .wrap > h3 { margin: 2rem 0 0.8rem; }
+.section .wrap > h4.h4 { margin-bottom: 0.6rem; }
+.section .wrap > blockquote.pull-quote { margin: 2.2rem 0; }
 </style>
 <script type="application/ld+json">
 {
@@ -153,10 +151,6 @@ table.compare th {
 </script>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) — inactive, see head comment
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
--->
 
 
 <nav class="nav" aria-label="Primary">
@@ -189,7 +183,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <section class="page-hero" style="padding-bottom:40px;">
-  <div class="hero-glow"></div>
+  <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap page-hero-inner">
     <div class="breadcrumb"><a href="/guide/">Guide</a> / Templates &amp; Tools</div>
     <span class="label">Section 04 · Templates &amp; Tools</span>
@@ -198,47 +193,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="section section--warm" style="padding-top:0;">
+<section class="section section--warm" style="padding-top:2.5rem;">
   <div class="wrap">
     <div class="g-grid cols-3">
 
       <div class="card">
-        <span class="label">Live</span>
+        <span class="label status-live">Live</span>
         <h4 class="h4"><a href="/guide/templates-tools/climate-health-materiality-tracker.html">Climate-Health Materiality Tracker</a></h4>
         <p>A structured spreadsheet format for scoring which climate risks matter most to your operations, before you spend a rupee on a response.</p>
         <div class="tag-row"><span class="tag">Spreadsheet</span></div>
       </div>
 
       <div class="card">
-        <span class="label">Planned</span>
+        <span class="label status-planned">Planned</span>
         <h4 class="h4">BRSR Core Readiness Self-Assessment</h4>
         <p>A checklist to see how far your current data collection is from what BRSR Core assurance will ask for.</p>
         <div class="tag-row"><span class="tag">Checklist</span></div>
       </div>
 
       <div class="card">
-        <span class="label">Planned</span>
+        <span class="label status-planned">Planned</span>
         <h4 class="h4">CSR Budget-to-Schedule VII Mapper</h4>
         <p>Match a proposed CSR spend against the exact Schedule VII categories it satisfies, before it reaches committee.</p>
         <div class="tag-row"><span class="tag">Worksheet</span></div>
       </div>
 
       <div class="card">
-        <span class="label">Planned</span>
+        <span class="label status-planned">Planned</span>
         <h4 class="h4">Climate Risk Register Template</h4>
         <p>A starter structure for logging physical and transition climate risks against operational and financial exposure.</p>
         <div class="tag-row"><span class="tag">Register</span></div>
       </div>
 
       <div class="card">
-        <span class="label">Planned</span>
+        <span class="label status-planned">Planned</span>
         <h4 class="h4">Access Programme Resilience Checklist</h4>
         <p>A quick-scan version of the four CAST dimensions — geographic access, supply chain, workforce, financial continuity.</p>
         <div class="tag-row"><span class="tag">Checklist</span></div>
       </div>
 
       <div class="card">
-        <span class="label">Planned</span>
+        <span class="label status-planned">Planned</span>
         <h4 class="h4">Heat Action Plan Starter Template</h4>
         <p>A baseline structure for an organisational heat action plan, built around WBGT thresholds rather than air temperature.</p>
         <div class="tag-row"><span class="tag">Plan template</span></div>
@@ -270,6 +265,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="wordmark">Syntropy Earth</span>
       </div>
       <p class="footer-tag">Advisory &middot; Strategy &middot; Impact</p>
+      <div style="margin-top:20px;">
+        <a href="/" class="btn btn-outline-on-dark">Back to Syntropy Earth</a>
+        <a href="mailto:hello@syntropyearth.com" class="btn btn-primary" style="margin-left:12px;">Email us directly</a>
+      </div>
     </div>
     <div class="footer-cols">
       <div class="footer-col">
@@ -290,13 +289,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
     <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved.</span>
-    <span>Bengaluru, India &middot; Working globally</span>
-  </div>
-  <div class="wrap" style="padding-top:24px;">
-    <div style="margin-top:8px;">
-      <a href="/" class="btn btn-outline-on-dark">Back to Syntropy Earth</a>
-      <a href="mailto:hello@syntropyearth.com" class="btn btn-primary" style="margin-left:12px;">Email us directly</a>
-    </div>
   </div>
 </footer>
 
