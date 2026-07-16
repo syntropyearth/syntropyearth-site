@@ -1,0 +1,38 @@
+# Syntropy Earth
+
+> Climate-health advisory. Climate change is a healthcare story: this site covers how a warming climate disrupts healthcare access, operations, and supply chains, and what pharma, CSR, NGO, and development finance teams can do about it.
+
+Syntropy Earth is a climate-health strategy and advisory practice founded by Abhijith Magal L, who spent nine years across two global pharmaceutical multinationals before founding the practice. Core service: CSR Strategy and Activation, built around the Climate Access Stress Test (CAST), a diagnostic for assessing how exposed an organisation's healthcare access is to climate disruption.
+
+## Core pages
+
+- [Homepage](https://syntropyearth.com/): Overview of the practice, thesis, and services.
+- [Services](https://syntropyearth.com/services/): CSR Strategy and Activation, Climate Access Stress Test, advisory retainer, climate literacy, brand and launch strategy, venture advisory.
+- [About](https://syntropyearth.com/about/): Founder background, nine years in global pharma and healthcare, climate-health positioning.
+- [Climate-Access Exposure](https://syntropyearth.com/climate-access/): Free self-assessment tool, peer-benchmarked against FY2024-25 BRSR disclosures from 59 listed Indian companies.
+
+## Thinking (articles)
+
+- [Thinking index](https://syntropyearth.com/thinking/): Evidence-led writing on where climate change meets healthcare.
+- [Why the Heat Season Is a Healthcare Operations Problem](https://syntropyearth.com/thinking/india-heat-season-healthcare-operations/): Extreme heat as a workforce, access, and supply-chain problem, not just a medical one.
+
+## Syntropy Guide (free resource library)
+
+- [Guide index](https://syntropyearth.com/guide/): Climate-health resource library overview.
+- [Climate & CSR Glossary](https://syntropyearth.com/guide/glossary.html): 68-term plain-English glossary of climate-health, CSR, and sustainability reporting terms.
+- [Regulations & Standards Library](https://syntropyearth.com/guide/regulations-library.html): Reference library of climate and sustainability reporting frameworks.
+- [Role-Based Guides](https://syntropyearth.com/guide/role-guides/): Guides written for specific roles.
+- [The CSR Manager's Guide to Climate-Health Spend](https://syntropyearth.com/guide/role-guides/csr-manager.html)
+- [Templates & Tools](https://syntropyearth.com/guide/templates-tools/): Free downloadable templates for climate-health CSR planning.
+- [Climate-Health Materiality Tracker](https://syntropyearth.com/guide/templates-tools/climate-health-materiality-tracker.html): Free template for tracking climate-health materiality issues.
+
+## Reporting framework explainers
+
+- [BRSR Explained](https://syntropyearth.com/guide/frameworks/brsr.html): Business Responsibility and Sustainability Report, India's mandatory ESG disclosure format.
+- [GRI Explained](https://syntropyearth.com/guide/frameworks/gri.html): Structure and how it works.
+- [SASB Explained](https://syntropyearth.com/guide/frameworks/sasb.html): Where it lives now.
+- [ESRS Explained](https://syntropyearth.com/guide/frameworks/esrs.html): What double materiality actually means.
+- [TCFD & ISSB Explained](https://syntropyearth.com/guide/frameworks/tcfd-issb.html)
+- [CDP Explained](https://syntropyearth.com/guide/frameworks/cdp.html): How the scoring actually works.
+- [The SDGs Explained for Climate-Health](https://syntropyearth.com/guide/frameworks/sdgs.html)
+- [COP History & Global Climate Targets](https://syntropyearth.com/guide/frameworks/cop.html)
