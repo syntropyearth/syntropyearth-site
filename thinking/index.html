@@ -168,6 +168,62 @@
     .flagship { transition: none; }
     .flagship:hover { transform: none; }
   }
+
+  /* Connector between the flagship and the grid below — closes the gap
+     left by two stacked sections, and gives scanners an explicit cue
+     that there's more below the fold. The vertical line echoes the
+     concentric-arc mark in the nav rather than a generic chevron. */
+  html { scroll-behavior: smooth; }
+
+  .more-reading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+    width: fit-content;
+    margin: 2.75rem auto 3.25rem;
+    padding: 0.4rem 0.75rem;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  .more-reading-line {
+    width: 1px;
+    height: 34px;
+    background: linear-gradient(to bottom, rgba(30, 68, 53, 0) 0%, #8AAE98 100%);
+  }
+  .more-reading-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #5C6A60;
+    transition: color 0.2s;
+  }
+  .more-reading-chevron {
+    color: #9E3B2A;
+    animation: more-reading-bob 2.2s ease-in-out infinite;
+  }
+  .more-reading:hover .more-reading-label,
+  .more-reading:focus-visible .more-reading-label { color: #9E3B2A; }
+  .more-reading:hover .more-reading-line,
+  .more-reading:focus-visible .more-reading-line {
+    background: linear-gradient(to bottom, rgba(30, 68, 53, 0) 0%, #9E3B2A 100%);
+  }
+  .more-reading:focus-visible {
+    outline: 2px solid #CF9B7D;
+    outline-offset: 3px;
+  }
+
+  @keyframes more-reading-bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .more-reading-chevron { animation: none; }
+  }
 </style>
 </head>
 
@@ -236,12 +292,16 @@
         </div>
       </div>
     </a>
-  </div>
-</section>
 
-<section class="section section--warm">
-  <div class="wrap">
-    <div class="articles reveal-stagger">
+    <a class="more-reading" href="#more-thinking" aria-label="Jump to more reading below">
+      <span class="more-reading-line" aria-hidden="true"></span>
+      <span class="more-reading-label">More reading below</span>
+      <svg class="more-reading-chevron" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+        <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <div class="articles reveal-stagger" id="more-thinking">
       <a class="article-card" href="/thinking/india-heat-season-healthcare-operations">
         <p class="article-meta">Climate &amp; Operations</p>
         <h3>Why the heat season is a healthcare operations problem</h3>
