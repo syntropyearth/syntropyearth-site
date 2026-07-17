@@ -42,6 +42,133 @@
 }
 </script>
 <!-- Analytics managed via GTM-WG7CWTHG (injected by Netlify Snippet Injection) -->
+
+<style>
+  /* Flagship feature block — page-specific, built on existing brand tokens.
+     Mirrors the dark Deep Forest CTA-card treatment already used inside
+     the articles themselves, so the teaser and the piece it leads to
+     share one visual language. */
+  .flagship {
+    display: block;
+    background: #1E4435;
+    border-radius: 12px;
+    padding: 3.25rem 3rem;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .flagship:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px rgba(20, 48, 37, 0.28);
+  }
+  .flagship:focus-visible {
+    outline: 2px solid #CF9B7D;
+    outline-offset: 4px;
+  }
+
+  .flagship-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .flagship-kicker {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #CF9B7D;
+    margin: 0 0 1.1rem;
+  }
+
+  .flagship-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+    line-height: 1.2;
+    color: #FAF4E8;
+    margin: 0 0 1.1rem;
+  }
+  .flagship-title em { font-style: italic; color: #CF9B7D; }
+
+  .flagship-dek {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: rgba(250, 244, 232, 0.85);
+    max-width: 46ch;
+    margin: 0 0 1.5rem;
+  }
+
+  .flagship-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8AAE98;
+    margin: 0 0 1.85rem;
+  }
+
+  .flagship-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #9E3B2A;
+    color: #FAF4E8;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.85rem 1.5rem;
+    border-radius: 7px;
+    transition: background 0.2s;
+  }
+  .flagship:hover .flagship-cta { background: #B4472F; }
+
+  .flagship-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    border-left: 1px solid rgba(250, 244, 232, 0.14);
+    padding-left: 2.25rem;
+  }
+
+  .flagship-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 2.3rem;
+    line-height: 1;
+    color: #FAF4E8;
+    margin: 0 0 0.5rem;
+  }
+
+  .flagship-stat-cap {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: #8AAE98;
+    margin: 0;
+  }
+
+  @media (max-width: 720px) {
+    .flagship { padding: 2.25rem 1.5rem; }
+    .flagship-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .flagship-stats {
+      flex-direction: row;
+      border-left: none;
+      border-top: 1px solid rgba(250, 244, 232, 0.14);
+      padding-left: 0;
+      padding-top: 1.5rem;
+      gap: 2rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .flagship { transition: none; }
+    .flagship:hover { transform: none; }
+  }
+</style>
 </head>
 
 <body>
@@ -88,17 +215,43 @@
 <main>
 <section class="section section--warm">
   <div class="wrap">
+    <a class="flagship" href="/thinking/climate-change-is-a-healthcare-story/">
+      <div class="flagship-grid">
+        <div class="flagship-content">
+          <p class="flagship-kicker">The Thesis</p>
+          <h2 class="flagship-title">Climate change is a healthcare story. <em>Heat alone cost India &#8377;18.5 lakh crore last year.</em></h2>
+          <p class="flagship-dek">The evidence across heat, floods, disease and air: what climate change already costs healthcare access in India, and why almost nobody measures it.</p>
+          <p class="flagship-meta">Abhijith Magal L &middot; 17 July 2026 &middot; 11 min read</p>
+          <span class="flagship-cta">Read the thesis <span aria-hidden="true">&rarr;</span></span>
+        </div>
+        <div class="flagship-stats">
+          <div class="flagship-stat">
+            <p class="flagship-stat-num">247 bn</p>
+            <p class="flagship-stat-cap">Labour hours lost to heat in India, 2024</p>
+          </div>
+          <div class="flagship-stat">
+            <p class="flagship-stat-num">&#8377;18.5 lakh cr</p>
+            <p class="flagship-stat-cap">Estimated income lost to heat the same year</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="section section--warm">
+  <div class="wrap">
     <div class="articles reveal-stagger">
       <a class="article-card" href="/thinking/india-heat-season-healthcare-operations">
         <p class="article-meta">Climate &amp; Operations</p>
         <h3>Why the heat season is a healthcare operations problem</h3>
         <p>The connection most organisations are missing in their summer preparedness planning.</p>
       </a>
-      <div class="article-card pending">
-        <p class="article-meta">In progress</p>
+      <a class="article-card" href="/thinking/climate-risk-hiding-in-your-access-data/">
+        <p class="article-meta">Climate &amp; Access</p>
         <h3>The climate risk hiding in your access data</h3>
         <p>What access-programme data reveals about which disruptions were actually climate events.</p>
-      </div>
+      </a>
       <div class="article-card pending">
         <p class="article-meta">In progress</p>
         <h3>Construction's biggest climate exposure isn't carbon, it's workers</h3>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>The Climate Risk Hiding in Your Access Data | Syntropy Earth</title>
+<meta name="description" content="Two Indian states just lived opposite climate extremes in the same week. Here is the column your access programme's dashboard does not have, and what it has been hiding.">
+<meta name="author" content="Abhijith Magal L">
+<link rel="canonical" href="https://syntropyearth.com/thinking/climate-risk-hiding-in-your-access-data/">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Climate Risk Hiding in Your Access Data">
+<meta property="og:description" content="Measuring climate's impact on health access, inside data you already have. Same monsoon, opposite weather, one missing column.">
+<meta property="og:url" content="https://syntropyearth.com/thinking/climate-risk-hiding-in-your-access-data/">
+<meta property="og:image" content="https://syntropyearth.com/og-image.png">
+<meta property="og:locale" content="en_IN">
+<meta property="og:site_name" content="Syntropy Earth">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Climate Risk Hiding in Your Access Data">
+<meta name="twitter:description" content="Measuring climate's impact on health access, inside data you already have.">
+<meta name="twitter:image" content="https://syntropyearth.com/og-image.png">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<!-- Analytics managed via GTM-WG7CWTHG (injected by Netlify Snippet Injection) -->
+
+<style>
+  :root {
+    --deep-forest: #1E4435;
+    --forest: #356B4E;
+    --sage: #8AAE98;
+    --pale-sage: #E8F0EB;
+    --red-earth: #9E3B2A;
+    --warm-clay: #CF9B7D;
+    --monsoon-blue: #3D6478;
+    --soft-cream: #FAF4E8;
+    --warm-white: #FDFAF5;
+    --text-primary: #22322A;
+    --text-muted: #5C6A60;
+    --border: rgba(30, 68, 53, 0.12);
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'Space Mono', 'Courier New', monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--warm-white);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+  .access-wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  .article-header { background: var(--soft-cream); padding: 64px 0 48px; margin-bottom: 8px; }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--red-earth); margin: 0 0 18px;
+  }
+  .article-header h1 {
+    font-family: var(--font-display); font-weight: 300; font-size: 46px;
+    line-height: 1.05; color: var(--deep-forest); margin: 0 0 16px; letter-spacing: -0.01em;
+  }
+  .dek {
+    font-family: var(--font-display); font-style: italic; font-weight: 300;
+    font-size: 22px; line-height: 1.4; color: var(--forest); margin: 0 0 22px;
+  }
+  .byline {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);
+  }
+  .byline span.dot { color: var(--sage); }
+
+  .access-article { padding: 24px 0 0; }
+  .access-article p { font-size: 17px; line-height: 1.75; margin: 0 0 22px; }
+  .article-lead { font-size: 18px; }
+
+  .tldr {
+    background: var(--pale-sage); border-left: 3px solid var(--red-earth);
+    border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 8px 0 40px;
+  }
+  .tldr .label {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--forest); margin: 0 0 12px;
+  }
+  .tldr ul { margin: 0; padding-left: 20px; }
+  .tldr li { font-size: 15px; line-height: 1.62; margin-bottom: 10px; }
+  .tldr li:last-child { margin-bottom: 0; }
+
+  .access-article h2 {
+    font-family: var(--font-display); font-weight: 300; font-size: 28px;
+    line-height: 1.15; color: var(--deep-forest); margin: 44px 0 14px;
+  }
+
+  .access-article a { color: var(--red-earth); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+  .access-article a:hover { color: var(--deep-forest); }
+
+  .access-article figure { margin: 32px 0; }
+  .access-article figcaption {
+    font-family: var(--font-mono); font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--text-muted); margin-top: 10px;
+  }
+  table.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.data-table caption {
+    text-align: left; font-family: var(--font-mono); font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted);
+    margin-bottom: 10px; caption-side: top;
+  }
+  table.data-table th {
+    text-align: left; font-weight: 400; color: var(--text-muted);
+    padding: 8px 4px; border-bottom: 1px solid var(--border);
+  }
+  table.data-table td { padding: 9px 4px; border-bottom: 1px solid var(--border); }
+  table.data-table td.num { text-align: right; font-weight: 500; }
+  .chart-box { position: relative; height: 150px; margin-top: 20px; }
+
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px; margin: 36px 0;
+  }
+  .stat {
+    background: var(--warm-white); border: 0.5px solid var(--border);
+    border-radius: 8px; padding: 16px 18px;
+  }
+  .stat .k {
+    font-family: var(--font-mono); font-size: 9px; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--text-muted); margin: 0 0 8px;
+  }
+  .stat .v { font-family: var(--font-display); font-size: 30px; color: var(--deep-forest); margin: 0; line-height: 1; }
+  .stat .v small { font-family: var(--font-body); font-size: 13px; color: var(--red-earth); }
+  .stat .v small.muted { color: var(--text-muted); }
+
+  .access-article blockquote {
+    border-left: 2px solid var(--warm-clay); margin: 36px 0; padding: 4px 0 4px 22px;
+  }
+  .access-article blockquote p {
+    font-family: var(--font-display); font-style: italic; font-weight: 300;
+    font-size: 24px; line-height: 1.4; color: var(--deep-forest); margin: 0;
+  }
+
+  .cta {
+    background: var(--deep-forest); color: var(--soft-cream);
+    border-radius: 12px; padding: 28px 30px; margin: 44px 0 40px;
+  }
+  .cta h3 { font-family: var(--font-display); font-weight: 300; font-size: 24px; color: var(--soft-cream); margin: 0 0 10px; }
+  .cta p { color: var(--sage); font-size: 15px; line-height: 1.6; margin: 0 0 18px; }
+  .cta a {
+    display: inline-flex; align-items: center; gap: 7px; color: var(--soft-cream);
+    text-decoration: none; border: 1px solid var(--sage); border-radius: 24px;
+    padding: 9px 20px; font-size: 14px;
+  }
+  .cta a:hover { background: var(--red-earth); border-color: var(--red-earth); color: var(--soft-cream); }
+
+  .author {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: var(--soft-cream); border-radius: 10px; padding: 20px 22px; margin: 40px 0 28px;
+  }
+  .author .avatar {
+    width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+  }
+  .author .name { font-weight: 500; font-size: 14px; color: var(--deep-forest); margin: 0 0 4px; }
+  .author .bio { font-size: 13px; color: var(--text-muted); line-height: 1.55; margin: 0; }
+
+  .sources { border-top: 0.5px solid var(--border); padding-top: 22px; margin-top: 32px; }
+  .sources .label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin: 0 0 12px; }
+  .sources ol { margin: 0; padding-left: 20px; }
+  .sources li { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 6px; }
+  @media (max-width: 560px) {
+    .article-header h1 { font-size: 34px; }
+    .article-header { padding: 44px 0 36px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/" aria-label="Syntropy Earth home">
+      <svg class="mark mark-draw" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path class="arc" d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+        <path class="arc arc-2" d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+        <path class="arc arc-3" d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+        <circle class="dot" cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+      </svg>
+      <span class="wordmark">Syntropy Earth</span>
+    </a>
+    <div class="nav-links">
+      <a href="/services">Services</a>
+      <a href="/thinking">Thinking</a>
+      <a href="/guide/">Guide</a>
+      <a href="/about">About</a>
+      <a class="btn btn-primary" href="/#contact">Work with us</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/services">Services</a>
+  <a href="/thinking">Thinking</a>
+  <a href="/guide/">Guide</a>
+  <a href="/about">About</a>
+  <a class="btn btn-primary" href="/#contact">Work with us</a>
+</div>
+
+<main>
+<header class="article-header">
+  <div class="access-wrap">
+    <p class="eyebrow">Thinking &middot; Climate &amp; healthcare access</p>
+    <h1>The Climate Risk Hiding in Your Access Data</h1>
+    <p class="dek">What measuring climate's impact on health access actually looks like, inside data you already have.</p>
+    <div class="byline">
+      <span>Abhijith Magal L</span>
+      <span class="dot">&middot;</span>
+      <span>16 July 2026</span>
+      <span class="dot">&middot;</span>
+      <span>7 min read</span>
+    </div>
+  </div>
+</header>
+
+<div class="access-wrap">
+<article class="access-article">
+
+  <p class="article-lead">This week, Northeast India is underwater. The Cabinet met to review flood damage across several states there while, six hundred kilometres west, central India is still waiting out a monsoon that arrived a day late and has been sulking ever since. The national rainfall deficit only narrowed from 30% to 14% in the last ten days. Same monsoon. Same year. Two opposite climate events, unfolding at once, inside the same country's health access numbers right now. Almost no dashboard tracking a CSR or patient access programme is built to tell them apart, which is the problem, because measuring climate's impact on health access starts exactly there.</p>
+
+  <p>Nine years inside pharma access and commercial work taught me one thing before anything else: a quarterly report never says "weather." It says "engagement fatigue," or "field team underperformance," or, more often, nothing, because the dip quietly disappears into an annual average nobody reopens. The report isn't lying. It's reading a column that was never built.</p>
+
+  <div class="tldr">
+    <p class="label">In short</p>
+    <ul>
+      <li>Two Indian states can sit inside the same monsoon and post opposite climate signatures, flood in one, deficit in the other, and a dashboard built on quarterly averages reads both as unrelated noise (IMD, July 2026).</li>
+      <li>India logged 19.8 heatwave days in 2024, 6.6 of them directly attributable to climate change (Lancet Countdown, 2025). That pattern surfaces in patient volume data as an ordinary seasonal dip, because almost no access programme tags a missed visit against a named weather event.</li>
+      <li>A 2008 study of 29 primary health facilities during the Orissa flood found 65.5% reported disrupted road access and drug stock-outs of six to ten days, the exact mechanism by which a flood becomes a missed dose, documented once and then largely unused by every access programme built since.</li>
+      <li>BRSR Core assurance extends from the top 500 to the top 1,000 listed companies in FY2026-27. A programme that can't explain its own access dips walks into that assurance blind, however good the underlying intervention.</li>
+    </ul>
+  </div>
+
+  <figure>
+    <table class="data-table" id="monsoon-table">
+      <caption>India cumulative rainfall deficit against long period average, 2026</caption>
+      <thead>
+        <tr><th scope="col">Date</th><th scope="col" style="text-align:right;">Deficit vs LPA</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>30 June 2026</td><td class="num" data-value="30">30%</td></tr>
+        <tr><td>9 July 2026</td><td class="num" data-value="14">14%</td></tr>
+      </tbody>
+    </table>
+    <div class="chart-box">
+      <canvas id="monsoon-chart" role="img" aria-label="Bar chart showing India's rainfall deficit falling from 30 percent on 30 June 2026 to 14 percent on 9 July 2026.">India's rainfall deficit fell from 30% on 30 June to 14% on 9 July 2026.</canvas>
+    </div>
+    <figcaption>Source: India Meteorological Department, via Business Standard, 10 July 2026</figcaption>
+  </figure>
+
+  <h2>Why does a well-run access programme still show bad quarters?</h2>
+  <p>Because the reporting template only asks two questions: did outreach happen, and did uptake happen. It never asks what happened in the district that week. A field team can execute a programme exactly as designed and still watch the numbers dip if the dip is weather, not delivery. The report then blames the field team, or the messaging, or "patient behaviour," the three excuses that absorb every unexplained number in this sector, and the actual driver goes untouched into next year's plan.</p>
+
+  <h2>What does climate disruption actually look like inside operational data?</h2>
+  <p>Ordinary, which is exactly the problem. Refill collection drops in the fortnight before a heatwave peaks, because people stop travelling in extreme heat before the news declares one. Outreach visit completion falls in flood-prone blocks during specific monsoon weeks, not the whole season evenly. Community health worker visit logs show gaps that line up with named weather events on a district calendar, not with anything in the worker's own performance history. Vendor delivery delays spike in windows that match flood advisories almost exactly, while the internal note says "logistics issue" and stops there.</p>
+
+  <h2>Two decades ago, someone already proved this</h2>
+  <p>In September 2008, floods hit rural Orissa and a team of researchers surveyed 29 primary health facilities to see how the system actually held up. Nineteen of them, 65.5%, reported that road access had been disrupted. Drug stock-outs ran six to ten days at the worst-hit sites, because central procurement places orders and makes payments at state level while supplies move at district level, so a single broken road severs the whole chain. Chronic disease management, hypertension, diabetes, stroke, was rated poor by 44.8% of the facilities. That paper has sat in the public record for close to two decades. Almost no CSR access programme built since has gone looking for it, because nobody thought to ask whether their own dip in September looked anything like it.</p>
+
+  <div class="stat-grid">
+    <div class="stat"><p class="k">2024 heatwave days</p><p class="v">19.8 <small>/ 6.6 climate-attributable</small></p></div>
+    <div class="stat"><p class="k">Orissa flood, 2008</p><p class="v">65.5% <small class="muted">facilities cut off</small></p></div>
+    <div class="stat"><p class="k">Medication adherence</p><p class="v">50% <small class="muted">global / 23.7% Mumbai</small></p></div>
+    <div class="stat"><p class="k">BRSR Core, FY26-27</p><p class="v">500&rarr;1,000 <small class="muted">companies</small></p></div>
+  </div>
+
+  <h2>Heat writes its own signature on top of the monsoon's</h2>
+  <p>Floods are the dramatic version. Heat is the quiet one, and it is currently the bigger economic story. India lost 247 billion labour hours to extreme heat in 2024 alone, worth an estimated USD 194 billion, roughly &#8377;18.5 lakh crore at July 2026 exchange rates (Lancet Countdown, 2025). Compared to the 1990s, the average Indian was exposed to 366 more hours of heat intense enough to cause physical stress. None of that shows up as a line item on a CSR programme's dashboard. It shows up as "adherence dropped in May" and gets filed next to the flood-season dip with the same shrug. I have written before about why <a href="https://syntropyearth.com/thinking/india-heat-season-healthcare-operations/">the heat season is a healthcare operations problem</a>, not a comfort one, and this is the data trail it leaves behind.</p>
+
+  <h2>Is this a climate problem or an infrastructure problem?</h2>
+  <p>Both, and arguing over which one matters more wastes the time you would spend fixing it. A heatwave hits a well-connected urban clinic and costs it a bad week. The same heatwave hits a rural block with one approach road and it costs a month, because the road and the cold chain fail together and the field team cannot travel at all. Climate stress and weak infrastructure compound each other rather than sitting as two separate line items you can address one at a time. A programme built without accounting for that compounding is designed for the district on a normal week, not the district on its worst one, which is precisely the week access actually breaks.</p>
+
+  <blockquote>
+    <p>The report isn't lying. It's reading a column that was never built.</p>
+  </blockquote>
+
+  <h2>What does misdiagnosing this actually cost?</h2>
+  <p>The WHO's global estimate is that roughly half of chronic disease patients do not take their medication as prescribed. A 2023 cross-sectional study in Mumbai found adherence at just 23.7% among a comparable patient group, well below the global baseline, and that number was measured without isolating a single heatwave or flood event as a variable. Layer climate disruption on top of an adherence problem that bad and you get a programme that keeps redirecting budget toward "poor uptake" fixes, more field staff and revised messaging, when the actual driver was a flood the programme never coded for. You end up optimising the wrong variable and calling the result a design failure when it was a measurement failure the whole time.</p>
+
+  <h2>What does the BRSR clock have to do with any of this?</h2>
+  <p>FY2026-27 is the year <a href="https://syntropyearth.com/guide/frameworks/brsr/">BRSR Core</a> assurance extends from the top 500 to the top 1,000 listed companies, under SEBI's existing circular. A CSR health programme walking into that assurance with unexplained seasonal dips in its outcome data is not just leaving a gap in the report. It is handing an assurer a number it cannot defend, on a disclosure that is about to face real scrutiny for the first time. The programme might be well designed. The report will not be able to prove it.</p>
+
+  <h2>How do you actually find this in your own numbers?</h2>
+  <p>Pull the programme's visit, refill, and delivery data by week, not by quarter, because quarterly aggregation is exactly what hides this pattern. Overlay it against the district's <a href="https://syntropyearth.com/guide/glossary/">heat action plan</a> windows and any flood advisories issued that year. Check whether the "bad months" repeat on the same weeks across multiple years rather than appearing once. If a dip shows up every year in the same fortnight, in the same block, it isn't fatigue or a messaging problem. It's a weather signal wearing a performance label, and it has been sitting in a spreadsheet the whole time, waiting for someone to ask the right question of it.</p>
+
+  <h2>The vocabulary for this gap already exists</h2>
+  <p>This is what <a href="https://syntropyearth.com/thinking/climate-change-is-a-healthcare-story/">climate-access</a> means: the specific point where a climate event severs the link between a patient and care they were already enrolled to receive. It is measurable, it is already sitting in most programmes' own data, and it is what a properly built diagnostic, the kind the CAST method is designed around, is meant to surface before an assurer finds it first.</p>
+
+  <p>Two states, same monsoon, same week, opposite weather. Your programme's data has been recording something like this every year it has run. Nobody built the column for it yet.</p>
+
+  <div class="cta">
+    <h3>Find your programme's weakest link</h3>
+    <p>There is a name for the point where climate severs access: climate-access. The Climate Access Vulnerability Scorecard (CAVS-S) names your programme's specific weak point in a few minutes. Free, no call required to run it.</p>
+    <a href="https://syntropyearth.com/climate-access/">Run the scorecard <span aria-hidden="true">&rarr;</span></a>
+  </div>
+
+  <div class="author">
+    <img class="avatar" src="https://syntropyearth.com/images/abhijith-magal.jpg" alt="Abhijith Magal L, founder of Syntropy Earth">
+    <div>
+      <p class="name">Abhijith Magal L</p>
+      <p class="bio">Founder, Syntropy Earth. Nine years across two global pharmaceutical multinationals in patient access and commercial roles, with health-equity work alongside the WHO-Foundation and UNICEF. He works on climate-access: where climate disruption breaks the link between patients and care.</p>
+    </div>
+  </div>
+
+  <div class="sources">
+    <p class="label">Sources</p>
+    <ol>
+      <li>India Meteorological Department monsoon and rainfall-deficit bulletins, July 2026 (reported via Business Standard, 10 July 2026).</li>
+      <li>The Lancet Countdown, <a href="https://lancetcountdown.org/wp-content/uploads/2025/10/India_Lancet-Countdown_2025_Data-Sheet-2.pdf">2025 Report: Health and Climate Change, India Data Sheet</a>.</li>
+      <li>Behera et al., <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3307669/">Assessing the functional capacity of the primary health care system in rural Orissa to respond to the 2008 flood</a>, PMC/NCBI.</li>
+      <li><a href="https://www.who.int/news-room/fact-sheets/detail/adherence-to-long-term-therapies">World Health Organization</a>, global estimate on medication adherence in chronic disease.</li>
+      <li>Shah et al., <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10550356/">Medication Adherence in Chronic Diseases in an Indian Metropolis</a>, Cureus, 2023.</li>
+      <li>SEBI Circular SEBI/HO/CFD/CFD-SEC-2/P/CIR/2023/122, BRSR Core assurance glide path, FY2026-27.</li>
+    </ol>
+  </div>
+
+</article>
+</div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+          <path d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+        </svg>
+        <span class="wordmark">Syntropy Earth</span>
+      </div>
+      <p class="footer-tag">Advisory &middot; Strategy &middot; Impact</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="/services">Services</a>
+        <a href="/thinking">Thinking</a>
+        <a href="/guide/">Guide</a>
+        <a href="/about">About</a>
+        <a href="/#contact">Work with us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://www.linkedin.com/in/abhijithmagal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@abhijithmagal" target="_blank" rel="noopener">YouTube</a>
+        <a href="mailto:hello@syntropyearth.com">hello@syntropyearth.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
+    <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://syntropyearth.com/thinking/climate-risk-hiding-in-your-access-data/#article",
+      "headline": "The Climate Risk Hiding in Your Access Data",
+      "description": "Measuring climate's impact on health access, inside data you already have. Same monsoon, opposite weather, one missing column.",
+      "url": "https://syntropyearth.com/thinking/climate-risk-hiding-in-your-access-data/",
+      "datePublished": "2026-07-16T09:00:00+05:30",
+      "dateModified": "2026-07-16T09:00:00+05:30",
+      "inLanguage": "en-IN",
+      "author": { "@id": "https://syntropyearth.com/#person" },
+      "publisher": { "@id": "https://syntropyearth.com/#organization" },
+      "image": "https://syntropyearth.com/og-image.png",
+      "mainEntityOfPage": "https://syntropyearth.com/thinking/climate-risk-hiding-in-your-access-data/",
+      "keywords": "measuring climate impact on health access, climate-access, BRSR Core, patient access programme, climate risk healthcare India"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://syntropyearth.com/thinking/climate-risk-hiding-in-your-access-data/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does a well-run access programme still show bad quarters?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because the reporting template only records whether outreach and uptake happened, never what happened in the district that week. A field team can execute a programme as designed and still see the numbers dip if the cause is a weather event rather than delivery, which then gets misattributed to fatigue, messaging or patient behaviour."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does climate disruption look like inside operational data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It looks ordinary. Refill collection drops in the fortnight before a heatwave peaks, outreach completion falls in flood-prone blocks during specific monsoon weeks, community health worker logs show gaps aligned to named weather events, and vendor delays spike in windows that match flood advisories, usually filed as a routine logistics issue."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you find climate impact in your own access data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pull visit, refill and delivery data by week rather than by quarter, overlay it against the district's heat action plan windows and flood advisories, and check whether the bad months repeat on the same weeks across multiple years. A recurring dip in the same fortnight and block is a weather signal, not a performance problem."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- Enhancement layer: builds the chart from the static table already in the DOM. Page reads fully with JS disabled. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  (function () {
+    var canvas = document.getElementById('monsoon-chart');
+    var table = document.getElementById('monsoon-table');
+    if (!canvas || !table || typeof Chart === 'undefined') return;
+    var rows = table.querySelectorAll('tbody tr');
+    var labels = [], values = [];
+    rows.forEach(function (r) {
+      labels.push(r.cells[0].textContent.replace(' 2026', ''));
+      values.push(parseFloat(r.cells[1].getAttribute('data-value')));
+    });
+    new Chart(canvas, {
+      type: 'bar',
+      data: { labels: labels, datasets: [{ data: values, backgroundColor: ['#9E3B2A', '#3D6478'], borderRadius: 4, maxBarThickness: 56 }] },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (c) { return c.parsed.x + '% below normal'; } } } },
+        scales: {
+          x: { max: 35, grid: { color: '#e6e0d4' }, ticks: { callback: function (v) { return v + '%'; }, font: { family: 'DM Sans', size: 11 }, color: '#5C6A60' } },
+          y: { grid: { display: false }, ticks: { font: { family: 'DM Sans', size: 12 }, color: '#22322A' } }
+        }
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
