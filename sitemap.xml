@@ -26,6 +26,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://syntropyearth.com/thinking/climate-change-is-a-healthcare-story/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://syntropyearth.com/thinking/climate-risk-hiding-in-your-access-data/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://syntropyearth.com/climate-access/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
