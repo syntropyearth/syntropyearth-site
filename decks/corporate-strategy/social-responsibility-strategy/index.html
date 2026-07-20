@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syntropy Earth · Social Responsibility Strategy &amp; Programme Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep-forest:#1E4435; --midnight-forest:#143025; --forest:#356B4E;
+    --sage:#8AAE98; --mist:#C4D9CC; --pale-sage:#E8F0EB;
+    --red-earth:#9E3B2A; --dark-red-earth:#7A2D1E; --warm-clay:#CF9B7D; --pale-clay:#F0DED0;
+    --monsoon:#3D6478; --sky:#8BA8B6; --sky-pale:#DAE8EE;
+    --warm-white:#FDFAF5; --soft-cream:#FAF4E8; --white:#FFFFFF;
+    --text-primary:#22322A; --text-muted:#5C6A60; --text-faint:#93A89C;
+    --border:rgba(30,68,53,0.10); --border-strong:rgba(30,68,53,0.18);
+    --font-display:'Cormorant Garamond',Georgia,serif;
+    --font-body:'DM Sans',system-ui,sans-serif;
+    --font-mono:'Space Mono','Courier New',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font-body); color:var(--text-primary); background:var(--warm-white); overflow-x:hidden;}
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease;}
+    .reveal.in{opacity:1; transform:translateY(0);}
+  }
+  section.slide{min-height:100vh; width:100%; display:flex; flex-direction:column; justify-content:flex-start; padding:17vh 8vw 64px; position:relative;}
+  .ion-canvas{position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none;}
+  section.slide > *:not(.ion-canvas){position:relative; z-index:1;}
+  .dark{background:var(--deep-forest); color:var(--soft-cream);}
+  .dark .muted{color:var(--sage);}
+  .light{background:var(--warm-white);}
+  .cream{background:var(--soft-cream);}
+  .eyebrow{font-family:var(--font-mono); font-size:11px; letter-spacing:0.20em; text-transform:uppercase; color:var(--red-earth); margin-bottom:22px;}
+  .dark .eyebrow{color:var(--warm-clay);}
+  h1{font-family:var(--font-display); font-weight:300; font-size:52px; line-height:1.1; color:var(--deep-forest); max-width:920px;}
+  .dark h1{color:var(--soft-cream);}
+  .accent{color:var(--red-earth); font-style:italic;}
+  .dark .accent{color:var(--warm-clay); font-style:italic;}
+  h2{font-family:var(--font-display); font-weight:300; font-size:36px; color:var(--deep-forest); max-width:840px; line-height:1.18;}
+  .dark h2{color:var(--soft-cream);}
+  p.lead{font-size:18.5px; line-height:1.75; color:var(--text-muted); max-width:660px; margin-top:22px;}
+  .dark p.lead{color:var(--mist);}
+  p.body{font-size:16px; line-height:1.75; color:var(--text-muted); max-width:640px; margin-top:15px;}
+  .dark p.body{color:var(--mist);}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:32px;}
+  .card{background:var(--white); border:1px solid var(--border); border-radius:10px; padding:24px 26px;}
+  .dark .card{background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.14);}
+  .card h4{font-family:var(--font-body); font-weight:500; font-size:15.5px; color:var(--deep-forest); margin-bottom:8px;}
+  .dark .card h4{color:var(--soft-cream);}
+  .card p{font-size:14.5px; color:var(--text-muted); line-height:1.65;}
+  .dark .card p{color:var(--mist);}
+  .card .ex{font-size:13.5px; color:var(--text-faint); margin-top:10px; padding-top:10px; border-top:1px solid var(--border); line-height:1.6; font-style:italic;}
+
+  .deliverables{list-style:none; margin-top:26px; max-width:660px;}
+  .deliverables li{display:flex; gap:12px; align-items:flex-start; font-size:15.5px; padding:12px 0; border-bottom:1px solid var(--border); color:var(--text-primary);}
+  .deliverables.stop li{color:var(--text-muted);}
+  .icon{flex:none; width:20px; height:20px; margin-top:2px;}
+
+  /* what we design -- paired rows */
+  .wwd-list{margin-top:30px; max-width:920px;}
+  .wwd-row{display:grid; grid-template-columns:0.95fr 1.05fr; gap:34px; padding:18px 0; border-bottom:1px solid var(--border); align-items:start;}
+  .wwd-row:first-child{padding-top:0;}
+  .wwd-left{display:flex; gap:12px; align-items:flex-start; font-size:15.5px; font-weight:500; color:var(--deep-forest); line-height:1.4;}
+  .wwd-right{font-size:14.5px; color:var(--text-muted); line-height:1.7; border-left:2px solid var(--warm-clay); padding-left:16px;}
+  .wwd-head{font-family:var(--font-mono); font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); padding-bottom:10px; border-bottom:1px solid var(--border-strong); margin-bottom:4px;}
+  .wwd-head-row{display:grid; grid-template-columns:0.95fr 1.05fr; gap:34px; max-width:920px; margin-top:40px;}
+
+  .phase-row{display:flex; gap:32px; margin-top:38px; flex-wrap:wrap;}
+  .phase{flex:1; min-width:230px;}
+  .phase .num{font-family:var(--font-mono); font-size:10.5px; color:var(--forest); letter-spacing:0.14em;}
+  .phase h4{font-family:var(--font-display); font-weight:400; font-size:20px; margin:8px 0 9px; color:var(--deep-forest);}
+  .phase p{font-size:14px; color:var(--text-muted); line-height:1.65;}
+  .retainer-note{margin-top:32px; border-top:1px solid var(--border-strong); padding-top:20px; max-width:700px;}
+  .retainer-note .tag{font-family:var(--font-mono); font-size:10px; letter-spacing:0.14em; color:var(--forest); text-transform:uppercase;}
+  .retainer-note p{font-size:14.5px; color:var(--text-muted); margin-top:8px; line-height:1.7;}
+  .stat{font-family:var(--font-display); font-weight:300; font-size:100px; color:var(--soft-cream); line-height:1;}
+  .stat-label{font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.14em; color:var(--sage); text-transform:uppercase; margin-top:8px;}
+  .btn{display:inline-block; margin-top:32px; background:var(--red-earth); color:var(--soft-cream); font-family:var(--font-body); font-weight:500; font-size:15px; text-decoration:none; padding:14px 30px; border-radius:7px; transition:background .2s;}
+  .btn:hover{background:var(--dark-red-earth);}
+  .btn-ghost{display:inline-block; margin-top:16px; background:transparent; border:1px solid var(--sage); color:var(--soft-cream); font-family:var(--font-body); font-weight:500; font-size:13.5px; text-decoration:none; padding:10px 22px; border-radius:7px; transition:background .2s;}
+  .btn-ghost:hover{background:rgba(255,255,255,0.08);}
+  .wordmark-row{display:flex; align-items:center; gap:10px;}
+  footer.close{display:flex; justify-content:space-between; align-items:flex-end; margin-top:56px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.14); max-width:900px; font-family:var(--font-mono); font-size:11px; color:var(--sage); letter-spacing:0.08em;}
+  .wordmark{font-family:var(--font-display); font-size:22px; font-weight:500;}
+  .dark .wordmark{color:var(--soft-cream);}
+  .dots{position:fixed; right:20px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:9px; z-index:60;}
+  .dot{width:6px; height:6px; border-radius:50%; background:rgba(138,174,152,0.55); cursor:pointer; transition:background .2s, transform .2s;}
+  .dot.active{background:var(--red-earth); transform:scale(1.5);}
+  .placeholder{font-family:var(--font-mono); font-size:11px; color:var(--text-faint); margin-top:10px;}
+  .dark .placeholder{color:var(--sage);}
+  .caveat{margin-top:26px; font-size:13.5px; color:var(--text-faint); line-height:1.7; max-width:700px; border-left:2px solid var(--border-strong); padding-left:16px;}
+  .angles{margin-top:20px; font-size:13.5px; color:var(--text-muted); line-height:1.7; max-width:700px;}
+
+  .cavs-box{margin-top:34px; max-width:600px; background:linear-gradient(135deg, rgba(207,155,125,0.14), rgba(255,255,255,0.05)); border:1.5px solid var(--warm-clay); border-radius:10px; padding:24px 26px;}
+  .cavs-box .tag{font-family:var(--font-mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--warm-clay); display:flex; align-items:center; gap:8px;}
+  .cavs-box .tag:before{content:"●"; color:var(--red-earth); font-size:9px;}
+  .cavs-box p{font-size:14.5px; color:var(--mist); line-height:1.7; margin-top:10px;}
+  .cavs-box .btn{margin-top:16px; padding:11px 24px; font-size:13.5px;}
+
+  /* control panel -- collapsible, top right, never overlaps content */
+  .ctrl-toggle{position:fixed; top:20px; right:20px; z-index:80; font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; background:var(--deep-forest); color:var(--soft-cream); border:none; border-radius:20px; padding:9px 16px; cursor:pointer; box-shadow:0 4px 14px rgba(30,68,53,0.22);}
+  .controls{position:fixed; top:60px; right:20px; z-index:70; background:var(--white); border:1px solid var(--border-strong); border-radius:10px; padding:16px 18px; box-shadow:0 8px 24px rgba(30,68,53,0.16); max-width:250px; display:none;}
+  .controls.open{display:block;}
+  .controls .grp{margin-bottom:12px;}
+  .controls .grp:last-child{margin-bottom:0;}
+  .controls .lbl{font-family:var(--font-mono); font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); margin-bottom:6px;}
+  .pill-row{display:flex; flex-wrap:wrap; gap:5px;}
+  .pill{font-family:var(--font-body); font-size:11.5px; padding:5px 10px; border-radius:14px; border:1px solid var(--border-strong); background:var(--warm-white); color:var(--text-muted); cursor:pointer; transition:all .15s; line-height:1.3;}
+  .pill.active{background:var(--deep-forest); border-color:var(--deep-forest); color:var(--soft-cream);}
+
+  .branch{display:none;}
+  .branch.show{display:block;}
+
+  /* maps */
+  .map-wrap{margin-top:34px; max-width:1000px;}
+  .map-line{position:relative; height:190px;}
+  .map-track{position:absolute; top:90px; left:70px; right:70px; height:2px; background:var(--mist); z-index:1;}
+  .map-point{position:absolute; top:90px; width:14px; height:14px; border-radius:50%; background:var(--white); border:2px solid var(--red-earth); transform:translate(-50%,-50%); z-index:2;}
+  .map-node{position:absolute; width:170px; text-align:center; transform:translateX(-50%); z-index:2;}
+  .map-node .icon-lbl{font-family:var(--font-mono); font-size:10px; color:var(--red-earth); letter-spacing:0.10em; text-transform:uppercase;}
+  .map-node .label{font-family:var(--font-body); font-size:13px; color:var(--text-primary); margin-top:6px; line-height:1.4; font-weight:500;}
+  .map-node.top{top:0;} .map-node.bottom{top:130px;}
+  .map-node.top:after, .map-node.bottom:before{content:""; position:absolute; left:50%; width:1px; background:var(--border-strong); z-index:1;}
+  .map-node.top:after{top:54px; height:32px;} .map-node.bottom:before{top:-40px; height:36px;}
+  .map-endpoint{position:absolute; top:90px; transform:translateY(-50%); font-family:var(--font-mono); font-size:10px; color:var(--forest); text-transform:uppercase; letter-spacing:0.10em; background:var(--warm-white); padding:4px 8px; z-index:3;}
+
+  /* dimension diagram */
+  .dim-diagram{display:flex; justify-content:space-between; position:relative; margin-top:38px; max-width:780px;}
+  .dim-track{position:absolute; top:24px; left:24px; right:24px; height:1px; background:var(--mist); z-index:0;}
+  .dim-node{position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; width:160px;}
+  .dim-circle{width:48px; height:48px; border-radius:50%; background:var(--warm-white); border:1px solid var(--border-strong); display:flex; align-items:center; justify-content:center; flex:none;}
+  .dim-label{font-size:12.5px; color:var(--text-muted); text-align:center; margin-top:10px; line-height:1.45;}
+  .sample-read{margin-top:34px; max-width:860px; border:1px solid var(--border); border-radius:10px; overflow-x:auto;}
+  .sample-read .sr-head{font-family:var(--font-mono); font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); padding:12px 18px; background:var(--soft-cream); border-bottom:1px solid var(--border);}
+  .sr-cols{display:grid; grid-template-columns:1.5fr 0.6fr 0.7fr 0.45fr 0.75fr 0.7fr; gap:10px; padding:9px 18px; background:var(--soft-cream); border-bottom:1px solid var(--border); font-family:var(--font-mono); font-size:9px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-faint); min-width:700px;}
+  .sr-row{display:grid; grid-template-columns:1.5fr 0.6fr 0.7fr 0.45fr 0.75fr 0.7fr; gap:10px; align-items:center; padding:12px 18px; border-bottom:1px solid var(--border); font-size:13px; color:var(--text-primary); min-width:700px;}
+  .sr-row:last-child{border-bottom:none;}
+  .sr-you{display:flex; align-items:center; gap:8px;}
+  .sr-num{font-family:var(--font-mono); font-size:12.5px; color:var(--text-primary); font-weight:500;}
+  .sr-bench{font-family:var(--font-mono); font-size:12.5px; color:var(--text-faint);}
+  .sr-status{font-family:var(--font-mono); font-size:9.5px; letter-spacing:0.06em; text-transform:uppercase; padding:2px 8px; border-radius:9px;}
+  .sr-status.strong{background:var(--pale-sage); color:var(--forest);}
+  .sr-status.watch{background:var(--pale-clay); color:var(--dark-red-earth);}
+  .sr-status.exposed{background:rgba(158,59,42,0.12); color:var(--red-earth);}
+  .sr-target{font-family:var(--font-mono); font-size:12.5px; color:var(--forest); font-weight:500;}
+  .sr-horizon{font-family:var(--font-mono); font-size:11px; color:var(--text-faint);}
+  .sr-trend{font-size:15px; font-weight:600;}
+  .sr-trend.up{color:var(--forest);} .sr-trend.down{color:var(--red-earth);} .sr-trend.flat{color:var(--text-faint);}
+  .sr-foot{padding:10px 18px; font-size:11px; color:var(--text-faint); font-style:italic; background:var(--soft-cream); border-top:1px solid var(--border); min-width:700px;}
+
+  /* about slide */
+  .avatar{width:96px; height:96px; border-radius:50%; object-fit:cover; border:2px solid var(--warm-clay); flex:none;}
+  .about-head{display:flex; gap:24px; align-items:center; margin-top:8px;}
+  .about-head .name{font-family:var(--font-display); font-size:24px; color:var(--deep-forest); font-weight:500;}
+  .about-head .role{font-family:var(--font-mono); font-size:10px; letter-spacing:0.12em; color:var(--red-earth); text-transform:uppercase; margin-top:4px;}
+  .linkrow{margin-top:24px; font-family:var(--font-mono); font-size:12.5px; color:var(--forest);}
+  .linkrow a{color:var(--forest); text-decoration:none; border-bottom:1px solid var(--forest);}
+
+  @media(max-width:900px){
+    section.slide{padding:13vh 6vw 48px;}
+    h1{font-size:34px;} h2{font-size:25px;}
+    .grid2{grid-template-columns:1fr; gap:18px;}
+    .wwd-row, .wwd-head-row{grid-template-columns:1fr; gap:8px;}
+    .wwd-right{border-left:none; border-top:2px solid var(--warm-clay); padding-left:0; padding-top:8px; margin-top:4px;}
+    .stat{font-size:58px;}
+    .dots{display:none;}
+    .ctrl-toggle{top:14px; right:14px; padding:8px 13px; font-size:9.5px;}
+    .controls{top:54px; right:14px; max-width:210px; padding:12px 14px;}
+    .pill{font-size:10px; padding:4px 8px;}
+    .map-line{height:340px;}
+    .map-track{left:50px; right:50px;}
+    .map-node{width:130px; font-size:11px;}
+    .map-node.bottom{top:210px;}
+    .map-node.top:after{height:36px;} .map-node.bottom:before{height:36px;}
+    .dim-diagram{flex-direction:column; gap:22px; align-items:flex-start;}
+    .dim-track{display:none;}
+    .dim-node{flex-direction:row; width:100%; text-align:left; gap:14px;}
+    .dim-label{text-align:left; margin-top:0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="dots" id="dots"></div>
+<button class="ctrl-toggle" id="ctrlToggle">Personalise ▾</button>
+<div class="controls" id="controlsPanel">
+  <div class="grp">
+    <div class="lbl">Industry lens</div>
+    <div class="pill-row" id="lensPills">
+      <div class="pill" data-set="general">General corporate</div>
+      <div class="pill" data-set="health">Health &amp; life sciences</div>
+    </div>
+  </div>
+  <div class="grp">
+    <div class="lbl">Obligation context</div>
+    <div class="pill-row" id="bucketPills">
+      <div class="pill" data-set="section-135">Section 135 (India)</div>
+      <div class="pill" data-set="hq-mandate">HQ / parent mandate</div>
+      <div class="pill" data-set="duty-of-care">Employee duty of care</div>
+      <div class="pill" data-set="disclosure-clock">BRSR / GRI disclosure clock</div>
+      <div class="pill" data-set="emerging">Function still forming</div>
+    </div>
+  </div>
+</div>
+
+<!-- 1. COVER -->
+<section class="slide dark" id="s1">
+  <canvas class="ion-canvas"></canvas>
+  <div class="eyebrow reveal">SYNTROPY EARTH · SOCIAL RESPONSIBILITY STRATEGY &amp; PROGRAMME DESIGN</div>
+  <h1 class="reveal">Every company reaches the point where <span class="accent">social responsibility</span> has to become <span class="accent">strategy</span>, not stay a line item.</h1>
+  <p class="lead reveal">We design for that point -- building it into the strategy from the outset, not bolting it on once the reporting deadline arrives.</p>
+  <div class="placeholder reveal" id="preparedFor" style="display:none;">Prepared for <span class="client-name"></span> · 2026</div>
+</section>
+
+<!-- 2. THE OBLIGATION -->
+<section class="slide light" id="s2">
+  <div class="eyebrow reveal">THE OBLIGATION</div>
+  <h2 class="reveal">Why this is on your desk right now depends on where you sit. That's the point.</h2>
+
+  <div class="branch" data-bucket="section-135">
+    <p class="lead reveal">Section 135 of the Companies Act requires a fixed share of average net profit to move into CSR every financial year, once a company crosses set thresholds of turnover, net worth, or profit.</p>
+    <p class="body reveal">The spend is not optional. The only real choice left is what it buys: activity that photographs well, or a programme built to survive a board question, an auditor, and a bad monsoon.</p>
+  </div>
+  <div class="branch" data-bucket="hq-mandate">
+    <p class="lead reveal">No domestic law in your operating market may require this spend. The obligation instead comes down from a parent headquarters or corporate group -- a net-zero pledge, an ESG commitment, a target with a reporting date attached.</p>
+    <p class="body reveal">The local or regional team's job is to turn that global promise into a measured outcome headquarters can actually stand behind, in a market whose specific obligations they weren't built to track.</p>
+  </div>
+  <div class="branch" data-bucket="duty-of-care">
+    <p class="lead reveal">This obligation runs through your own workforce, not a community programme. Heat exposure, health access, and safety for a distributed team are becoming a named line of employer responsibility, not just an HR policy.</p>
+    <p class="body reveal">The buyer here is not the CSR head. It's whoever answers for the workforce when a season goes badly, and needs that answer to be designed, not improvised.</p>
+  </div>
+  <div class="branch" data-bucket="disclosure-clock">
+    <p class="lead reveal">You're already spending. The pressure now is whether you can defend what you report -- BRSR assurance in India, GRI or an equivalent standard elsewhere, either way a disclosure someone external will eventually check.</p>
+    <p class="body reveal">Most programmes were never built with that scrutiny in mind. Retrofitting defensible measurement after the fact is far more expensive than designing one in from the start.</p>
+  </div>
+  <div class="branch" data-bucket="emerging">
+    <p class="lead reveal">In plenty of organisations, nobody owns this yet. Social responsibility sits inside HR, or marketing, or wherever it landed first -- disconnected from strategy, and unmeasured.</p>
+    <p class="body reveal">That absence is the opening. Design it right from the start, and it never needs retrofitting once someone finally asks who owns it.</p>
+  </div>
+</section>
+
+<!-- 3. THE GAP -->
+<section class="slide cream" id="s3">
+  <div class="eyebrow reveal">THE GAP</div>
+  <div class="branch" data-lens="general">
+    <h2 class="reveal">Most programmes are reported by activity. Almost none are reported by resilience.</h2>
+    <div class="grid2 reveal">
+      <div class="card">
+        <h4>What gets measured today</h4>
+        <p>People reached. Sessions run. Funds disbursed. Numbers that describe effort, not durability.</p>
+        <div class="ex">A count of two thousand beneficiaries says nothing about whether the programme still runs if the delivery partner loses its funding next year.</div>
+      </div>
+      <div class="card">
+        <h4>What almost never gets measured</h4>
+        <p>What happens to the programme when the thing it depends on breaks: a partner loses a grant, site access changes, a budget line gets cut mid-year.</p>
+        <div class="ex">None of that shows up in a report built to describe what happened, not what would happen next.</div>
+      </div>
+    </div>
+  </div>
+  <div class="branch" data-lens="health">
+    <h2 class="reveal">Inside health and life sciences, that gap has a sharper shape.</h2>
+    <div class="grid2 reveal">
+      <div class="card">
+        <h4>What gets measured today</h4>
+        <p>Clinics visited. Camps run. Beneficiaries counted. Numbers that describe effort, not durability.</p>
+        <div class="ex">A count of forty camps run says nothing about whether even one could operate during last year's flood.</div>
+      </div>
+      <div class="card">
+        <h4>What almost never gets measured</h4>
+        <p>What happens to patient access when a flood closes the road, a heatwave shuts the clinic for a week, or a cold-chain route drops out for a month.</p>
+        <div class="ex">None of that shows up in a report built to describe what happened, not what would happen next.</div>
+      </div>
+    </div>
+  </div>
+  <p class="body reveal" style="margin-top:26px;">That gap stays invisible until the year it's tested. Then it's the line nobody can defend.</p>
+</section>
+
+<!-- 4. THE DIAGNOSTIC -->
+<section class="slide light" id="s4">
+  <div class="eyebrow reveal">THE DIAGNOSTIC</div>
+  <div class="branch" data-lens="health">
+    <h2 class="reveal">Four places climate stress breaks a patient's path to care.</h2>
+    <p class="body reveal">Every programme has one or more of these points exposed. Most teams have never mapped which.</p>
+    <div class="map-wrap reveal">
+      <div class="map-line">
+        <div class="map-endpoint" style="left:0;">PATIENT</div>
+        <div class="map-track"></div>
+        <div class="map-point" style="left:22%;"></div><div class="map-point" style="left:41%;"></div>
+        <div class="map-point" style="left:60%;"></div><div class="map-point" style="left:79%;"></div>
+        <div class="map-endpoint" style="right:0;">CARE</div>
+        <div class="map-node top" style="left:22%;"><div class="icon-lbl">Break 1</div><div class="label">Geographic &amp; physical access</div></div>
+        <div class="map-node bottom" style="left:41%;"><div class="icon-lbl">Break 2</div><div class="label">Supply chain integrity</div></div>
+        <div class="map-node top" style="left:60%;"><div class="icon-lbl">Break 3</div><div class="label">Workforce availability</div></div>
+        <div class="map-node bottom" style="left:79%;"><div class="icon-lbl">Break 4</div><div class="label">Financial &amp; demand continuity</div></div>
+      </div>
+    </div>
+    <div class="caveat reveal">These are the four most common breaks, not a fixed law. A workforce spread across many climate zones, or a supply chain running through one narrow corridor, often has more. The diagnostic finds the ones that actually apply to you.</div>
+  </div>
+  <div class="branch" data-lens="general">
+    <h2 class="reveal">Four places social responsibility breaks between programme and real change.</h2>
+    <p class="body reveal">Not a climate question here -- a durability one. Every programme has one or more of these points exposed. Most teams have never mapped which.</p>
+    <div class="map-wrap reveal">
+      <div class="map-line">
+        <div class="map-endpoint" style="left:0;">PROGRAMME</div>
+        <div class="map-track"></div>
+        <div class="map-point" style="left:22%;"></div><div class="map-point" style="left:41%;"></div>
+        <div class="map-point" style="left:60%;"></div><div class="map-point" style="left:79%;"></div>
+        <div class="map-endpoint" style="right:0;">REAL CHANGE</div>
+        <div class="map-node top" style="left:22%;"><div class="icon-lbl">Break 1</div><div class="label">No theory of change</div></div>
+        <div class="map-node bottom" style="left:41%;"><div class="icon-lbl">Break 2</div><div class="label">No partner accountability</div></div>
+        <div class="map-node top" style="left:60%;"><div class="icon-lbl">Break 3</div><div class="label">No course correction</div></div>
+        <div class="map-node bottom" style="left:79%;"><div class="icon-lbl">Break 4</div><div class="label">No link to the business</div></div>
+      </div>
+    </div>
+    <div class="caveat reveal">These are the four most common breaks, not a fixed law. A fast-growing company can outrun its own governance, and new tools and ways of working can shift faster than a strategy adapts to them. The diagnostic finds what actually applies to you.</div>
+  </div>
+  <div class="angles reveal">This sits alongside two related methods: the Climate Access Stress Test, the deeper diagnostic behind our most intensive engagements, and a lighter self-serve scorecard for a fast first read before any commitment.</div>
+</section>
+
+<!-- 5. WHAT WE DESIGN -->
+<section class="slide cream" id="s5">
+  <div class="eyebrow reveal">WHAT WE DESIGN · SOCIAL RESPONSIBILITY STRATEGY</div>
+  <h2 class="reveal">A programme design that turns the mandated allocation into a programme built to survive the year, tested and beyond.</h2>
+  <div class="wwd-head-row reveal">
+    <div class="wwd-head">What you get</div>
+    <div class="wwd-head">What changes because of it</div>
+  </div>
+  <div class="wwd-list reveal">
+    <div class="wwd-row">
+      <div class="wwd-left"><svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1E4435" stroke-width="1.6"/><path d="M7.5 12.5l2.8 2.8L16.5 9" stroke="#9E3B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Programme strategy and theory of change</div>
+      <div class="wwd-right">A programme that can explain, in one sentence, what should be different because it ran.</div>
+    </div>
+    <div class="wwd-row">
+      <div class="wwd-left"><svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1E4435" stroke-width="1.6"/><path d="M7.5 12.5l2.8 2.8L16.5 9" stroke="#9E3B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Partner and implementing-NGO selection criteria</div>
+      <div class="wwd-right">Partners chosen against a standard, not a relationship -- and one you can defend if asked why.</div>
+    </div>
+    <div class="wwd-row">
+      <div class="wwd-left"><svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1E4435" stroke-width="1.6"/><path d="M7.5 12.5l2.8 2.8L16.5 9" stroke="#9E3B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Measurement built to survive an auditor's question</div>
+      <div class="wwd-right">Numbers that hold up when someone outside the company checks them.</div>
+    </div>
+    <div class="wwd-row">
+      <div class="wwd-left"><svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1E4435" stroke-width="1.6"/><path d="M7.5 12.5l2.8 2.8L16.5 9" stroke="#9E3B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>A board-ready presentation</div>
+      <div class="wwd-right">A story the board actually understands and backs, not a slide nobody reads.</div>
+    </div>
+    <div class="wwd-row">
+      <div class="wwd-left"><svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1E4435" stroke-width="1.6"/><path d="M7.5 12.5l2.8 2.8L16.5 9" stroke="#9E3B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>A three-year roadmap</div>
+      <div class="wwd-right">A plan that survives past this year's budget cycle, not rebuilt from scratch every April.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. THE METHOD -->
+<section class="slide light" id="s6">
+  <div class="eyebrow reveal">THE METHOD</div>
+  <h2 class="reveal">Scored against a full operating year, not today's weather.</h2>
+  <div class="branch" data-lens="health">
+    <p class="lead reveal">Four dimensions, scored against a full climate-health year:</p>
+    <div class="dim-diagram reveal">
+      <div class="dim-track"></div>
+      <div class="dim-node"><div class="dim-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s-6-5.5-6-10a6 6 0 1112 0c0 4.5-6 10-6 10z" stroke="#1E4435" stroke-width="1.6"/><circle cx="12" cy="11" r="2" stroke="#9E3B2A" stroke-width="1.6"/></svg></div><div class="dim-label">Geographic &amp; physical access</div></div>
+      <div class="dim-node"><div class="dim-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="9" width="9" height="6" rx="3" stroke="#1E4435" stroke-width="1.6"/><rect x="12" y="9" width="9" height="6" rx="3" stroke="#9E3B2A" stroke-width="1.6"/></svg></div><div class="dim-label">Supply chain integrity</div></div>
+      <div class="dim-node"><div class="dim-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="3" stroke="#1E4435" stroke-width="1.6"/><circle cx="16" cy="10" r="2.4" stroke="#9E3B2A" stroke-width="1.6"/><path d="M4 20c0-3 2.5-5 5-5s5 2 5 5" stroke="#1E4435" stroke-width="1.6"/></svg></div><div class="dim-label">Workforce availability</div></div>
+      <div class="dim-node"><div class="dim-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#1E4435" stroke-width="1.6"/><path d="M12 8v8M9.5 10a2.7 2.2 0 013-1.6M14.5 14a2.7 2.2 0 01-3 1.6" stroke="#9E3B2A" stroke-width="1.4" stroke-linecap="round"/></svg></div><div class="dim-label">Financial &amp; demand continuity</div></div>
+    </div>
+    <p class="body reveal" style="margin-top:30px;">This is the same diagnostic logic behind the Climate Access Stress Test, adapted here to the programme-design brief rather than sold as a standalone product.</p>
+    <div class="sample-read reveal">
+      <div class="sr-head">Illustrative example only -- not a real assessment or a published benchmark</div>
+      <div class="sr-cols"><div>Dimension</div><div>Your read</div><div>Reference range*</div><div>Trend</div><div>Designed target</div><div>Horizon</div></div>
+      <div class="sr-row"><span class="sr-you">Geographic &amp; physical access <span class="sr-status watch">Watch</span></span><span class="sr-num">62</span><span class="sr-bench">~74</span><span class="sr-trend down">↓</span><span class="sr-target">70+</span><span class="sr-horizon">2-3 quarters</span></div>
+      <div class="sr-row"><span class="sr-you">Supply chain integrity <span class="sr-status exposed">Exposed</span></span><span class="sr-num">41</span><span class="sr-bench">~68</span><span class="sr-trend down">↓</span><span class="sr-target">60+</span><span class="sr-horizon">3-4 quarters</span></div>
+      <div class="sr-row"><span class="sr-you">Workforce availability <span class="sr-status strong">Strong</span></span><span class="sr-num">81</span><span class="sr-bench">~70</span><span class="sr-trend up">↑</span><span class="sr-target">Hold 80+</span><span class="sr-horizon">Ongoing</span></div>
+      <div class="sr-row"><span class="sr-you">Financial &amp; demand continuity <span class="sr-status watch">Watch</span></span><span class="sr-num">58</span><span class="sr-bench">~65</span><span class="sr-trend flat">→</span><span class="sr-target">65+</span><span class="sr-horizon">2 quarters</span></div>
+      <div class="sr-foot">*Illustrative example throughout, including targets and horizons. A real assessment scores your programme against your own geography and season, and sets targets your operations can actually carry -- the design work is the 4-8 weeks; the movement it produces plays out over quarters, not the engagement itself.</div>
+    </div>
+  </div>
+  <div class="branch" data-lens="general">
+    <p class="lead reveal">The same four dimensions apply outside health and life sciences:</p>
+    <div class="dim-diagram reveal">
+      <div class="dim-track"></div>
+      <div class="dim-node"><div class="dim-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s-6-5.5-6-10a6 6 0 1112 0c0 4.5-6 10-6 10z" stroke="#1E4435" stroke-width="1.6"/><circle cx="12" cy="11" r="2" stroke="#9E3B2A" stroke-width="1.6"/></svg></div><div class="dim-label">Reach</div></div>
+      <div class="dim-node"><div class="dim-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="9" width="9" height="6" rx="3" stroke="#1E4435" stroke-width="1.6"/><rect x="12" y="9" width="9" height="6" rx="3" stroke="#9E3B2A" stroke-width="1.6"/></svg></div><div class="dim-label">Supply &amp; delivery</div></div>
+      <div class="dim-node"><div class="dim-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="3" stroke="#1E4435" stroke-width="1.6"/><circle cx="16" cy="10" r="2.4" stroke="#9E3B2A" stroke-width="1.6"/><path d="M4 20c0-3 2.5-5 5-5s5 2 5 5" stroke="#1E4435" stroke-width="1.6"/></svg></div><div class="dim-label">People</div></div>
+      <div class="dim-node"><div class="dim-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#1E4435" stroke-width="1.6"/><path d="M12 8v8M9.5 10a2.7 2.2 0 013-1.6M14.5 14a2.7 2.2 0 01-3 1.6" stroke="#9E3B2A" stroke-width="1.4" stroke-linecap="round"/></svg></div><div class="dim-label">Continuity of funding &amp; demand</div></div>
+    </div>
+    <p class="body reveal" style="margin-top:30px;">Scored against your organisation's full operating year, climate stress included alongside the other shocks a programme has to survive -- not treated as the only variable that matters.</p>
+    <div class="sample-read reveal">
+      <div class="sr-head">Illustrative example only -- not a real assessment or a published benchmark</div>
+      <div class="sr-cols"><div>Dimension</div><div>Your read</div><div>Reference range*</div><div>Trend</div><div>Designed target</div><div>Horizon</div></div>
+      <div class="sr-row"><span class="sr-you">Reach <span class="sr-status watch">Watch</span></span><span class="sr-num">62</span><span class="sr-bench">~74</span><span class="sr-trend down">↓</span><span class="sr-target">70+</span><span class="sr-horizon">2-3 quarters</span></div>
+      <div class="sr-row"><span class="sr-you">Supply &amp; delivery <span class="sr-status exposed">Exposed</span></span><span class="sr-num">41</span><span class="sr-bench">~68</span><span class="sr-trend down">↓</span><span class="sr-target">60+</span><span class="sr-horizon">3-4 quarters</span></div>
+      <div class="sr-row"><span class="sr-you">People <span class="sr-status strong">Strong</span></span><span class="sr-num">81</span><span class="sr-bench">~70</span><span class="sr-trend up">↑</span><span class="sr-target">Hold 80+</span><span class="sr-horizon">Ongoing</span></div>
+      <div class="sr-row"><span class="sr-you">Continuity of funding &amp; demand <span class="sr-status watch">Watch</span></span><span class="sr-num">58</span><span class="sr-bench">~65</span><span class="sr-trend flat">→</span><span class="sr-target">65+</span><span class="sr-horizon">2 quarters</span></div>
+      <div class="sr-foot">*Illustrative example throughout, including targets and horizons. A real assessment scores your programme against your own footprint and season, and sets targets your operations can actually carry -- the design work is the 4-8 weeks; the movement it produces plays out over quarters, not the engagement itself.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. HOW IT RUNS + RETAINER -->
+<section class="slide cream" id="s7">
+  <div class="eyebrow reveal">HOW IT RUNS</div>
+  <h2 class="reveal">Four to eight weeks, depending on programme scope.</h2>
+  <div class="phase-row reveal">
+    <div class="phase"><div class="num">PHASE 1 · WEEKS 1–2</div><h4>Diagnose</h4><p>Stakeholder interviews across the teams that touch the programme today. A review of the current strategy, past reports, and existing partner agreements. The four-dimension scoring runs against what's actually there, not what the annual report says is there.</p></div>
+    <div class="phase"><div class="num">PHASE 2 · WEEKS 3–5</div><h4>Design</h4><p>The theory of change gets drafted and pressure-tested against your real constraints. Partner criteria and the measurement design get built alongside your team, not handed over cold -- working sessions catch what only your team would know.</p></div>
+    <div class="phase"><div class="num">PHASE 3 · WEEKS 6–8</div><h4>Hand over</h4><p>The board deck and three-year roadmap get finalised. A working session walks your team through delivery and answers the harder questions -- a partner underperforming, a budget shifting, a season turning -- before anyone signs off.</p></div>
+  </div>
+  <div class="retainer-note reveal">
+    <div class="tag">After the design closes</div>
+    <p>Ongoing strategic support is available on a monthly retainer -- watching the programme through the season, adjusting the plan as conditions change, and keeping the measurement current between formal reviews. Not delivery. Continued strategic oversight.</p>
+  </div>
+</section>
+
+<!-- 8. WHAT WE DON'T DO -->
+<section class="slide light" id="s8">
+  <div class="eyebrow reveal">WHERE WE STOP</div>
+  <h2 class="reveal">A design partner, not a delivery team.</h2>
+  <p class="body reveal">We design the strategy, the theory of change, the partner criteria, and the measurement itself. We do not run the programme day to day, deliver it on the ground, or replace your implementing partners -- that work sits with them, and it should.</p>
+  <ul class="deliverables stop reveal">
+    <li><svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#93A89C" stroke-width="1.4"/><line x1="8" y1="12" x2="16" y2="12" stroke="#93A89C" stroke-width="1.6" stroke-linecap="round"/></svg>Day-to-day programme management</li>
+    <li><svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#93A89C" stroke-width="1.4"/><line x1="8" y1="12" x2="16" y2="12" stroke="#93A89C" stroke-width="1.6" stroke-linecap="round"/></svg>On-the-ground delivery or implementation</li>
+    <li><svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#93A89C" stroke-width="1.4"/><line x1="8" y1="12" x2="16" y2="12" stroke="#93A89C" stroke-width="1.6" stroke-linecap="round"/></svg>Technical ESG accounting or net-zero roadmapping</li>
+    <li><svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#93A89C" stroke-width="1.4"/><line x1="8" y1="12" x2="16" y2="12" stroke="#93A89C" stroke-width="1.6" stroke-linecap="round"/></svg>Disclosure documentation and assurance filing</li>
+  </ul>
+  <p class="body reveal" style="margin-top:22px;">Not our forte, but not a dead end either -- we can help identify the right implementation partners to carry the delivery day to day, and stay involved at the strategy layer while they do.</p>
+</section>
+
+<!-- 9. WHY NOW -->
+<section class="slide dark" id="s9">
+  <div class="eyebrow reveal">WHY NOW</div>
+  <div class="branch" data-bucket="section-135">
+    <div class="stat reveal">1,000</div>
+    <div class="stat-label reveal">Listed companies under BRSR Core assurance by FY 2026-27</div>
+    <p class="lead reveal" style="margin-top:24px;">The disclosure clock is closing in on a spend that was already mandatory. The gap between what you report and what you can defend gets more expensive to leave open every cycle, and it compounds -- this year's undefended number becomes next year's harder question.</p>
+    <p class="body reveal">Designing the programme properly once costs less than explaining an indefensible one every year after.</p>
+  </div>
+  <div class="branch" data-bucket="hq-mandate">
+    <h2 class="reveal">HQ mandates rarely name a country-specific deadline. That's what makes them dangerous.</h2>
+    <p class="lead reveal">The pressure looks soft right up until headquarters asks for a number your regional team cannot produce, on a timeline nobody warned you about.</p>
+    <p class="body reveal">Being the market that already has an answer, rather than the one scrambling to build one, changes how headquarters sees the team running it.</p>
+  </div>
+  <div class="branch" data-bucket="duty-of-care">
+    <h2 class="reveal">Employer duty-of-care expectations are moving from policy to design standard.</h2>
+    <p class="lead reveal">The season that tests an undesigned workforce protection plan is the one that turns it into a headline, not a policy line.</p>
+    <p class="body reveal">A designed protocol costs a fraction of what one bad season, and the scrutiny that follows it, costs.</p>
+  </div>
+  <div class="branch" data-bucket="disclosure-clock">
+    <h2 class="reveal">Assurance is arriving whether or not the programme underneath it is ready.</h2>
+    <p class="lead reveal">Once a third party is checking the number, the number needs a design behind it -- not a narrative written after the fact to explain it.</p>
+    <p class="body reveal">The companies caught out aren't the ones with weak programmes. They're the ones with undocumented ones.</p>
+  </div>
+  <div class="branch" data-bucket="emerging">
+    <h2 class="reveal">Design it early, and you shape what this means for your organisation.</h2>
+    <p class="lead reveal">Wait, and you inherit someone else's definition -- usually during a crisis, on someone else's timeline.</p>
+    <p class="body reveal">The cost of designing this now is a fraction of the cost of retrofitting it once it's suddenly mandatory.</p>
+  </div>
+
+  <div class="cavs-box reveal">
+    <div class="tag">NOT SURE WHERE YOU STAND?</div>
+    <p>Try the Climate-Access Vulnerability Scorecard first -- a free, self-serve read on how climate-resilient your programme actually is today, before any call.</p>
+    <a href="https://syntropyearth.com/climate-access" target="_blank" class="btn">Try the free scorecard</a>
+  </div>
+</section>
+
+<!-- 10. WHY SYNTROPY EARTH / ABOUT -->
+<section class="slide cream" id="s10">
+  <div class="eyebrow reveal">WHO YOU'D BE WORKING WITH</div>
+  <div class="about-head reveal">
+    <img class="avatar" src="data:image/jpeg;base64,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" alt="Abhijith Magal L">
+    <div><div class="name">Abhijith Magal L</div><div class="role">Founder, Syntropy Earth</div></div>
+  </div>
+  <p class="body reveal" style="margin-top:24px;">Nine years across two global pharmaceutical companies, including direct collaboration with WHO-Foundation and UNICEF on health-equity and sustainability programmes. Climate and health is where the sharpest work happens -- that's the specific edge on offer here, not a generalist sustainability practice with climate added on.</p>
+  <p class="body reveal">Plenty of organisations are earlier than that. The CSR function might be new, or the responsibility might still sit inside HR or marketing rather than strategy. That work happens too, designed to grow toward health as the programme matures, not assumed to start there.</p>
+  <div class="linkrow reveal"><a href="https://abhijithmagal.com" target="_blank">abhijithmagal.com</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/abhijithmagal" target="_blank">LinkedIn</a></div>
+</section>
+
+<!-- 11. FOUNDING COHORT -->
+<section class="slide light" id="s11">
+  <div class="eyebrow reveal">WHERE THIS STANDS TODAY</div>
+  <h2 class="reveal">This is a founding cohort. The method isn't.</h2>
+  <p class="body reveal">The diagnostic comes directly from operating experience inside global health and CSR-adjacent work. The client roster is short on purpose -- the first engagements get closer founder attention than a later one will. Working with Syntropy Earth now means direct involvement throughout, and a case study built together, not delivered off a shelf.</p>
+  <p class="body reveal">Syntropy Earth's longer arc is building toward a climate-health intelligence platform, not staying an advisory practice indefinitely. The organisations designing with us now become part of the case foundation that shapes it -- the reference point others get measured against once the category isn't new anymore. Being early means shaping what "done well" looks like, instead of adopting someone else's definition of it later.</p>
+</section>
+
+<!-- 12. THE ASK -->
+<section class="slide dark" id="s12">
+  <canvas class="ion-canvas"></canvas>
+  <div class="eyebrow reveal">LET'S TALK</div>
+  <h2 class="reveal">Curious to know more?</h2>
+  <p class="lead reveal">A brief call -- thirty minutes, no deck repeated back to you. Bring the current programme, or just the question on your mind.</p>
+  <p class="body reveal">No pricing on this page. That conversation is better had once we know the scope.</p>
+  <a href="https://calendar.app.google/DnRrAkUVvxoMhWdk6" target="_blank" class="btn reveal">Let's connect</a>
+  <footer class="close">
+    <div class="wordmark-row">
+      <svg width="26" height="26" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="21" stroke="#FAF4E8" stroke-width="0.5" opacity="0.25"/>
+        <path d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+        <path d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+        <circle cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+      </svg>
+      <div class="wordmark">Syntropy Earth</div>
+    </div>
+    <div>abhijithmagal@syntropyearth.com &nbsp;·&nbsp; syntropyearth.com</div>
+  </footer>
+</section>
+
+<script>
+  const slides = document.querySelectorAll('section.slide');
+  const dotsWrap = document.getElementById('dots');
+  slides.forEach((s,i)=>{
+    const d = document.createElement('div');
+    d.className='dot'+(i===0?' active':'');
+    d.addEventListener('click',()=>s.scrollIntoView({behavior:'smooth'}));
+    dotsWrap.appendChild(d);
+  });
+  const dots = dotsWrap.querySelectorAll('.dot');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      const idx = Array.from(slides).indexOf(e.target);
+      if(e.isIntersecting){
+        dots.forEach(d=>d.classList.remove('active'));
+        dots[idx].classList.add('active');
+        e.target.querySelectorAll('.reveal').forEach((el,i)=>{ setTimeout(()=>el.classList.add('in'), i*70); });
+      }
+    });
+  },{threshold:0.3});
+  slides.forEach(s=>obs.observe(s));
+
+  function setLens(lens){
+    document.querySelectorAll('#lensPills .pill').forEach(p=>p.classList.toggle('active', p.dataset.set===lens));
+    document.querySelectorAll('.branch[data-lens]').forEach(el=>el.classList.toggle('show', el.dataset.lens===lens));
+  }
+  function setBucket(bucket){
+    document.querySelectorAll('#bucketPills .pill').forEach(p=>p.classList.toggle('active', p.dataset.set===bucket));
+    document.querySelectorAll('.branch[data-bucket]').forEach(el=>el.classList.toggle('show', el.dataset.bucket===bucket));
+  }
+  document.querySelectorAll('#lensPills .pill').forEach(p=>p.addEventListener('click',()=>setLens(p.dataset.set)));
+  document.querySelectorAll('#bucketPills .pill').forEach(p=>p.addEventListener('click',()=>setBucket(p.dataset.set)));
+
+  const toggleBtn = document.getElementById('ctrlToggle');
+  const panel = document.getElementById('controlsPanel');
+  toggleBtn.addEventListener('click', ()=> panel.classList.toggle('open'));
+
+  const params = new URLSearchParams(window.location.search);
+  setLens(params.get('lens') || 'general');
+  setBucket(params.get('bucket') || 'section-135');
+  const client = params.get('client');
+  if(client){
+    document.querySelectorAll('.client-name').forEach(el=>el.textContent = decodeURIComponent(client));
+    const pf = document.getElementById('preparedFor');
+    if(pf) pf.style.display = 'block';
+  }
+
+  // Ambient ion field on the dark bookend slides. Skipped entirely under reduced motion.
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.querySelectorAll('.ion-canvas').forEach(canvas=>{
+      const ctx = canvas.getContext('2d');
+      let w, h, pts = [], running = false, raf;
+      function size(){
+        w = canvas.offsetWidth; h = canvas.offsetHeight;
+        canvas.width = w * devicePixelRatio; canvas.height = h * devicePixelRatio;
+        ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+      }
+      function seed(){
+        pts = [];
+        const n = Math.min(46, Math.floor(w*h/26000));
+        for(let i=0;i<n;i++){
+          pts.push({x:Math.random()*w, y:Math.random()*h,
+                    vx:(Math.random()-0.5)*0.28, vy:(Math.random()-0.5)*0.28,
+                    r:1.2+Math.random()*1.6,
+                    clay:Math.random()<0.22});
+        }
+      }
+      function frame(){
+        if(!running) return;
+        ctx.clearRect(0,0,w,h);
+        for(const p of pts){
+          p.x += p.vx; p.y += p.vy;
+          if(p.x < -20) p.x = w+20; if(p.x > w+20) p.x = -20;
+          if(p.y < -20) p.y = h+20; if(p.y > h+20) p.y = -20;
+        }
+        for(let i=0;i<pts.length;i++){
+          for(let j=i+1;j<pts.length;j++){
+            const a=pts[i], b=pts[j];
+            const dx=a.x-b.x, dy=a.y-b.y, d=Math.hypot(dx,dy);
+            if(d<130){
+              ctx.strokeStyle = `rgba(138,174,152,${0.16*(1-d/130)})`;
+              ctx.lineWidth = 0.7;
+              ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+            }
+          }
+        }
+        for(const p of pts){
+          ctx.fillStyle = p.clay ? 'rgba(207,155,125,0.55)' : 'rgba(138,174,152,0.45)';
+          ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+        }
+        raf = requestAnimationFrame(frame);
+      }
+      const vis = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting && !running){ running = true; size(); if(!pts.length) seed(); frame(); }
+          else if(!e.isIntersecting && running){ running = false; cancelAnimationFrame(raf); }
+        });
+      },{threshold:0.05});
+      vis.observe(canvas.parentElement);
+      window.addEventListener('resize', ()=>{ if(running){ size(); seed(); } });
+    });
+  }
+</script>
+
+</body>
+</html>
