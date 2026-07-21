@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syntropy Earth &middot; Climate-Health Access for Pharma &amp; Life Sciences &middot; One-Page Overview</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep-forest:#1E4435; --forest:#356B4E; --sage:#8AAE98; --mist:#C4D9CC; --pale-sage:#E8F0EB;
+    --red-earth:#9E3B2A; --dark-red-earth:#7A2D1E; --warm-clay:#CF9B7D; --pale-clay:#F0DED0;
+    --warm-white:#FDFAF5; --soft-cream:#FAF4E8; --white:#FFFFFF;
+    --text-primary:#22322A; --text-muted:#5C6A60; --text-faint:#93A89C;
+    --border:rgba(30,68,53,0.10); --border-strong:rgba(30,68,53,0.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'DM Sans',system-ui,sans-serif; color:var(--text-primary); background:var(--warm-white);}
+  .page{max-width:820px; margin:0 auto; padding:56px 40px 64px;}
+  .topbar{display:flex; justify-content:space-between; align-items:center; padding-bottom:24px; border-bottom:1px solid var(--border-strong); margin-bottom:40px;}
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand .wm{font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:500; color:var(--deep-forest);}
+  .prep{font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:var(--text-faint); text-transform:uppercase; text-align:right;}
+  .eyebrow{font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--red-earth); margin-bottom:12px;}
+  h1{font-family:'Cormorant Garamond',serif; font-weight:300; font-size:34px; line-height:1.18; color:var(--deep-forest); max-width:640px;}
+  .accent{color:var(--red-earth); font-style:italic;}
+  p.lead{font-size:15.5px; line-height:1.7; color:var(--text-muted); max-width:620px; margin-top:16px;}
+  section{margin-top:38px;}
+  h3{font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--forest); margin-bottom:14px; font-weight:400;}
+  p.body{font-size:14px; line-height:1.7; color:var(--text-muted); max-width:640px;}
+  .branch{display:none;}
+  .branch.show{display:block;}
+  .get-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px 28px; max-width:680px;}
+  .get-item{display:flex; gap:10px; align-items:flex-start; font-size:13.5px; color:var(--text-primary); line-height:1.5; padding:7px 0;}
+  .tick{flex:none; width:17px; height:17px; margin-top:2px;}
+  .stops{font-size:13px; color:var(--text-muted); line-height:1.7; max-width:640px;}
+  .avg-strip{display:flex; align-items:baseline; gap:12px; background:var(--white); border:1px solid var(--border); border-radius:8px; padding:16px 20px; max-width:640px; margin-top:4px;}
+  .avg-strip .big{font-family:'Cormorant Garamond',serif; font-weight:300; font-size:28px; color:var(--deep-forest);}
+  .avg-strip .small{font-family:'Cormorant Garamond',serif; font-weight:300; font-size:28px; color:var(--red-earth);}
+  .avg-strip .cap{font-size:12px; color:var(--text-muted);}
+  .founder{display:flex; gap:18px; align-items:flex-start; max-width:680px;}
+  .avatar{width:64px; height:64px; border-radius:50%; object-fit:cover; border:2px solid var(--warm-clay); flex:none;}
+  .founder .name{font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:var(--deep-forest);}
+  .founder .role{font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.1em; color:var(--red-earth); text-transform:uppercase; margin:3px 0 8px;}
+  .founder p{font-size:13px; line-height:1.65; color:var(--text-muted);}
+  .cta-band{margin-top:46px; background:var(--deep-forest); border-radius:12px; padding:30px 32px; color:var(--soft-cream);}
+  .cta-band h4{font-family:'Cormorant Garamond',serif; font-weight:300; font-size:24px; margin-bottom:8px;}
+  .cta-band p{font-size:13.5px; color:var(--mist); line-height:1.65; max-width:520px;}
+  .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;}
+  .btn{display:inline-block; background:var(--red-earth); color:var(--soft-cream); font-weight:500; font-size:13.5px; text-decoration:none; padding:11px 22px; border-radius:7px;}
+  .btn:hover{background:var(--dark-red-earth);}
+  .btn-ghost{display:inline-block; background:transparent; border:1px solid var(--sage); color:var(--soft-cream); font-weight:500; font-size:13.5px; text-decoration:none; padding:10px 20px; border-radius:7px;}
+  .btn-ghost:hover{background:rgba(255,255,255,0.08);}
+  footer{margin-top:36px; padding-top:20px; border-top:1px solid var(--border); font-family:'Space Mono',monospace; font-size:10.5px; color:var(--text-faint); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+  footer a{color:var(--forest); text-decoration:none;}
+  @media(max-width:640px){
+    .page{padding:36px 22px 48px;}
+    h1{font-size:26px;}
+    .get-grid{grid-template-columns:1fr;}
+    .topbar{flex-direction:column; align-items:flex-start; gap:10px;}
+    .prep{text-align:left;}
+  }
+  @media print{
+    body{background:var(--white);}
+    .cta-band{background:var(--deep-forest) !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    .page{padding:24px 0;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="topbar">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="21" stroke="#1E4435" stroke-width="0.5" opacity="0.25"/>
+        <path d="M 24,3 A 21,21 0 1,1 3,24" stroke="#356B4E" stroke-width="1.75" stroke-linecap="round"/>
+        <path d="M 24,9 A 15,15 0 1,1 9,24" stroke="#356B4E" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M 24,15 A 9,9 0 0,1 33,24" stroke="#9E3B2A" stroke-width="1.4" stroke-linecap="round"/>
+        <circle cx="24" cy="24" r="2.5" fill="#1E4435"/>
+      </svg>
+      <div class="wm">Syntropy Earth</div>
+    </div>
+    <div class="prep">One-page overview<br><span id="preparedFor" style="display:none;">Prepared for <span class="client-name"></span> &middot; </span>2026</div>
+  </div>
+
+  <div class="eyebrow">CLIMATE-HEALTH ACCESS FOR PHARMA &amp; LIFE SCIENCES</div>
+  <h1>Your access data is an <span class="accent">average</span>. Averages hide where the programme is already failing.</h1>
+  <p class="lead">We measure how climate stress disrupts patient access and delivery continuity, and design the programmes -- and the disclosure -- that hold up to scrutiny.</p>
+
+  <section>
+    <h3>Why this is on your desk</h3>
+    <div class="branch" data-bucket="hq-mandate">
+      <p class="body">No domestic law in your operating market may require this. The obligation comes down from a parent headquarters instead -- a global access commitment, a sustainability pledge, a target with a reporting date already attached. The local team's job is turning that promise into a measured outcome headquarters can stand behind.</p>
+    </div>
+    <div class="branch" data-bucket="brsr-india">
+      <p class="body">You're already spending, and already reporting. The question now is whether it survives assurance -- BRSR Core assurance extending across India's largest listed companies, and equivalent scrutiny wherever your group discloses. Most access programmes were built to show reach, not to survive an assurer's question.</p>
+    </div>
+    <div class="branch" data-bucket="duty-of-care">
+      <p class="body">This one runs through your own field force -- medical representatives, community health workers, cold-chain and distribution staff working through heat, flood and storm. That exposure is becoming a named line of employer responsibility, and the answer needs to be designed, not improvised the season it's tested.</p>
+    </div>
+  </section>
+
+  <section>
+    <h3>The gap, in one number</h3>
+    <div class="avg-strip">
+      <span class="big">80%</span><span class="cap">annual reach reported</span>
+      <span style="color:var(--red-earth);">&#8594;</span>
+      <span class="small">40%</span><span class="cap">actual reach, peak monsoon month*</span>
+    </div>
+    <p class="body" style="margin-top:10px; font-size:13px;">*Illustrative. Climate stress does not arrive as an annual average -- and neither should your access data.</p>
+  </section>
+
+  <section>
+    <h3>What an engagement delivers &middot; 6 to 8 weeks</h3>
+    <div class="get-grid">
+      <div class="get-item"><svg class="tick" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1E4435" stroke-width="1.6"/><path d="M7.5 12.5l2.8 2.8L16.5 9" stroke="#9E3B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>CAST diagnostic across your access programme</div>
+      <div class="get-item"><svg class="tick" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1E4435" stroke-width="1.6"/><path d="M7.5 12.5l2.8 2.8L16.5 9" stroke="#9E3B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Climate-adjusted access metrics, disclosure-ready</div>
+      <div class="get-item"><svg class="tick" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1E4435" stroke-width="1.6"/><path d="M7.5 12.5l2.8 2.8L16.5 9" stroke="#9E3B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Cold chain and last-mile resilience review</div>
+      <div class="get-item"><svg class="tick" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1E4435" stroke-width="1.6"/><path d="M7.5 12.5l2.8 2.8L16.5 9" stroke="#9E3B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Health equity programme redesign</div>
+      <div class="get-item"><svg class="tick" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1E4435" stroke-width="1.6"/><path d="M7.5 12.5l2.8 2.8L16.5 9" stroke="#9E3B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Climate literacy for access and field teams</div>
+      <div class="get-item"><svg class="tick" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1E4435" stroke-width="1.6"/><path d="M7.5 12.5l2.8 2.8L16.5 9" stroke="#9E3B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Optional advisory retainer after the design closes</div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Where we stop</h3>
+    <p class="stops">We design and measure; we do not run day-to-day field operations, produce MLR-reviewed patient-facing content, or replace your implementing partners. Where delivery hands are needed, we help identify the right partners and stay involved at the strategy layer.</p>
+  </section>
+
+  <section>
+    <h3>Who you'd be working with</h3>
+    <div class="founder">
+      <img class="avatar" src="data:image/jpeg;base64,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" alt="Abhijith Magal L">
+      <div>
+        <div class="name">Abhijith Magal L</div>
+        <div class="role">Founder, Syntropy Earth</div>
+        <p>Nine years across two global pharmaceutical companies, spanning commercial and access roles, including direct collaboration with WHO-Foundation and UNICEF on health-equity and sustainability programmes. This practice exists because that work kept surfacing the same gap: access programmes built for normal conditions, reported in annual averages.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <h4>Curious to know more?</h4>
+    <p>The full deck goes deeper on the fifth barrier, the SDG connection, and how an engagement runs. Or start with the free self-serve scorecard for a first read on where your programme stands. Pricing is a conversation once we know the scope.</p>
+    <div class="cta-row">
+      <a class="btn" id="deckLink" href="#" target="_blank">View the full deck</a>
+      <a class="btn-ghost" href="https://syntropyearth.com/climate-access" target="_blank">Try the free scorecard</a>
+      <a class="btn-ghost" href="https://calendar.app.google/DnRrAkUVvxoMhWdk6" target="_blank">Let's connect</a>
+    </div>
+  </div>
+
+  <footer>
+    <div>abhijithmagal@syntropyearth.com &middot; syntropyearth.com</div>
+    <div><a href="https://abhijithmagal.com" target="_blank">abhijithmagal.com</a> &middot; <a href="https://linkedin.com/in/abhijithmagal" target="_blank">LinkedIn</a></div>
+  </footer>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const bucket = params.get('bucket') || 'hq-mandate';
+  document.querySelectorAll('.branch[data-bucket]').forEach(el=>el.classList.toggle('show', el.dataset.bucket===bucket));
+  const client = params.get('client');
+  if(client){
+    document.querySelectorAll('.client-name').forEach(el=>el.textContent = decodeURIComponent(client));
+    document.getElementById('preparedFor').style.display = 'inline';
+  }
+  const deckBase = params.get('deck') ? decodeURIComponent(params.get('deck')) : 'https://syntropyearth.com/decks/climate-health/pharma-life-sciences';
+  document.getElementById('deckLink').href = `${deckBase}?bucket=${bucket}${client ? '&client=' + encodeURIComponent(client) : ''}`;
+</script>
+</body>
+</html>
