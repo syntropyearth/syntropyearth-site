@@ -28,6 +28,9 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
+# styles.css and js/main.js are cached for a year. Every page links them with a
+# ?v=NNN query string. BUMP THAT VERSION whenever you edit either file, or the
+# CDN and every returning browser will keep serving the old one.
 [[headers]]
   for = "/styles.css"
   [headers.values]

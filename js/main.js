@@ -260,3 +260,82 @@
     }
   }, true);
 })();
+
+/* ==========================================================================
+   Shared prompt: CAVS-S scorecard + newsletter
+   Added 26 July 2026. Built here rather than pasted into each page so the
+   markup lives in one place. Runs on the homepage, services, the thinking
+   index and the articles. Triggers on scroll depth, not on a named element,
+   because services and thinking have no #founder anchor.
+   ========================================================================== */
+(function () {
+  var NEWSLETTER = 'https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7267182407571644416';
+  var LINKEDIN   = 'https://www.linkedin.com/in/abhijithmagal';
+  var YOUTUBE    = 'https://www.youtube.com/@abhijithmagal';
+  var KEY        = 'sePromptDismissed';
+  var TRIGGER_AT = 0.40;   /* fraction of scrollable height */
+
+  var path = window.location.pathname.replace(/\/+$/, '') || '/';
+  var eligible = (path === '/' || path === '/services' || path === '/thinking' ||
+                  path.indexOf('/thinking/') === 0);
+  if (!eligible) return;
+  if (path.indexOf('/climate-access') === 0) return;
+
+  try { if (sessionStorage.getItem(KEY) === '1') return; } catch (e) {}
+
+  var el = document.createElement('div');
+  el.id = 'se-prompt';
+  el.setAttribute('role', 'complementary');
+  el.setAttribute('aria-label', 'Free scorecard and newsletter');
+  el.innerHTML =
+    '<button class="sp-close" type="button" aria-label="Dismiss">&times;</button>' +
+    '<p class="sp-eyebrow">Free &middot; 3 minutes</p>' +
+    '<p class="sp-head">Still reading?</p>' +
+    '<p class="sp-body">Find out how exposed your organisation\u2019s healthcare access is to a warming climate. Scored across four dimensions, benchmarked against 59 listed Indian companies.</p>' +
+    '<a class="sp-btn" href="/climate-access/" data-cavs="prompt">Run the free scorecard &rarr;</a>' +
+    '<hr class="sp-rule">' +
+    '<p class="sp-eyebrow-2">Stay connected</p>' +
+    '<p class="sp-body-2">Entropy Unplugged, fortnightly on LinkedIn. One click, no email address changes hands.</p>' +
+    '<a class="sp-btn-2" href="' + NEWSLETTER + '" target="_blank" rel="noopener" data-newsletter="prompt">Subscribe on LinkedIn &rarr;</a>' +
+    '<p class="sp-follow">' +
+      '<a href="' + LINKEDIN + '" target="_blank" rel="noopener">LinkedIn</a>' +
+      '<a href="' + YOUTUBE + '" target="_blank" rel="noopener">YouTube</a>' +
+      '<a href="/thinking/">Thinking</a>' +
+    '</p>';
+
+  document.body.appendChild(el);
+
+  var shown = false;
+  function reveal() {
+    if (shown) return;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if (h <= 0) return;
+    if ((window.scrollY || window.pageYOffset) / h < TRIGGER_AT) return;
+    shown = true;
+    el.classList.add('visible');
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'se_prompt_shown', page_path: path });
+    window.removeEventListener('scroll', onScroll);
+  }
+
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () { reveal(); ticking = false; });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  el.querySelector('.sp-close').addEventListener('click', function () {
+    el.classList.remove('visible');
+    try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'se_prompt_dismissed', page_path: path });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && el.classList.contains('visible')) {
+      el.querySelector('.sp-close').click();
+    }
+  });
+})();

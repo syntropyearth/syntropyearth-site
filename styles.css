@@ -588,106 +588,199 @@ em.accent { font-style: italic; color: var(--warm-clay); }
 
 
 /* ==========================================================================
-   CAVS-S distribution components + newsletter link
-   Added 26 July 2026. Tokens only, no new fonts, no new colours.
+   CAVS-S distribution, newsletter, and the shared prompt
+   v2, 26 July 2026. Premium Heritage tokens only.
+   NOTE: styles.css is served with a one-year immutable cache header
+   (netlify.toml). Every page links it as /styles.css?v=NNN. When you edit
+   this file you MUST bump that version string or nobody sees the change.
    ========================================================================== */
 
-/* Above-fold strip: homepage (directly under hero) and services (high on page) */
+/* ---- text link that survives a dark background ---- */
+.text-link-on-dark { color: var(--mist); }
+.text-link-on-dark:hover { color: var(--soft-cream); }
+
+/* ---- LIGHT BAND: homepage under the hero, services under the hero ---- */
 .cavs-strip{
+  position:relative;
   background:var(--pale-clay);
-  border-top:1px solid rgba(207,155,125,0.55);
-  border-bottom:1px solid rgba(207,155,125,0.55);
-  padding:26px 0;
+  border-top:1px solid rgba(158,59,42,0.22);
+  border-bottom:1px solid rgba(158,59,42,0.22);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.5), 0 6px 18px rgba(30,68,53,0.07);
+  padding:40px 0;
+}
+.cavs-strip::before{
+  content:""; position:absolute; left:0; top:0; bottom:0;
+  width:5px; background:var(--red-earth);
 }
 .cavs-strip .cavs-inner{
-  max-width:1120px; margin:0 auto; padding:0 clamp(20px,5vw,64px);
-  display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+  max-width:1120px; margin:0 auto; padding:0 clamp(24px,5vw,64px);
+  display:flex; align-items:center; justify-content:space-between;
+  gap:32px; flex-wrap:wrap;
 }
-.cavs-strip .cavs-copy{flex:1 1 460px; min-width:0}
+.cavs-strip .cavs-copy{flex:1 1 480px; min-width:0}
 .cavs-strip .cavs-eyebrow{
-  font-family:'Space Mono',ui-monospace,monospace; font-size:10px; letter-spacing:.16em;
-  text-transform:uppercase; color:var(--dark-red-earth); margin:0 0 8px;
+  display:inline-block;
+  font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--soft-cream); background:var(--red-earth);
+  padding:5px 11px; border-radius:4px; margin:0 0 14px;
 }
 .cavs-strip .cavs-head{
-  font-family:'Cormorant Garamond',Georgia,serif; font-weight:500; line-height:1.15;
-  font-size:clamp(21px,3vw,27px); color:var(--deep-forest); margin:0 0 8px;
+  font-family:var(--serif); font-weight:400; line-height:1.14;
+  font-size:clamp(25px,3.6vw,34px); color:var(--deep-forest); margin:0 0 10px;
 }
 .cavs-strip .cavs-sub{
-  font-size:15px; line-height:1.55; color:var(--text); margin:0; max-width:62ch;
+  font-size:15.5px; line-height:1.6; color:var(--text); margin:0; max-width:64ch;
 }
 .cavs-strip .cavs-act{flex:0 0 auto}
 .cavs-strip .cavs-note{
-  font-family:'Space Mono',ui-monospace,monospace; font-size:10px; letter-spacing:.08em;
-  color:var(--dark-red-earth); margin:10px 0 0; opacity:.85;
+  font-family:var(--mono); font-size:10px; letter-spacing:.08em;
+  color:var(--dark-red-earth); margin:14px 0 0; opacity:.9;
 }
 
-/* Pre-footer band: guide pages, thinking index, articles, about */
-.cavs-band{background:var(--deep-forest); padding:52px 0}
-.cavs-band .cavs-inner{
-  max-width:1120px; margin:0 auto; padding:0 clamp(20px,5vw,64px);
-  display:flex; align-items:flex-start; justify-content:space-between; gap:30px; flex-wrap:wrap;
+/* ---- DARK BAND: guide pages and articles, before the footer ---- */
+.cavs-band{
+  position:relative; background:var(--deep-forest);
+  border-top:4px solid var(--red-earth);
+  padding:62px 0;
 }
-.cavs-band .cavs-copy{flex:1 1 480px; min-width:0}
+.cavs-band .cavs-inner{
+  max-width:1120px; margin:0 auto; padding:0 clamp(24px,5vw,64px);
+  display:flex; align-items:center; justify-content:space-between;
+  gap:36px; flex-wrap:wrap;
+}
+.cavs-band .cavs-copy{flex:1 1 500px; min-width:0}
 .cavs-band .cavs-eyebrow{
-  font-family:'Space Mono',ui-monospace,monospace; font-size:10px; letter-spacing:.16em;
-  text-transform:uppercase; color:var(--warm-clay); margin:0 0 10px;
+  display:inline-block;
+  font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--deep-forest); background:var(--warm-clay);
+  padding:5px 11px; border-radius:4px; margin:0 0 16px;
 }
 .cavs-band .cavs-head{
-  font-family:'Cormorant Garamond',Georgia,serif; font-weight:500; line-height:1.14;
-  font-size:clamp(23px,3.4vw,32px); color:var(--soft-cream); margin:0 0 10px;
+  font-family:var(--serif); font-weight:400; line-height:1.13;
+  font-size:clamp(27px,4vw,38px); color:var(--soft-cream); margin:0 0 12px;
 }
-.cavs-band .cavs-sub{font-size:15.5px; line-height:1.6; color:var(--sage); margin:0; max-width:62ch}
-.cavs-band .cavs-act{flex:0 0 auto; padding-top:4px}
+.cavs-band .cavs-sub{font-size:16px; line-height:1.62; color:var(--mist); margin:0; max-width:62ch}
+.cavs-band .cavs-act{flex:0 0 auto}
 .cavs-band .cavs-note{
-  font-family:'Space Mono',ui-monospace,monospace; font-size:10px; letter-spacing:.08em;
-  color:var(--sage); margin:12px 0 0; opacity:.8;
+  font-family:var(--mono); font-size:10px; letter-spacing:.08em;
+  color:var(--sage); margin:16px 0 0; opacity:.85;
 }
-@media (max-width:720px){
+@media (max-width:760px){
   .cavs-strip .cavs-inner, .cavs-band .cavs-inner{flex-direction:column; align-items:flex-start}
-  .cavs-band{padding:40px 0}
+  .cavs-strip .cavs-act .btn, .cavs-band .cavs-act .btn{width:100%; text-align:center}
+  .cavs-band{padding:44px 0}
+  .cavs-strip{padding:32px 0}
 }
 
-/* Newsletter link in the footer Connect column */
-.footer-col a.nl-link{display:block}
-.footer-col .nl-note{
-  font-family:'Space Mono',ui-monospace,monospace; font-size:9.5px; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--sage); margin:4px 0 10px; opacity:.75;
-}
-
-
-/* Newsletter subscribe button. Premium Heritage tokens only.
-   Deliberately does not use LinkedIn's own supplied widget, which hardcodes
-   its brand colour and system font and would be the only off-palette
-   element on the site. Same destination URL, house styling. */
+/* ---- NEWSLETTER BLOCK: monsoon palette, the healthcare and data layer ---- */
 .nl-cta{
-  border-top:1px solid rgba(30,68,53,0.10);
-  margin-top:40px; padding-top:30px;
+  background:var(--deep-monsoon);
+  border-top:4px solid var(--sky);
+  border-radius:12px;
+  padding:clamp(28px,4vw,42px);
+  margin-top:48px;
   display:flex; align-items:center; justify-content:space-between;
-  gap:22px; flex-wrap:wrap;
+  gap:30px; flex-wrap:wrap;
 }
-.nl-cta .nl-copy{flex:1 1 420px; min-width:0}
+.nl-cta .nl-copy{flex:1 1 440px; min-width:0}
 .nl-cta .nl-eyebrow{
-  font-family:'Space Mono',ui-monospace,monospace; font-size:10px; letter-spacing:.16em;
-  text-transform:uppercase; color:var(--forest); margin:0 0 8px;
+  display:inline-block;
+  font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--deep-monsoon); background:var(--sky);
+  padding:5px 11px; border-radius:4px; margin:0 0 14px;
 }
 .nl-cta .nl-head{
-  font-family:'Cormorant Garamond',Georgia,serif; font-weight:500; line-height:1.15;
-  font-size:clamp(21px,3vw,27px); color:var(--deep-forest); margin:0 0 8px;
+  font-family:var(--serif); font-weight:400; line-height:1.14;
+  font-size:clamp(24px,3.4vw,32px); color:var(--white); margin:0 0 10px;
 }
-.nl-cta .nl-sub{font-size:15px; line-height:1.55; color:var(--text-muted); margin:0; max-width:60ch}
+.nl-cta .nl-sub{font-size:15.5px; line-height:1.6; color:var(--sky-pale); margin:0; max-width:60ch}
 .btn-newsletter{
   display:inline-block; flex:0 0 auto;
-  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
-  font-size:15px; font-weight:500; line-height:1.2;
-  color:var(--soft-cream); background:var(--deep-forest);
-  border:1px solid var(--deep-forest); border-radius:7px;
-  padding:13px 24px; text-decoration:none;
-  transition:background .15s, transform .05s;
+  font-family:var(--sans); font-size:15px; font-weight:500; line-height:1.2;
+  color:var(--deep-monsoon); background:var(--sky-pale);
+  border:1px solid var(--sky-pale); border-radius:7px;
+  padding:14px 26px; text-decoration:none;
+  transition:background .18s var(--ease), transform .18s var(--ease);
 }
-.btn-newsletter:hover{background:var(--midnight-forest); color:var(--soft-cream)}
-.btn-newsletter:active{transform:translateY(1px)}
-.btn-newsletter:focus-visible{outline:2px solid var(--monsoon-blue); outline-offset:2px}
+.btn-newsletter:hover{background:var(--white); color:var(--deep-monsoon); transform:translateY(-2px)}
+.btn-newsletter:focus-visible{outline:2px solid var(--sky); outline-offset:3px}
 @media (max-width:640px){
   .nl-cta{flex-direction:column; align-items:flex-start}
   .btn-newsletter{width:100%; text-align:center}
 }
+
+/* ---- FOOTER: newsletter reads as one item, not two orphans ---- */
+.footer-col .nl-block{
+  display:block; padding-bottom:14px; margin-bottom:6px;
+  border-bottom:1px solid rgba(250,244,232,0.14);
+}
+.footer-col a.nl-link{
+  display:block; margin:0; font-weight:500; color:var(--soft-cream);
+}
+.footer-col a.nl-link:hover{color:var(--warm-clay)}
+.footer-col .nl-note{
+  display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--sage); margin:5px 0 0; opacity:.8;
+}
+
+/* ---- SHARED PROMPT: built by /js/main.js on eligible pages ---- */
+#se-prompt{
+  position:fixed; bottom:26px; right:26px; width:min(430px,calc(100vw - 40px));
+  background:var(--deep-forest); color:var(--soft-cream);
+  border-radius:14px; border-top:4px solid var(--red-earth);
+  padding:26px 28px 24px;
+  box-shadow:0 18px 48px rgba(20,48,37,0.42);
+  z-index:9999;
+  transform:translateY(20px); opacity:0; pointer-events:none;
+  transition:transform .35s var(--ease), opacity .35s var(--ease);
+}
+#se-prompt.visible{transform:translateY(0); opacity:1; pointer-events:auto}
+#se-prompt .sp-close{
+  position:absolute; top:10px; right:12px; background:none; border:0;
+  color:var(--sage); font-size:24px; line-height:1; cursor:pointer; padding:4px 8px;
+}
+#se-prompt .sp-close:hover{color:var(--soft-cream)}
+#se-prompt .sp-eyebrow{
+  display:inline-block; font-family:var(--mono); font-size:9.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--soft-cream); background:var(--red-earth);
+  padding:4px 10px; border-radius:4px; margin:0 0 12px;
+}
+#se-prompt .sp-head{
+  font-family:var(--serif); font-weight:400; font-size:21px; line-height:1.2;
+  color:var(--soft-cream); margin:0 0 8px;
+}
+#se-prompt .sp-body{font-size:14px; line-height:1.55; color:var(--mist); margin:0 0 16px}
+#se-prompt .sp-btn{
+  display:block; text-align:center; font-family:var(--sans); font-size:14.5px; font-weight:500;
+  background:var(--red-earth); color:var(--soft-cream);
+  border-radius:7px; padding:12px 18px; text-decoration:none;
+  transition:background .18s var(--ease);
+}
+#se-prompt .sp-btn:hover{background:var(--dark-red-earth)}
+#se-prompt .sp-rule{
+  border:0; border-top:1px solid rgba(250,244,232,0.16); margin:20px 0 16px;
+}
+#se-prompt .sp-eyebrow-2{
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--warm-clay); margin:0 0 8px;
+}
+#se-prompt .sp-body-2{font-size:13.5px; line-height:1.5; color:var(--mist); margin:0 0 14px}
+#se-prompt .sp-btn-2{
+  display:block; text-align:center; font-family:var(--sans); font-size:14px; font-weight:500;
+  background:var(--sky-pale); color:var(--deep-monsoon);
+  border-radius:7px; padding:11px 18px; text-decoration:none;
+  transition:background .18s var(--ease);
+}
+#se-prompt .sp-btn-2:hover{background:var(--white)}
+#se-prompt .sp-follow{
+  display:flex; gap:14px; flex-wrap:wrap; margin:14px 0 0;
+  font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+}
+#se-prompt .sp-follow a{color:var(--sage); text-decoration:none}
+#se-prompt .sp-follow a:hover{color:var(--soft-cream); text-decoration:underline}
+#se-prompt a:focus-visible, #se-prompt button:focus-visible{outline:2px solid var(--warm-clay); outline-offset:2px}
+@media (max-width:520px){
+  #se-prompt{left:14px; right:14px; bottom:14px; width:auto; padding:22px 20px 20px}
+  #se-prompt .sp-head{font-size:19px}
+}
+@media (prefers-reduced-motion: reduce){ #se-prompt{transition:none} }
