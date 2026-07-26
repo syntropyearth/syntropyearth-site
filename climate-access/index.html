@@ -22,7 +22,7 @@
 <meta name="twitter:image" content="https://syntropyearth.com/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg-page:#FDFAF5; --bg-surface:#FFFFFF; --bg-cream:#FAF4E8; --bg-dark:#1E4435; --bg-footer:#143025;
@@ -119,23 +119,65 @@
 
   .jsq{font-size:clamp(30px,6vw,46px); letter-spacing:.005em}
 
-  /* static prose (added for crawlability + GEO) */
-  .ca-prose{margin-top:44px; border-top:1px solid var(--border); padding-top:34px}
-  .ca-prose h2{margin:34px 0 12px; font-size:clamp(22px,4vw,29px)}
-  .ca-prose h2:first-of-type{margin-top:0}
+  /* static prose (added for crawlability + GEO)
+     v2, 27 July 2026: teaser + native <details> expansion. Every word stays
+     in the raw HTML either way; <details> only changes what is visually
+     open by default, so nothing here removes content from a non-JS crawler.
+     Zero JavaScript is used for the expand/collapse behaviour. */
+  .ca-prose{margin-top:48px; border-top:1px solid var(--border); padding-top:8px}
+  .ca-section{padding:38px 0; border-bottom:1px solid var(--border)}
+  .ca-section:first-of-type{padding-top:30px}
+  .ca-section:last-of-type{border-bottom:0; padding-bottom:8px}
+  .ca-kicker{font-family:var(--mono); font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--forest); margin:0 0 10px}
+  .ca-prose h2{margin:0 0 16px; font-size:clamp(23px,4vw,30px)}
   .ca-prose h3{font-size:17px; margin:0 0 6px}
-  .ca-prose p{max-width:68ch; color:var(--text)}
-  .ca-def{background:var(--bg-cream); border-left:3px solid var(--forest); border-radius:0 8px 8px 0; padding:20px 22px; margin:0 0 18px}
-  .ca-def p{margin:0}
+  .ca-prose p{max-width:66ch; color:var(--text); line-height:1.68; margin:0 0 16px}
+  .ca-prose p:last-child{margin-bottom:0}
+
+  .ca-def{background:var(--bg-cream); border-left:3px solid var(--forest); border-radius:0 8px 8px 0; padding:22px 24px; margin:0 0 22px}
+  .ca-def p{margin:0; line-height:1.68}
   .ca-def-label{font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--forest); margin:0 0 8px !important}
-  .ca-dims{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0 8px}
+
+  .ca-dims{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px}
   .ca-dim{background:var(--bg-surface); border:1px solid var(--border); border-radius:10px; padding:20px}
-  .ca-dim p{font-size:14px; color:var(--text-muted); margin:0; max-width:none}
-  .ca-faq{margin-top:18px}
-  .ca-qa{border-top:1px solid var(--border); padding:18px 0}
-  .ca-qa:last-child{border-bottom:1px solid var(--border)}
-  .ca-qa p{font-size:14.5px; color:var(--text-muted); margin:0}
-  @media(max-width:640px){ .ca-dims{grid-template-columns:1fr} }
+  .ca-dim p{font-size:14px; color:var(--text-muted); margin:0; max-width:none; line-height:1.6}
+
+  /* teaser + native details expansion, no JS required */
+  .ca-more{margin-top:2px}
+  .ca-more summary{
+    list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:6px;
+    font-family:var(--body); font-size:14.5px; font-weight:500; color:var(--forest);
+    padding:2px 0; margin-bottom:2px; user-select:none;
+  }
+  .ca-more summary::-webkit-details-marker{display:none}
+  .ca-more summary:hover{color:var(--red)}
+  .ca-more summary .chev{
+    display:inline-block; font-size:11px; transition:transform .18s ease; transform:rotate(0deg);
+  }
+  .ca-more[open] summary .chev{transform:rotate(90deg)}
+  .ca-more[open] summary{margin-bottom:14px}
+  .ca-more .ca-more-body p{margin:0 0 16px}
+  .ca-more .ca-more-body p:last-child{margin-bottom:0}
+
+  /* FAQ, native accordions. Question text is unchanged, so FAQPage schema
+     still matches what a visitor eventually reads. */
+  .ca-faq{margin-top:6px}
+  .ca-faq-item{border-top:1px solid var(--border)}
+  .ca-faq-item:last-child{border-bottom:1px solid var(--border)}
+  .ca-faq-item summary{
+    list-style:none; cursor:pointer; padding:17px 4px; display:flex; align-items:center;
+    justify-content:space-between; gap:14px; user-select:none;
+  }
+  .ca-faq-item summary::-webkit-details-marker{display:none}
+  .ca-faq-item summary h3{margin:0; font-size:16.5px; color:var(--bg-dark)}
+  .ca-faq-item summary .chev{
+    flex:0 0 auto; font-family:var(--mono); font-size:13px; color:var(--forest);
+    transition:transform .18s ease; transform:rotate(0deg);
+  }
+  .ca-faq-item[open] summary .chev{transform:rotate(45deg)}
+  .ca-faq-item .ca-faq-a{padding:0 4px 18px; font-size:14.5px; color:var(--text-muted); line-height:1.65; max-width:64ch}
+
+  @media(max-width:640px){ .ca-dims{grid-template-columns:1fr} .ca-section{padding:30px 0} }
 
   /* result */
   .gauge-wrap{display:flex; flex-direction:column; align-items:center; text-align:center; padding:8px 0 4px}
@@ -335,76 +377,117 @@
   <main id="app" aria-live="polite"></main>
 
   <section class="ca-prose" aria-labelledby="ca-what">
-    <h2 id="ca-what">What climate-access exposure means</h2>
-    <div class="ca-def">
-      <p class="ca-def-label">Definition &middot; climate-access</p>
-      <p><strong>Climate-access</strong> is the gap between care that exists on paper and care a person can actually reach once climate conditions intervene. A clinic that is open but unreachable in a flood, a medicine that is stocked but degraded by heat, a health worker who cannot travel, a patient who cannot afford to lose a day's wage to a journey in 44 degrees. The service is funded and the outcome still does not happen.</p>
-    </div>
-    <p>This is measurable, and it is the thing most organisations are not measuring. Emissions accounting tells you what you contribute. Climate-access exposure tells you what is being done to the people your programme, product or workforce depends on. A company can hold a credible net-zero target and still run health and CSR programmes that stall on the first bad monsoon week, because nothing in the reporting asked the question.</p>
-    <p>The reason it stays invisible is structural. Climate risk sits with sustainability teams and access sits with commercial or programme teams, and the two rarely score the same asset. CAVS-S puts one score across both.</p>
 
-    <h2 id="ca-dimensions">The four dimensions CAVS-S scores</h2>
-    <p>Each answer maps to one of four dimensions, and each dimension is banded rather than given a false precision. The bands are directional, and they are designed so that an honest "we do not track that" is a usable answer rather than a gap you have to bluff.</p>
-    <div class="ca-dims">
-      <div class="ca-dim">
-        <h3>Physical reach</h3>
-        <p>Whether people can physically get to the point of care, and whether your sites stay operational, when heat, water or a blocked route intervenes. Distance is not the variable. Reachability under stress is.</p>
+    <div class="ca-section">
+      <p class="ca-kicker">Definition</p>
+      <h2 id="ca-what">What climate-access exposure means</h2>
+      <div class="ca-def">
+        <p class="ca-def-label">Definition &middot; climate-access</p>
+        <p><strong>Climate-access</strong> is the gap between care that exists on paper and care a person can actually reach once climate conditions intervene. A clinic that is open but unreachable in a flood, a medicine that is stocked but degraded by heat, a health worker who cannot travel, a patient who cannot afford to lose a day's wage to a journey in 44 degrees. The service is funded and the outcome still does not happen.</p>
       </div>
-      <div class="ca-dim">
-        <h3>Supply-chain integrity</h3>
-        <p>Whether what you move arrives usable. Cold chain holding through a heat window, routes holding through a monsoon, and whether a break would be detected at all or discovered later at the point of delivery.</p>
-      </div>
-      <div class="ca-dim">
-        <h3>Workforce availability</h3>
-        <p>Whether the people who deliver, sell, distribute or care can safely work. Outdoor and transit-exposed roles carry this first, and the exposure shows up as absence and error rates well before it shows up as an incident report.</p>
-      </div>
-      <div class="ca-dim">
-        <h3>Demand continuity</h3>
-        <p>Whether the people you serve can still act on the need. Lost wages, competing household costs and displacement all suppress care-seeking, and the drop reads as falling demand rather than as a barrier you could remove.</p>
-      </div>
+      <p>This is measurable, and it is the thing most organisations are not measuring.</p>
+      <details class="ca-more">
+        <summary><span class="chev">&#9656;</span> Read more</summary>
+        <div class="ca-more-body">
+          <p>Emissions accounting tells you what you contribute. Climate-access exposure tells you what is being done to the people your programme, product or workforce depends on. A company can hold a credible net-zero target and still run health and CSR programmes that stall on the first bad monsoon week, because nothing in the reporting asked the question.</p>
+          <p>The reason it stays invisible is structural. Climate risk sits with sustainability teams and access sits with commercial or programme teams, and the two rarely score the same asset. CAVS-S puts one score across both.</p>
+        </div>
+      </details>
     </div>
 
-    <h2 id="ca-benchmark">How the peer benchmark works</h2>
-    <p>Your answers are scored against the FY2024-25 <a href="/guide/frameworks/brsr.html">BRSR</a> disclosures of 59 listed Indian companies. That matters because it is not a survey of intentions. It is what companies were willing to put in a filing, which makes it the most conservative honest baseline available, and it means a "moderate" band on your result is moderate relative to disclosed practice rather than relative to best practice in a brochure.</p>
-    <p>It also means the benchmark inherits the limits of the source. BRSR disclosure on climate-linked access is thin, which is itself the finding. Where peers disclose nothing, the comparison tells you the ground is open rather than that you are ahead. If you want to know what BRSR does and does not require, the <a href="/guide/frameworks/brsr.html">BRSR explainer</a> covers it, and the <a href="/guide/regulations-library.html">regulations and standards library</a> sets it against <a href="/guide/frameworks/gri.html">GRI</a>, <a href="/guide/frameworks/tcfd-issb.html">TCFD and ISSB</a>, <a href="/guide/frameworks/esrs.html">ESRS</a> and the rest.</p>
-
-    <h2 id="ca-output">What you get, and what you do not</h2>
-    <p>You get an exposure band, a per-dimension read, a named list of the data gaps your own answers exposed, and a short written interpretation of what the pattern usually means. That output is enough to open a real internal conversation and enough to decide whether the question deserves budget.</p>
-    <p>You do not get an audited verdict. CAVS-S runs on your judgement of your own operations, not on your data, so it is a directional instrument. It cannot be filed, it will not survive assurance, and it is not designed to. The paid Climate Access Stress Test is the version that runs on your actual numbers across a full climate-health year and produces metrics that lift into a BRSR or funder report and stand up under audit. CAVS-S exists to tell you whether that is worth doing.</p>
-
-    <h2 id="ca-who">Who this is built for</h2>
-    <p>Sustainability and CSR leads who have to defend a programme against a reporting deadline. Access and commercial teams in pharma and healthcare who suspect their reach numbers are being quietly eroded. Programme leads in NGOs and development-finance-backed work who need to show a funder that continuity was thought about. Manufacturing and FMCG teams carrying duty-of-care exposure on an outdoor workforce. If you sit outside those and the question still lands, run it anyway.</p>
-
-    <h2 id="ca-faq">Common questions</h2>
-    <div class="ca-faq">
-      <div class="ca-qa">
-        <h3>Is it actually free, and what happens to my answers?</h3>
-        <p>Free, with no payment step anywhere. You give an email at the end to receive the result. Your answers and result are stored so the assessment can be sent and followed up on, and nothing is sold or passed to a third party. If you would rather see the questions without submitting anything, work through the tool and stop before the result step.</p>
-      </div>
-      <div class="ca-qa">
-        <h3>How long does it take?</h3>
-        <p>Under three minutes for most people. The questions are written to be answerable from what a senior person already knows, without pulling a report.</p>
-      </div>
-      <div class="ca-qa">
-        <h3>What if we do not track something the question asks about?</h3>
-        <p>Say so. Every question carries an honest "we do not track that" option, and choosing it improves the result rather than weakening it. An untracked dimension is a finding, and the output names those gaps back to you.</p>
-      </div>
-      <div class="ca-qa">
-        <h3>Does this only work for India?</h3>
-        <p>The peer benchmark is Indian, drawn from BRSR filings, so the comparison is sharpest for organisations operating in India. The four dimensions are not country-specific, and the assessment runs for organisations based elsewhere with the benchmark treated as indicative rather than local.</p>
-      </div>
-      <div class="ca-qa">
-        <h3>How is this different from a climate risk assessment?</h3>
-        <p>A standard climate risk assessment scores physical and transition risk to assets, revenue and compliance position. This scores the route between your organisation and the people who depend on it. The two overlap on facilities and diverge everywhere else, which is why an organisation can carry a completed climate risk assessment and still have no view of its access exposure.</p>
-      </div>
-      <div class="ca-qa">
-        <h3>What is the difference between CAVS-S and CAST?</h3>
-        <p>CAVS-S is the free, self-scored, directional version. CAST, the Climate Access Stress Test, is the paid engagement: your own data, the same four dimensions, a full climate-health year, and an output built to be reported and assured. CAVS-S is how you find out whether the fuller version is worth the budget.</p>
+    <div class="ca-section">
+      <p class="ca-kicker">Methodology</p>
+      <h2 id="ca-dimensions">The four dimensions CAVS-S scores</h2>
+      <p>Each answer maps to one of four dimensions, and each dimension is banded rather than given a false precision. The bands are directional, and they are designed so that an honest "we do not track that" is a usable answer rather than a gap you have to bluff.</p>
+      <div class="ca-dims">
+        <div class="ca-dim">
+          <h3>Physical reach</h3>
+          <p>Whether people can physically get to the point of care, and whether your sites stay operational, when heat, water or a blocked route intervenes. Distance is not the variable. Reachability under stress is.</p>
+        </div>
+        <div class="ca-dim">
+          <h3>Supply-chain integrity</h3>
+          <p>Whether what you move arrives usable. Cold chain holding through a heat window, routes holding through a monsoon, and whether a break would be detected at all or discovered later at the point of delivery.</p>
+        </div>
+        <div class="ca-dim">
+          <h3>Workforce availability</h3>
+          <p>Whether the people who deliver, sell, distribute or care can safely work. Outdoor and transit-exposed roles carry this first, and the exposure shows up as absence and error rates well before it shows up as an incident report.</p>
+        </div>
+        <div class="ca-dim">
+          <h3>Demand continuity</h3>
+          <p>Whether the people you serve can still act on the need. Lost wages, competing household costs and displacement all suppress care-seeking, and the drop reads as falling demand rather than as a barrier you could remove.</p>
+        </div>
       </div>
     </div>
 
-    <h2 id="ca-read">Read the argument behind it</h2>
-    <p>If you want the evidence rather than the instrument, <a href="/thinking/climate-change-is-a-healthcare-story/">Climate change is a healthcare story</a> sets out the case and the sources. <a href="/thinking/climate-risk-hiding-in-your-access-data/">The climate risk hiding in your access data</a> works through how this shows up inside numbers an organisation already collects. <a href="/thinking/india-heat-season-healthcare-operations/">Why the heat season is a healthcare operations problem</a> takes the single most immediate version of it.</p>
+    <div class="ca-section">
+      <p class="ca-kicker">Benchmark</p>
+      <h2 id="ca-benchmark">How the peer benchmark works</h2>
+      <p>Your answers are scored against the FY2024-25 <a href="/guide/frameworks/brsr.html">BRSR</a> disclosures of 59 listed Indian companies.</p>
+      <details class="ca-more">
+        <summary><span class="chev">&#9656;</span> Read more</summary>
+        <div class="ca-more-body">
+          <p>That matters because it is not a survey of intentions. It is what companies were willing to put in a filing, which makes it the most conservative honest baseline available, and it means a "moderate" band on your result is moderate relative to disclosed practice rather than relative to best practice in a brochure.</p>
+          <p>It also means the benchmark inherits the limits of the source. BRSR disclosure on climate-linked access is thin, which is itself the finding. Where peers disclose nothing, the comparison tells you the ground is open rather than that you are ahead. If you want to know what BRSR does and does not require, the <a href="/guide/frameworks/brsr.html">BRSR explainer</a> covers it, and the <a href="/guide/regulations-library.html">regulations and standards library</a> sets it against <a href="/guide/frameworks/gri.html">GRI</a>, <a href="/guide/frameworks/tcfd-issb.html">TCFD and ISSB</a>, <a href="/guide/frameworks/esrs.html">ESRS</a> and the rest.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="ca-section">
+      <p class="ca-kicker">Scope</p>
+      <h2 id="ca-output">What you get, and what you do not</h2>
+      <p>You get an exposure band, a per-dimension read, a named list of the data gaps your own answers exposed, and a short written interpretation of what the pattern usually means.</p>
+      <details class="ca-more">
+        <summary><span class="chev">&#9656;</span> Read more</summary>
+        <div class="ca-more-body">
+          <p>That output is enough to open a real internal conversation and enough to decide whether the question deserves budget.</p>
+          <p>You do not get an audited verdict. CAVS-S runs on your judgement of your own operations, not on your data, so it is a directional instrument. It cannot be filed, it will not survive assurance, and it is not designed to. The paid Climate Access Stress Test is the version that runs on your actual numbers across a full climate-health year and produces metrics that lift into a BRSR or funder report and stand up under audit. CAVS-S exists to tell you whether that is worth doing.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="ca-section">
+      <p class="ca-kicker">Audience</p>
+      <h2 id="ca-who">Who this is built for</h2>
+      <p>Sustainability and CSR leads who have to defend a programme against a reporting deadline. Access and commercial teams in pharma and healthcare who suspect their reach numbers are being quietly eroded. Programme leads in NGOs and development-finance-backed work who need to show a funder that continuity was thought about. Manufacturing and FMCG teams carrying duty-of-care exposure on an outdoor workforce. If you sit outside those and the question still lands, run it anyway.</p>
+    </div>
+
+    <div class="ca-section">
+      <p class="ca-kicker">FAQ</p>
+      <h2 id="ca-faq">Common questions</h2>
+      <div class="ca-faq">
+        <details class="ca-faq-item">
+          <summary><h3>Is CAVS-S actually free, and what happens to my answers?</h3><span class="chev">+</span></summary>
+          <div class="ca-faq-a"><p>Free, with no payment step anywhere. You give an email at the end to receive the result. Your answers and result are stored so the assessment can be sent and followed up on, and nothing is sold or passed to a third party. If you would rather see the questions without submitting anything, work through the tool and stop before the result step.</p></div>
+        </details>
+        <details class="ca-faq-item">
+          <summary><h3>How long does the climate-access assessment take?</h3><span class="chev">+</span></summary>
+          <div class="ca-faq-a"><p>Under three minutes for most people. The questions are written to be answerable from what a senior person already knows, without pulling a report.</p></div>
+        </details>
+        <details class="ca-faq-item">
+          <summary><h3>What if we do not track something the question asks about?</h3><span class="chev">+</span></summary>
+          <div class="ca-faq-a"><p>Say so. Every question carries an honest "we do not track that" option, and choosing it improves the result rather than weakening it. An untracked dimension is a finding, and the output names those gaps back to you.</p></div>
+        </details>
+        <details class="ca-faq-item">
+          <summary><h3>Does the climate-access assessment only work for India?</h3><span class="chev">+</span></summary>
+          <div class="ca-faq-a"><p>The peer benchmark is Indian, drawn from BRSR filings, so the comparison is sharpest for organisations operating in India. The four dimensions are not country-specific, and the assessment runs for organisations based elsewhere with the benchmark treated as indicative rather than local.</p></div>
+        </details>
+        <details class="ca-faq-item">
+          <summary><h3>How is climate-access exposure different from a climate risk assessment?</h3><span class="chev">+</span></summary>
+          <div class="ca-faq-a"><p>A standard climate risk assessment scores physical and transition risk to assets, revenue and compliance position. This scores the route between your organisation and the people who depend on it. The two overlap on facilities and diverge everywhere else, which is why an organisation can carry a completed climate risk assessment and still have no view of its access exposure.</p></div>
+        </details>
+        <details class="ca-faq-item">
+          <summary><h3>What is the difference between CAVS-S and CAST?</h3><span class="chev">+</span></summary>
+          <div class="ca-faq-a"><p>CAVS-S is the free, self-scored, directional version. CAST, the Climate Access Stress Test, is the paid engagement: your own data, the same four dimensions, a full climate-health year, and an output built to be reported and assured. CAVS-S is how you find out whether the fuller version is worth the budget.</p></div>
+        </details>
+      </div>
+    </div>
+
+    <div class="ca-section">
+      <p class="ca-kicker">Further reading</p>
+      <h2 id="ca-read">Read the argument behind it</h2>
+      <p>If you want the evidence rather than the instrument, <a href="/thinking/climate-change-is-a-healthcare-story/">Climate change is a healthcare story</a> sets out the case and the sources. <a href="/thinking/climate-risk-hiding-in-your-access-data/">The climate risk hiding in your access data</a> works through how this shows up inside numbers an organisation already collects. <a href="/thinking/india-heat-season-healthcare-operations/">Why the heat season is a healthcare operations problem</a> takes the single most immediate version of it.</p>
+    </div>
+
   </section>
 
   <section aria-labelledby="cavs-bridge-h2" style="margin-top:20px;">
