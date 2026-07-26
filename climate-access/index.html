@@ -179,6 +179,16 @@
 
   @media(max-width:640px){ .ca-dims{grid-template-columns:1fr} .ca-section{padding:30px 0} }
 
+  /* Focus mode, added 27 July 2026.
+     While someone is actually answering the assessment, the reference prose
+     and the CAST bridge below are noise competing with the question on screen.
+     Both are hidden the moment the tool is engaged and restored at the entry
+     state. This is safe for crawlers: the page LOADS in the entry state with
+     everything visible, and a crawler never clicks, so it never enters the
+     hidden state. Nothing is removed from the HTML, only from the view. */
+  body[data-cavs-active="1"] .ca-prose,
+  body[data-cavs-active="1"] #ca-bridge{ display:none }
+
   /* result */
   .gauge-wrap{display:flex; flex-direction:column; align-items:center; text-align:center; padding:8px 0 4px}
   .gauge{width:240px; height:240px; max-width:72vw}
@@ -490,7 +500,7 @@
 
   </section>
 
-  <section aria-labelledby="cavs-bridge-h2" style="margin-top:20px;">
+  <section id="ca-bridge" aria-labelledby="cavs-bridge-h2" style="margin-top:20px;">
     <div class="cta-block">
       <h2 id="cavs-bridge-h2">What CAVS-S doesn't tell you, and what does</h2>
       <p>CAVS-S gives you a directional band, benchmarked against public disclosures, not your own numbers. It's a genuine signal, and it's the start of the conversation, not an audited verdict.</p>
@@ -1100,6 +1110,10 @@ var CRED = "This is a directional read. Peer figures come from the FY2024-25 BRS
 
 function render(){
   app.innerHTML="";
+  /* Focus mode: keep the reference prose and CAST bridge visible only on the
+     entry screen. Every other screen is someone mid-assessment, where that
+     content is a distraction. See the body[data-cavs-active] rule in <style>. */
+  try{ document.body.setAttribute("data-cavs-active", state.screen==="geo" ? "0" : "1"); }catch(e){}
   if(state.screen==="geo") return renderGeo();
   if(state.screen==="geo-outside") return renderGeoOutside();
   if(state.screen==="geo-outside-done") return renderGeoOutsideDone();
