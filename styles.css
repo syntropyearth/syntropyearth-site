@@ -784,3 +784,9 @@ em.accent { font-style: italic; color: var(--warm-clay); }
   #se-prompt .sp-head{font-size:19px}
 }
 @media (prefers-reduced-motion: reduce){ #se-prompt{transition:none} }
+
+/* The band sits directly under the newsletter card on the Thinking index.
+   The card already separates the two zones, so the red rule there reads as a
+   collision rather than a divider. Everywhere else the rule stays. */
+.cavs-band--norule{border-top:0}
+.nl-cta{margin-bottom:0}

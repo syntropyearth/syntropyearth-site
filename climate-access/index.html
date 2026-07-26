@@ -1342,6 +1342,15 @@ function advance(){
   if(state.sectorId==="startup"){ state.result=readStartup(state.answers); go("startupread"); return; }
   if(state.sectorId==="ngo"){ state.result=scoreNGO(state.answers); }
   else { state.result=scoreGroupA(state.sectorId, state.answers); }
+  try{
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "cavs_result_reached",
+      cavs_sector: (state.result && state.result.sector && state.result.sector.name) || null,
+      cavs_kind: (state.result && state.result.kind) || null,
+      cavs_band: (state.result && state.result.band && state.result.band.name) || null
+    });
+  }catch(e){}
   go("result");
 }
 
@@ -1469,6 +1478,21 @@ function submitGate(){
     csrSpend:(state.gateAnswers && state.gateAnswers.csrSpend) || null,
     budgetDriver:(state.gateAnswers && state.gateAnswers.budgetDriverLabel) || null
   };
+  /* The site's only real conversion. Deliberately pushes NO personal data:
+     no email, no name, no company. Only the scoring shape, which is what
+     makes the event useful in GA4 without putting PII in analytics. */
+  try{
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "cavs_lead_submit",
+      cavs_sector: payload.sector || null,
+      cavs_kind: payload.kind || null,
+      cavs_band: payload.band || null,
+      cavs_aggregate: payload.aggregate != null ? payload.aggregate : null,
+      cavs_datagap_count: (payload.dataGaps || []).length,
+      cavs_budget_driver: payload.budgetDriver || null
+    });
+  }catch(e){}
   captureLead(payload).then(function(){ state.captured=payload; go("detail"); });
 }
 
