@@ -20,6 +20,93 @@
   to = "/services"
   status = 301
 
+# Guide standards pages: Netlify serves /guide/frameworks/sasb.html at the
+# extensionless /guide/frameworks/sasb with a 200, so Google indexed four of
+# these twice and split the ranking signals between the pair. The canonical tag,
+# the sitemap and all 60 internal links already point at the .html form, so these
+# 301s make the extensionless variant resolve to it instead of duplicating it.
+# Added 27 July 2026 after Search Console confirmed the split.
+
+[[redirects]]
+  from = "/guide/frameworks/brsr"
+  to = "/guide/frameworks/brsr.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/frameworks/brsr/"
+  to = "/guide/frameworks/brsr.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/frameworks/gri"
+  to = "/guide/frameworks/gri.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/frameworks/gri/"
+  to = "/guide/frameworks/gri.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/frameworks/sasb"
+  to = "/guide/frameworks/sasb.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/frameworks/sasb/"
+  to = "/guide/frameworks/sasb.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/frameworks/esrs"
+  to = "/guide/frameworks/esrs.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/frameworks/esrs/"
+  to = "/guide/frameworks/esrs.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/frameworks/tcfd-issb"
+  to = "/guide/frameworks/tcfd-issb.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/frameworks/tcfd-issb/"
+  to = "/guide/frameworks/tcfd-issb.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/frameworks/cdp"
+  to = "/guide/frameworks/cdp.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/frameworks/cdp/"
+  to = "/guide/frameworks/cdp.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/frameworks/sdgs"
+  to = "/guide/frameworks/sdgs.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/frameworks/sdgs/"
+  to = "/guide/frameworks/sdgs.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/frameworks/cop"
+  to = "/guide/frameworks/cop.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/frameworks/cop/"
+  to = "/guide/frameworks/cop.html"
+  status = 301
+
 # Security and caching headers
 [[headers]]
   for = "/*"
