@@ -227,3 +227,36 @@
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
+
+/* ==========================================================================
+   CAVS-S and newsletter click attribution -> GTM dataLayer
+   Added 26 July 2026. Pushes directly to dataLayer; gtag.js is not loaded
+   on this site (GTM is injected site-wide via Netlify Snippet Injection),
+   so gtag() must not be used here.
+   ========================================================================== */
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[data-cavs],a[data-newsletter],a[data-cavs-exit]') : null;
+    if (!a) return;
+    if (a.hasAttribute('data-cavs')) {
+      window.dataLayer.push({
+        event: 'cavs_start_click',
+        cavs_placement: a.getAttribute('data-cavs'),
+        page_path: window.location.pathname
+      });
+    } else if (a.hasAttribute('data-newsletter')) {
+      window.dataLayer.push({
+        event: 'newsletter_click',
+        newsletter_placement: a.getAttribute('data-newsletter'),
+        page_path: window.location.pathname
+      });
+    } else if (a.hasAttribute('data-cavs-exit')) {
+      window.dataLayer.push({
+        event: 'cavs_exit_click',
+        cavs_exit_target: a.getAttribute('data-cavs-exit'),
+        page_path: window.location.pathname
+      });
+    }
+  }, true);
+})();

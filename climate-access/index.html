@@ -117,6 +117,26 @@
   .linkbtn:hover{text-decoration:underline}
   .linkbtn[disabled]{color:var(--text-faint); cursor:default; text-decoration:none}
 
+  .jsq{font-size:clamp(30px,6vw,46px); letter-spacing:.005em}
+
+  /* static prose (added for crawlability + GEO) */
+  .ca-prose{margin-top:44px; border-top:1px solid var(--border); padding-top:34px}
+  .ca-prose h2{margin:34px 0 12px; font-size:clamp(22px,4vw,29px)}
+  .ca-prose h2:first-of-type{margin-top:0}
+  .ca-prose h3{font-size:17px; margin:0 0 6px}
+  .ca-prose p{max-width:68ch; color:var(--text)}
+  .ca-def{background:var(--bg-cream); border-left:3px solid var(--forest); border-radius:0 8px 8px 0; padding:20px 22px; margin:0 0 18px}
+  .ca-def p{margin:0}
+  .ca-def-label{font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--forest); margin:0 0 8px !important}
+  .ca-dims{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0 8px}
+  .ca-dim{background:var(--bg-surface); border:1px solid var(--border); border-radius:10px; padding:20px}
+  .ca-dim p{font-size:14px; color:var(--text-muted); margin:0; max-width:none}
+  .ca-faq{margin-top:18px}
+  .ca-qa{border-top:1px solid var(--border); padding:18px 0}
+  .ca-qa:last-child{border-bottom:1px solid var(--border)}
+  .ca-qa p{font-size:14.5px; color:var(--text-muted); margin:0}
+  @media(max-width:640px){ .ca-dims{grid-template-columns:1fr} }
+
   /* result */
   .gauge-wrap{display:flex; flex-direction:column; align-items:center; text-align:center; padding:8px 0 4px}
   .gauge{width:240px; height:240px; max-width:72vw}
@@ -223,6 +243,68 @@
     *{transition:none !important; animation:none !important}
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://syntropyearth.com/climate-access/#cavss",
+      "name": "CAVS-S, Climate-Access Vulnerability Self-Screen",
+      "alternateName": "Climate-Access Exposure Self-Assessment",
+      "url": "https://syntropyearth.com/climate-access/",
+      "applicationCategory": "BusinessApplication",
+      "browserRequirements": "Requires JavaScript",
+      "operatingSystem": "Any",
+      "inLanguage": "en-GB",
+      "description": "Free self-assessment scoring an organisation's climate-access exposure across physical reach, supply-chain integrity, workforce availability and demand continuity, peer-benchmarked against FY2024-25 BRSR disclosures from 59 listed Indian companies.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "publisher": { "@id": "https://syntropyearth.com/#organization" },
+      "author": { "@id": "https://syntropyearth.com/#person" },
+      "isAccessibleForFree": true
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://syntropyearth.com/climate-access/#webpage",
+      "url": "https://syntropyearth.com/climate-access/",
+      "name": "Climate-access exposure: a free self-assessment",
+      "inLanguage": "en-GB",
+      "isPartOf": { "@id": "https://syntropyearth.com/#website" },
+      "about": { "@id": "https://syntropyearth.com/climate-access/#term" },
+      "mainEntity": { "@id": "https://syntropyearth.com/climate-access/#cavss" },
+      "breadcrumb": { "@id": "https://syntropyearth.com/climate-access/#breadcrumb" }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://syntropyearth.com/climate-access/#term",
+      "name": "climate-access",
+      "description": "The gap between care that exists on paper and care a person can actually reach once climate conditions intervene, measured across physical reach, supply-chain integrity, workforce availability and demand continuity.",
+      "inDefinedTermSet": "https://syntropyearth.com/guide/glossary.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://syntropyearth.com/climate-access/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://syntropyearth.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Climate-access exposure", "item": "https://syntropyearth.com/climate-access/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://syntropyearth.com/climate-access/#faq",
+      "isPartOf": { "@id": "https://syntropyearth.com/climate-access/#webpage" },
+      "mainEntity": [
+        { "@type": "Question", "name": "Is CAVS-S actually free, and what happens to my answers?", "acceptedAnswer": { "@type": "Answer", "text": "Free, with no payment step anywhere. You give an email at the end to receive the result. Answers and results are stored so the assessment can be sent and followed up on, and nothing is sold or passed to a third party." } },
+        { "@type": "Question", "name": "How long does the climate-access assessment take?", "acceptedAnswer": { "@type": "Answer", "text": "Under three minutes for most people. The questions are written to be answerable from what a senior person already knows, without pulling a report." } },
+        { "@type": "Question", "name": "What if we do not track something the question asks about?", "acceptedAnswer": { "@type": "Answer", "text": "Every question carries an honest option for untracked data, and choosing it improves the result rather than weakening it. An untracked dimension is itself a finding, and the output names those gaps back to you." } },
+        { "@type": "Question", "name": "Does the climate-access assessment only work for India?", "acceptedAnswer": { "@type": "Answer", "text": "The peer benchmark is drawn from Indian BRSR filings, so the comparison is sharpest for organisations operating in India. The four access dimensions are not country-specific and the assessment runs for organisations based elsewhere, with the benchmark treated as indicative." } },
+        { "@type": "Question", "name": "How is climate-access exposure different from a climate risk assessment?", "acceptedAnswer": { "@type": "Answer", "text": "A standard climate risk assessment scores physical and transition risk to assets, revenue and compliance position. Climate-access exposure scores the route between an organisation and the people who depend on it. The two overlap on facilities and diverge elsewhere, which is why an organisation can hold a completed climate risk assessment and still have no view of its access exposure." } },
+        { "@type": "Question", "name": "What is the difference between CAVS-S and CAST?", "acceptedAnswer": { "@type": "Answer", "text": "CAVS-S is the free, self-scored, directional version. CAST, the Climate Access Stress Test, is the paid engagement running on the organisation's own data across the same four dimensions and a full climate-health year, with an output built to be reported and assured." } }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -243,20 +325,94 @@
     <a href="https://syntropyearth.com" class="topbar-site-link">syntropyearth.com &rsaquo;</a>
   </header>
 
-  <section aria-labelledby="cavs-intro-h1">
-    <p class="eyebrow">Free self-assessment &middot; under three minutes</p>
-    <h2 id="cavs-intro-h1" style="font-size:clamp(26px,5vw,38px);">CAVS-S: a directional read on your climate-access exposure</h2>
-    <p class="lead">CAVS-S is free, peer-benchmarked against FY2024-25 BRSR disclosures from 59 listed Indian companies, and built to give a real signal in under three minutes. Free does not mean costless: three minutes of a leadership team's attention is worth something, which is exactly why this is built to earn it rather than waste it.</p>
+  <section aria-labelledby="cavs-h1">
+    <p class="eyebrow">Free self-assessment &middot; under three minutes &middot; peer-benchmarked</p>
+    <h1 id="cavs-h1">Climate-access exposure: a free self-assessment</h1>
+    <p class="lead">Heat, flood, air and drought do not only damage assets. They sever the path between a person and the care they need, and they do it before anything on your risk register moves. CAVS-S gives you a directional read on where that is already happening inside your own operations, scored across four access dimensions and benchmarked against what your peers actually disclosed.</p>
+    <p class="lead" style="font-size:16px;">It is free, it takes under three minutes, and it is built to give a usable signal rather than a teaser. Three minutes of a leadership team's attention is worth something, which is exactly why it is built to earn it.</p>
   </section>
 
   <main id="app" aria-live="polite"></main>
+
+  <section class="ca-prose" aria-labelledby="ca-what">
+    <h2 id="ca-what">What climate-access exposure means</h2>
+    <div class="ca-def">
+      <p class="ca-def-label">Definition &middot; climate-access</p>
+      <p><strong>Climate-access</strong> is the gap between care that exists on paper and care a person can actually reach once climate conditions intervene. A clinic that is open but unreachable in a flood, a medicine that is stocked but degraded by heat, a health worker who cannot travel, a patient who cannot afford to lose a day's wage to a journey in 44 degrees. The service is funded and the outcome still does not happen.</p>
+    </div>
+    <p>This is measurable, and it is the thing most organisations are not measuring. Emissions accounting tells you what you contribute. Climate-access exposure tells you what is being done to the people your programme, product or workforce depends on. A company can hold a credible net-zero target and still run health and CSR programmes that stall on the first bad monsoon week, because nothing in the reporting asked the question.</p>
+    <p>The reason it stays invisible is structural. Climate risk sits with sustainability teams and access sits with commercial or programme teams, and the two rarely score the same asset. CAVS-S puts one score across both.</p>
+
+    <h2 id="ca-dimensions">The four dimensions CAVS-S scores</h2>
+    <p>Each answer maps to one of four dimensions, and each dimension is banded rather than given a false precision. The bands are directional, and they are designed so that an honest "we do not track that" is a usable answer rather than a gap you have to bluff.</p>
+    <div class="ca-dims">
+      <div class="ca-dim">
+        <h3>Physical reach</h3>
+        <p>Whether people can physically get to the point of care, and whether your sites stay operational, when heat, water or a blocked route intervenes. Distance is not the variable. Reachability under stress is.</p>
+      </div>
+      <div class="ca-dim">
+        <h3>Supply-chain integrity</h3>
+        <p>Whether what you move arrives usable. Cold chain holding through a heat window, routes holding through a monsoon, and whether a break would be detected at all or discovered later at the point of delivery.</p>
+      </div>
+      <div class="ca-dim">
+        <h3>Workforce availability</h3>
+        <p>Whether the people who deliver, sell, distribute or care can safely work. Outdoor and transit-exposed roles carry this first, and the exposure shows up as absence and error rates well before it shows up as an incident report.</p>
+      </div>
+      <div class="ca-dim">
+        <h3>Demand continuity</h3>
+        <p>Whether the people you serve can still act on the need. Lost wages, competing household costs and displacement all suppress care-seeking, and the drop reads as falling demand rather than as a barrier you could remove.</p>
+      </div>
+    </div>
+
+    <h2 id="ca-benchmark">How the peer benchmark works</h2>
+    <p>Your answers are scored against the FY2024-25 <a href="/guide/frameworks/brsr.html">BRSR</a> disclosures of 59 listed Indian companies. That matters because it is not a survey of intentions. It is what companies were willing to put in a filing, which makes it the most conservative honest baseline available, and it means a "moderate" band on your result is moderate relative to disclosed practice rather than relative to best practice in a brochure.</p>
+    <p>It also means the benchmark inherits the limits of the source. BRSR disclosure on climate-linked access is thin, which is itself the finding. Where peers disclose nothing, the comparison tells you the ground is open rather than that you are ahead. If you want to know what BRSR does and does not require, the <a href="/guide/frameworks/brsr.html">BRSR explainer</a> covers it, and the <a href="/guide/regulations-library.html">regulations and standards library</a> sets it against <a href="/guide/frameworks/gri.html">GRI</a>, <a href="/guide/frameworks/tcfd-issb.html">TCFD and ISSB</a>, <a href="/guide/frameworks/esrs.html">ESRS</a> and the rest.</p>
+
+    <h2 id="ca-output">What you get, and what you do not</h2>
+    <p>You get an exposure band, a per-dimension read, a named list of the data gaps your own answers exposed, and a short written interpretation of what the pattern usually means. That output is enough to open a real internal conversation and enough to decide whether the question deserves budget.</p>
+    <p>You do not get an audited verdict. CAVS-S runs on your judgement of your own operations, not on your data, so it is a directional instrument. It cannot be filed, it will not survive assurance, and it is not designed to. The paid Climate Access Stress Test is the version that runs on your actual numbers across a full climate-health year and produces metrics that lift into a BRSR or funder report and stand up under audit. CAVS-S exists to tell you whether that is worth doing.</p>
+
+    <h2 id="ca-who">Who this is built for</h2>
+    <p>Sustainability and CSR leads who have to defend a programme against a reporting deadline. Access and commercial teams in pharma and healthcare who suspect their reach numbers are being quietly eroded. Programme leads in NGOs and development-finance-backed work who need to show a funder that continuity was thought about. Manufacturing and FMCG teams carrying duty-of-care exposure on an outdoor workforce. If you sit outside those and the question still lands, run it anyway.</p>
+
+    <h2 id="ca-faq">Common questions</h2>
+    <div class="ca-faq">
+      <div class="ca-qa">
+        <h3>Is it actually free, and what happens to my answers?</h3>
+        <p>Free, with no payment step anywhere. You give an email at the end to receive the result. Your answers and result are stored so the assessment can be sent and followed up on, and nothing is sold or passed to a third party. If you would rather see the questions without submitting anything, work through the tool and stop before the result step.</p>
+      </div>
+      <div class="ca-qa">
+        <h3>How long does it take?</h3>
+        <p>Under three minutes for most people. The questions are written to be answerable from what a senior person already knows, without pulling a report.</p>
+      </div>
+      <div class="ca-qa">
+        <h3>What if we do not track something the question asks about?</h3>
+        <p>Say so. Every question carries an honest "we do not track that" option, and choosing it improves the result rather than weakening it. An untracked dimension is a finding, and the output names those gaps back to you.</p>
+      </div>
+      <div class="ca-qa">
+        <h3>Does this only work for India?</h3>
+        <p>The peer benchmark is Indian, drawn from BRSR filings, so the comparison is sharpest for organisations operating in India. The four dimensions are not country-specific, and the assessment runs for organisations based elsewhere with the benchmark treated as indicative rather than local.</p>
+      </div>
+      <div class="ca-qa">
+        <h3>How is this different from a climate risk assessment?</h3>
+        <p>A standard climate risk assessment scores physical and transition risk to assets, revenue and compliance position. This scores the route between your organisation and the people who depend on it. The two overlap on facilities and diverge everywhere else, which is why an organisation can carry a completed climate risk assessment and still have no view of its access exposure.</p>
+      </div>
+      <div class="ca-qa">
+        <h3>What is the difference between CAVS-S and CAST?</h3>
+        <p>CAVS-S is the free, self-scored, directional version. CAST, the Climate Access Stress Test, is the paid engagement: your own data, the same four dimensions, a full climate-health year, and an output built to be reported and assured. CAVS-S is how you find out whether the fuller version is worth the budget.</p>
+      </div>
+    </div>
+
+    <h2 id="ca-read">Read the argument behind it</h2>
+    <p>If you want the evidence rather than the instrument, <a href="/thinking/climate-change-is-a-healthcare-story/">Climate change is a healthcare story</a> sets out the case and the sources. <a href="/thinking/climate-risk-hiding-in-your-access-data/">The climate risk hiding in your access data</a> works through how this shows up inside numbers an organisation already collects. <a href="/thinking/india-heat-season-healthcare-operations/">Why the heat season is a healthcare operations problem</a> takes the single most immediate version of it.</p>
+  </section>
 
   <section aria-labelledby="cavs-bridge-h2" style="margin-top:20px;">
     <div class="cta-block">
       <h2 id="cavs-bridge-h2">What CAVS-S doesn't tell you, and what does</h2>
       <p>CAVS-S gives you a directional band, benchmarked against public disclosures, not your own numbers. It's a genuine signal, and it's the start of the conversation, not an audited verdict.</p>
       <p><span style="color:#FDFAF5;font-weight:500;">CAST</span>, the Climate Access Stress Test, is the paid, fuller version: your own data, scored across the same four access dimensions, physical reach, supply-chain integrity, workforce availability, and demand continuity, against a full climate-health year. The output lifts straight into a BRSR or funder report and stands up under audit.</p>
-      <a class="btn btn-primary" href="https://syntropyearth.com/services" target="_blank" rel="noopener">See how CAST works</a>
+      <a class="btn btn-primary" href="/services/" data-cavs-exit="cast">See how CAST works</a>
       <p class="micro" style="margin-top:16px;"><a href="mailto:hello@syntropyearth.com" style="color:var(--clay);">Or talk to Abhijith directly</a></p>
     </div>
   </section>
@@ -275,6 +431,7 @@
       </div>
       <nav class="sf-links" aria-label="Footer">
         <a href="mailto:hello@syntropyearth.com">Contact</a>
+        <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7267182407571644416" target="_blank" rel="noopener" data-newsletter="footer" style="color:#8AAE98;">Entropy Unplugged, the newsletter</a>
       </nav>
     </div>
     <p class="sf-note">A directional self-assessment. Peer benchmark derived from FY2024-25 BRSR disclosures of 59 listed Indian companies. British English throughout.</p>
@@ -879,7 +1036,7 @@ function render(){
 function renderGeo(){
   var w = el('<section></section>');
   w.appendChild(el('<p class="eyebrow">Before we start</p>'));
-  w.appendChild(el('<h1>Are you assessing an organisation based in India?</h1>'));
+  w.appendChild(el('<h2 class="jsq">Are you assessing an organisation based in India?</h2>'));
   w.appendChild(el('<p class="lead">This tool is built and scored against FY2024-25 BRSR disclosures of 59 listed Indian companies. That is the honest scope, so we ask up front rather than after three minutes of your time.</p>'));
   var cards=el('<div class="cards"></div>');
   var c1=el('<div class="card lead"><h3>Based in India</h3><p>Score your organisation against the real India benchmark.</p><div class="btn-row"><button class="btn btn-primary" type="button">Continue</button></div></div>');
@@ -939,7 +1096,7 @@ function renderGeoOutsideDone(){
 function renderLanding(){
   var w = el('<section></section>');
   w.appendChild(el('<p class="eyebrow">Self-assessment · under three minutes</p>'));
-  w.appendChild(el('<h1>How exposed is your access to a warming climate?</h1>'));
+  w.appendChild(el('<h2 class="jsq">How exposed is your access to a warming climate?</h2>'));
   w.appendChild(el('<p class="lead">Heat keeps people from care. Floods break cold chains and supply routes. Drought stresses operations. Pick your sector to see where the exposure concentrates, then score your own.</p>'));
   w.appendChild(el('<p class="cred" style="max-width:560px;margin:0 auto 18px">Built for organisations operating in India, scored against FY2024-25 BRSR disclosures of 59 listed Indian companies. A global version on GRI and international standards is being built. Operating elsewhere? Write to <a href="mailto:abhijithmagal@syntropyearth.com" style="color:inherit">abhijithmagal@syntropyearth.com</a>.</p>'));
   var grid = el('<div class="grid"></div>');
@@ -1542,6 +1699,22 @@ var _tb=document.getElementById("topbar-reset"), _tb2=document.getElementById("t
   if(el){ el.addEventListener("click",resetHome); el.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); resetHome(); } }); }
 });
 render();
+</script>
+<script>
+/* CAVS-S page: click attribution -> GTM dataLayer. gtag() is not available here. */
+(function(){
+  window.dataLayer = window.dataLayer || [];
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[data-cavs-exit],a[data-newsletter]') : null;
+    if(!a) return;
+    window.dataLayer.push({
+      event: a.hasAttribute('data-newsletter') ? 'newsletter_click' : 'cavs_exit_click',
+      cavs_exit_target: a.getAttribute('data-cavs-exit') || null,
+      newsletter_placement: a.getAttribute('data-newsletter') || null,
+      page_path: window.location.pathname
+    });
+  }, true);
+})();
 </script>
 </body>
 </html>
