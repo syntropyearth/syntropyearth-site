@@ -118,6 +118,7 @@
   .linkbtn[disabled]{color:var(--text-faint); cursor:default; text-decoration:none}
 
   .jsq{font-size:clamp(30px,6vw,46px); letter-spacing:.005em}
+  .sector-h{font-size:clamp(22px,3.6vw,29px); margin:0 0 14px}
 
   /* static prose (added for crawlability + GEO)
      v2, 27 July 2026: teaser + native <details> expansion. Every word stays
@@ -188,6 +189,18 @@
      hidden state. Nothing is removed from the HTML, only from the view. */
   body[data-cavs-active="1"] .ca-prose,
   body[data-cavs-active="1"] #ca-bridge{ display:none }
+
+  /* Once the assessment is engaged, the static intro goes too. The eyebrow and
+     lead paragraphs are removed outright; the H1 is kept in the accessibility
+     tree rather than display:none'd, so the document outline survives for
+     screen readers while the visual field clears for everyone else. */
+  body[data-cavs-active="1"] #ca-intro > .eyebrow,
+  body[data-cavs-active="1"] #ca-intro > .lead{ display:none }
+  body[data-cavs-active="1"] #ca-intro{ margin:0; padding:0 }
+  body[data-cavs-active="1"] #ca-intro > h1{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+  }
 
   /* result */
   .gauge-wrap{display:flex; flex-direction:column; align-items:center; text-align:center; padding:8px 0 4px}
@@ -377,7 +390,7 @@
     <a href="https://syntropyearth.com" class="topbar-site-link">syntropyearth.com &rsaquo;</a>
   </header>
 
-  <section aria-labelledby="cavs-h1">
+  <section id="ca-intro" aria-labelledby="cavs-h1">
     <p class="eyebrow">Free self-assessment &middot; under three minutes &middot; peer-benchmarked</p>
     <h1 id="cavs-h1">Climate-access exposure: a free self-assessment</h1>
     <p class="lead">Heat, flood, air and drought do not only damage assets. They sever the path between a person and the care they need, and they do it before anything on your risk register moves. CAVS-S gives you a directional read on where that is already happening inside your own operations, scored across four access dimensions and benchmarked against what your peers actually disclosed.</p>
@@ -1192,9 +1205,10 @@ function renderGeoOutsideDone(){
 /* ---- Landing + sector pick ---- */
 function renderLanding(){
   var w = el('<section></section>');
-  w.appendChild(el('<p class="eyebrow">Self-assessment · under three minutes</p>'));
-  w.appendChild(el('<h2 class="jsq">How exposed is your access to a warming climate?</h2>'));
-  w.appendChild(el('<p class="lead">Heat keeps people from care. Floods break cold chains and supply routes. Drought stresses operations. Pick your sector to see where the exposure concentrates, then score your own.</p>'));
+  /* Narrative deliberately removed here (27 July 2026). The static intro above
+     carried the same message, so the sector screen was saying it twice. What
+     remains is the India scope note, one functional heading, and the tiles. */
+  w.appendChild(el('<h2 class="sector-h">Choose your sector</h2>'));
   w.appendChild(el('<p class="cred" style="max-width:560px;margin:0 auto 18px">Built for organisations operating in India, scored against FY2024-25 BRSR disclosures of 59 listed Indian companies. A global version on GRI and international standards is being built. Operating elsewhere? Write to <a href="mailto:abhijithmagal@syntropyearth.com" style="color:inherit">abhijithmagal@syntropyearth.com</a>.</p>'));
   var grid = el('<div class="grid"></div>');
   Object.keys(SECTORS).forEach(function(id){
