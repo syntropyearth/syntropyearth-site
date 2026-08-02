@@ -243,6 +243,11 @@
   .field input{width:100%; font:inherit; font-size:15px; padding:12px 14px; border:1px solid var(--border-strong); border-radius:8px; background:var(--bg-surface); color:var(--text)}
   .field input:focus{border-color:var(--forest); outline:2px solid var(--monsoon); outline-offset:1px}
   .err{color:var(--red); font-size:12.5px; margin-top:5px; display:none}
+  .consent{margin-top:6px; margin-bottom:16px}
+  .consent-row{display:flex; align-items:flex-start; gap:10px; font-size:12.5px; font-weight:400; line-height:1.6; color:var(--text-muted); cursor:pointer}
+  .consent-row input[type="checkbox"]{width:16px; height:16px; min-width:16px; margin:2px 0 0; padding:0; accent-color:var(--forest); cursor:pointer}
+  .consent-row a{color:var(--forest); text-decoration:underline}
+  .consent-note{font-size:11.5px; line-height:1.6; color:var(--text-faint); margin-top:8px}
   .reassure{font-size:12px; color:var(--text-faint); margin-top:12px; line-height:1.5}
 
   /* detail */
@@ -537,6 +542,7 @@
       </div>
       <nav class="sf-links" aria-label="Footer">
         <a href="mailto:hello@syntropyearth.com">Contact</a>
+        <a href="/privacy/">Privacy Policy</a>
         <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7267182407571644416" target="_blank" rel="noopener" data-newsletter="footer" style="color:#FAF4E8;font-weight:500;">Entropy Unplugged, the newsletter &rarr;</a>
       </nav>
     </div>
@@ -1185,6 +1191,7 @@ function renderGeoOutside(){
     captureLead(payload).then(function(){ go("geo-outside-done"); });
   });
   g.appendChild(submit);
+  g.appendChild(el('<p class="consent-note">Sending this stores your details in a private sheet only Abhijith can open, so he can reply. Nothing else, no list, no sharing. <a href="/privacy/" target="_blank" rel="noopener">Privacy policy</a>.</p>'));
   var explore=el('<button class="btn btn-ghost" type="button" style="width:100%;margin-top:10px">Explore the India tool anyway</button>');
   explore.addEventListener("click", function(){ state.geo="in"; go("landing"); });
   g.appendChild(explore);
@@ -1555,6 +1562,12 @@ function renderGate(){
   f6.appendChild(driverWrap);
   g.appendChild(f6);
 
+  /* Notice-and-consent at the point of collection, per the Digital Personal
+     Data Protection Act 2023. Nothing is sent to the sheet until this is
+     ticked, see the guard at the top of submitGate(). Added 2 August 2026. */
+  var f7=el('<div class="field consent"><label class="consent-row" for="g-consent"><input id="g-consent" type="checkbox"><span>I agree that Syntropy Earth may store the details above and contact me about my result and how it might help. I have read the <a href="/privacy/" target="_blank" rel="noopener">privacy policy</a>.</span></label><div class="err" id="e-consent">Tick this and we can send it across.</div><p class="consent-note">We hold your answers in a private sheet only Abhijith can open, we never sell or share them, and you can have the record deleted at any time by writing to legal@syntropyearth.com. Anything we publish from the scorecard is aggregated across all respondents and carries no name, email address or organisation.</p></div>');
+  g.appendChild(f7);
+
   var submit=el('<button class="btn btn-primary" type="button" style="width:100%;margin-top:4px">Send my breakdown</button>');
   submit.addEventListener("click", function(){ submitGate(); });
   g.appendChild(submit);
@@ -1568,16 +1581,20 @@ function submitGate(){
   var company=document.getElementById("g-company").value.trim();
   var name=document.getElementById("g-name").value.trim();
   var role=document.getElementById("g-role").value.trim();
+  var consentBox=document.getElementById("g-consent");
+  var consented = !!(consentBox && consentBox.checked);
   var ok=true;
   var emailValid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   document.getElementById("e-email").style.display = emailValid?"none":"block";
   document.getElementById("e-company").style.display = company?"none":"block";
-  if(!emailValid||!company) return;
+  document.getElementById("e-consent").style.display = consented?"none":"block";
+  if(!emailValid||!company||!consented) return;
 
   var r=state.result;
   var payload={
     timestamp:new Date().toISOString(),
     email:email, company:company, name:name||null, role:role||null,
+    consent:true, consentText:"Storage and follow-up consent, privacy policy v2026-08-02",
     sector:r.sector.name, sectorId:state.sectorId||null,
     kind:r.kind,
     band:r.band?r.band.name:null,
@@ -1760,6 +1777,7 @@ function renderEnquiry(){
   });
   g.appendChild(submit);
   g.appendChild(el('<p class="reassure">This is logged for follow-up, and Abhijith replies directly by email at '+ENQUIRY_EMAIL+'.</p>'));
+  g.appendChild(el('<p class="consent-note">Your details sit in a private sheet only Abhijith can open, and go nowhere else. Ask any time and the record is deleted. <a href="/privacy/" target="_blank" rel="noopener">Privacy policy</a>.</p>'));
   w.appendChild(g);
   app.appendChild(w);
 }
