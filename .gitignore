@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Internal, never publish. Netlify serves the repo root, so any file left here
+# becomes fetchable at syntropyearth.com/<filename>.
+internal-*.md
+*-DO-NOT-COMMIT.md
