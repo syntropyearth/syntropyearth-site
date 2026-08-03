@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# Decks are client-facing collateral sent by link, not search destinations.
+# Keeping them out of the index avoids stale one-pagers ranking against the
+# live services page and splitting the signal.
+Disallow: /decks/
+
 Sitemap: https://syntropyearth.com/sitemap.xml

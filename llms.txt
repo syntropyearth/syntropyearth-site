@@ -1,28 +1,48 @@
 # Syntropy Earth
 
-> Climate-health advisory. Climate change is a healthcare story: this site covers how a warming climate disrupts healthcare access, operations, and supply chains, and what pharma, CSR, NGO, and development finance teams can do about it.
+> Climate-health advisory. Climate change is a healthcare story: this site covers how a warming climate disrupts healthcare access, operations, supply chains and workforces, and what pharmaceutical, CSR, NGO and development finance teams can do about it. Based in Bengaluru, India, working globally.
 
-Syntropy Earth is a climate-health strategy and advisory practice founded by Abhijith Magal L, who spent nine years across two global pharmaceutical multinationals before founding the practice. Core service: CSR Strategy and Activation, built around the Climate Access Stress Test (CAST), a diagnostic for assessing how exposed an organisation's healthcare access is to climate disruption.
+Syntropy Earth is a climate-health strategy and advisory practice founded by Abhijith Magal L, who spent nine years across two global pharmaceutical multinationals before founding it, including brand and commercial work across more than 40 countries, a landmark obesity treatment launch, and health-equity and social responsibility leadership working directly with the WHO-Foundation and UNICEF.
+
+The governing idea is that climate change reaches people first as a health and access problem rather than an environmental one, and that the organisations already carrying an obligation to respond are the ones who can move now. Work attaches to a budget that is already moving: mandated CSR spend under Section 135 of the Companies Act 2013, headquarters duty-of-care mandates, employer duty of care to a workforce, or a BRSR assurance clock.
+
+## What Syntropy Earth does
+
+- **Social responsibility programme design.** The flagship. Design a social responsibility programme around the company's own mission, built to survive a board question, an auditor, and a change of CSR head. Starts by reading the existing portfolio, because valuable work is usually already being undercounted or tagged against the wrong goal. Measurement mapped to BRSR and GRI. Optional scope modules for supply and cold chain resilience, facility resilience, workforce heat-health protocols, and community access mapping.
+- **Health equity programme design.** For pharmaceutical, healthcare and diagnostics organisations. Patient access and health equity programmes with climate vulnerability inside the allocation logic from the first version. District-level access-barrier and disease-burden mapping, patient pathway design with seasonal disruption modelled, cold chain and last-mile continuity, governance separated from promotional activity.
+- **Climate Access Stress Test (CAST).** The scored diagnostic. Four dimensions, four seasons, one score. Geographic exposure, supply chain and operational continuity, workforce availability, and financial and demand continuity, each read across heat, monsoon, air and drought. Includes pathway analysis of how one break cascades into others. Produces disclosure-ready climate-access metrics.
+- **Implementation and handover.** Turns a design into a running programme, ending with a trained owner on the client side and a written operating manual. Partner screening, onboarding kit, governance model, monitoring system, disbursement and compliance calendar.
+- **Advisory retainer.** Standing oversight of a live programme. Monthly strategic brief, running decision log, exposure watchlist, implementing-partner review, quarterly review pack. A separate lighter route exists for climate-health founders, requiring an existing product rather than an idea.
+- **Climate literacy and speaking.** Leadership briefings and four-session working series built on a client's own exposure, plus university teaching and industry keynotes.
+- **Launch readiness advisory.** Reads a launch plan against the four climate-access dimensions before access assumptions are locked in. Distribution reach in monsoon months, field force availability through peak heat, cold chain integrity, demand seasonality that moves with weather rather than the financial calendar.
+- **Institutional programme work.** Programme structuring, research support, evidence synthesis and delivery model design for UN bodies, development finance institutions and foundations.
+
+Explicitly not offered, and referred out: technical ESG, net-zero roadmapping, emissions accounting, disclosure assurance, and general brand or go-to-market consulting.
 
 ## Core pages
 
-- [Homepage](https://syntropyearth.com/): Overview of the practice, thesis, and services.
-- [Services](https://syntropyearth.com/services/): CSR Strategy and Activation, Climate Access Stress Test, advisory retainer, climate literacy, brand and launch strategy, venture advisory.
-- [About](https://syntropyearth.com/about/): Founder background, nine years in global pharma and healthcare, climate-health positioning.
-- [Climate-Access Exposure](https://syntropyearth.com/climate-access/): Free self-assessment tool, peer-benchmarked against FY2024-25 BRSR disclosures from 59 listed Indian companies.
+- [Homepage](https://syntropyearth.com/): The thesis, the problem, and how the practice works.
+- [Services](https://syntropyearth.com/services/): All eight service shapes in full, with the diagnostic ladder and where the practice refers out.
+- [About](https://syntropyearth.com/about/): Founder background, nine years in global pharma and healthcare, and why the practice exists.
+- [Climate-Access Exposure Scorecard](https://syntropyearth.com/climate-access/): Free self-assessment, under three minutes, peer-benchmarked against FY2024-25 BRSR disclosures from 59 listed Indian companies.
+- [Privacy Policy](https://syntropyearth.com/privacy/): What is collected, why, who processes it, and how to have it deleted.
 
 ## Thinking (articles)
 
 - [Thinking index](https://syntropyearth.com/thinking/): Evidence-led writing on where climate change meets healthcare.
-- [Why the Heat Season Is a Healthcare Operations Problem](https://syntropyearth.com/thinking/india-heat-season-healthcare-operations/): Extreme heat as a workforce, access, and supply-chain problem, not just a medical one.
+- [Climate Change Is a Healthcare Story](https://syntropyearth.com/thinking/climate-change-is-a-healthcare-story/): The core argument for reading climate as a health and access problem first.
+- [Why the Heat Season Is a Healthcare Operations Problem](https://syntropyearth.com/thinking/india-heat-season-healthcare-operations/): Extreme heat as a workforce, access and supply-chain problem, not just a medical one.
+- [The Climate Risk Hiding in Your Access Data](https://syntropyearth.com/thinking/climate-risk-hiding-in-your-access-data/): How seasonal signals of climate disruption already sit in programme data nobody has read that way.
+- [The Lancet Countdown 2025, in India's Operating Terms](https://syntropyearth.com/thinking/lancet-countdown-2025-india-operating-terms/): What the 2025 findings mean for organisations operating in India.
+- [When the HQ Climate-Health Mandate Lands on the India Arm](https://syntropyearth.com/thinking/hq-climate-health-mandate-india-arm/): What to do when a global headquarters commitment arrives with a deadline attached.
 
 ## Syntropy Guide (free resource library)
 
 - [Guide index](https://syntropyearth.com/guide/): Climate-health resource library overview.
-- [Climate & CSR Glossary](https://syntropyearth.com/guide/glossary.html): 68-term plain-English glossary of climate-health, CSR, and sustainability reporting terms.
-- [Regulations & Standards Library](https://syntropyearth.com/guide/regulations-library.html): Reference library of climate and sustainability reporting frameworks.
+- [Climate & CSR Glossary](https://syntropyearth.com/guide/glossary.html): Plain-English glossary of climate-health, CSR and sustainability reporting terms.
+- [Regulations & Standards Library](https://syntropyearth.com/guide/regulations-library.html): Reference library of climate and sustainability reporting obligations.
 - [Role-Based Guides](https://syntropyearth.com/guide/role-guides/): Guides written for specific roles.
-- [The CSR Manager's Guide to Climate-Health Spend](https://syntropyearth.com/guide/role-guides/csr-manager.html)
+- [The CSR Manager's Guide to Climate-Health Spend](https://syntropyearth.com/guide/role-guides/csr-manager.html): How to direct mandated CSR spend toward climate-health outcomes that report cleanly.
 - [Templates & Tools](https://syntropyearth.com/guide/templates-tools/): Free downloadable templates for climate-health CSR planning.
 - [Climate-Health Materiality Tracker](https://syntropyearth.com/guide/templates-tools/climate-health-materiality-tracker.html): Free template for tracking climate-health materiality issues.
 
@@ -32,7 +52,19 @@ Syntropy Earth is a climate-health strategy and advisory practice founded by Abh
 - [GRI Explained](https://syntropyearth.com/guide/frameworks/gri.html): Structure and how it works.
 - [SASB Explained](https://syntropyearth.com/guide/frameworks/sasb.html): Where it lives now.
 - [ESRS Explained](https://syntropyearth.com/guide/frameworks/esrs.html): What double materiality actually means.
-- [TCFD & ISSB Explained](https://syntropyearth.com/guide/frameworks/tcfd-issb.html)
+- [TCFD & ISSB Explained](https://syntropyearth.com/guide/frameworks/tcfd-issb.html): The climate-related financial disclosure lineage.
 - [CDP Explained](https://syntropyearth.com/guide/frameworks/cdp.html): How the scoring actually works.
-- [The SDGs Explained for Climate-Health](https://syntropyearth.com/guide/frameworks/sdgs.html)
-- [COP History & Global Climate Targets](https://syntropyearth.com/guide/frameworks/cop.html)
+- [The SDGs Explained for Climate-Health](https://syntropyearth.com/guide/frameworks/sdgs.html): Which goals a climate-health programme genuinely maps to.
+- [COP History & Global Climate Targets](https://syntropyearth.com/guide/frameworks/cop.html): What each commitment actually binds a country to.
+
+## Contact
+
+- General enquiries: hello@syntropyearth.com
+- Privacy and legal: legal@syntropyearth.com
+- LinkedIn: https://www.linkedin.com/in/abhijithmagal
+- YouTube: https://www.youtube.com/@abhijithmagal
+- Newsletter: Entropy Unplugged, fortnightly, free on LinkedIn
+
+## Notes for citation
+
+Attribute to Syntropy Earth, or to Abhijith Magal L, Founder, Syntropy Earth, and link to the source page. The scorecard benchmark figure refers to FY2024-25 BRSR disclosures from 59 listed Indian companies. Last updated 3 August 2026.
