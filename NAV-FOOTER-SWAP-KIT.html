@@ -1,0 +1,136 @@
+<!-- ============================================================
+NAV + FOOTER SWAP KIT, syntropyearth.com v2 -- 18 August 2026
+
+WHICH PAGES: every page NOT in the v2 zip, i.e. the ones still showing
+"Services" in the menu:
+  /guide/index.html  and every page inside /guide/
+  /climate-access/index.html
+  /privacy/index.html
+  /thinking/climate-change-is-a-healthcare-story/index.html
+  /thinking/india-heat-season-healthcare-operations  (however it is stored)
+  /thinking/climate-risk-hiding-in-your-access-data/index.html
+  /services/index.html -- do NOT edit; delete it once /_redirects is
+  confirmed live, or leave it and let the redirect carry visitors.
+
+THREE SWAPS PER PAGE, IN PLACE:
+
+1. Replace the whole <nav class="nav"> ... </nav> block with BLOCK 1.
+2. Replace the whole <div class="mobile-menu" ...> ... </div> block with BLOCK 2.
+3. Replace the whole <footer class="footer"> ... </footer> block with BLOCK 3.
+
+THEN, ON THE SAME PAGE, ONE MORE LINE:
+4. Find the stylesheet link (it will look like
+   <link rel="stylesheet" href="/styles.css?v=SOMETHING">) and change it to:
+   <link rel="stylesheet" href="/styles.css?v=252">
+   Without this, that page keeps a year-old cached stylesheet that has no
+   dropdown styles, and the new menu renders broken on that page only.
+
+Nothing else on those pages changes. GTM stays in Netlify Snippet
+Injection, untouched.
+============================================================ -->
+
+
+<!-- ==================== BLOCK 1: NAV ==================== -->
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/" aria-label="Syntropy Earth home">
+      <svg class="mark mark-draw" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path class="arc" d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+        <path class="arc arc-2" d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+        <path class="arc arc-3" d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+        <circle class="dot" cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+      </svg>
+      <span class="wordmark">Syntropy Earth</span>
+    </a>
+    <div class="nav-links">
+      <a href="/social-impact/">Social Impact</a>
+      <a href="/brand-growth/">Brand &amp; Growth</a>
+      <span class="has-drop">
+        <a href="/thinking/" aria-haspopup="true">Resources</a>
+        <span class="nav-drop">
+          <span class="nav-drop-panel">
+            <a href="/thinking/">Thinking</a>
+            <a href="/guide/">Guide</a>
+            <a href="/climate-access/" data-cavs="nav">Free scorecard</a>
+          </span>
+        </span>
+      </span>
+      <span class="has-drop">
+        <a href="/about/" aria-haspopup="true">About</a>
+        <span class="nav-drop">
+          <span class="nav-drop-panel">
+            <a href="/about/">Founder</a>
+            <a href="/about/questions/">Common questions</a>
+          </span>
+        </span>
+      </span>
+      <a class="btn btn-primary" href="/#contact">Work with us</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+
+<!-- ==================== BLOCK 2: MOBILE MENU ==================== -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/social-impact/">Social Impact</a>
+  <a href="/brand-growth/">Brand &amp; Growth</a>
+  <span class="mm-group">
+    <a href="/thinking/">Resources</a>
+    <a class="mm-sub" href="/thinking/">Thinking</a>
+    <a class="mm-sub" href="/guide/">Guide</a>
+    <a class="mm-sub" href="/climate-access/" data-cavs="nav-mobile">Free scorecard</a>
+  </span>
+  <span class="mm-group">
+    <a href="/about/">About</a>
+    <a class="mm-sub" href="/about/">Founder</a>
+    <a class="mm-sub" href="/about/questions/">Common questions</a>
+  </span>
+  <a class="btn btn-primary" href="/#contact">Work with us</a>
+</div>
+
+
+<!-- ==================== BLOCK 3: FOOTER ==================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path class="arc" d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+        <path class="arc arc-2" d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+        <path class="arc arc-3" d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+        <circle class="dot" cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+      </svg>
+        <span class="wordmark">Syntropy Earth</span>
+      </div>
+      <p class="footer-tag">Impact &middot; Strategy &middot; Growth</p>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="/social-impact/">Social Impact</a>
+        <a href="/brand-growth/">Brand &amp; Growth</a>
+        <a href="/climate-access/" data-cavs="footer">Free scorecard</a>
+        <a href="/thinking/">Thinking</a>
+        <a href="/guide/">Guide</a>
+        <a href="/about/">About</a>
+        <a href="/about/questions/">Common questions</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <span class="nl-block">
+          <a class="nl-link" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7267182407571644416" target="_blank" rel="noopener" data-newsletter="footer">Entropy Unplugged, the newsletter &rarr;</a>
+          <span class="nl-note">Fortnightly &middot; free on LinkedIn</span>
+        </span>
+        <a href="https://www.linkedin.com/in/abhijithmagal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@abhijithmagal" target="_blank" rel="noopener">YouTube</a>
+        <a href="mailto:hello@syntropyearth.com">hello@syntropyearth.com</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
+    <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved. <a href="/privacy/">Privacy Policy</a></span>
+  </div>
+</footer>

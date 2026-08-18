@@ -929,3 +929,14 @@ em.accent { font-style: italic; color: var(--warm-clay); }
 /* Privacy link needs to read as clickable. */
 .footer-bottom a { color: var(--sage); border-bottom: 1px solid rgba(138,174,152,0.45); padding-bottom: 1px; transition: color .25s var(--ease), border-color .25s var(--ease); }
 .footer-bottom a:hover { color: var(--soft-cream); border-color: var(--soft-cream); }
+
+/* ============================================================
+   v5.1 -- SPACING + BRIDGE FIXES
+   ============================================================ */
+/* Compact section for short closing bands; kills the double-padding gap. */
+.section--tight { padding-top: calc(var(--section-y) * 0.42); padding-bottom: calc(var(--section-y) * 0.7); }
+/* Bridge opening a section of its own: the colour change already separates,
+   so the border line and its padding are dead weight there. */
+.bridge--flush { border-top: none; padding-top: 0; margin-top: 0; }
+/* Cards that carry an icon */
+.card .svc-icon, .card .svc-icon-sm { display: block; }
