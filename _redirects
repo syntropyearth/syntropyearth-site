@@ -1,3 +1,4 @@
-# Old services page -> Social Impact practice. Preserves link equity.
-/services/   /social-impact/   301
-/services    /social-impact/   301
+# Old services page -> Social Impact practice. The ! forces the redirect even
+# though /services/index.html still exists on disk (Netlify shadowing rule).
+/services/*  /social-impact/  301!
+/services    /social-impact/  301!
