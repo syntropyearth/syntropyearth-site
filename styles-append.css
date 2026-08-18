@@ -1,0 +1,138 @@
+/* ============================================================
+   v5 -- SITE v2
+   Practices, design chain, About dropdown, footer corrections.
+   Premium Heritage tokens only. Append to the END of styles.css,
+   then bump the ?v= string on every page that links it.
+   ============================================================ */
+
+/* ---- SHARED SECTION INTRO ---- */
+.sec-lede {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(22px, 3.4vw, 30px); line-height: 1.42;
+  color: var(--deep-forest); max-width: 30ch; margin-bottom: 1.2rem;
+}
+.sec-sub { font-size: 15px; line-height: 1.8; color: var(--text-muted); max-width: 62ch; margin-bottom: 2.6rem; }
+.section--forest .sec-lede { color: var(--soft-cream); }
+.section--forest .sec-sub { color: var(--muted-on-dark); }
+
+/* ---- NAV: About dropdown ---- */
+.nav-links .has-drop { position: relative; display: inline-flex; align-items: center; }
+.has-drop > a::after {
+  content: ""; display: inline-block; width: 4px; height: 4px; margin-left: 6px;
+  border-right: 1px solid currentColor; border-bottom: 1px solid currentColor;
+  transform: translateY(-1px) rotate(45deg); opacity: .7;
+}
+.nav-drop {
+  position: absolute; top: 100%; left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  padding-top: 16px; /* hover bridge, stops the menu dropping on mouse travel */
+  opacity: 0; visibility: hidden;
+  transition: opacity .25s var(--ease), transform .25s var(--ease), visibility .25s var(--ease);
+}
+.has-drop:hover .nav-drop,
+.has-drop:focus-within .nav-drop { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.nav-drop-panel {
+  display: flex; flex-direction: column; gap: .95rem;
+  background: rgba(20,48,37,0.97);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--hr-on-dark); border-radius: var(--radius-sm);
+  padding: 1.1rem 1.35rem; min-width: 190px;
+  box-shadow: 0 16px 40px rgba(20,48,37,0.4);
+}
+.nav-drop-panel a { white-space: nowrap; }
+
+/* mobile menu sub-items */
+.mobile-menu { gap: 1.4rem; padding: 88px var(--gutter) 40px; overflow-y: auto; }
+.mm-group { display: flex; flex-direction: column; align-items: center; gap: .7rem; }
+.mobile-menu a.mm-sub {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--sage);
+}
+
+/* ---- PRACTICES ---- */
+/* Grid stays stretch so both cards match height. Practice One is wider on
+   purpose; the flex column pushes each card's link to the same baseline. */
+.practices { display: grid; grid-template-columns: 1fr; gap: 1.5rem; align-items: stretch; }
+@media (min-width: 900px) { .practices { grid-template-columns: 1.08fr 0.92fr; gap: 1.75rem; } }
+
+.practice {
+  position: relative; display: flex; flex-direction: column;
+  background: var(--white); border: 1px solid var(--hr); border-radius: var(--radius);
+  padding: clamp(1.8rem, 3.2vw, 2.5rem); height: 100%;
+  transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+}
+.practice:hover { transform: translateY(-4px); border-color: var(--mist); box-shadow: 0 12px 30px rgba(30,68,53,0.06); }
+.practice::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  border-radius: var(--radius) 0 0 var(--radius); background: var(--red-earth);
+}
+.practice--second::before { background: var(--monsoon-blue); }
+.practice--second .practice-tag { color: var(--monsoon-blue); }
+.practice-tag { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--red-earth); margin-bottom: .9rem; }
+.practice h3 { font-family: var(--serif); font-size: clamp(24px, 3vw, 30px); font-weight: 300; line-height: 1.14; color: var(--deep-forest); margin-bottom: .9rem; }
+.practice-body { font-size: 14.5px; line-height: 1.8; color: var(--text-muted); margin-bottom: 1.4rem; }
+.practice > .text-link { margin-top: auto; align-self: flex-start; }
+
+/* entry points */
+.entries { border-top: 1px solid var(--hr); padding-top: 1.3rem; margin-bottom: 1.6rem; }
+.entries-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 1rem; }
+.entry { padding-left: 1.15rem; border-left: 2px solid var(--mist); margin-bottom: 1.1rem; }
+.entry:last-child { margin-bottom: 0; }
+.entry strong { display: block; font-family: var(--sans); font-size: 14.5px; font-weight: 500; color: var(--deep-forest); line-height: 1.45; margin-bottom: .2rem; }
+.entry span { display: block; font-size: 13.5px; line-height: 1.65; color: var(--text-muted); }
+.practice--second .entry { border-left-color: var(--sky-pale); }
+
+/* ---- THE DESIGN CHAIN ---- */
+.chain { margin: 2.2rem 0 0; }
+.chain-track { display: grid; grid-template-columns: 1fr; gap: 0; }
+@media (min-width: 860px) { .chain-track { grid-template-columns: repeat(6, 1fr); } }
+.chain-step { position: relative; padding: 0 0 1.9rem 2rem; }
+@media (min-width: 860px) { .chain-step { padding: 2.5rem 1.1rem 0 0; } }
+.chain-step::before { content: ""; position: absolute; background: var(--mist); left: 5px; top: 14px; bottom: 0; width: 1px; }
+.chain-step:last-child::before { display: none; }
+@media (min-width: 860px) {
+  .chain-step::before { left: 0; right: 0; top: 5px; bottom: auto; width: auto; height: 1px; }
+  .chain-step:last-child::before { display: block; right: 50%; }
+}
+.chain-step::after {
+  content: ""; position: absolute; left: 0; top: 8px;
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--warm-white); border: 2px solid var(--forest);
+}
+@media (min-width: 860px) { .chain-step::after { top: 0; } }
+.chain-step:last-child::after { border-color: var(--red-earth); background: var(--red-earth); }
+.chain-num { font-family: var(--mono); font-size: 9.5px; letter-spacing: .16em; color: var(--text-faint); display: block; margin-bottom: .5rem; }
+.chain-step h4 { font-family: var(--sans); font-size: 14.5px; font-weight: 500; color: var(--deep-forest); line-height: 1.35; margin-bottom: .4rem; }
+.chain-step p { font-size: 13px; line-height: 1.6; color: var(--text-muted); }
+
+/* ---- LENSES ---- */
+.lenses { display: grid; grid-template-columns: 1fr; gap: .8rem 2rem; margin-top: 2.4rem; padding-top: 1.8rem; border-top: 1px solid var(--hr); }
+@media (min-width: 700px) { .lenses { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .lenses { grid-template-columns: repeat(3, 1fr); } }
+.lens { display: flex; gap: .7rem; align-items: baseline; font-size: 13.5px; line-height: 1.6; color: var(--text-muted); }
+.lens::before { content: ""; flex: 0 0 auto; width: 5px; height: 5px; border-radius: 50%; background: var(--warm-clay); transform: translateY(-2px); }
+
+/* ---- SAMPLE PROGRAMME PLACEHOLDER ---- */
+.sample-slot { margin-top: 2.4rem; padding: clamp(1.4rem, 3vw, 1.9rem); background: var(--pale-sage); border-radius: var(--radius-sm); border-left: 3px solid var(--sage); }
+.sample-slot .label { color: var(--forest); margin-bottom: .7rem; }
+.sample-slot p { font-size: 14px; line-height: 1.7; color: var(--text-muted); max-width: 62ch; }
+
+/* ---- FAQ page ---- */
+.faq--page { margin-top: 0; }
+.faq--page .faq-item:first-of-type { border-top: none; }
+.faq-group { margin-bottom: 2.6rem; }
+.faq-group > .label { margin-bottom: 1.1rem; }
+
+/* ---- DEFINITION BLOCK (About: what syntropy means) ---- */
+.defn { max-width: var(--max-text); margin: 0 auto; }
+.defn .word { color: var(--sage); font-style: italic; }
+.defn p { font-size: clamp(15px, 2vw, 17px); line-height: 1.88; color: var(--muted-on-dark); margin-bottom: 1.7rem; font-weight: 300; }
+.defn p.final { color: var(--soft-cream); }
+
+/* ---- CREDENTIALS ---- */
+.cred-list .cred { margin-bottom: .3rem; }
+
+/* ---- FOOTER CORRECTIONS ---- */
+/* Privacy link needs to read as clickable. */
+.footer-bottom a { color: var(--sage); border-bottom: 1px solid rgba(138,174,152,0.45); padding-bottom: 1px; transition: color .25s var(--ease), border-color .25s var(--ease); }
+.footer-bottom a:hover { color: var(--soft-cream); border-color: var(--soft-cream); }

@@ -3,249 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1E4435">
-<meta name="color-scheme" content="light">
 
-<title>Climate and Healthcare Writing &amp; Analysis | Syntropy Earth</title>
-<meta name="description" content="Evidence-led writing on where climate change meets healthcare: heat, floods, air quality, access, and what organisations can do about it.">
+<title>Thinking: Climate, Health and Access | Syntropy Earth</title>
+<meta name="description" content="Essays on where climate, health and access meet: the evidence, the operational reality, and what organisations can actually do about it.">
 <link rel="canonical" href="https://syntropyearth.com/thinking/">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="author" content="Abhijith Magal L">
+<meta name="theme-color" content="#1E4435">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Syntropy Earth">
-<meta property="og:title" content="Thinking: Climate and Healthcare Writing | Syntropy Earth">
-<meta property="og:description" content="Evidence-led writing on where climate change meets healthcare, and what organisations can do about it.">
+<meta property="og:title" content="Thinking | Syntropy Earth">
+<meta property="og:description" content="Essays on where climate, health and access meet, written for people who have to make decisions about it.">
 <meta property="og:url" content="https://syntropyearth.com/thinking/">
 <meta property="og:image" content="https://syntropyearth.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Syntropy Earth, climate-health advisory">
+<meta property="og:image:alt" content="Syntropy Earth, social impact and climate-health advisory">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Thinking: Climate and Healthcare Writing | Syntropy Earth">
-<meta name="twitter:description" content="Evidence-led writing on where climate change meets healthcare.">
+<meta name="twitter:title" content="Thinking | Syntropy Earth">
+<meta name="twitter:description" content="Essays on where climate, health and access meet, written for people who have to make decisions about it.">
 <meta name="twitter:image" content="https://syntropyearth.com/og-image.png">
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=20260726d">
+
+<!-- Bump ?v= whenever styles.css changes. netlify.toml sets a one-year
+     immutable cache, so an un-bumped string means nobody sees the new CSS. -->
+<link rel="stylesheet" href="/styles.css?v=250">
+
+<!-- ANALYTICS: GTM-WG7CWTHG is injected site-wide by Netlify Snippet Injection.
+     It must NOT be hardcoded here, and gtag.js is not loaded on this site.
+     Click attribution runs through dataLayer via the data-cavs and
+     data-newsletter attributes, handled in /js/main.js. Do not add tags here. -->
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Blog",
-  "@id": "https://syntropyearth.com/thinking/",
-  "name": "Syntropy Earth, Thinking",
-  "description": "Evidence-led writing on where climate change meets healthcare.",
-  "url": "https://syntropyearth.com/thinking/",
-  "publisher": { "@type": "Organization", "name": "Syntropy Earth", "url": "https://syntropyearth.com/" }
-}
-</script>
-<!-- Analytics managed via GTM-WG7CWTHG (injected by Netlify Snippet Injection) -->
-
-<style>
-  /* Flagship feature block -- page-specific, built on existing brand tokens.
-     Mirrors the dark Deep Forest CTA-card treatment already used inside
-     the articles themselves, so the teaser and the piece it leads to
-     share one visual language. */
-  .flagship {
-    display: block;
-    background: #1E4435;
-    border-radius: 12px;
-    padding: 3.25rem 3rem;
-    text-decoration: none;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  .flagship:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 18px 40px rgba(20, 48, 37, 0.28);
-  }
-  .flagship:focus-visible {
-    outline: 2px solid #CF9B7D;
-    outline-offset: 4px;
-  }
-
-  .flagship-grid {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
-
-  .flagship-kicker {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #CF9B7D;
-    margin: 0 0 1.1rem;
-  }
-
-  .flagship-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(1.9rem, 3.4vw, 2.75rem);
-    line-height: 1.2;
-    color: #FAF4E8;
-    margin: 0 0 1.1rem;
-  }
-  .flagship-title em { font-style: italic; color: #CF9B7D; }
-
-  .flagship-dek {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 400;
-    font-size: 1.02rem;
-    line-height: 1.65;
-    color: rgba(250, 244, 232, 0.85);
-    max-width: 46ch;
-    margin: 0 0 1.5rem;
-  }
-
-  .flagship-meta {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #8AAE98;
-    margin: 0 0 1.85rem;
-  }
-
-  .flagship-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #9E3B2A;
-    color: #FAF4E8;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 0.85rem 1.5rem;
-    border-radius: 7px;
-    transition: background 0.2s;
-  }
-  .flagship:hover .flagship-cta { background: #B4472F; }
-
-  .flagship-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 1.4rem;
-    border-left: 1px solid rgba(250, 244, 232, 0.14);
-    padding-left: 2.25rem;
-  }
-
-  .flagship-stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 2.3rem;
-    line-height: 1;
-    color: #FAF4E8;
-    margin: 0 0 0.5rem;
-  }
-
-  .flagship-stat-cap {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.82rem;
-    line-height: 1.5;
-    color: #8AAE98;
-    margin: 0;
-  }
-
-  @media (max-width: 720px) {
-    .flagship { padding: 2.25rem 1.5rem; }
-    .flagship-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .flagship-stats {
-      flex-direction: row;
-      border-left: none;
-      border-top: 1px solid rgba(250, 244, 232, 0.14);
-      padding-left: 0;
-      padding-top: 1.5rem;
-      gap: 2rem;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .flagship { transition: none; }
-    .flagship:hover { transform: none; }
-  }
-
-  /* Connector between the flagship and the grid below -- closes the gap
-     left by two stacked sections, and gives scanners an explicit cue
-     that there's more below the fold. The vertical line echoes the
-     concentric-arc mark in the nav rather than a generic chevron. */
-  html { scroll-behavior: smooth; }
-
-  .more-reading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.65rem;
-    width: fit-content;
-    margin: 2.75rem auto 3.25rem;
-    padding: 0.4rem 0.75rem;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 6px;
-  }
-  .more-reading-line {
-    width: 1px;
-    height: 34px;
-    background: linear-gradient(to bottom, rgba(30, 68, 53, 0) 0%, #8AAE98 100%);
-  }
-  .more-reading-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #5C6A60;
-    transition: color 0.2s;
-  }
-  .more-reading-chevron {
-    color: #9E3B2A;
-    animation: more-reading-bob 2.2s ease-in-out infinite;
-  }
-  .more-reading:hover .more-reading-label,
-  .more-reading:focus-visible .more-reading-label { color: #9E3B2A; }
-  .more-reading:hover .more-reading-line,
-  .more-reading:focus-visible .more-reading-line {
-    background: linear-gradient(to bottom, rgba(30, 68, 53, 0) 0%, #9E3B2A 100%);
-  }
-  .more-reading:focus-visible {
-    outline: 2px solid #CF9B7D;
-    outline-offset: 3px;
-  }
-
-  @keyframes more-reading-bob {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(4px); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .more-reading-chevron { animation: none; }
-  }
-</style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://syntropyearth.com/"
+      "@type": "Organization",
+      "@id": "https://syntropyearth.com/#org",
+      "name": "Syntropy Earth",
+      "url": "https://syntropyearth.com/",
+      "logo": "https://syntropyearth.com/favicon.svg",
+      "email": "hello@syntropyearth.com",
+      "description": "Syntropy Earth is a founder-led advisory firm running two practices: social impact programme design and delivery, and brand and growth consultancy.",
+      "areaServed": "Worldwide",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Abhijith Magal L",
+        "jobTitle": "Founder"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/abhijithmagal",
+        "https://www.youtube.com/@abhijithmagal"
+      ]
     },
     {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Thinking",
-      "item": "https://syntropyearth.com/thinking/"
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://syntropyearth.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Thinking",
+          "item": "https://syntropyearth.com/thinking/"
+        }
+      ]
+    },
+    {
+      "@type": "Blog",
+      "@id": "https://syntropyearth.com/thinking/#blog",
+      "name": "Thinking, Syntropy Earth",
+      "description": "Writing on climate, health, access and social impact, for people who have to make decisions about it.",
+      "publisher": {
+        "@id": "https://syntropyearth.com/#org"
+      },
+      "inLanguage": "en-IN"
     }
   ]
 }
@@ -253,7 +103,6 @@
 </head>
 
 <body>
-
 <nav class="nav" aria-label="Primary">
   <div class="nav-inner">
     <a class="nav-brand" href="/" aria-label="Syntropy Earth home">
@@ -266,20 +115,47 @@
       <span class="wordmark">Syntropy Earth</span>
     </a>
     <div class="nav-links">
-      <a href="/services/">Services</a>
-      <a href="/thinking/">Thinking</a>
-      <a href="/guide/">Guide</a>
-      <a href="/about/">About</a>
+      <a href="/social-impact/">Social Impact</a>
+      <a href="/brand-growth/">Brand &amp; Growth</a>
+      <span class="has-drop">
+        <a href="/thinking/" aria-current="page" aria-haspopup="true">Resources</a>
+        <span class="nav-drop">
+          <span class="nav-drop-panel">
+            <a href="/thinking/">Thinking</a>
+            <a href="/guide/">Guide</a>
+            <a href="/climate-access/" data-cavs="nav">Free scorecard</a>
+          </span>
+        </span>
+      </span>
+      <span class="has-drop">
+        <a href="/about/" aria-haspopup="true">About</a>
+        <span class="nav-drop">
+          <span class="nav-drop-panel">
+            <a href="/about/">Founder</a>
+            <a href="/about/questions/">Common questions</a>
+          </span>
+        </span>
+      </span>
       <a class="btn btn-primary" href="/#contact">Work with us</a>
     </div>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
 <div class="mobile-menu" id="mobile-menu">
-  <a href="/services/">Services</a>
-  <a href="/thinking/">Thinking</a>
-  <a href="/guide/">Guide</a>
-  <a href="/about/">About</a>
+  <a href="/social-impact/">Social Impact</a>
+  <a href="/brand-growth/">Brand &amp; Growth</a>
+  <span class="mm-group">
+    <a href="/thinking/">Resources</a>
+    <a class="mm-sub" href="/thinking/">Thinking</a>
+    <a class="mm-sub" href="/guide/">Guide</a>
+    <a class="mm-sub" href="/climate-access/" data-cavs="nav-mobile">Free scorecard</a>
+  </span>
+  <span class="mm-group">
+    <a href="/about/">About</a>
+    <a class="mm-sub" href="/about/">Founder</a>
+    <a class="mm-sub" href="/about/questions/">Common questions</a>
+  </span>
   <a class="btn btn-primary" href="/#contact">Work with us</a>
 </div>
 
@@ -288,103 +164,59 @@
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap page-hero-inner">
     <p class="label">Thinking</p>
-    <h1>Where climate and health <em>actually meet.</em></h1>
-    <p class="lead">Writing on the evidence, the operational reality, and what organisations can do about it. No abstraction for its own sake. The work that connects the data to a decision.</p>
+    <h1>The evidence, and <em>what to do with it.</em></h1>
+    <p class="lead">Writing on where climate, health and access meet. Less about what is coming, more about what is already happening inside operations, supply chains and the communities organisations depend on.</p>
   </div>
 </header>
 
+
 <main>
+
 <section class="section section--warm">
   <div class="wrap">
-    <a class="flagship" href="/thinking/climate-change-is-a-healthcare-story/">
-      <div class="flagship-grid">
-        <div class="flagship-content">
-          <p class="flagship-kicker">The Thesis</p>
-          <h2 class="flagship-title">Climate change is a healthcare story. <em>Heat alone cost India &#8377;18.5 lakh crore last year.</em></h2>
-          <p class="flagship-dek">The evidence across heat, floods, disease and air: what climate change already costs healthcare access in India, and why almost nobody measures it.</p>
-          <p class="flagship-meta">Abhijith Magal L &middot; 17 July 2026 &middot; 11 min read</p>
-          <span class="flagship-cta">Read the thesis <span aria-hidden="true">&rarr;</span></span>
-        </div>
-        <div class="flagship-stats">
-          <div class="flagship-stat">
-            <p class="flagship-stat-num">247 bn</p>
-            <p class="flagship-stat-cap">Labour hours lost to heat in India, 2024</p>
-          </div>
-          <div class="flagship-stat">
-            <p class="flagship-stat-num">&#8377;18.5 lakh cr</p>
-            <p class="flagship-stat-cap">Estimated income lost to heat the same year</p>
-          </div>
-        </div>
-      </div>
-    </a>
+    <p class="label eyebrow reveal">Essays</p>
 
-    <a class="more-reading" href="#more-thinking" aria-label="Jump to more reading below">
-      <span class="more-reading-line" aria-hidden="true"></span>
-      <span class="more-reading-label">More reading below</span>
-      <svg class="more-reading-chevron" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-        <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
-
-    <div class="articles reveal-stagger" id="more-thinking">
-      <a class="article-card" href="/thinking/hq-climate-health-mandate-india-arm/">
-        <p class="article-meta">Climate &amp; Obligation</p>
-        <h3>Head office has a climate-health mandate. The India arm has to answer it.</h3>
-        <p>Why activity is not an answer when a global parent asks about climate and health risk.</p>
+    <div class="articles reveal-stagger">
+      <a class="article-card" href="/thinking/climate-change-is-a-healthcare-story/">
+        <p class="article-meta">The Thesis</p>
+        <h3>Climate change is a healthcare story</h3>
+        <p>Heat alone cost India &#8377;18.5 lakh crore last year. The argument this firm is built on, set out in full.</p>
       </a>
-      <a class="article-card" href="/thinking/lancet-countdown-2025-india-operating-terms/">
-        <p class="article-meta">Climate &amp; Evidence</p>
-        <h3>The Lancet Countdown 2025, in operating terms</h3>
-        <p>Five numbers from the India data sheet, and what each one costs a health programme.</p>
+      <a class="article-card" href="/thinking/india-heat-season-healthcare-operations">
+        <p class="article-meta">Climate &amp; Operations</p>
+        <h3>Why the heat season is a healthcare operations problem</h3>
+        <p>The connection most organisations are missing in their summer preparedness planning.</p>
       </a>
       <a class="article-card" href="/thinking/climate-risk-hiding-in-your-access-data/">
         <p class="article-meta">Climate &amp; Access</p>
         <h3>The climate risk hiding in your access data</h3>
         <p>What access-programme data reveals about which disruptions were actually climate events.</p>
       </a>
-      <a class="article-card" href="/thinking/india-heat-season-healthcare-operations/">
-        <p class="article-meta">Climate &amp; Operations</p>
-        <h3>Why the heat season is a healthcare operations problem</h3>
-        <p>The connection most organisations are missing in their summer preparedness planning.</p>
-      </a>
-      <div class="article-card pending">
-        <p class="article-meta">In progress</p>
-        <h3>Construction's biggest climate exposure isn't carbon, it's workers</h3>
-        <p>Why the sector's sustainability conversation is solving the wrong problem first.</p>
+    </div>
+
+    <div class="nl-cta reveal">
+      <div class="nl-copy">
+        <p class="nl-eyebrow">Entropy Unplugged</p>
+        <p class="nl-head">The newsletter, fortnightly.</p>
+        <p class="nl-sub">What is moving in climate, health and social impact, written for people who have to make decisions about it. One click to subscribe, and no email address changes hands.</p>
       </div>
-      <div class="article-card pending">
-        <p class="article-meta">In progress</p>
-        <h3>What 59 BRSR filings say about climate and health</h3>
-        <p>Scoring listed companies' own disclosures against the access measures climate is already moving.</p>
-      </div>
+      <a class="btn-newsletter" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7267182407571644416" target="_blank" rel="noopener" data-newsletter="thinking-block">Subscribe on LinkedIn &rarr;</a>
     </div>
   </div>
 </section>
+
 </main>
 
-<section class="section" style="padding-top:0;padding-bottom:clamp(56px,7vw,84px);">
-  <div class="wrap">
-    <div class="nl-cta">
-      <div class="nl-copy">
-        <p class="nl-eyebrow">Entropy Unplugged &middot; free &middot; fortnightly</p>
-        <p class="nl-head">Get the next one before it lands here.</p>
-        <p class="nl-sub">The newsletter runs the same argument as these pieces, opening on what is breaking and closing on the move that fixes it. It publishes on LinkedIn, so subscribing takes one click and no email address changes hands.</p>
-      </div>
-      <a class="btn-newsletter" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7267182407571644416" target="_blank" rel="noopener" data-newsletter="thinking-index">Subscribe on LinkedIn <span aria-hidden="true">&rarr;</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="cavs-band cavs-band--norule" aria-labelledby="cavs-band-h">
+<section class="cavs-band cavs-band--norule" aria-labelledby="cavs-band-head">
   <div class="cavs-inner">
     <div class="cavs-copy">
-      <p class="cavs-eyebrow">Free self-assessment &middot; under three minutes</p>
-      <p class="cavs-head" id="cavs-band-h">Now run the same question against your own operations.</p>
-      <p class="cavs-sub">CAVS-S scores your climate-access exposure across four dimensions and hands back the gaps your own answers exposed. Free, under three minutes, no payment step anywhere.</p>
-      <p class="cavs-note">Peer-benchmarked against FY2024-25 BRSR disclosures from 59 listed Indian companies.</p>
+      <p class="cavs-eyebrow">Free &middot; under three minutes</p>
+      <p class="cavs-head" id="cavs-band-head">Where is climate already breaking your access?</p>
+      <p class="cavs-sub">CAVS scores exposure across physical reach, supply chain integrity, workforce availability and demand continuity, benchmarked against the FY2024-25 BRSR disclosures of 59 listed Indian companies.</p>
+      <p class="cavs-note">No payment step. You get the score and the ranked breaks.</p>
     </div>
     <div class="cavs-act">
-      <a class="btn btn-primary" href="/climate-access/" data-cavs="article-prefooter">Run the free scorecard <span class="arrow">&rarr;</span></a>
+      <a class="btn btn-on-dark" href="/climate-access/" data-cavs="thinking-band">Run the free scorecard <span class="arrow">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -394,32 +226,32 @@
     <div>
       <div class="footer-brand">
         <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-          <path d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
-          <path d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
-          <path d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
-          <circle cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
-        </svg>
+        <path class="arc" d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+        <path class="arc arc-2" d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+        <path class="arc arc-3" d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+        <circle class="dot" cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+      </svg>
         <span class="wordmark">Syntropy Earth</span>
       </div>
-      <p class="footer-tag">Advisory &middot; Strategy &middot; Impact</p>
+      <p class="footer-tag">Impact &middot; Strategy &middot; Growth</p>
     </div>
+
     <div class="footer-cols">
       <div class="footer-col">
         <h4>Navigate</h4>
-        <a href="/services/">Services</a>
+        <a href="/social-impact/">Social Impact</a>
+        <a href="/brand-growth/">Brand &amp; Growth</a>
+        <a href="/climate-access/" data-cavs="footer">Free scorecard</a>
         <a href="/thinking/">Thinking</a>
         <a href="/guide/">Guide</a>
         <a href="/about/">About</a>
-        <a href="/#contact">Work with us</a>
+        <a href="/about/questions/">Common questions</a>
       </div>
       <div class="footer-col">
         <h4>Connect</h4>
         <span class="nl-block">
-
-          <a class="nl-link" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7267182407571644416" target="_blank" rel="noopener" data-newsletter="footer">Entropy Unplugged, the newsletter <span aria-hidden="true">&rarr;</span></a>
-
+          <a class="nl-link" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7267182407571644416" target="_blank" rel="noopener" data-newsletter="footer">Entropy Unplugged, the newsletter &rarr;</a>
           <span class="nl-note">Fortnightly &middot; free on LinkedIn</span>
-
         </span>
         <a href="https://www.linkedin.com/in/abhijithmagal" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://www.youtube.com/@abhijithmagal" target="_blank" rel="noopener">YouTube</a>
@@ -427,12 +259,12 @@
       </div>
     </div>
   </div>
+
   <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
-    <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved.</span>
-    <a href="/privacy/" style="border-bottom:1px solid rgba(196,217,204,0.35);">Privacy Policy</a>
+    <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved. <a href="/privacy/">Privacy Policy</a></span>
   </div>
 </footer>
 
-<script src="/js/main.js?v=20260726d"></script>
+<script src="/js/main.js?v=250"></script>
 </body>
 </html>

@@ -1,1 +1,3 @@
-# Canonical domain redirects are handled in netlify.toml [[redirects]] blocks.
+# Old services page -> Social Impact practice. Preserves link equity.
+/services/   /social-impact/   301
+/services    /social-impact/   301
