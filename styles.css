@@ -962,3 +962,39 @@ em.accent { font-style: italic; color: var(--warm-clay); }
 .cc-top-note a:hover { color:#fff; }
 .cc-top ~ .hero { min-height:0; padding-top:clamp(72px,9vw,110px); }
 @media (max-width:760px){ .cc-top-note{ font-size:8px; letter-spacing:.1em; } }
+
+
+
+/* ============================================================
+   v7 -- HERO SUPPORT (headline typography deliberately unchanged)
+   The H1 keeps its live sizing: clamp(44px,8.5vw,80px), both clauses
+   equal, the turn carried by clay italic alone. Only the material
+   below it changes -- the flat four-line grey block becomes a deck
+   and a body line, plus an orientation strip under the CTAs.
+   ============================================================ */
+.hero-lead {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(18px, 2.3vw, 23px); line-height: 1.5;
+  color: var(--soft-cream); max-width: 40ch; margin-bottom: 1.1rem;
+}
+.hero-sub {
+  font-size: clamp(13.5px, 1.6vw, 15px); line-height: 1.75;
+  color: rgba(196,217,204,0.62); max-width: 34rem;
+  margin-bottom: 2.4rem; font-weight: 300;
+}
+.hero-proof {
+  display: flex; flex-wrap: wrap; gap: .55rem 1.5rem;
+  margin: 2.6rem 0 0; padding-top: 1.5rem;
+  border-top: 1px solid rgba(196,217,204,0.14);
+  font-family: var(--mono); font-size: 10px; letter-spacing: .13em;
+  text-transform: uppercase; color: rgba(196,217,204,0.55);
+}
+.hero-proof span { display: inline-flex; align-items: center; gap: .55rem; }
+.hero-proof span::before {
+  content: ""; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--warm-clay); opacity: .8;
+}
+@media (max-width: 760px) { .hero-proof { gap: .45rem 1.1rem; font-size: 9px; } }
+
+/* clock caption row, restored and toned */
+.cc-top-note { color: rgba(255,255,255,.32); }
