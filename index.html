@@ -34,7 +34,7 @@
 
 <!-- Bump ?v= whenever styles.css changes. netlify.toml sets a one-year
      immutable cache, so an un-bumped string means nobody sees the new CSS. -->
-<link rel="stylesheet" href="/styles.css?v=252">
+<link rel="stylesheet" href="/styles.css?v=253">
 
 <!-- ANALYTICS: GTM-WG7CWTHG is injected site-wide by Netlify Snippet Injection.
      It must NOT be hardcoded here, and gtag.js is not loaded on this site.
@@ -101,6 +101,7 @@
   ]
 }
 </script>
+<script src="https://api.climateclock.world/assets/widget-v2.js" async></script>
 </head>
 
 <body>
@@ -158,6 +159,22 @@
     <a class="mm-sub" href="/about/questions/">Common questions</a>
   </span>
   <a class="btn btn-primary" href="/#contact">Work with us</a>
+</div>
+
+
+<!-- ============ CLIMATE CLOCK ============
+     Official widget from climateclock.world. The asset is served from
+     api.climateclock.world (NOT climateclock.world, which does not resolve).
+     The band carries the 64px offset for the fixed nav.
+     To self-host: build widget-v2.js from the repo, drop it in /js/,
+     and point the script tag at /js/widget-v2.js instead.
+     ====================================== -->
+<div class="cc-top">
+  <climate-clock></climate-clock>
+  <p class="cc-top-note">
+    <span>Live deadline and lifelines &middot; #ActInTime</span>
+    <a href="https://climateclock.world" target="_blank" rel="noopener">climateclock.world</a>
+  </p>
 </div>
 
 <header class="hero">
@@ -473,6 +490,6 @@
   </div>
 </footer>
 
-<script src="/js/main.js?v=252"></script>
+<script src="/js/main.js?v=253"></script>
 </body>
 </html>

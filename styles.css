@@ -940,3 +940,25 @@ em.accent { font-style: italic; color: var(--warm-clay); }
 .bridge--flush { border-top: none; padding-top: 0; margin-top: 0; }
 /* Cards that carry an icon */
 .card .svc-icon, .card .svc-icon-sm { display: block; }
+
+/* ============================================================
+   v6 -- CLIMATE CLOCK BAND (homepage only)
+   .nav is position:fixed at 64px, so the band carries its own
+   offset. The hero then drops its 100svh min-height, otherwise
+   the fold is pushed a full screen down.
+   ============================================================ */
+.cc-top { background:#000; padding-top:64px; position:relative; z-index:1; }
+.cc-top climate-clock { display:block; }
+.cc-top-note {
+  max-width: var(--max); margin:0 auto;
+  padding:.5rem var(--gutter) .6rem;
+  display:flex; justify-content:space-between; align-items:center;
+  gap:1rem; flex-wrap:wrap;
+  font-family: var(--mono); font-size:9px; letter-spacing:.14em;
+  text-transform:uppercase; color:rgba(255,255,255,.42);
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.cc-top-note a { color:rgba(255,255,255,.6); text-decoration:none; }
+.cc-top-note a:hover { color:#fff; }
+.cc-top ~ .hero { min-height:0; padding-top:clamp(72px,9vw,110px); }
+@media (max-width:760px){ .cc-top-note{ font-size:8px; letter-spacing:.1em; } }
