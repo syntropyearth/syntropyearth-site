@@ -1,30 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Corrected 11 September 2026.
+  1. /thinking/india-heat-season-healthcare-operations now carries its trailing
+     slash. Without it the URL 301s and the canonical was never crawled direct.
+  2. /guide/templates-tools/climate-health-materiality-tracker.html added. It
+     exists, is linked, and was missing from the file.
+  3. changefreq and priority removed. Google ignores both.
+  4. lastmod left UNCHANGED on every page not edited today. Do not bulk-update
+     these. Bump a page's date the day you change that page, and only then.
+     That date is the whole recrawl signal.
+  NOT ADDED: /guide/frameworks/ has no index.html. Listing it would feed a 404.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://syntropyearth.com/</loc><lastmod>2026-08-14</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://syntropyearth.com/social-impact/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://syntropyearth.com/brand-growth/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://syntropyearth.com/climate-access/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://syntropyearth.com/about/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://syntropyearth.com/about/questions/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://syntropyearth.com/thinking/</loc><lastmod>2026-08-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://syntropyearth.com/thinking/climate-change-is-a-healthcare-story/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://syntropyearth.com/thinking/india-heat-season-healthcare-operations</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://syntropyearth.com/thinking/climate-risk-hiding-in-your-access-data/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://syntropyearth.com/guide/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://syntropyearth.com/privacy/</loc><lastmod>2026-08-14</lastmod><changefreq>yearly</changefreq><priority>0.2</priority></url>
-  <url><loc>https://syntropyearth.com/thinking/hq-climate-health-mandate-india-arm/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://syntropyearth.com/thinking/lancet-countdown-2025-india-operating-terms/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://syntropyearth.com/guide/glossary.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://syntropyearth.com/guide/regulations-library.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://syntropyearth.com/guide/frameworks/brsr.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://syntropyearth.com/guide/frameworks/gri.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://syntropyearth.com/guide/frameworks/tcfd-issb.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://syntropyearth.com/guide/frameworks/sdgs.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://syntropyearth.com/guide/frameworks/esrs.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://syntropyearth.com/guide/frameworks/sasb.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://syntropyearth.com/guide/frameworks/cdp.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://syntropyearth.com/guide/frameworks/cop.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://syntropyearth.com/guide/role-guides/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://syntropyearth.com/guide/role-guides/csr-manager.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://syntropyearth.com/guide/templates-tools/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://syntropyearth.com/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://syntropyearth.com/social-impact/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://syntropyearth.com/brand-growth/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://syntropyearth.com/climate-access/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://syntropyearth.com/about/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://syntropyearth.com/about/questions/</loc><lastmod>2026-08-14</lastmod></url>
+
+  <url><loc>https://syntropyearth.com/thinking/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://syntropyearth.com/thinking/climate-change-is-a-healthcare-story/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://syntropyearth.com/thinking/india-heat-season-healthcare-operations/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://syntropyearth.com/thinking/climate-risk-hiding-in-your-access-data/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://syntropyearth.com/thinking/hq-climate-health-mandate-india-arm/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://syntropyearth.com/thinking/lancet-countdown-2025-india-operating-terms/</loc><lastmod>2026-09-11</lastmod></url>
+
+  <url><loc>https://syntropyearth.com/guide/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://syntropyearth.com/guide/glossary.html</loc><lastmod>2026-08-18</lastmod></url>
+  <url><loc>https://syntropyearth.com/guide/regulations-library.html</loc><lastmod>2026-08-18</lastmod></url>
+  <url><loc>https://syntropyearth.com/guide/templates-tools/</loc><lastmod>2026-08-18</lastmod></url>
+  <url><loc>https://syntropyearth.com/guide/templates-tools/climate-health-materiality-tracker.html</loc><lastmod>2026-08-18</lastmod></url>
+  <url><loc>https://syntropyearth.com/guide/role-guides/</loc><lastmod>2026-08-18</lastmod></url>
+  <url><loc>https://syntropyearth.com/guide/role-guides/csr-manager.html</loc><lastmod>2026-08-18</lastmod></url>
+
+  <url><loc>https://syntropyearth.com/guide/frameworks/brsr.html</loc><lastmod>2026-08-18</lastmod></url>
+  <url><loc>https://syntropyearth.com/guide/frameworks/gri.html</loc><lastmod>2026-08-18</lastmod></url>
+  <url><loc>https://syntropyearth.com/guide/frameworks/tcfd-issb.html</loc><lastmod>2026-08-18</lastmod></url>
+  <url><loc>https://syntropyearth.com/guide/frameworks/sdgs.html</loc><lastmod>2026-08-18</lastmod></url>
+  <url><loc>https://syntropyearth.com/guide/frameworks/esrs.html</loc><lastmod>2026-08-18</lastmod></url>
+  <url><loc>https://syntropyearth.com/guide/frameworks/sasb.html</loc><lastmod>2026-08-18</lastmod></url>
+  <url><loc>https://syntropyearth.com/guide/frameworks/cdp.html</loc><lastmod>2026-08-18</lastmod></url>
+  <url><loc>https://syntropyearth.com/guide/frameworks/cop.html</loc><lastmod>2026-08-18</lastmod></url>
+
+  <url><loc>https://syntropyearth.com/privacy/</loc><lastmod>2026-08-14</lastmod></url>
 </urlset>

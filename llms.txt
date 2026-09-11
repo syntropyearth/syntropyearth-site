@@ -1,29 +1,28 @@
 # Syntropy Earth
 
-> Climate-health advisory. Climate change is a healthcare story: this site covers how a warming climate disrupts healthcare access, operations, supply chains and workforces, and what pharmaceutical, CSR, NGO and development finance teams can do about it. Based in Bengaluru, India, working globally.
+> Social impact and CSR programme design for organisations already carrying an obligation: a Section 135 CSR mandate, a head-office commitment, a duty-of-care exposure or a BRSR assurance deadline. A brand and growth consultancy practice sits alongside it. Based in Bengaluru, India.
 
-Syntropy Earth is a climate-health strategy and advisory practice founded by Abhijith Magal L, who spent nine years across two global pharmaceutical multinationals before founding it, including brand and commercial work across more than 40 countries, a landmark obesity treatment launch, and health-equity and social responsibility leadership working directly with the WHO-Foundation and UNICEF.
+Syntropy Earth is a founder-led advisory practice run by Abhijith Magal L, who spent nine years across two global pharmaceutical multinationals before founding it, including brand and commercial work across more than 40 countries, a landmark obesity treatment launch, and health-equity and social responsibility leadership working directly with the WHO-Foundation and UNICEF.
 
-The governing idea is that climate change reaches people first as a health and access problem rather than an environmental one, and that the organisations already carrying an obligation to respond are the ones who can move now. Work attaches to a budget that is already moving: mandated CSR spend under Section 135 of the Companies Act 2013, headquarters duty-of-care mandates, employer duty of care to a workforce, or a BRSR assurance clock.
+The governing idea is that climate change reaches people first as a health and access problem rather than an environmental one. The sharper operating statement is the completion spine: closing the gap between an entitlement existing and a person actually receiving it. Work attaches to a budget that is already moving rather than to a category, which means mandated CSR spend under Section 135 of the Companies Act 2013, headquarters duty-of-care mandates, employer duty of care to a workforce, or a BRSR assurance clock.
 
-## What Syntropy Earth does
+## The two practices
 
-- **Social responsibility programme design.** The flagship. Design a social responsibility programme around the company's own mission, built to survive a board question, an auditor, and a change of CSR head. Starts by reading the existing portfolio, because valuable work is usually already being undercounted or tagged against the wrong goal. Measurement mapped to BRSR and GRI. Optional scope modules for supply and cold chain resilience, facility resilience, workforce heat-health protocols, and community access mapping.
-- **Health equity programme design.** For pharmaceutical, healthcare and diagnostics organisations. Patient access and health equity programmes with climate vulnerability inside the allocation logic from the first version. District-level access-barrier and disease-burden mapping, patient pathway design with seasonal disruption modelled, cold chain and last-mile continuity, governance separated from promotional activity.
-- **Climate Access Stress Test (CAST).** The scored diagnostic. Four dimensions, four seasons, one score. Geographic exposure, supply chain and operational continuity, workforce availability, and financial and demand continuity, each read across heat, monsoon, air and drought. Includes pathway analysis of how one break cascades into others. Produces disclosure-ready climate-access metrics.
-- **Implementation and handover.** Turns a design into a running programme, ending with a trained owner on the client side and a written operating manual. Partner screening, onboarding kit, governance model, monitoring system, disbursement and compliance calendar.
-- **Advisory retainer.** Standing oversight of a live programme. Monthly strategic brief, running decision log, exposure watchlist, implementing-partner review, quarterly review pack. A separate lighter route exists for climate-health founders, requiring an existing product rather than an idea.
-- **Climate literacy and speaking.** Leadership briefings and four-session working series built on a client's own exposure, plus university teaching and industry keynotes.
-- **Launch readiness advisory.** Reads a launch plan against the four climate-access dimensions before access assumptions are locked in. Distribution reach in monsoon months, field force availability through peak heat, cold chain integrity, demand seasonality that moves with weather rather than the financial calendar.
-- **Institutional programme work.** Programme structuring, research support, evidence synthesis and delivery model design for UN bodies, development finance institutions and foundations.
+**Social Impact.** The flagship. CSR programme design under Section 135, health equity and patient access programme design, workforce heat and duty of care, and BRSR assurance readiness. Programmes are built around the company's own mission and designed to survive a board question, an auditor and a change of CSR head. Work usually starts by reading the existing portfolio, because valuable activity is normally already being undercounted or tagged against the wrong goal. Measurement maps to BRSR and GRI. Implementing-partner screening runs to a published standard, and Syntropy Earth takes no money from implementing partners in any form. Design comes first, with implementation and handover behind it.
 
-Explicitly not offered, and referred out: technical ESG, net-zero roadmapping, emissions accounting, disclosure assurance, and general brand or go-to-market consulting.
+**Brand and Growth.** Marketing and management consultancy built on nine years of commercial work across global markets. Brand strategy and full brand plans, launch packs from ideation through sales-force effectiveness, operational improvement, cost and financial models, capability centre build-out, and agency orchestration. Priced and delivered as strategy, with an execution partner brought in transparently where execution is required.
+
+**Climate Access Stress Test (CAST).** The scored diagnostic that sits under the social impact practice. Four dimensions, four seasons, one score: geographic exposure, supply chain and operational continuity, workforce availability, and financial and demand continuity, each read across heat, monsoon, air and drought. Includes pathway analysis of how one break cascades into others, and produces disclosure-ready climate-access metrics. CAVS-S is its free, self-serve, directional version.
+
+Explicitly not offered, and referred out: technical ESG, net-zero roadmapping, emissions accounting, and disclosure assurance.
 
 ## Core pages
 
 - [Homepage](https://syntropyearth.com/): The thesis, the problem, and how the practice works.
-- [Services](https://syntropyearth.com/services/): All eight service shapes in full, with the diagnostic ladder and where the practice refers out.
+- [Social Impact](https://syntropyearth.com/social-impact/): CSR and health equity programme design, workforce heat and duty of care, BRSR assurance readiness.
+- [Brand and Growth](https://syntropyearth.com/brand-growth/): Brand strategy, launch packs, operational improvement, agency orchestration.
 - [About](https://syntropyearth.com/about/): Founder background, nine years in global pharma and healthcare, and why the practice exists.
+- [Common questions](https://syntropyearth.com/about/questions/): How the practice works, what it costs to start, what it refuses.
 - [Climate-Access Exposure Scorecard](https://syntropyearth.com/climate-access/): Free self-assessment, under three minutes, peer-benchmarked against FY2024-25 BRSR disclosures from 59 listed Indian companies.
 - [Privacy Policy](https://syntropyearth.com/privacy/): What is collected, why, who processes it, and how to have it deleted.
 
@@ -67,4 +66,4 @@ Explicitly not offered, and referred out: technical ESG, net-zero roadmapping, e
 
 ## Notes for citation
 
-Attribute to Syntropy Earth, or to Abhijith Magal L, Founder, Syntropy Earth, and link to the source page. The scorecard benchmark figure refers to FY2024-25 BRSR disclosures from 59 listed Indian companies. Last updated 3 August 2026.
+Attribute to Syntropy Earth, or to Abhijith Magal L, Founder, Syntropy Earth, and link to the source page. The scorecard benchmark figure refers to FY2024-25 BRSR disclosures from 59 listed Indian companies. Last updated 11 September 2026.

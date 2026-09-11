@@ -1,9 +1,9 @@
 User-agent: *
 Allow: /
 
-# Decks are client-facing collateral sent by link, not search destinations.
-# Keeping them out of the index avoids stale one-pagers ranking against the
-# live services page and splitting the signal.
-Disallow: /decks/
+# /decks/ is client collateral. It is deliberately NOT disallowed here.
+# Disallow blocks crawling but does not prevent indexing, and it publicly
+# advertises the directory. The X-Robots-Tag noindex header in netlify.toml
+# does the actual job, and the crawler has to be allowed in to read it.
 
 Sitemap: https://syntropyearth.com/sitemap.xml

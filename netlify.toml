@@ -14,11 +14,19 @@
   status = 301
   force = true
 
-# Clean URLs: serve /services/index.html at /services
+# Old services page -> Social Impact. Moved here from _redirects so every
+# redirect lives in one file. The force flag beats /services/index.html on disk.
 [[redirects]]
-  from = "/services.html"
-  to = "/services"
+  from = "/services/*"
+  to = "/social-impact/"
   status = 301
+  force = true
+
+[[redirects]]
+  from = "/services"
+  to = "/social-impact/"
+  status = 301
+  force = true
 
 # Guide standards pages: Netlify serves /guide/frameworks/sasb.html at the
 # extensionless /guide/frameworks/sasb with a 200, so Google indexed four of
@@ -107,6 +115,31 @@
   to = "/guide/frameworks/cop.html"
   status = 301
 
+# Same split, four pages the 27 July pass missed. Netlify serves each .html at
+# its extensionless path with a 200, so both forms resolve and Google can index
+# the pair. Canonical, sitemap and internal links all point at the .html form.
+# Added 11 September 2026.
+
+[[redirects]]
+  from = "/guide/glossary"
+  to = "/guide/glossary.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/regulations-library"
+  to = "/guide/regulations-library.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/role-guides/csr-manager"
+  to = "/guide/role-guides/csr-manager.html"
+  status = 301
+
+[[redirects]]
+  from = "/guide/templates-tools/climate-health-materiality-tracker"
+  to = "/guide/templates-tools/climate-health-materiality-tracker.html"
+  status = 301
+
 # Security and caching headers
 [[headers]]
   for = "/*"
@@ -127,3 +160,30 @@
   for = "/js/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
+
+# Client collateral: crawlable so the header is readable, never indexed.
+# This replaces the robots.txt Disallow, which blocked crawling without
+# preventing indexing and advertised the directory in a public file.
+[[headers]]
+  for = "/decks/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# Internal build files sitting in the publish root. Netlify serves the repo
+# root, so each of these is fetchable at syntropyearth.com/<filename>.
+# NAV-FOOTER-SWAP-KIT.html is a full HTML page and is indexable as it stands.
+# Move them out of the root when convenient; until then, noindex them.
+[[headers]]
+  for = "/NAV-FOOTER-SWAP-KIT.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/*.md"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/README-DEPLOY.txt"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
