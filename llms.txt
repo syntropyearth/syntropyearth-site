@@ -2,7 +2,7 @@
 
 > Social impact and CSR programme design for organisations already carrying an obligation: a Section 135 CSR mandate, a head-office commitment, a duty-of-care exposure or a BRSR assurance deadline. A brand and growth consultancy practice sits alongside it. Based in Bengaluru, India.
 
-Syntropy Earth is a founder-led advisory practice run by Abhijith Magal L, who spent nine years across two global pharmaceutical multinationals before founding it, including brand and commercial work across more than 40 countries, a landmark obesity treatment launch, and health-equity and social responsibility leadership working directly with the WHO-Foundation and UNICEF.
+Syntropy Earth is a founder-led advisory practice run by Abhijith Magal, who spent nine years across two global pharmaceutical multinationals before founding it, including brand and commercial work across more than 40 countries, a landmark obesity treatment launch, and health-equity and social responsibility leadership working directly with the WHO-Foundation and UNICEF.
 
 The governing idea is that climate change reaches people first as a health and access problem rather than an environmental one. The sharper operating statement is the completion spine: closing the gap between an entitlement existing and a person actually receiving it. Work attaches to a budget that is already moving rather than to a category, which means mandated CSR spend under Section 135 of the Companies Act 2013, headquarters duty-of-care mandates, employer duty of care to a workforce, or a BRSR assurance clock.
 
@@ -29,6 +29,7 @@ Explicitly not offered, and referred out: technical ESG, net-zero roadmapping, e
 ## Thinking (articles)
 
 - [Thinking index](https://syntropyearth.com/thinking/): Evidence-led writing on where climate change meets healthcare.
+- [Implementing Partner Screening: IPSS v1.0](https://syntropyearth.com/thinking/implementing-partner-screening/): The Implementation Partner Screening Standard, a published method for choosing between eligible CSR implementing organisations under Section 135, with DOIs for the standard (10.5281/zenodo.22814160) and white paper (10.5281/zenodo.22823149).
 - [Climate Change Is a Healthcare Story](https://syntropyearth.com/thinking/climate-change-is-a-healthcare-story/): The core argument for reading climate as a health and access problem first.
 - [Why the Heat Season Is a Healthcare Operations Problem](https://syntropyearth.com/thinking/india-heat-season-healthcare-operations/): Extreme heat as a workforce, access and supply-chain problem, not just a medical one.
 - [The Climate Risk Hiding in Your Access Data](https://syntropyearth.com/thinking/climate-risk-hiding-in-your-access-data/): How seasonal signals of climate disruption already sit in programme data nobody has read that way.
@@ -66,4 +67,4 @@ Explicitly not offered, and referred out: technical ESG, net-zero roadmapping, e
 
 ## Notes for citation
 
-Attribute to Syntropy Earth, or to Abhijith Magal L, Founder, Syntropy Earth, and link to the source page. The scorecard benchmark figure refers to FY2024-25 BRSR disclosures from 59 listed Indian companies. Last updated 11 September 2026.
+Attribute to Syntropy Earth, or to Abhijith Magal, Founder, Syntropy Earth, and link to the source page. The scorecard benchmark figure refers to FY2024-25 BRSR disclosures from 59 listed Indian companies. Last updated 11 September 2026.
