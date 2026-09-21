@@ -23,6 +23,7 @@ Explicitly not offered, and referred out: technical ESG, net-zero roadmapping, e
 - [Brand and Growth](https://syntropyearth.com/brand-growth/): Brand strategy, launch packs, operational improvement, agency orchestration.
 - [About](https://syntropyearth.com/about/): Founder background, nine years in global pharma and healthcare, and why the practice exists.
 - [Common questions](https://syntropyearth.com/about/questions/): How the practice works, what it costs to start, what it refuses.
+- [Unspent CSR Funds Calculator](https://syntropyearth.com/tools/unspent-csr-funds-calculator/): Free Section 135 calculator. Computes the CSR obligation for FY 2026-27 and shows what parks in the Unspent CSR Account and what transfers out.
 - [Climate-Access Exposure Scorecard](https://syntropyearth.com/climate-access/): Free self-assessment, under three minutes, peer-benchmarked against FY2024-25 BRSR disclosures from 59 listed Indian companies.
 - [Privacy Policy](https://syntropyearth.com/privacy/): What is collected, why, who processes it, and how to have it deleted.
 

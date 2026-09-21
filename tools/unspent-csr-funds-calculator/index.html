@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unspent CSR Funds Calculator: Section 135 | Syntropy Earth</title>
+<meta name="description" content="Free calculator for unspent CSR funds. Compute the Section 135 obligation for FY 2026-27 and see what parks in the Unspent CSR Account and what transfers out.">
+<link rel="canonical" href="https://syntropyearth.com/tools/unspent-csr-funds-calculator/">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="author" content="Abhijith Magal">
+<meta name="theme-color" content="#1E4435">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Syntropy Earth">
+<meta property="og:title" content="Unspent CSR Funds Calculator: Section 135 | Syntropy Earth">
+<meta property="og:description" content="Two pipes for unspent CSR money. One stays with the company. Work out which one yours is in before 31 March.">
+<meta property="og:url" content="https://syntropyearth.com/tools/unspent-csr-funds-calculator/">
+<meta property="og:image" content="https://syntropyearth.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Syntropy Earth, social impact and climate-health advisory">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Unspent CSR Funds Calculator: Section 135 | Syntropy Earth">
+<meta name="twitter:description" content="Two pipes for unspent CSR money. One stays with the company. Work out which one yours is in before 31 March.">
+<meta name="twitter:image" content="https://syntropyearth.com/og-image.png">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Bump ?v= whenever styles.css changes. netlify.toml sets a one-year
+     immutable cache, so an un-bumped string means nobody sees the new CSS. -->
+<link rel="stylesheet" href="/styles.css?v=256">
+
+<!-- ANALYTICS: GTM-WG7CWTHG is injected site-wide by Netlify Snippet Injection.
+     It must NOT be hardcoded here, and gtag.js is not loaded on this site. -->
+
+<style>
+/* ---- Unspent CSR calculator, page-scoped. styles.css stays untouched at v=256. ---- */
+.ucintro{padding:clamp(28px,4vw,44px) 0 8px}
+.ucintro .answer{max-width:62ch;font-size:17.5px;color:var(--text)}
+.ucintro .answer strong{font-weight:500}
+.inshort{margin-top:26px;border-top:1px solid var(--mist);border-bottom:1px solid var(--mist);padding:16px 0;display:grid;gap:10px;max-width:760px;list-style:none}
+.inshort li{display:flex;gap:14px;font-size:15px;max-width:72ch}
+.inshort li::before{content:"";flex:0 0 8px;height:8px;border-radius:50%;background:var(--forest);margin-top:8px}
+.layout{max-width:var(--max);margin:0 auto;padding:0 var(--gutter) 60px;display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:clamp(28px,4vw,64px);align-items:start}
+@media(max-width:940px){.layout{grid-template-columns:1fr}}
+.step{padding:34px 0;border-top:1px solid var(--mist)}
+.step:first-child{border-top:0}
+.step-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest)}
+.step h2{font-family:var(--serif);font-weight:500;font-size:clamp(24px,3vw,32px);line-height:1.15;margin:6px 0 8px}
+.step .lede{max-width:60ch;color:var(--text-muted);font-size:15px}
+.fields{margin-top:20px;display:grid;gap:16px}
+.field label{display:block;font-weight:500;font-size:14.5px;margin-bottom:5px}
+.field .hint{font-size:13px;color:var(--text-muted);margin-top:4px;max-width:52ch}
+.inwrap{position:relative;max-width:300px}
+.inwrap .unit{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--sage);pointer-events:none;text-transform:uppercase}
+.step input[type=number],.step input[type=text],.step select{width:100%;max-width:300px;font-family:var(--sans);font-size:16px;color:var(--deep-forest);background:#fff;border:1px solid var(--mist);border-radius:var(--radius-sm);padding:10px 64px 10px 12px}
+.step input[type=text]{padding-right:12px}
+.step select{padding-right:12px;max-width:300px}
+.step input:focus,.step select:focus{border-color:var(--forest)}
+.step input:focus-visible,.step select:focus-visible,.step button:focus-visible{outline:2px solid var(--monsoon-blue);outline-offset:2px}
+.threecol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:640px}
+@media(max-width:640px){.threecol{grid-template-columns:1fr}}
+.threecol input{max-width:100%;padding-right:56px}
+.readback{background:var(--pale-sage);border:1px solid var(--mist);border-radius:var(--radius-sm);padding:10px 12px;font-size:15px}
+.readback .yr{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--forest);display:block;margin-bottom:2px}
+.choice{display:flex;flex-wrap:wrap;gap:8px}
+.choice label{border:1px solid var(--mist);border-radius:var(--radius-sm);background:#fff;padding:8px 14px;font-size:14px;cursor:pointer;font-weight:400;margin:0}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice label:has(input:checked){border-color:var(--deep-forest);background:var(--deep-forest);color:var(--warm-white)}
+.choice label:has(input:focus-visible){outline:2px solid var(--monsoon-blue);outline-offset:2px}
+.verdictline{margin-top:18px;font-size:15px;padding:12px 14px;border-left:3px solid var(--forest);background:var(--pale-sage);max-width:640px}
+.verdictline.warn{border-left-color:var(--warm-clay);background:var(--soft-cream)}
+.verdictline.alert{border-left-color:var(--red-earth);background:var(--pale-clay)}
+.verdictline b{font-weight:500}
+.projects{display:grid;gap:18px;margin-top:20px}
+.pcard{border:1px solid var(--mist);border-radius:var(--radius-sm);background:#fff;padding:18px 18px 16px;position:relative}
+.pcard .ptop{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:14px;padding-right:62px}
+.pcard input.pname{max-width:100%;padding-right:12px;font-weight:500}
+.chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:3px;white-space:nowrap}
+.chip.protected{background:var(--sky-pale);color:var(--deep-monsoon)}
+.chip.exposed{background:var(--pale-clay);color:var(--dark-red-earth)}
+.chip.spent{background:var(--pale-sage);color:var(--deep-forest)}
+.chip.idle{background:var(--soft-cream);color:#7a6a55}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(max-width:560px){.pgrid{grid-template-columns:1fr}}
+.pgrid .inwrap,.pgrid input{max-width:100%}
+.pfull{grid-column:1/-1}
+.pnote{margin-top:12px;font-size:13.5px;padding:10px 12px;border-radius:var(--radius-sm)}
+.pnote.commence{background:var(--pale-clay);color:var(--dark-red-earth)}
+.pnote.convert{background:var(--sky-pale);color:var(--deep-monsoon)}
+.premove{position:absolute;top:12px;right:12px;border:0;background:none;cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--sage);letter-spacing:.06em}
+.premove:hover{color:var(--red-earth)}
+.projbtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+button.ghost{font-family:var(--sans);font-size:14.5px;font-weight:500;cursor:pointer;border:1px solid var(--forest);color:var(--forest);background:none;border-radius:var(--radius-sm);padding:10px 18px}
+button.ghost:hover{background:var(--pale-sage)}
+button.quiet{font-family:var(--sans);font-size:14.5px;cursor:pointer;border:1px dashed var(--mist);color:var(--text-muted);background:none;border-radius:var(--radius-sm);padding:10px 18px}
+button.quiet:hover{border-color:var(--sage)}
+.ledger{position:sticky;top:88px;background:var(--midnight-forest);color:var(--warm-white);border-radius:var(--radius);padding:26px 24px 22px}
+.ledger .ltag{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage)}
+.ledger h2{font-family:var(--serif);font-weight:400;font-size:26px;margin:4px 0 18px;line-height:1.1;color:var(--warm-white)}
+.lrow{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:11px 0;border-top:1px solid rgba(196,217,204,.22)}
+.lrow .lk{font-size:13px;color:var(--mist);max-width:17ch;line-height:1.35}
+.lrow .lv{font-family:var(--serif);font-weight:500;font-size:26px;white-space:nowrap;font-variant-numeric:lining-nums}
+.lrow.big .lv{font-size:32px}
+.lrow .lv.red{color:#E4A08F}
+.lrow .lv.blue{color:#A9C6D6}
+.lrow .lv.green{color:var(--sage)}
+.lbar{display:flex;height:8px;border-radius:4px;overflow:hidden;margin:16px 0 6px;background:rgba(196,217,204,.16)}
+.lbar span{display:block;height:100%;transition:width .5s ease}
+@media (prefers-reduced-motion:reduce){.lbar span{transition:none}}
+.lbar .b-spent{background:var(--sage)}
+.lbar .b-prot{background:#7FA3B5}
+.lbar .b-exp{background:#C96A54}
+.lkey{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mist)}
+.lkey i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;vertical-align:baseline}
+.ldays{margin-top:18px;padding-top:14px;border-top:1px solid rgba(196,217,204,.22);display:flex;justify-content:space-between;align-items:baseline}
+.ldays .dn{font-family:var(--serif);font-size:30px;font-weight:500}
+.ldays .dl{font-size:12.5px;color:var(--mist);text-align:right;max-width:16ch;line-height:1.35}
+.lfoot{margin-top:14px;font-size:12.5px;color:var(--mist);line-height:1.5}
+.lfoot b{color:var(--warm-white);font-weight:500}
+.lempty{font-size:14px;color:var(--mist);padding:8px 0 2px;line-height:1.6}
+@media(max-width:940px){
+  .ledger{position:static}
+  .mobilebar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--midnight-forest);color:var(--warm-white);padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom,0px));display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-top:1px solid rgba(196,217,204,.25)}
+  .mobilebar .mk{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+  .mobilebar .mv{font-family:var(--serif);font-size:22px;font-weight:500;color:#E4A08F}
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+}
+@media(min-width:941px){.mobilebar{display:none}}
+.wide{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.calsec{padding:44px 0 8px;border-top:1px solid var(--mist)}
+.calsec h2,.ctasec h2{font-family:var(--serif);font-weight:500;font-size:clamp(24px,3vw,32px)}
+table.deadlines{width:100%;border-collapse:collapse;margin-top:20px;font-size:15px;max-width:860px}
+table.deadlines th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--forest);font-weight:400;padding:0 14px 10px 0;border-bottom:1px solid var(--deep-forest)}
+table.deadlines td{padding:13px 14px 13px 0;border-bottom:1px solid var(--mist);vertical-align:top}
+table.deadlines td:first-child{font-family:var(--serif);font-size:19px;font-weight:500;white-space:nowrap}
+table.deadlines .basis{font-family:var(--mono);font-size:11px;color:var(--text-muted);letter-spacing:.04em}
+.pipes{margin:34px 0 10px;max-width:860px}
+.pipes svg{width:100%;height:auto;display:block}
+.billnote{margin:26px 0 0;max-width:72ch;font-size:14px;color:var(--text-muted);border-left:3px solid var(--warm-clay);padding:10px 14px;background:var(--soft-cream)}
+.ctasec{padding:52px 0 56px;border-top:1px solid var(--mist)}
+.ctasec .close{max-width:62ch;margin-top:14px;font-size:17px}
+.ctasec .close em{font-style:italic;color:var(--dark-red-earth)}
+.cta-actions{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.cta-actions .alt{font-size:15px}
+.fine{padding:36px 0 60px;border-top:1px solid var(--mist);font-size:13.5px;color:var(--text-muted);max-width:860px}
+.fine h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--forest);font-weight:400;margin:22px 0 8px}
+.fine ol{padding-left:20px;display:grid;gap:6px}
+.fine p{max-width:76ch;margin-bottom:8px}
+.fine a{text-decoration:underline;text-underline-offset:2px}
+noscript .nsnote{display:block;max-width:760px;margin:20px auto;padding:14px 18px;background:var(--pale-clay);color:var(--dark-red-earth);border-radius:var(--radius-sm);font-size:15px}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://syntropyearth.com/tools/unspent-csr-funds-calculator/#app",
+      "name": "Unspent CSR Funds Calculator",
+      "url": "https://syntropyearth.com/tools/unspent-csr-funds-calculator/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Computes a company's Section 135 CSR obligation for FY 2026-27 and classifies this year's projects into money on course, money protected in the Unspent CSR Account, and money at risk of transfer to a Schedule VII fund.",
+      "publisher": { "@id": "https://syntropyearth.com/#organization" },
+      "dateModified": "2026-09-21T09:00:00+05:30"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://syntropyearth.com/#organization",
+      "name": "Syntropy Earth",
+      "url": "https://syntropyearth.com/"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://syntropyearth.com/tools/unspent-csr-funds-calculator/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Where do unspent CSR funds go at the end of the financial year?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Unspent money on an ongoing project moves to the company's own Unspent CSR Account within 30 days of year end and can be spent over the next three financial years. All other unspent money transfers to a fund specified in Schedule VII within six months, with reasons recorded in the Board's report." }
+        },
+        {
+          "@type": "Question",
+          "name": "What makes a CSR project an ongoing project?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Under Rule 2(1)(i), an ongoing project is a multi-year project, with timelines not exceeding three years beyond the year of commencement, that has actually commenced within the financial year. Commencement means a work order issued or a contract awarded. Board approval alone does not commence a project (MCA General Circular 14/2021, FAQ 6.2)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a one-year CSR project be converted into an ongoing project?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Board can extend the duration of a project beyond one year with a reasonable justification recorded, which brings it inside the Rule 2(1)(i) definition. Done before 31 March, this moves its unspent money into the company's own Unspent CSR Account instead of a Schedule VII fund." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the penalty for failing to transfer unspent CSR money?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Under Section 135(7), the company pays twice the amount that should have moved to the Schedule VII fund or the Unspent CSR Account, or one crore rupees, whichever is less. Every officer in default pays a tenth of that amount, or two lakh rupees, whichever is less." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/" aria-label="Syntropy Earth home">
+      <svg class="mark mark-draw" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path class="arc" d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+        <path class="arc arc-2" d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+        <path class="arc arc-3" d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+        <circle class="dot" cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+      </svg>
+      <span class="wordmark">Syntropy Earth</span>
+    </a>
+    <div class="nav-links">
+      <a href="/social-impact/">Social Impact</a>
+      <a href="/brand-growth/">Brand &amp; Growth</a>
+      <span class="has-drop">
+        <a href="/thinking/" aria-haspopup="true">Resources</a>
+        <span class="nav-drop">
+          <span class="nav-drop-panel">
+            <a href="/thinking/">Thinking</a>
+            <a href="/guide/">Guide</a>
+            <a href="/tools/unspent-csr-funds-calculator/" data-cavs="calc-nav" aria-current="page">CSR calculator</a>
+          </span>
+        </span>
+      </span>
+      <span class="has-drop">
+        <a href="/about/" aria-haspopup="true">About</a>
+        <span class="nav-drop">
+          <span class="nav-drop-panel">
+            <a href="/about/">Founder</a>
+            <a href="/about/questions/">Common questions</a>
+          </span>
+        </span>
+      </span>
+      <a class="btn btn-primary" href="/#contact">Work with us</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/social-impact/">Social Impact</a>
+  <a href="/brand-growth/">Brand &amp; Growth</a>
+  <span class="mm-group">
+    <a href="/thinking/">Resources</a>
+    <a class="mm-sub" href="/thinking/">Thinking</a>
+    <a class="mm-sub" href="/guide/">Guide</a>
+    <a class="mm-sub" href="/tools/unspent-csr-funds-calculator/" data-cavs="calc-nav-mobile">CSR calculator</a>
+  </span>
+  <span class="mm-group">
+    <a href="/about/">About</a>
+    <a class="mm-sub" href="/about/">Founder</a>
+    <a class="mm-sub" href="/about/questions/">Common questions</a>
+  </span>
+  <a class="btn btn-primary" href="/#contact">Work with us</a>
+</div>
+
+<header class="page-hero">
+  <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap page-hero-inner">
+    <p class="label">Free tool &middot; Section 135 &middot; FY 2026-27</p>
+    <h1>Where do your unspent CSR funds go on <em>31 March?</em></h1>
+    <p class="lead">One of two places. Into the company's own Unspent CSR Account if the project is ongoing, with three more years to spend it. Out to a government fund if it is not. The test is commencement: a work order issued or a contract awarded within the year. Board approval alone does not count.</p>
+  </div>
+</header>
+
+<main>
+
+<section class="ucintro">
+  <div class="wrap">
+    <p class="answer">This page computes the obligation and runs the commencement test on every project you list. <strong>Nothing you type leaves your browser.</strong></p>
+    <ul class="inshort">
+    <li>Two per cent of the three-year average net profit is owed this year if any one Section 135(1) threshold was crossed last year.</li>
+    <li>Unspent money on a commenced multi-year project stays under the company's control for three more financial years.</li>
+    <li>Everything else transfers to a Schedule VII fund within six months, and the transferred money cannot fund the company's CSR for the six months that follow.</li>
+  </ul>
+  </div>
+</section>
+
+<noscript><span class="nsnote">The calculator needs JavaScript to run. The rules, deadlines and worked positions on this page read fine without it.</span></noscript>
+
+<div class="layout">
+  <div class="work">
+
+    <!-- STEP 1 -->
+    <section class="step" id="step1">
+      <span class="step-eyebrow">Step one</span>
+      <h2>Was the company caught last year?</h2>
+      <p class="lede">Applicability is tested against the immediately preceding financial year, FY 2025-26, and any one threshold is enough. The test runs afresh every year.</p>
+      <div class="fields">
+        <div class="field">
+          <label for="nw">Net worth, FY 2025-26</label>
+          <div class="inwrap"><input type="number" id="nw" inputmode="decimal" step="any" placeholder="e.g. 300"><span class="unit">&#8377; crore</span></div>
+          <p class="hint">Section 2(57): capital plus profit-made reserves and securities premium, less accumulated losses. Revaluation reserves stay out.</p>
+        </div>
+        <div class="field">
+          <label for="to">Turnover, FY 2025-26</label>
+          <div class="inwrap"><input type="number" id="to" inputmode="decimal" step="any" placeholder="e.g. 800"><span class="unit">&#8377; crore</span></div>
+        </div>
+        <div class="field">
+          <label for="np1">Net profit, FY 2025-26</label>
+          <div class="inwrap"><input type="number" id="np1" inputmode="decimal" step="any" placeholder="e.g. 100"><span class="unit">&#8377; crore</span></div>
+          <p class="hint">On the CSR basis: Section 198, pre-tax, capital and paper gains scrubbed, minus overseas branch profit and dividends from Indian companies already complying with Section 135. A loss goes in as a negative number.</p>
+        </div>
+      </div>
+      <p class="verdictline" id="applyVerdict">Fill the three figures and the applicability call appears here.</p>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="step" id="step2">
+      <span class="step-eyebrow">Step two</span>
+      <h2>Two per cent of what?</h2>
+      <p class="lede">The amount averages the three years before this one. Applicability looked at one year; the money looks at three. A company can be loss-making right now and still owe the average of better years.</p>
+      <div class="fields">
+        <div class="field">
+          <label for="yrs">Financial years completed since incorporation</label>
+          <select id="yrs">
+            <option value="3" selected>Three or more</option>
+            <option value="2">Two</option>
+            <option value="1">One</option>
+          </select>
+          <p class="hint">Younger than three years, the average runs over the years that exist.</p>
+        </div>
+        <div class="field">
+          <label>Net profit for the three preceding years, Section 198 basis</label>
+          <div class="threecol">
+            <div class="readback"><span class="yr">FY 2025-26</span><span id="np1echo">from step one</span></div>
+            <div class="inwrap" id="np2wrap"><input type="number" id="np2" inputmode="decimal" step="any" placeholder="FY 2024-25"><span class="unit">&#8377; cr</span></div>
+            <div class="inwrap" id="np3wrap"><input type="number" id="np3" inputmode="decimal" step="any" placeholder="FY 2023-24"><span class="unit">&#8377; cr</span></div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Does the company hold any amount in an Unspent CSR Account from an earlier year?</label>
+          <div class="choice" role="radiogroup" aria-label="Unspent CSR Account balance from an earlier year">
+            <label><input type="radio" name="hasUnspent" value="no" checked>No</label>
+            <label><input type="radio" name="hasUnspent" value="yes">Yes</label>
+          </div>
+          <p class="hint">This decides the committee question. A company holding anything in that account needs a CSR Committee whatever the size of this year's obligation, under the Rule 3(1) proviso.</p>
+        </div>
+      </div>
+      <p class="verdictline" id="obVerdict">The obligation appears here once the profit figures are in.</p>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="step" id="step3">
+      <span class="step-eyebrow">Step three</span>
+      <h2>What has actually commenced?</h2>
+      <p class="lede">List this year's projects. Each one gets the commencement test as you type. The paperwork question, not the spending question, is what decides where the money lands.</p>
+      <div class="projects" id="projects"></div>
+      <div class="projbtns">
+        <button type="button" class="ghost" id="addProj">Add a project</button>
+        <button type="button" class="quiet" id="loadExample">Load a worked example</button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- LEDGER -->
+  <aside class="ledger" aria-live="polite" aria-label="Statement of position">
+    <span class="ltag">Statement of position</span>
+    <h2>FY 2026-27</h2>
+    <div id="ledgerBody">
+      <p class="lempty">The statement builds itself as the figures go in: the obligation, what is on course, what is protected, and what is at risk of leaving.</p>
+    </div>
+    <div class="ldays">
+      <span class="dn" id="daysLeft">--</span>
+      <span class="dl">days to 31 March 2027, when the position is measured</span>
+    </div>
+    <p class="lfoot" id="lfoot"></p>
+  </aside>
+</div>
+
+<div class="mobilebar" id="mobilebar" hidden>
+  <span class="mk">At risk of transfer</span>
+  <span class="mv" id="mvExposed">&#8377;0</span>
+</div>
+
+<div class="wide">
+  <!-- CALENDAR -->
+  <section class="calsec">
+    <h2>The calendar the money runs on</h2>
+    <div class="pipes" role="img" aria-label="Diagram of the two pipes for unspent CSR money. Ongoing projects flow to the company's own Unspent CSR Account by 30 April 2027 with three further years to spend. Everything else flows out to a Schedule VII fund by 30 September 2027.">
+      <svg viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <style>
+          .pt{font-family:'DM Sans',sans-serif;font-size:14px;fill:#1E4435}
+          .pts{font-family:'DM Sans',sans-serif;font-size:12px;fill:#4c6a5c}
+          .pm{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.2px;fill:#356B4E}
+          .pmw{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.2px;fill:#FDFAF5}
+          .ph{font-family:'Cormorant Garamond',serif;font-size:19px;fill:#1E4435}
+          .phw{font-family:'Cormorant Garamond',serif;font-size:19px;fill:#FDFAF5}
+        </style>
+        <rect x="10" y="106" width="200" height="88" rx="6" fill="none" stroke="#1E4435" stroke-width="1.5"/>
+        <text x="110" y="138" text-anchor="middle" class="pm">31 MARCH 2027</text>
+        <text x="110" y="162" text-anchor="middle" class="ph">Unspent money</text>
+        <text x="110" y="181" text-anchor="middle" class="pts">measured at year end</text>
+        <path d="M210 130 C 300 110, 330 76, 410 66" fill="none" stroke="#3D6478" stroke-width="2"/>
+        <path d="M403 60 L 413 66 L 402 71 Z" fill="#3D6478"/>
+        <path d="M210 170 C 300 190, 330 224, 410 234" fill="none" stroke="#9E3B2A" stroke-width="2"/>
+        <path d="M403 240 L 413 234 L 402 229 Z" fill="#9E3B2A"/>
+        <text x="300" y="86" class="pm" fill="#2A4A5A" stroke="#FDFAF5" stroke-width="6" paint-order="stroke">ONGOING PROJECT</text>
+        <text x="300" y="222" class="pm" fill="#7A2D1E" stroke="#FDFAF5" stroke-width="6" paint-order="stroke">EVERYTHING ELSE</text>
+        <rect x="420" y="24" width="270" height="90" rx="6" fill="#2A4A5A"/>
+        <text x="436" y="50" class="pmw">BY 30 APRIL 2027</text>
+        <text x="436" y="74" class="phw">Unspent CSR Account</text>
+        <text x="436" y="94" font-family="DM Sans" font-size="12" fill="#DAE8EE">the company's own bank account</text>
+        <rect x="420" y="192" width="270" height="90" rx="6" fill="#9E3B2A"/>
+        <text x="436" y="218" class="pmw">BY 30 SEPTEMBER 2027</text>
+        <text x="436" y="242" class="phw">Schedule VII fund</text>
+        <text x="436" y="262" font-family="DM Sans" font-size="12" fill="#F0DED0">leaves the company's control</text>
+        <path d="M690 69 C 740 69, 760 69, 800 69" fill="none" stroke="#2A4A5A" stroke-width="2" stroke-dasharray="3 4"/>
+        <text x="700" y="52" class="pm" fill="#2A4A5A">3 MORE YEARS</text>
+        <text x="700" y="146" class="pts">to spend it on the</text>
+        <text x="700" y="162" class="pts">same project</text>
+      </svg>
+    </div>
+    <table class="deadlines">
+      <caption class="visually-hidden">Statutory deadlines for CSR money in FY 2026-27</caption>
+      <thead><tr><th scope="col">Date</th><th scope="col">What happens</th><th scope="col">Basis</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>31 Mar 2027</td>
+          <td>The financial year closes. Whatever is unspent is measured on this day.</td>
+          <td class="basis">s.135(5)</td>
+        </tr>
+        <tr>
+          <td>30 Apr 2027</td>
+          <td>Unspent money on ongoing projects reaches the company's own Unspent CSR Account, then carries three further financial years to spend. What is still left after that goes out within 30 days.</td>
+          <td class="basis">s.135(6)</td>
+        </tr>
+        <tr>
+          <td>30 Sep 2027</td>
+          <td>All other unspent money transfers to a Schedule VII fund, with reasons recorded in the Board's report. It cannot fund the company's CSR during the six months that follow the transfer.</td>
+          <td class="basis">2nd proviso s.135(5); FAQ 7.3</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="billnote">Figures on this page follow current law. The Corporate Laws (Amendment) Bill 2026 proposes a 90-day window for the Unspent CSR Account transfer, a &#8377;10 crore net profit trigger and a &#8377;1 crore committee exemption. The Joint Parliamentary Committee reported on 3 August 2026; the Bill had not been passed when this page was last updated, 21 September 2026.</p>
+  </section>
+
+  <!-- CTA -->
+  <section class="ctasec">
+    <h2>The same programme, two very different Marches</h2>
+    <p class="close">A programme designed in September with commencement paper in place -- Board approval as multi-year, a work order issued, timelines and year-wise allocation recorded -- keeps its money under the company's control. The same programme designed in February watches the money leave. <em>Same projects, same intent, different paperwork, opposite outcome.</em> The readiness review walks the current year's plan project by project and puts the paperwork where the money needs it, while there is still a year to work with.</p>
+    <div class="cta-actions">
+      <a class="btn btn-primary" href="mailto:hello@syntropyearth.com?subject=CSR%20readiness%20review">Ask for a readiness review <span class="arrow">&rarr;</span></a>
+      <span class="alt">or start at the <a class="text-link" href="/social-impact/">Social Impact practice <span class="arrow">&rarr;</span></a></span>
+    </div>
+  </section>
+
+  <!-- FINE PRINT -->
+  <section class="fine">
+    <h3>What this page assumes</h3>
+    <p>An April to March financial year, with FY 2026-27 as the year being planned. Applicability tested on FY 2025-26 under Section 135(1) as amended in 2017. Net profit on the Section 198 basis with the Rule 2(1)(h) exclusions. Ongoing project per Rule 2(1)(i), with commencement read per MCA General Circular 14/2021, FAQ 6.2: a work order issued or a contract awarded, not board approval. Local-area preference, Schedule VII fit and the Rule 2(1)(d) exclusions are design questions this calculator does not test. Spend above the obligation can be set off against the three succeeding financial years by Board resolution, excluding surplus arising from CSR activities, under Rule 7(3).</p>
+    <p>Missing a transfer adds a penalty under Section 135(7): the company pays twice the untransferred amount or &#8377;1 crore, whichever is less, and every officer in default pays a tenth of that or &#8377;2 lakh, whichever is less. The forced transfer, not the penalty, is the larger exposure for most companies.</p>
+    <h3>Sources</h3>
+    <ol>
+      <li><a href="https://ca2013.com/135-corporate-social-responsibility/" rel="noopener">Section 135, Companies Act 2013, consolidated with amendment footnotes</a></li>
+      <li><a href="https://ca2013.com/198-calculation-of-profits/" rel="noopener">Section 198, calculation of profits</a></li>
+      <li><a href="https://coal.gov.in/sites/default/files/2024-04/FAQ_CSR.pdf" rel="noopener">MCA General Circular 14/2021, FAQs on CSR</a></li>
+      <li><a href="https://www.mca.gov.in/content/mca/global/en/acts-rules/ebooks/notifications.html" rel="noopener">MCA notifications, gazette copies of the CSR Rules amendments</a></li>
+      <li><a href="https://prsindia.org/billtrack/the-corporate-laws-amendment-bill-2026" rel="noopener">PRS Legislative Research, the Corporate Laws (Amendment) Bill 2026</a></li>
+    </ol>
+    <h3>Standing note</h3>
+    <p>General information, not legal or professional advice. Positions are as at 21 September 2026 and follow the Companies Act 2013 and the CSR Rules 2014 as amended. Take advice on your own facts. Nothing entered on this page is stored or transmitted; the arithmetic runs entirely in your browser.</p>
+    <p>Last updated: 21 September 2026.</p>
+  </section>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path class="arc" d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+        <path class="arc arc-2" d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+        <path class="arc arc-3" d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+        <circle class="dot" cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+      </svg>
+        <span class="wordmark">Syntropy Earth</span>
+      </div>
+      <p class="footer-tag">Impact &middot; Strategy &middot; Growth</p>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="/social-impact/">Social Impact</a>
+        <a href="/brand-growth/">Brand &amp; Growth</a>
+        <a href="/tools/unspent-csr-funds-calculator/" data-cavs="calc-footer">CSR calculator</a>
+        <a href="/thinking/">Thinking</a>
+        <a href="/guide/">Guide</a>
+        <a href="/about/">About</a>
+        <a href="/about/questions/">Common questions</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <span class="nl-block">
+          <a class="nl-link" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7267182407571644416" target="_blank" rel="noopener" data-newsletter="footer">Entropy Unplugged, the newsletter &rarr;</a>
+          <span class="nl-note">Fortnightly &middot; free on LinkedIn</span>
+        </span>
+        <a href="https://www.linkedin.com/in/abhijithmagal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@abhijithmagal" target="_blank" rel="noopener">YouTube</a>
+        <a href="mailto:hello@syntropyearth.com">hello@syntropyearth.com</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
+    <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved. <a href="/privacy/">Privacy Policy</a></span>
+  </div>
+</footer>
+
+<script src="/js/main.js?v=256"></script>
+<script id="logic">
+/* ============================================================
+   STATUTORY PARAMETERS -- current law, FY 2026-27.
+   The Corporate Laws (Amendment) Bill 2026 proposes:
+   30 -> 90 days for the s.135(6) transfer, NP trigger 5 -> 10 cr,
+   committee exemption 50 lakh -> 1 crore. NOT law as at 21 Sep 2026.
+   When it passes, this block is the only thing that changes.
+   ============================================================ */
+var LAW = {
+  fyEndISO: '2027-03-31T23:59:59+05:30',
+  netWorthCr: 500,        /* s.135(1) */
+  turnoverCr: 1000,       /* s.135(1) */
+  netProfitCr: 5,         /* s.135(1), Rule 2(1)(h) basis */
+  csrRate: 0.02,          /* s.135(5) */
+  committeeExemptRs: 50e5 /* s.135(9), Rs 50 lakh */
+};
+var CR = 1e7, LAKH = 1e5;
+
+/* Pure computation. No DOM. Testable on its own. */
+function computePosition(s){
+  var r = {};
+
+  /* -- applicability, s.135(1): any one threshold, preceding FY -- */
+  var triggers = [];
+  if (s.nw   !== null && s.nw   >= LAW.netWorthCr)  triggers.push('net worth');
+  if (s.to   !== null && s.to   >= LAW.turnoverCr)  triggers.push('turnover');
+  if (s.np1  !== null && s.np1  >= LAW.netProfitCr) triggers.push('net profit');
+  var allKnown = s.nw !== null && s.to !== null && s.np1 !== null;
+  r.applicability = triggers.length ? 'caught' : (allKnown ? 'out' : 'pending');
+  r.triggers = triggers;
+
+  /* -- obligation, s.135(5): 2% of the average of the preceding years -- */
+  var yrs = [s.np1, s.np2, s.np3].slice(0, s.yearsCompleted);
+  var known = yrs.filter(function(v){ return v !== null; });
+  r.obligationReady = known.length === s.yearsCompleted && s.yearsCompleted > 0;
+  r.avgCr = r.obligationReady ? known.reduce(function(a,b){return a+b;},0) / known.length : null;
+  r.obligation = (r.applicability === 'caught' && r.obligationReady)
+    ? Math.max(0, LAW.csrRate * r.avgCr * CR) : null;
+
+  /* -- committee: s.135(9) relief, Rule 3(1) proviso carve-out -- */
+  if (r.applicability !== 'caught') r.committee = 'na';
+  else if (s.hasUnspent) r.committee = 'required-proviso';
+  else if (r.obligation !== null && r.obligation <= LAW.committeeExemptRs) r.committee = 'board';
+  else if (r.obligation !== null) r.committee = 'required';
+  else r.committee = 'pending';
+
+  /* -- projects: the commencement test, Rule 2(1)(i) + FAQ 6.2 -- */
+  r.projects = s.projects.map(function(p){
+    var budget = (p.budgetL || 0) * LAKH;
+    var spent  = (p.spentL  || 0) * LAKH;
+    var unspent = Math.max(0, budget - spent);
+    var commenced = p.commencement === 'workorder';
+    var ongoing = commenced && p.multiYear;
+    return {
+      name: p.name, budget: budget, spent: spent, unspent: unspent,
+      ongoing: ongoing,
+      pipe: ongoing ? 'protected' : 'exposed',
+      boardOnly: p.commencement === 'board',
+      notStarted: p.commencement === 'none',
+      convertible: commenced && !p.multiYear && unspent > 0
+    };
+  });
+
+  /* -- the three buckets, allocated against the obligation -- */
+  if (r.obligation !== null){
+    var ob = r.obligation;
+    var totalSpent = 0, protPool = 0, expPool = 0;
+    r.projects.forEach(function(p){
+      totalSpent += p.spent;
+      if (p.pipe === 'protected') protPool += p.unspent; else expPool += p.unspent;
+    });
+    r.onTrack   = Math.min(totalSpent, ob);
+    var rem     = ob - r.onTrack;
+    r.protected = Math.min(protPool, rem);
+    rem        -= r.protected;
+    r.exposed   = rem;
+    r.exposedFromProjects = Math.min(expPool, r.exposed);
+    r.unallocated = r.exposed - r.exposedFromProjects;
+    r.excess = Math.max(0, totalSpent - ob);
+  } else {
+    r.onTrack = r.protected = r.exposed = r.excess = r.unallocated = null;
+  }
+  return r;
+}
+
+/* Indian-system formatter: rupees in, crore/lakh words out. */
+function inr(v){
+  if (v === null || isNaN(v)) return '--';
+  if (v >= CR)   return '\u20B9' + trim2(v / CR) + ' crore';
+  if (v >= LAKH) return '\u20B9' + trim2(v / LAKH) + ' lakh';
+  return '\u20B9' + Math.round(v).toLocaleString('en-IN');
+}
+function trim2(n){
+  var s = (Math.round(n * 100) / 100).toFixed(2);
+  return s.replace(/\.?0+$/, '');
+}
+function daysToYearEnd(now){
+  var end = new Date(LAW.fyEndISO);
+  return Math.max(0, Math.ceil((end - now) / 86400000));
+}
+if (typeof module !== 'undefined') module.exports = { computePosition: computePosition, inr: inr, daysToYearEnd: daysToYearEnd, LAW: LAW };
+</script>
+<script id="ui">
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var projWrap = $('projects');
+  var pid = 0;
+
+  function projectCard(preset){
+    pid += 1;
+    var id = 'p' + pid;
+    var card = document.createElement('div');
+    card.className = 'pcard';
+    card.dataset.pid = id;
+    card.innerHTML =
+      '<button type="button" class="premove" aria-label="Remove this project">remove</button>' +
+      '<div class="ptop"><div class="field" style="flex:1">' +
+      '<label for="'+id+'name">Project</label>' +
+      '<input type="text" id="'+id+'name" class="pname" placeholder="e.g. Community screening camps, three districts">' +
+      '</div><span class="chip idle" id="'+id+'chip">Awaiting figures</span></div>' +
+      '<div class="pgrid">' +
+      '<div class="field"><label for="'+id+'budget">Budget this year</label>' +
+      '<div class="inwrap"><input type="number" id="'+id+'budget" inputmode="decimal" step="any" min="0" placeholder="e.g. 120"><span class="unit">&#8377; lakh</span></div></div>' +
+      '<div class="field"><label for="'+id+'spent">Spent so far</label>' +
+      '<div class="inwrap"><input type="number" id="'+id+'spent" inputmode="decimal" step="any" min="0" placeholder="e.g. 45"><span class="unit">&#8377; lakh</span></div></div>' +
+      '<div class="field pfull"><label>Has a work order been issued or a contract awarded?</label>' +
+      '<div class="choice" role="radiogroup" aria-label="Commencement status">' +
+      '<label><input type="radio" name="'+id+'com" value="workorder">Yes, within this year</label>' +
+      '<label><input type="radio" name="'+id+'com" value="board">Board approval only</label>' +
+      '<label><input type="radio" name="'+id+'com" value="none" checked>Not yet</label>' +
+      '</div></div>' +
+      '<div class="field pfull"><label>Approved as multi-year?</label>' +
+      '<div class="choice" role="radiogroup" aria-label="Multi-year status">' +
+      '<label><input type="radio" name="'+id+'my" value="yes">Yes, up to three years beyond this one</label>' +
+      '<label><input type="radio" name="'+id+'my" value="no" checked>Single-year</label>' +
+      '</div></div>' +
+      '</div>' +
+      '<div class="pnote commence" id="'+id+'notecom" hidden>Board approval does not commence a project. Commencement means a work order issued or a contract awarded (General Circular 14/2021, FAQ 6.2). Until one exists, this money sits in the transfer pipe.</div>' +
+      '<div class="pnote convert" id="'+id+'noteconv" hidden>Commenced, single-year, underspent. The Board can extend it beyond the year with a recorded justification, converting it to an ongoing project under Rule 2(1)(i). Done before 31 March, that moves this money into the protected pipe.</div>';
+    projWrap.appendChild(card);
+    card.querySelector('.premove').addEventListener('click', function(){ card.remove(); update(); });
+    card.querySelectorAll('input').forEach(function(el){ el.addEventListener('input', update); });
+    if (preset){
+      card.querySelector('#'+id+'name').value = preset.name;
+      card.querySelector('#'+id+'budget').value = preset.budgetL;
+      card.querySelector('#'+id+'spent').value = preset.spentL;
+      card.querySelector('input[name="'+id+'com"][value="'+preset.commencement+'"]').checked = true;
+      card.querySelector('input[name="'+id+'my"][value="'+(preset.multiYear?'yes':'no')+'"]').checked = true;
+    }
+    return card;
+  }
+
+  function num(id){
+    var el = $(id); if (!el) return null;
+    var v = el.value.trim();
+    return v === '' ? null : Number(v);
+  }
+  function readState(){
+    var projects = [];
+    projWrap.querySelectorAll('.pcard').forEach(function(card){
+      var id = card.dataset.pid;
+      projects.push({
+        name: card.querySelector('#'+id+'name').value || 'Untitled project',
+        budgetL: num(id+'budget') || 0,
+        spentL: num(id+'spent') || 0,
+        commencement: (card.querySelector('input[name="'+id+'com"]:checked')||{}).value || 'none',
+        multiYear: ((card.querySelector('input[name="'+id+'my"]:checked')||{}).value) === 'yes'
+      });
+    });
+    return {
+      nw: num('nw'), to: num('to'), np1: num('np1'),
+      np2: num('np2'), np3: num('np3'),
+      yearsCompleted: Number($('yrs').value),
+      hasUnspent: (document.querySelector('input[name="hasUnspent"]:checked')||{}).value === 'yes',
+      projects: projects
+    };
+  }
+
+  var lastVals = {};
+  function setNum(el, target, key){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var from = lastVals[key] || 0;
+    lastVals[key] = target;
+    if (reduce || Math.abs(target - from) < 1){ el.textContent = inr(target); return; }
+    var t0 = performance.now(), dur = 420;
+    function tick(t){
+      var k = Math.min(1, (t - t0) / dur);
+      var eased = 1 - Math.pow(1 - k, 3);
+      el.textContent = inr(from + (target - from) * eased);
+      if (k < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function update(){
+    var s = readState();
+    var r = computePosition(s);
+
+    /* step 1 verdict */
+    var av = $('applyVerdict');
+    av.className = 'verdictline';
+    if (r.applicability === 'caught'){
+      av.innerHTML = '<b>Caught.</b> The ' + r.triggers.join(' and ') + ' threshold' + (r.triggers.length>1?'s':'') + ' crossed in FY 2025-26, and any one is enough. Section 135 applies for FY 2026-27.';
+    } else if (r.applicability === 'out'){
+      av.className = 'verdictline warn';
+      av.innerHTML = '<b>Outside Section 135 for FY 2026-27.</b> No threshold crossed last year. The test runs afresh every year, so one strong year brings the company back in.';
+    } else {
+      av.textContent = 'Fill the three figures and the applicability call appears here.';
+    }
+
+    /* step 2 verdict */
+    $('np1echo').textContent = s.np1 === null ? 'from step one' : ('\u20B9' + s.np1 + ' crore');
+    $('np2wrap').style.display = s.yearsCompleted >= 2 ? '' : 'none';
+    $('np3wrap').style.display = s.yearsCompleted >= 3 ? '' : 'none';
+    var ov = $('obVerdict');
+    ov.className = 'verdictline';
+    if (r.applicability !== 'caught'){
+      ov.textContent = r.applicability === 'out'
+        ? 'No statutory obligation this year, so the transfer machinery below does not bite.'
+        : 'The obligation appears here once step one settles applicability.';
+    } else if (!r.obligationReady){
+      ov.textContent = 'The obligation appears here once the profit figures are in.';
+    } else if (r.obligation === 0){
+      ov.className = 'verdictline warn';
+      ov.innerHTML = '<b>Caught, with a nil spending obligation.</b> The average of the preceding years is not positive, so two per cent of it is nothing. Policy and disclosure duties still stand.';
+    } else {
+      var comm = '';
+      if (r.committee === 'required') comm = ' A CSR Committee is required, since the obligation exceeds \u20B950 lakh.';
+      if (r.committee === 'board') comm = ' At or under \u20B950 lakh, the Board may discharge the committee\u2019s functions itself under 135(9).';
+      if (r.committee === 'required-proviso') comm = ' A CSR Committee is required whatever the size, because an Unspent CSR Account balance exists: the Rule 3(1) proviso.';
+      ov.innerHTML = '<b>Obligation for FY 2026-27: ' + inr(r.obligation) + '.</b> Two per cent of a ' + inr(r.avgCr * 1e7) + ' average.' + comm;
+    }
+
+    /* project chips + notes */
+    var cards = projWrap.querySelectorAll('.pcard');
+    cards.forEach(function(card, i){
+      var id = card.dataset.pid;
+      var p = r.projects[i];
+      var chip = $(id + 'chip');
+      if (p.budget === 0 && p.spent === 0){
+        chip.className = 'chip idle'; chip.textContent = 'Awaiting figures';
+      } else if (p.unspent === 0){
+        chip.className = 'chip spent'; chip.textContent = 'Fully spent';
+      } else if (p.pipe === 'protected'){
+        chip.className = 'chip protected'; chip.textContent = inr(p.unspent) + ' protected';
+      } else {
+        chip.className = 'chip exposed'; chip.textContent = inr(p.unspent) + ' at risk';
+      }
+      $(id + 'notecom').hidden = !(p.boardOnly && p.unspent > 0);
+      $(id + 'noteconv').hidden = !p.convertible;
+    });
+
+    /* ledger */
+    var body = $('ledgerBody');
+    if (r.obligation === null || r.obligation === 0){
+      body.innerHTML = '<p class="lempty">' + (
+        r.applicability === 'out' ? 'Outside Section 135 this year. Nothing to measure.' :
+        (r.obligation === 0 ? 'Caught, with a nil spending obligation this year.' :
+        'The statement builds itself as the figures go in: the obligation, what is on course, what is protected, and what is at risk of leaving.')) + '</p>';
+      $('mobilebar').hidden = true;
+      $('lfoot').textContent = '';
+      lastVals = {};
+    } else {
+      var pct = function(v){ return Math.max(0, Math.round(v / r.obligation * 1000) / 10); };
+      body.innerHTML =
+        '<div class="lrow big"><span class="lk">Obligation</span><span class="lv" id="lvOb"></span></div>' +
+        '<div class="lrow"><span class="lk">Spent to date</span><span class="lv green" id="lvSpent"></span></div>' +
+        '<div class="lrow"><span class="lk">Protected: to the Unspent CSR Account by 30 Apr</span><span class="lv blue" id="lvProt"></span></div>' +
+        '<div class="lrow"><span class="lk">At risk: out to a Schedule VII fund by 30 Sep</span><span class="lv red" id="lvExp"></span></div>' +
+        '<div class="lbar" aria-hidden="true">' +
+        '<span class="b-spent" style="width:' + pct(r.onTrack) + '%"></span>' +
+        '<span class="b-prot" style="width:' + pct(r.protected) + '%"></span>' +
+        '<span class="b-exp" style="width:' + pct(r.exposed) + '%"></span></div>' +
+        '<div class="lkey"><span><i style="background:#8AAE98"></i>Spent</span><span><i style="background:#7FA3B5"></i>Protected</span><span><i style="background:#C96A54"></i>At risk</span></div>';
+      setNum($('lvOb'), r.obligation, 'ob');
+      setNum($('lvSpent'), r.onTrack, 'sp');
+      setNum($('lvProt'), r.protected, 'pr');
+      setNum($('lvExp'), r.exposed, 'ex');
+      var foot = '';
+      if (r.unallocated > 0) foot += '<b>' + inr(r.unallocated) + '</b> of the obligation has no project behind it at all, which puts it in the transfer pipe by default. ';
+      if (r.excess > 0) foot += 'Spend is <b>' + inr(r.excess) + '</b> above the obligation. That excess can be set off against the next three financial years by Board resolution, excluding surplus from CSR activities (Rule 7(3)). ';
+      if (r.exposed > 0) foot += 'Money that transfers out leaves the company\u2019s control and cannot fund its CSR for the following six months.';
+      if (r.exposed === 0 && r.excess === 0 && r.unallocated === 0) foot = 'Every rupee of the obligation is either spent or parked where the company keeps control of it.';
+      $('lfoot').innerHTML = foot;
+      var mb = $('mobilebar');
+      mb.hidden = !(r.exposed > 0);
+      $('mvExposed').textContent = inr(r.exposed);
+    }
+  }
+
+  /* wiring */
+  ['nw','to','np1','np2','np3'].forEach(function(id){ $(id).addEventListener('input', update); });
+  $('yrs').addEventListener('change', update);
+  document.querySelectorAll('input[name="hasUnspent"]').forEach(function(el){ el.addEventListener('change', update); });
+  $('addProj').addEventListener('click', function(){ projectCard(); });
+  $('loadExample').addEventListener('click', function(){
+    projWrap.innerHTML = ''; pid = 0;
+    $('nw').value = 300; $('to').value = 800; $('np1').value = 100;
+    $('yrs').value = 3; $('np2').value = 120; $('np3').value = 80;
+    document.querySelector('input[name="hasUnspent"][value="no"]').checked = true;
+    projectCard({ name:'Community health camps, two districts', budgetL:120, spentL:45, commencement:'workorder', multiYear:true });
+    projectCard({ name:'School sanitation upgrade', budgetL:60, spentL:0, commencement:'board', multiYear:true });
+    update();
+  });
+
+  $('daysLeft').textContent = daysToYearEnd(new Date());
+  projectCard();
+  update();
+})();
+</script>
+</body>
+</html>
