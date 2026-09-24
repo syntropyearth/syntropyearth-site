@@ -274,7 +274,7 @@ em.accent { font-style: italic; color: var(--red-earth); }
 .articles { display: grid; grid-template-columns: 1fr; gap: 2rem; }
 .article-card { display: block; border-top: 2px solid var(--red-earth); padding-top: 1.4rem; transition: transform 0.3s var(--ease); }
 .article-card:hover { transform: translateY(-4px); }
-.article-meta { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.9rem; }
+.article-meta { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red-earth); margin-bottom: 0.9rem; }
 .article-card h3 { font-size: clamp(18px, 2.2vw, 21px); font-weight: 400; line-height: 1.3; color: var(--deep-forest); margin-bottom: 0.7rem; transition: color 0.25s var(--ease); }
 .article-card:hover h3 { color: var(--forest); }
 .article-card p { font-size: 14px; line-height: 1.65; color: var(--text-muted); }
@@ -1203,7 +1203,7 @@ em.accent { font-style: italic; color: var(--red-earth); }
 .coming-note { font-size: 14px; color: var(--text-faint); margin-top: 1.4rem; max-width: 60ch; }
 
 /* ---- footer: climate clock as a keyworded text line on every page ---- */
-.footer-clock-line { max-width: var(--max); margin: 0 auto 1.6rem; padding-bottom: 1.4rem; border-bottom: 1px solid var(--hr-on-dark); font-size: 13.5px; line-height: 1.6; color: var(--muted-on-dark); }
+.footer-clock-line { max-width: var(--max); margin: 0 auto 0.5rem; padding-bottom: 0; border-bottom: 0; font-size: 13.5px; line-height: 1.6; color: var(--muted-on-dark); }
 .footer-clock-line a { color: var(--sage); border-bottom: 1px solid rgba(138,174,152,0.4); }
 .footer-clock-line a:hover { color: var(--soft-cream); border-color: var(--soft-cream); }
 
@@ -1248,3 +1248,50 @@ em.accent { font-style: italic; color: var(--red-earth); }
 .proof-item .go { margin-top: auto; padding-top: 1rem; align-self: flex-start; }
 @media (min-width: 800px) { .proof-list { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 2rem; } .proof-inner { grid-template-columns: 220px minmax(0, 1fr); } .proof-item { padding-right: 0.5rem; } }
 .proof-item .go { white-space: nowrap; }
+
+/* ---- v9 ---- */
+.cc-fallback { max-width: var(--max); margin: 0 auto; padding: 1.1rem var(--gutter) 0.4rem; font-family: var(--sans); font-size: 14px; color: rgba(255,255,255,.75); }
+.cc-top { min-height: 96px; }
+/* section eyebrows read as markers, not body */
+.label, .eyebrow.label, .page-hero .label { color: var(--red-earth); }
+.section--forest .label, .section--midnight .label { color: var(--sage); }
+/* about: prose left, portrait and background right */
+.about-layout { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: start; }
+.about-side { position: sticky; top: 88px; }
+.about-photo--col { float: none; width: 100%; margin: 0 0 1.8rem; }
+.about-side .about-block { margin-top: 0; }
+.about-side .cred-list { grid-template-columns: 1fr; gap: 0.9rem; }
+@media (min-width: 900px) { .about-layout { grid-template-columns: minmax(0, 1fr) 360px; gap: 5rem; } .about-prose { max-width: 62ch; } }
+/* questions page: split groups, accordions */
+.faq--page { max-width: none; }
+.faq-group--split { display: grid; grid-template-columns: 1fr; gap: 1.2rem 4rem; padding-top: 2.4rem; border-top: 1px solid var(--hr); margin-bottom: 1rem; }
+.faq-group--split:first-child { border-top: 0; padding-top: 0; }
+.faq-head .ico--lg { margin-bottom: 0.8rem; }
+.faq-head .label { margin-bottom: 0.5rem; }
+.faq-head-line { font-family: var(--serif); font-size: 21px; line-height: 1.35; color: var(--deep-forest); max-width: 22ch; }
+.faq-items { max-width: 62ch; }
+details.faq-item { border-top: 1px solid var(--hr); padding: 0; }
+details.faq-item:first-of-type { border-top: 1px solid var(--hr) !important; }
+details.faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.1rem 0; }
+details.faq-item summary::-webkit-details-marker { display: none; }
+details.faq-item summary h3 { margin: 0; font-size: 17px; }
+details.faq-item summary:hover h3 { color: var(--red-earth); }
+.faq-chev { width: 10px; height: 10px; border-right: 1.5px solid var(--forest); border-bottom: 1.5px solid var(--forest); transform: rotate(45deg); transition: transform 0.25s var(--ease); flex-shrink: 0; margin-right: 4px; }
+details[open] .faq-chev { transform: rotate(-135deg); }
+.faq-a { padding: 0 0 1.3rem; }
+.faq-a p { font-size: 15.5px; line-height: 1.75; color: var(--text-muted); }
+.faq-a p + p { margin-top: 0.7rem; }
+@media (min-width: 860px) { .faq-group--split { grid-template-columns: 300px minmax(0, 1fr); } .faq-head { position: sticky; top: 88px; } }
+/* social impact: the two roads in outlined frames, method section set apart */
+.section--method { border-top: 3px solid var(--red-earth); }
+.road { border: 1px solid var(--hr-strong); border-radius: var(--radius); padding: 1.8rem 1.8rem 1.4rem; margin-top: 2.2rem; }
+.road--sr { border-color: var(--red-earth); }
+.road--he { border-color: var(--forest); }
+.road > .label { margin-bottom: 1rem; }
+.road--he > .label { color: var(--forest); }
+.practice-card, .practice { border: 1px solid var(--hr-strong) !important; }
+
+.group-head { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.9rem; }
+.group-head .ico--lg { margin-bottom: 0; width: 34px; height: 34px; }
+.group-head .label { margin: 0; }
+.article-card p.article-meta, .articles .article-meta { color: var(--red-earth); }

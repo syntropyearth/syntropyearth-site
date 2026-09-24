@@ -135,13 +135,14 @@ button.quiet:hover{border-color:var(--sage)}
 @media(min-width:941px){.mobilebar{display:none}}
 .wide{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
 .calsec{padding:44px 0 8px;border-top:1px solid var(--mist)}
+.wide .lawnote,.wide .ctasec p,.wide .assumes p{max-width:72ch}
 .calsec h2,.ctasec h2{font-family:var(--serif);font-weight:500;font-size:clamp(24px,3vw,32px)}
-table.deadlines{width:100%;border-collapse:collapse;margin-top:20px;font-size:15px;max-width:860px}
+table.deadlines{width:100%;border-collapse:collapse;margin-top:20px;font-size:15px;max-width:1040px}
 table.deadlines th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--forest);font-weight:400;padding:0 14px 10px 0;border-bottom:1px solid var(--deep-forest)}
 table.deadlines td{padding:13px 14px 13px 0;border-bottom:1px solid var(--mist);vertical-align:top}
 table.deadlines td:first-child{font-family:var(--serif);font-size:19px;font-weight:500;white-space:nowrap}
 table.deadlines .basis{font-family:var(--mono);font-size:11px;color:var(--text-muted);letter-spacing:.04em}
-.pipes{margin:34px 0 10px;max-width:860px}
+.pipes{margin:34px 0 10px;max-width:1040px}
 .pipes svg{width:100%;height:auto;display:block}
 .billnote{margin:26px 0 0;max-width:72ch;font-size:14px;color:var(--text-muted);border-left:3px solid var(--warm-clay);padding:10px 14px;background:var(--soft-cream)}
 .ctasec{padding:52px 0 56px;border-top:1px solid var(--mist)}
@@ -397,7 +398,7 @@ noscript .nsnote{display:block;max-width:760px;margin:20px auto;padding:14px 18p
   <section class="calsec">
     <h2>The calendar the money runs on</h2>
     <div class="pipes" role="img" aria-label="Diagram of the two pipes for unspent CSR money. Ongoing projects flow to the company's own Unspent CSR Account by 30 April 2027 with three further years to spend. Everything else flows out to a Schedule VII fund by 30 September 2027.">
-      <svg viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg viewBox="0 0 1040 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <style>
           .pt{font-family:'DM Sans',sans-serif;font-size:14px;fill:#1E4435}
           .pts{font-family:'DM Sans',sans-serif;font-size:12px;fill:#4c6a5c}
@@ -424,10 +425,12 @@ noscript .nsnote{display:block;max-width:760px;margin:20px auto;padding:14px 18p
         <text x="436" y="218" class="pmw">BY 30 SEPTEMBER 2027</text>
         <text x="436" y="242" class="phw">Schedule VII fund</text>
         <text x="436" y="262" font-family="DM Sans" font-size="12" fill="#F0DED0">leaves the company's control</text>
-        <path d="M690 69 C 740 69, 760 69, 800 69" fill="none" stroke="#2A4A5A" stroke-width="2" stroke-dasharray="3 4"/>
-        <text x="700" y="52" class="pm" fill="#2A4A5A">3 MORE YEARS</text>
-        <text x="700" y="146" class="pts">to spend it on the</text>
-        <text x="700" y="162" class="pts">same project</text>
+        <path d="M690 69 C 730 69, 750 69, 790 69" fill="none" stroke="#2A4A5A" stroke-width="2" stroke-dasharray="3 4"/>
+        <path d="M783 63 L 793 69 L 782 75 Z" fill="#2A4A5A"/>
+        <rect x="796" y="24" width="234" height="90" rx="6" fill="none" stroke="#2A4A5A" stroke-width="1.5"/>
+        <text x="812" y="50" class="pm" fill="#2A4A5A">THEN 3 MORE YEARS</text>
+        <text x="812" y="74" class="ph">Spent on the same project</text>
+        <text x="812" y="94" class="pts">what is still left then goes out in 30 days</text>
       </svg>
     </div>
     <table class="deadlines">
@@ -526,7 +529,7 @@ noscript .nsnote{display:block;max-width:760px;margin:20px auto;padding:14px 18p
     </div>
   </div>
 
-  <p class="footer-clock-line">The <a href="https://climateclock.world" target="_blank" rel="noopener">Climate Clock</a> counts the time left to hold warming to 1.5&deg;C, the line set in the Paris Agreement. It runs live at the top of the <a href="/">homepage</a>.</p>
+  <p class="footer-clock-line">The <a href="https://climateclock.world/get" target="_blank" rel="noopener">Climate Clock</a> counts the time left to hold warming to 1.5&deg;C, the line set in the Paris Agreement. It runs live at the top of the <a href="/">homepage</a>.</p>
 
   <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
     <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved. <a href="/privacy/">Privacy Policy</a></span>
