@@ -34,7 +34,7 @@
 
 <!-- Bump ?v= whenever styles.css changes. netlify.toml sets a one-year
      immutable cache, so an un-bumped string means nobody sees the new CSS. -->
-<link rel="stylesheet" href="/styles.css?v=300">
+<link rel="stylesheet" href="/styles.css?v=310">
 
 <!-- ANALYTICS: GTM-WG7CWTHG is injected site-wide by Netlify Snippet Injection.
      It must NOT be hardcoded here, and gtag.js is not loaded on this site.
@@ -104,13 +104,13 @@
 </script>
 <script>
 (function(){
-  var s=document.createElement('script'); s.async=true; s.src='https://climateclock.world/widget-v2.js';
-  s.onerror=function(){ var t=document.createElement('script'); t.async=true; t.src='https://api.climateclock.world/assets/widget-v2.js'; document.head.appendChild(t); };
-  document.head.appendChild(s);
+  function load(src,onerr){ var t=document.createElement('script'); t.async=true; t.src=src; if(onerr) t.onerror=onerr; document.head.appendChild(t); }
+  load('https://api.climateclock.world/assets/widget-v2.js', function(){ load('https://climateclock.world/widget-v2.js'); });
   window.addEventListener('load',function(){ setTimeout(function(){
-    var c=document.querySelector('climate-clock'); var f=document.getElementById('cc-fallback');
-    if(c && f && !(c.shadowRoot || c.children.length)) f.removeAttribute('hidden');
-  },5000); });
+    var f=document.getElementById('cc-fallback');
+    var ok = (window.customElements && customElements.get('climate-clock')) || (document.querySelector('climate-clock') && document.querySelector('climate-clock').children.length);
+    if(f && !ok) f.removeAttribute('hidden');
+  },6000); });
 })();
 </script>
 </head>
@@ -502,6 +502,6 @@
   </div>
 </footer>
 
-<script src="/js/main.js?v=300"></script>
+<script src="/js/main.js?v=310"></script>
 </body>
 </html>

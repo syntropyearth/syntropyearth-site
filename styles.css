@@ -1295,3 +1295,4 @@ details[open] .faq-chev { transform: rotate(-135deg); }
 .group-head .ico--lg { margin-bottom: 0; width: 34px; height: 34px; }
 .group-head .label { margin: 0; }
 .article-card p.article-meta, .articles .article-meta { color: var(--red-earth); }
+.convo-invite { justify-content: flex-start; }
