@@ -397,3 +397,17 @@ if (document.body) document.body.classList.remove('no-js');
   });
   show(0);
 })();
+
+/* ---------- resources dropdown toggle (parent is not a link) ---------- */
+(function () {
+  document.querySelectorAll('.nav-drop-toggle').forEach(function (t) {
+    var wrap = t.parentNode;
+    t.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = wrap.classList.toggle('is-open');
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) { wrap.classList.remove('is-open'); t.setAttribute('aria-expanded', 'false'); } });
+    t.addEventListener('keydown', function (e) { if (e.key === 'Escape') { wrap.classList.remove('is-open'); t.setAttribute('aria-expanded', 'false'); } });
+  });
+})();

@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=310">
+<link rel="stylesheet" href="/styles.css?v=320">
 <style>
   :root{
     --bg-page:#FFFFFF; --bg-surface:#FFFFFF; --bg-cream:#FDFAF5; --bg-dark:#1E4435; --bg-footer:#143025;
@@ -49,7 +49,7 @@
     font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:var(--maxw); margin:0 auto; padding:28px 22px 80px}
-  .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:.20em; text-transform:uppercase; color:var(--forest); margin:0 0 12px}
+  .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:.20em; text-transform:uppercase; color:var(--red); margin:0 0 12px}
   h1,h2,h3{font-family:var(--display); color:var(--bg-dark); font-weight:500; line-height:1.12; margin:0}
   h1{font-size:clamp(30px,6vw,46px); letter-spacing:.005em}
   h2{font-size:clamp(24px,4.5vw,34px)}
@@ -328,6 +328,10 @@
   .footer h3, .footer .footer-brand .wordmark{color:var(--soft-cream)}
   .footer .mark{flex:none}
   .cc-top{display:none}
+  .cavs-wrap h1{font-weight:300; font-size:clamp(34px,5vw,56px); line-height:1.05; letter-spacing:-.01em; margin-bottom:18px}
+  .cavs-wrap h2{font-weight:300}
+  .cavs-wrap .lead{font-size:clamp(16px,2vw,18px); line-height:1.75}
+  .cavs-wrap .card h3{font-weight:400}
 </style>
 <script type="application/ld+json">
 {
@@ -409,7 +413,7 @@
       <a href="/conversations/">Conversations</a>
       <a href="/brand-growth/">Brand &amp; Growth</a>
       <span class="has-drop">
-        <a href="/thinking/" aria-haspopup="true">Resources</a>
+        <a href="#" class="nav-drop-toggle" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
         <span class="nav-drop">
           <span class="nav-drop-panel">
             <a href="/thinking/">Thinking</a>
@@ -439,7 +443,7 @@
   <a href="/conversations/">Conversations</a>
   <a href="/brand-growth/">Brand &amp; Growth</a>
   <span class="mm-group">
-    <a href="/thinking/">Resources</a>
+    <span class="mm-group-label">Resources</span>
     <a class="mm-sub" href="/thinking/">Thinking</a>
     <a class="mm-sub" href="/guide/">Guide</a>
     <a class="mm-sub" href="/climate-access/">Climate access (CAST)</a>
@@ -1975,6 +1979,6 @@ render();
   </div>
 </footer>
 
-<script src="/js/main.js?v=310"></script>
+<script src="/js/main.js?v=320"></script>
 </body>
 </html>

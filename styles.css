@@ -1296,3 +1296,6 @@ details[open] .faq-chev { transform: rotate(-135deg); }
 .group-head .label { margin: 0; }
 .article-card p.article-meta, .articles .article-meta { color: var(--red-earth); }
 .convo-invite { justify-content: flex-start; }
+/* resources dropdown: parent is a toggle, not a link */
+.has-drop.is-open .nav-drop { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+.mm-group-label { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); margin: 1.2rem 0 0.4rem; }
