@@ -122,7 +122,7 @@
         if (p.y < 0 || p.y > h) p.vy *= -1;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(138,174,152,0.62)';
+        ctx.fillStyle = 'rgba(53,107,78,0.55)';
         ctx.fill();
       }
       /* links — the "organising" effect */
@@ -132,11 +132,11 @@
           var dy = particles[a].y - particles[b].y;
           var dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < LINK_DIST) {
-            var op = (1 - dist / LINK_DIST) * 0.28;
+            var op = (1 - dist / LINK_DIST) * 0.22;
             ctx.beginPath();
             ctx.moveTo(particles[a].x, particles[a].y);
             ctx.lineTo(particles[b].x, particles[b].y);
-            ctx.strokeStyle = 'rgba(196,217,204,' + op + ')';
+            ctx.strokeStyle = 'rgba(53,107,78,' + op + ')';
             ctx.lineWidth = 0.7;
             ctx.stroke();
           }
@@ -289,10 +289,10 @@
   el.setAttribute('aria-label', 'Free scorecard and newsletter');
   el.innerHTML =
     '<button class="sp-close" type="button" aria-label="Dismiss">&times;</button>' +
-    '<p class="sp-eyebrow">Free &middot; 3 minutes</p>' +
+    '<p class="sp-eyebrow">Free &middot; runs in your browser</p>' +
     '<p class="sp-head">Still reading?</p>' +
-    '<p class="sp-body">Find out how exposed your organisation\u2019s healthcare access is to a warming climate. Scored across four dimensions, benchmarked against 59 listed Indian companies.</p>' +
-    '<a class="sp-btn" href="/climate-access/" data-cavs="prompt">Run the free scorecard &rarr;</a>' +
+    '<p class="sp-body">Will this year\u2019s CSR money still be yours on 31 March? The calculator runs the commencement test on every project and returns what is spent, what is protected, and what is at risk.</p>' +
+    '<a class="sp-btn" href="/tools/unspent-csr-funds-calculator/" data-cavs="prompt">Check your unspent CSR position &rarr;</a>' +
     '<hr class="sp-rule">' +
     '<p class="sp-eyebrow-2">Stay connected</p>' +
     '<p class="sp-body-2">Entropy Unplugged, fortnightly on LinkedIn. One click, no email address changes hands.</p>' +
@@ -338,4 +338,62 @@
       el.querySelector('.sp-close').click();
     }
   });
+})();
+
+/* ---------- v3: no-js flag ---------- */
+document.documentElement.classList.remove('no-js');
+if (document.body) document.body.classList.remove('no-js');
+
+/* ---------- v3: hero obligation selector ---------- */
+(function () {
+  var chips = document.querySelectorAll('.chip[data-sub]');
+  var sub = document.getElementById('hero-sub');
+  var cta2 = document.getElementById('hero-cta-2');
+  if (!chips.length || !sub || !cta2) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      chips.forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+      c.setAttribute('aria-pressed', 'true');
+      var apply = function () {
+        sub.textContent = c.getAttribute('data-sub');
+        cta2.textContent = c.getAttribute('data-cta2');
+        cta2.setAttribute('href', c.getAttribute('data-href2'));
+        sub.classList.remove('is-swapping');
+      };
+      if (reduce) { apply(); return; }
+      sub.classList.add('is-swapping');
+      setTimeout(apply, 220);
+      if (window.dataLayer) { window.dataLayer.push({ event: 'hero_obligation', obligation: c.textContent.trim() }); }
+    });
+  });
+})();
+
+/* ---------- v3: how-it's-built stepper ---------- */
+(function () {
+  var root = document.getElementById('stepper');
+  if (!root) return;
+  var tabs = Array.prototype.slice.call(root.querySelectorAll('.step-tab'));
+  var panels = Array.prototype.slice.call(root.querySelectorAll('.step-panel'));
+  var current = 0;
+  function show(i) {
+    current = (i + tabs.length) % tabs.length;
+    tabs.forEach(function (t, k) {
+      var on = k === current;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.setAttribute('tabindex', on ? '0' : '-1');
+    });
+    panels.forEach(function (p, k) { if (k === current) p.removeAttribute('hidden'); else p.setAttribute('hidden', ''); });
+  }
+  tabs.forEach(function (t, k) {
+    t.addEventListener('click', function () { show(k); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { show(current + 1); tabs[current].focus(); }
+      if (e.key === 'ArrowLeft') { show(current - 1); tabs[current].focus(); }
+    });
+  });
+  root.querySelectorAll('.step-nav button').forEach(function (b) {
+    b.addEventListener('click', function () { show(current + parseInt(b.getAttribute('data-dir'), 10)); });
+  });
+  show(0);
 })();

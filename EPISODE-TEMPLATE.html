@@ -1,66 +1,85 @@
+<!-- EPISODE TEMPLATE. Copy to /conversations/<slug>/index.html, set robots back to index,follow, replace every {{FIELD}}, add the URL to sitemap.xml and a card on /conversations/index.html and the homepage. Never publish with a {{ }} left in. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1E4435">
-<meta name="color-scheme" content="light">
-
+<title>{{TITLE}} | Conversations | Syntropy Earth</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<link rel="canonical" href="https://syntropyearth.com/conversations/{{SLUG}}/">
+<meta name="robots" content="noindex, nofollow">
+<meta name="author" content="Abhijith Magal">
+<meta name="theme-color" content="#FFFFFF">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Syntropy Earth">
-<meta property="og:title" content="Page not found | Syntropy Earth">
-<meta property="og:description" content="That page has moved or no longer exists. Here is the way back.">
+<meta property="og:title" content="{{TITLE}} | Conversations | Syntropy Earth">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:url" content="https://syntropyearth.com/conversations/{{SLUG}}/">
 <meta property="og:image" content="https://syntropyearth.com/og-image-2026-09.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Syntropy Earth, climate-health advisory">
-
-<title>Page not found | Syntropy Earth</title>
-<meta name="description" content="That page has moved or no longer exists. Here is the way back.">
-<meta name="robots" content="noindex, follow">
-
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{TITLE}} | Conversations | Syntropy Earth">
+<meta name="twitter:description" content="{{DESCRIPTION}}">
+<meta name="twitter:image" content="https://syntropyearth.com/og-image-2026-09.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=256d">
-
-<!-- Analytics: injected site-wide at the edge. Do not add a second install here.
-     The dataLayer push below records which URL 404'd, so broken inbound links
-     are visible in GA4 rather than silently losing visitors. -->
-
-<style>
-  /* Scoped to this page. styles.css deliberately untouched. */
-  .nf { min-height: 78vh; display: flex; align-items: center; }
-  .nf-inner { max-width: 46rem; margin: 0 auto; padding: clamp(3rem, 8vw, 5rem) clamp(1.25rem, 5vw, 2rem); text-align: center; }
-  .nf-code { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-clay); margin-bottom: 1.5rem; }
-  .nf h1 { margin-bottom: 1.2rem; }
-  .nf-lead { font-size: clamp(16px, 2vw, 18px); line-height: 1.75; color: rgba(250,244,232,0.78); max-width: 34rem; margin: 0 auto 1rem; }
-  .nf-url { font-family: var(--mono); font-size: 11.5px; color: rgba(196,217,204,0.55); word-break: break-all; margin: 0 auto 2.4rem; max-width: 34rem; }
-  .nf-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; justify-content: center; margin-bottom: 3rem; }
-  .nf-links { border-top: 1px solid var(--hr-on-dark); padding-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.6rem 2rem; justify-content: center; }
-  .nf-links a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(196,217,204,0.65); border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s; }
-  .nf-links a:hover { color: #FAF4E8; border-bottom-color: var(--warm-clay); }
-</style>
+<link rel="stylesheet" href="/styles.css?v=300">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://syntropyearth.com/conversations/{{SLUG}}/#article",
+      "headline": "{{TITLE}}",
+      "description": "{{DESCRIPTION}}",
+      "datePublished": "{{DATE_ISO}}",
+      "dateModified": "{{DATE_ISO}}",
+      "author": { "@id": "https://syntropyearth.com/#person" },
+      "publisher": { "@id": "https://syntropyearth.com/#org" },
+      "mainEntityOfPage": "https://syntropyearth.com/conversations/{{SLUG}}/",
+      "isPartOf": { "@id": "https://syntropyearth.com/conversations/#page" },
+      "video": { "@id": "https://syntropyearth.com/conversations/{{SLUG}}/#video" }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://syntropyearth.com/conversations/{{SLUG}}/#video",
+      "name": "{{TITLE}}",
+      "description": "{{DESCRIPTION}}",
+      "uploadDate": "{{DATE_ISO}}",
+      "thumbnailUrl": "https://i.ytimg.com/vi/{{YOUTUBE_ID}}/maxresdefault.jpg",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/{{YOUTUBE_ID}}",
+      "contentUrl": "https://www.youtube.com/watch?v={{YOUTUBE_ID}}"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Conversations", "item": "https://syntropyearth.com/conversations/" },
+        { "@type": "ListItem", "position": 2, "name": "{{TITLE}}", "item": "https://syntropyearth.com/conversations/{{SLUG}}/" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
-
 <body>
-
 <nav class="nav" aria-label="Primary">
   <div class="nav-inner">
     <a class="nav-brand" href="/" aria-label="Syntropy Earth home">
       <svg class="mark mark-draw" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-        <path class="arc" d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+        <path class="arc" d="M 24,3 A 21,21 0 1,1 3,24" stroke="#1E4435" stroke-width="1.75" stroke-linecap="round"/>
         <path class="arc arc-2" d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
         <path class="arc arc-3" d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
-        <circle class="dot" cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+        <circle class="dot" cx="24" cy="24" r="2.5" fill="#1E4435"/>
       </svg>
       <span class="wordmark">Syntropy Earth</span>
     </a>
     <div class="nav-links">
       <a href="/social-impact/">Social Impact</a>
+      <a href="/conversations/">Conversations</a>
       <a href="/brand-growth/">Brand &amp; Growth</a>
       <span class="has-drop">
         <a href="/thinking/" aria-haspopup="true">Resources</a>
@@ -87,8 +106,10 @@
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
 <div class="mobile-menu" id="mobile-menu">
   <a href="/social-impact/">Social Impact</a>
+  <a href="/conversations/">Conversations</a>
   <a href="/brand-growth/">Brand &amp; Growth</a>
   <span class="mm-group">
     <a href="/thinking/">Resources</a>
@@ -105,28 +126,52 @@
   <a class="btn btn-primary" href="/#contact">Work with us</a>
 </div>
 
-<main class="page-hero nf">
-  <div class="hero-glow" aria-hidden="true"></div>
-  <div class="nf-inner">
-    <p class="nf-code">Error 404</p>
-    <h1>This page has <em>moved on.</em></h1>
-    <p class="nf-lead">Either it was retired, or the link that brought you here is out of date. Nothing is broken at your end.</p>
-    <p class="nf-url" id="nf-url"></p>
+<header class="page-hero">
+  <div class="wrap page-hero-inner">
+    <p class="label">Episode {{EPISODE_NUMBER}} &middot; {{DATE_HUMAN}}</p>
+    <h1>{{TITLE}}</h1>
+    <p class="lead">{{GUEST_NAME}}, {{GUEST_ROLE}}. {{ONE_LINE_ON_THE_CONVERSATION}}</p>
+  </div>
+</header>
 
-    <div class="nf-actions">
-      <a class="btn btn-primary" href="/tools/unspent-csr-funds-calculator/" data-cavs="calc-404-page">Check your unspent CSR position <span class="arrow">&rarr;</span></a>
-      <a class="btn btn-ghost" href="/">Back to the homepage</a>
+<main>
+<section class="section section--warm">
+  <div class="wrap-narrow">
+    <!-- Static text first, video second: the page must read without JavaScript. -->
+    <div class="ep-video">
+      <iframe src="https://www.youtube-nocookie.com/embed/{{YOUTUBE_ID}}" title="{{TITLE}}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+    <p class="small mt-2">Watch on <a href="https://www.youtube.com/watch?v={{YOUTUBE_ID}}" target="_blank" rel="noopener" style="color:var(--forest)">YouTube</a> if the player does not load.</p>
 
-    <div class="nf-links">
-      <a href="/social-impact/">Social Impact</a>
-      <a href="/thinking/">Thinking</a>
-      <a href="/guide/">Guide</a>
-      <a href="/about/">About</a>
-      <a href="/#contact">Contact</a>
+    <h2 class="h3 mt-4">What was said</h2>
+    <p>{{WHAT_WAS_SAID_PARAGRAPH_1}}</p>
+    <p>{{WHAT_WAS_SAID_PARAGRAPH_2}}</p>
+
+    <h2 class="h3 mt-4">What surprised us</h2>
+    <p>{{WHAT_SURPRISED_PARAGRAPH}}</p>
+
+    <h2 class="h3 mt-4">What it changes about how programmes get built</h2>
+    <p>{{WHAT_IT_CHANGES_PARAGRAPH}}</p>
+
+    <p class="pull-quote mt-4">&ldquo;{{ONE_VERBATIM_LINE_FROM_THE_GUEST_WITH_PERMISSION}}&rdquo;</p>
+    <p class="small">{{GUEST_NAME}}, in conversation, {{DATE_HUMAN}}. Quoted with permission.</p>
+
+    <p class="mt-4"><a class="text-link" href="/conversations/">All conversations <span class="arrow">&rarr;</span></a></p>
+  </div>
+</section>
+
+<section class="section section--forest" id="contact">
+  <div class="wrap contact-wrap">
+    <h2 class="contact-lead reveal">Sit on top of one of these questions?</h2>
+    <p class="contact-sub reveal">The invitation is open. On camera or off.</p>
+    <div class="hero-ctas reveal">
+      <a class="btn btn-primary" href="mailto:hello@syntropyearth.com?subject=Conversation%20series">Say yes to forty minutes <span class="arrow">&rarr;</span></a>
+      <a class="btn btn-outline-on-dark" href="https://calendar.app.google/tR6mVMNSphduvNSk7" target="_blank" rel="noopener">Or book a call</a>
     </div>
   </div>
+</section>
 </main>
+
 
 <footer class="footer">
   <div class="footer-inner">
@@ -147,6 +192,7 @@
       <div class="footer-col">
         <h4>Navigate</h4>
         <a href="/social-impact/">Social Impact</a>
+        <a href="/conversations/">Conversations</a>
         <a href="/brand-growth/">Brand &amp; Growth</a>
         <a href="/tools/unspent-csr-funds-calculator/" data-cavs="calc-footer">CSR calculator</a>
         <a href="/thinking/">Thinking</a>
@@ -168,26 +214,16 @@
     </div>
   </div>
 
-  <p class="footer-clock-line">The <a href="https://climateclock.world" target="_blank" rel="noopener">Climate Clock</a> counts the time left to hold warming to 1.5&deg;C, the line set in the Paris Agreement. It runs live at the top of the <a href="/">homepage</a>.</p>
+  <div class="footer-clock">
+    <climate-clock></climate-clock>
+    <p class="footer-clock-note"><span>Live deadline and lifelines, #ActInTime</span><a href="https://climateclock.world" target="_blank" rel="noopener">climateclock.world</a></p>
+  </div>
 
   <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
     <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved. <a href="/privacy/">Privacy Policy</a></span>
   </div>
 </footer>
 
-<script>
-  (function () {
-    var path = window.location.pathname + window.location.search;
-    var el = document.getElementById("nf-url");
-    if (el) { el.textContent = "syntropyearth.com" + path; }
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "page_not_found",
-      not_found_path: path,
-      not_found_referrer: document.referrer || "direct"
-    });
-  })();
-</script>
-<script src="/js/main.js?v=256d"></script>
+<script src="/js/main.js?v=300"></script>
 </body>
 </html>
