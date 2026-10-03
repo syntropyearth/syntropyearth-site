@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Weather Forecasts: 81% Get Data, 23% Use It | Syntropy Earth</title>
+<meta name="description" content="AI weather forecasting now runs on a chip, yet only 23% of health ministries use the data. The decision-first fix: trigger, action, owner, count.">
+<meta name="author" content="Abhijith Magal">
+<link rel="canonical" href="https://syntropyearth.com/thinking/forecast-decision-climate-health/">
+<meta property="og:title" content="81% of weather services offer health data. 23% of health ministries use it.">
+<meta property="og:description" content="The gap is not a delivery failure. Forecasts were never built for the decisions health officials face. Decision-first design, written as a one-page spec any programme can hold.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://syntropyearth.com/thinking/forecast-decision-climate-health/">
+<meta property="og:image" content="https://syntropyearth.com/og-image-2026-09.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Syntropy Earth: climate-access advisory">
+<meta property="og:locale" content="en_IN">
+<meta property="og:site_name" content="Syntropy Earth">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="81% of weather services offer health data. 23% of health ministries use it.">
+<meta name="twitter:description" content="Who gets a refill call before the heatwave? Name the decision, then procure the forecast. The method behind every working climate-health service.">
+<meta name="twitter:image" content="https://syntropyearth.com/og-image-2026-09.png">
+<meta name="twitter:image:alt" content="Syntropy Earth: climate-access advisory">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="article:published_time" content="2026-09-24T09:00:00+05:30">
+<meta property="article:modified_time" content="2026-10-03T09:00:00+05:30">
+<meta property="article:section" content="Method">
+<meta property="article:author" content="https://syntropyearth.com/about/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://syntropyearth.com/thinking/forecast-decision-climate-health/#article",
+      "headline": "81% of weather services offer health data, 23% of health ministries use it: the gap is a missing decision",
+      "description": "A University of Chicago report backed by the Rockefeller Foundation finds 81 per cent of met services provide climate services for health while 23 per cent of health ministries use weather data in surveillance. Its decision-first argument, written as a one-page spec with trigger, action, owner and count, is the method Indian climate-health programmes should adopt.",
+      "url": "https://syntropyearth.com/thinking/forecast-decision-climate-health/",
+      "datePublished": "2026-09-24",
+      "dateModified": "2026-10-03",
+      "inLanguage": "en-IN",
+      "author": {
+        "@id": "https://syntropyearth.com/#person"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Syntropy Earth",
+        "url": "https://syntropyearth.com/"
+      },
+      "image": "https://syntropyearth.com/og-image-2026-09.png",
+      "mainEntityOfPage": "https://syntropyearth.com/thinking/forecast-decision-climate-health/",
+      "keywords": "AI weather forecasting health, decision-first climate health, Rockefeller Chicago weather report, climate services health ministries, heat forecast health decision India, climate health surveillance",
+      "about": [
+        {
+          "@id": "https://syntropyearth.com/thinking/what-is-climate-access/#term"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://syntropyearth.com/thinking/forecast-decision-climate-health/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does the 81 per cent against 23 per cent gap describe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Per WMO 2023 figures quoted in the University of Chicago report, 81 per cent of national meteorological services provide climate services for health, while only 23 per cent of health ministries run surveillance systems that use meteorological information. The report argues this is mostly a design failure, forecasts never specified for health decisions, rather than a delivery failure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How has AI changed weather forecasting for health?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI models produce ten-day forecasts in minutes on a single chip, work that previously required supercomputers costing on the order of a hundred million dollars. Locally tailored forecasting is now affordable to the low- and middle-income countries facing the greatest climate-health risks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a decision-first approach to climate-health services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Specifying the health decision before procuring the data: the forecast trigger with threshold and lead time, the action taken when it fires, the named owner, and the health outcome counted. The service is then judged on the decision it moves, not on meteorological accuracy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What would a decision spec look like for an Indian heat programme?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trigger: a forecast hot spell crossing the local threshold with five days' lead. Action: advance refills and outreach calls to listed patients over 65 or on cardiac, renal or respiratory treatment. Owner: the district programme coordinator. Count: patients reached before the spell and treatment days maintained through it."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/styles.css?v=330d">
+
+<style>
+
+  :root {
+    --deep-forest: #1E4435;
+    --soft-cream: #FAF4E8;
+    --red-earth: #9E3B2A;
+    --forest: #356B4E;
+    --sage: #8AAE98;
+    --pale-sage: #E8F0EB;
+    --warm-clay: #CF9B7D;
+    --monsoon-blue: #3D6478;
+    --warm-white: #FDFAF5;
+    --text-primary: #22322A;
+    --text-secondary: #5C6A60;
+    --border-subtle: rgba(30, 68, 53, 0.12);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--warm-white);
+    color: var(--text-primary);
+    line-height: 1.75;
+    font-size: 1.0625rem;
+    -webkit-font-smoothing: antialiased;
+  }
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 4rem 1.5rem 5rem; }
+  .kicker {
+    font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--red-earth); margin-bottom: 1.25rem;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(2.2rem, 5.5vw, 3.1rem); line-height: 1.15;
+    color: var(--deep-forest); margin-bottom: 1.5rem;
+  }
+  h1 em { font-style: italic; }
+  .meta-line {
+    font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--text-secondary);
+    padding-bottom: 2rem; border-bottom: 1px solid var(--border-subtle); margin-bottom: 2.5rem;
+  }
+  .tldr {
+    background: var(--pale-sage); border-left: 3px solid var(--red-earth);
+    padding: 1.75rem 2rem; margin-bottom: 3rem;
+  }
+  .tldr-label {
+    font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--deep-forest); margin-bottom: 1rem;
+  }
+  .tldr ul { list-style: none; }
+  .tldr li {
+    padding-left: 1.4rem; position: relative; margin-bottom: 0.75rem;
+    font-size: 0.98rem; line-height: 1.65;
+  }
+  .tldr li:last-child { margin-bottom: 0; }
+  .tldr li::before {
+    content: ""; position: absolute; left: 0; top: 0.62em; width: 7px; height: 7px;
+    background: var(--forest); border-radius: 50%;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 400;
+    font-size: clamp(1.7rem, 4vw, 2.15rem); line-height: 1.25;
+    color: var(--deep-forest); margin: 3.25rem 0 1.25rem;
+  }
+  h3 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.45rem;
+    line-height: 1.3; color: var(--deep-forest); margin: 2.5rem 0 1rem;
+  }
+  p { margin-bottom: 1.4rem; }
+  a { color: var(--forest); text-decoration-color: var(--sage); text-underline-offset: 3px; transition: color 0.2s; }
+  a:hover { color: var(--red-earth); }
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+    background: var(--border-subtle); border: 1px solid var(--border-subtle); margin: 2.5rem 0;
+  }
+  @media (max-width: 540px) { .stat-grid { grid-template-columns: 1fr; } }
+  .stat-tile { background: var(--soft-cream); padding: 1.6rem 1.4rem; }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 2.1rem;
+    line-height: 1.1; color: var(--red-earth); margin-bottom: 0.45rem;
+  }
+  .stat-caption { font-size: 0.84rem; line-height: 1.5; color: var(--text-secondary); }
+  .definition-box {
+    background: var(--soft-cream); border: 1px solid var(--border-subtle);
+    border-top: 3px solid var(--red-earth); padding: 1.9rem 2rem; margin: 2.5rem 0;
+  }
+  .definition-label {
+    font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--red-earth); margin-bottom: 0.9rem;
+  }
+  .definition-box p {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; line-height: 1.5;
+    color: var(--deep-forest); margin-bottom: 0;
+  }
+  .data-block { margin: 2.75rem 0; }
+  .data-label {
+    font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--deep-forest); margin-bottom: 1rem;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.94rem; }
+  caption { text-align: left; font-size: 0.84rem; color: var(--text-secondary); padding-bottom: 0.75rem; }
+  th, td { text-align: left; padding: 0.8rem 0.9rem; border-bottom: 1px solid var(--border-subtle); vertical-align: top; }
+  th {
+    font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em;
+    text-transform: uppercase; font-weight: 400; color: var(--text-secondary);
+  }
+  .numeric td:last-child, .numeric th:last-child { text-align: right; }
+  .pull-quote {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+    font-size: clamp(1.5rem, 3.8vw, 1.9rem); line-height: 1.4; color: var(--deep-forest);
+    border-left: 3px solid var(--warm-clay); padding: 0.5rem 0 0.5rem 1.75rem; margin: 3rem 0;
+  }
+  .cite-block {
+    background: var(--pale-sage); border: 1px solid var(--border-subtle);
+    padding: 1.9rem 2rem; margin: 3rem 0;
+  }
+  .cite-block .cite-label {
+    font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--deep-forest); margin-bottom: 1rem;
+  }
+  .cite-block ul { list-style: none; }
+  .cite-block li {
+    padding-left: 1.4rem; position: relative; margin-bottom: 0.85rem;
+    font-size: 0.93rem; line-height: 1.65;
+  }
+  .cite-block li:last-child { margin-bottom: 0; }
+  .cite-block li::before {
+    content: ""; position: absolute; left: 0; top: 0.62em; width: 7px; height: 7px;
+    background: var(--red-earth); border-radius: 50%;
+  }
+  .cite-block .cite-note { font-size: 0.8rem; color: var(--text-secondary); margin-top: 1.1rem; margin-bottom: 0; }
+  .cta-card { background: var(--deep-forest); color: var(--soft-cream); padding: 2.5rem 2.25rem; margin: 3.5rem 0 3rem; }
+  .cta-card .cta-kicker {
+    font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--warm-clay); margin-bottom: 1rem;
+  }
+  .cta-card p { font-size: 1.02rem; line-height: 1.7; margin-bottom: 1.5rem; color: rgba(250, 244, 232, 0.92); }
+  .cta-card a.cta-button {
+    display: inline-block; background: var(--red-earth); color: var(--soft-cream);
+    text-decoration: none; font-family: 'Space Mono', monospace; font-size: 0.8rem;
+    letter-spacing: 0.14em; text-transform: uppercase; padding: 0.9rem 1.6rem; transition: background 0.2s;
+  }
+  .cta-card a.cta-button:hover { background: #B4472F; }
+  .author-block {
+    display: flex; gap: 1.25rem; align-items: center; padding: 2rem 0;
+    border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); margin: 3rem 0;
+  }
+  .author-photo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .author-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--deep-forest); margin-bottom: 0.15rem; }
+  .author-bio { font-size: 0.86rem; color: var(--text-secondary); line-height: 1.55; margin: 0; }
+  .sources { margin-top: 2.5rem; }
+  .sources-label {
+    font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--deep-forest); margin-bottom: 1rem;
+  }
+  .sources ol { padding-left: 1.2rem; font-size: 0.86rem; color: var(--text-secondary); line-height: 1.7; }
+  .sources li { margin-bottom: 0.5rem; }
+  .updated-line {
+    font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--text-secondary); margin-top: 2.5rem;
+  }
+
+  .figure-block { margin: 2.75rem 0; }
+  .figure-label {
+    font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--deep-forest); margin-bottom: 1rem;
+  }
+  .figure-shell { background: var(--soft-cream); border: 1px solid var(--border-subtle); padding: 1.5rem; }
+  .figure-shell svg { width: 100%; height: auto; display: block; }
+  .figure-note { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.9rem; margin-bottom: 0; }
+  .chart-shell {
+    margin-top: 1.5rem; background: var(--soft-cream); border: 1px solid var(--border-subtle);
+    padding: 1.5rem; display: none;
+  }
+  .chart-shell.is-active { display: block; }
+  .chart-note { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.9rem; margin-bottom: 0; }
+  .checklist { list-style: none; margin: 0 0 1.4rem; }
+  .checklist li {
+    padding: 1.1rem 0 1.1rem 1.6rem; border-bottom: 1px solid var(--border-subtle);
+    font-size: 1rem; line-height: 1.65; position: relative;
+  }
+  .checklist li:first-child { border-top: 1px solid var(--border-subtle); }
+  .checklist li::before {
+    content: ""; position: absolute; left: 0; top: 1.55em; width: 8px; height: 8px;
+    background: var(--red-earth);
+  }
+  .checklist .check-rule {
+    font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--red-earth); display: block; margin-bottom: 0.25rem;
+  }
+  .disclaimer { font-size: 0.86rem; color: var(--text-secondary); font-style: italic; margin-top: 2rem; }
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://syntropyearth.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Thinking", "item": "https://syntropyearth.com/thinking/" },
+    { "@type": "ListItem", "position": 3, "name": "Forecast decision climate health", "item": "https://syntropyearth.com/thinking/forecast-decision-climate-health/" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/" aria-label="Syntropy Earth home">
+      <svg class="mark mark-draw" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path class="arc" d="M 24,3 A 21,21 0 1,1 3,24" stroke="#1E4435" stroke-width="1.75" stroke-linecap="round"/>
+        <path class="arc arc-2" d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+        <path class="arc arc-3" d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+        <circle class="dot" cx="24" cy="24" r="2.5" fill="#1E4435"/>
+      </svg>
+      <span class="wordmark">Syntropy Earth</span>
+    </a>
+    <div class="nav-links">
+      <a href="/social-impact/">Social Impact</a>
+      <a href="/conversations/">Conversations</a>
+      <a href="/brand-growth/">Brand &amp; Growth</a>
+      <span class="has-drop">
+        <a href="#" class="nav-drop-toggle" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
+        <span class="nav-drop">
+          <span class="nav-drop-panel">
+            <a href="/thinking/">Thinking</a>
+            <a href="/guide/">Guide</a>
+            <a href="/climate-access/">Climate access (CAST)</a>
+            <a href="/tools/unspent-csr-funds-calculator/" data-cavs="calc-nav">CSR calculator</a>
+          </span>
+        </span>
+      </span>
+      <span class="has-drop">
+        <a href="/about/" aria-haspopup="true">About</a>
+        <span class="nav-drop">
+          <span class="nav-drop-panel">
+            <a href="/about/">Founder</a>
+            <a href="/about/questions/">Common questions</a>
+          </span>
+        </span>
+      </span>
+      <a class="btn btn-primary" href="/#contact">Work with us</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/social-impact/">Social Impact</a>
+  <a href="/conversations/">Conversations</a>
+  <a href="/brand-growth/">Brand &amp; Growth</a>
+  <span class="mm-group">
+    <span class="mm-group-label">Resources</span>
+    <a class="mm-sub" href="/thinking/">Thinking</a>
+    <a class="mm-sub" href="/guide/">Guide</a>
+    <a class="mm-sub" href="/climate-access/">Climate access (CAST)</a>
+    <a class="mm-sub" href="/tools/unspent-csr-funds-calculator/" data-cavs="calc-nav-mobile">CSR calculator</a>
+  </span>
+  <span class="mm-group">
+    <a href="/about/">About</a>
+    <a class="mm-sub" href="/about/">Founder</a>
+    <a class="mm-sub" href="/about/questions/">Common questions</a>
+  </span>
+  <a class="btn btn-primary" href="/#contact">Work with us</a>
+</div>
+
+
+
+<article class="article-wrap">
+
+  <p class="kicker">Thinking &middot; Method</p>
+
+  <h1>81% of weather services offer health data. 23% of health ministries use it. <em>The gap is a missing decision.</em></h1>
+
+  <p class="meta-line">Abhijith Magal &middot; 24 September 2026 &middot; 8 min read</p>
+
+  <div class="tldr">
+    <p class="tldr-label">TL;DR</p>
+    <ul>
+      <li>A University of Chicago report backed by the Rockefeller Foundation finds 81 per cent of national meteorological services provide climate services for health, yet only 23 per cent of health ministries run surveillance that uses weather data.</li>
+      <li>AI has removed the old excuse. Ten-day forecasts that once needed supercomputers costing on the order of a hundred million dollars now run in minutes on a single chip.</li>
+      <li>The report's argument is decision-first: a forecast earns its place by naming the health decision it changes. Forecasts were built and judged on weather accuracy; the decision they should move was never specified.</li>
+      <li>Written as a method, that is a one-page decision spec: the trigger, the action, the named owner, and the outcome counted. Any climate-health programme in India can write one this week, with data the state already produces.</li>
+    </ul>
+  </div>
+
+  <p>The case for AI weather forecasting in health arrived in September with one pair of numbers attached. Per the World Meteorological Organization's 2023 stocktake, quoted in a new report from the University of Chicago's Institute for Climate and Sustainable Growth, 81 per cent of national meteorological services say they provide climate services for health. Only 23 per cent of health ministries operate a surveillance system that uses meteorological information. Four in five weather agencies are producing for a customer that, three times out of four, is not consuming.</p>
+
+  <p>The report, AI Weather Forecasts for Health: The Case for a Decision-First Approach, published on 22 September with support from the Rockefeller Foundation and input from experts across 20 organisations, is led by Amir Jina at the Harris School. Its technical premise is that the old constraint has fallen. The first revolution in forecasting, seventy years ago, ran on physics models that needed supercomputers costing on the order of a hundred million dollars, so tailored forecasting belonged to the wealthiest weather services. AI models now produce a ten-day forecast in minutes on a single chip. The capability that was rationed by hardware is, in the report's phrase, available to anyone.</p>
+
+  <h2>The gap was never mainly a delivery gap</h2>
+
+  <p>The easy reading of 81-against-23 is a dissemination failure: forecasts exist, health systems just need the pipe. The report rejects that reading, and its alternative is the piece worth carrying. Forecasts went unused because they were never built for the decisions health officials face. Too coarse to tell one district from another. Too late to act on. Centred on a weather variable that does not track what makes people ill. Judged, throughout, on weather accuracy rather than on health outcomes. Health decisions were never specified, the report notes, and health ministries are the ones who can specify them.</p>
+
+  <p>That is the same diagnosis the Andean plan's launch compressed into a sentence a week later, that an alert without a team, a protocol and resources remains just information, which I unpacked in <a href="/thinking/americas-climate-health-plans-anatomy/">the anatomy of the Americas' plans</a>. The Chicago report supplies the method that sentence implies: start from the decision, then procure the forecast that serves it.</p>
+
+  <div class="definition-box">
+    <p class="definition-label">The decision spec, one page</p>
+    <p>Trigger: the forecast condition, with threshold and lead time. Action: what happens when it fires, specific enough to cost. Owner: the named person who acts. Count: the outcome recorded, so the spec can be judged on health, not on weather accuracy. A climate-health service without all four is a data product in search of a user.</p>
+  </div>
+
+  <h2>Worked example: the decision before the heatwave</h2>
+
+  <p>Take the chronic-care arm of a heat response, the measure I argued is <a href="/thinking/super-el-nino-heat-deaths-india/">this El Nino season's highest-yield unfunded one</a>. Written as a decision spec, it fits on a page. Trigger: a forecast hot spell crossing the local heat-action threshold with five days' lead, from IMD products that already exist. Action: refills brought forward and outreach calls made for every listed patient over 65 or on cardiac, renal or respiratory treatment in the affected blocks. Owner: the programme's district coordinator, by name. Count: share of listed patients reached before day one of the spell, and treatment days maintained through it.</p>
+
+  <p>Notice what the spec did. It converted a forecast from information into a budget line with a performance measure, and it told the meteorological side exactly which product matters, block-level heat thresholds at five days, rather than everything at once. The same template writes the dengue version, pre-monsoon larval-control surges on rainfall outlooks, which Chennai's September makes topical in <a href="/thinking/chennai-dengue-september-2026/">the anticipatory piece</a>, and the drought version, worksite screening circuits timed to employment-guarantee demand. Which districts deserve the first specs is a ranking question; <a href="/thinking/climate-access-district-index/">the district index</a> is my answer to it.</p>
+
+  <p>The Chicago group's own India connection makes this more than theory. The institute already works with Indian partners on locally designed forecasting, and the Rockefeller Foundation, which backed the report, funds climate-health action globally. For an Indian programme that can show up with a written decision spec, the data side of the collaboration has rarely been this open.</p>
+
+  <p>One limit. The 81 and 23 per cent figures are the WMO's 2023 self-reported stocktake, a survey of agencies rather than an audit of services, and the report is a design argument, not a trial; evidence that decision-first services improve health outcomes is exactly what it calls for building. The method stands on its own logic, and the outcomes column of the spec is where each programme supplies its own proof.</p>
+
+  <h2>Common questions</h2>
+
+  <h3>What does the 81 per cent against 23 per cent gap describe?</h3>
+  <p>Per WMO 2023 figures quoted in the University of Chicago report, 81 per cent of national meteorological services provide climate services for health, while only 23 per cent of health ministries run surveillance systems that use meteorological information. The report argues this is mostly a design failure, forecasts never specified for health decisions, rather than a delivery failure.</p>
+
+  <h3>How has AI changed weather forecasting for health?</h3>
+  <p>AI models produce ten-day forecasts in minutes on a single chip, work that previously required supercomputers costing on the order of a hundred million dollars. Locally tailored forecasting is now affordable to the low- and middle-income countries facing the greatest climate-health risks.</p>
+
+  <h3>What is a decision-first approach to climate-health services?</h3>
+  <p>Specifying the health decision before procuring the data: the forecast trigger with threshold and lead time, the action taken when it fires, the named owner, and the health outcome counted. The service is then judged on the decision it moves, not on meteorological accuracy.</p>
+
+  <h3>What would a decision spec look like for an Indian heat programme?</h3>
+  <p>Trigger: a forecast hot spell crossing the local threshold with five days' lead. Action: advance refills and outreach calls to listed patients over 65 or on cardiac, renal or respiratory treatment. Owner: the district programme coordinator. Count: patients reached before the spell and treatment days maintained through it.</p>
+
+  <div class="cta-card">
+    <p class="cta-kicker">Where to start</p>
+    <p>The free climate-access exposure assessment gives a directional read on where climate is already reaching your access, workforce and supply chain, benchmarked against FY2024-25 BRSR disclosures from 59 listed Indian companies. Under three minutes, no sign-up.</p>
+    <a class="cta-button" href="https://syntropyearth.com/climate-access/" data-cavs="article-decision-first">Test your exposure &rarr;</a>
+  </div>
+
+  <div class="cite-block">
+    <p class="cite-label">The position, for citation</p>
+    <ul>
+      <li>81 per cent of national meteorological services provide climate services for health while 23 per cent of health ministries use weather data in surveillance (WMO 2023, quoted in the University of Chicago's AI Weather Forecasts for Health report, 22 September 2026).</li>
+      <li>AI forecasting has removed the hardware constraint: ten-day forecasts now run in minutes on a single chip, against the hundred-million-dollar supercomputers of physics-based systems.</li>
+      <li>The report's central argument is decision-first design: climate-health services should name the health decision they support before resources move.</li>
+      <li>Syntropy Earth's position: every climate-health programme should hold a one-page decision spec per hazard, trigger, action, owner, count, and be judged on the count.</li>
+    </ul>
+  </div>
+
+  <div class="author-block">
+    <img class="author-photo" src="/images/abhijith-magal.jpg" alt="Abhijith Magal, founder of Syntropy Earth" loading="lazy" decoding="async" width="718" height="582">
+    <div>
+      <p class="author-name">Abhijith Magal</p>
+      <p class="author-bio">Founder, Syntropy Earth. Nine years across two global pharmaceutical multinationals in patient access and commercial roles, with health-equity work alongside the WHO-Foundation and UNICEF. He works on climate-access: where climate disruption breaks the link between patients and care.</p>
+    </div>
+  </div>
+
+  <div class="sources">
+    <p class="sources-label">Sources</p>
+    <ol>
+      <li>Institute for Climate and Sustainable Growth, University of Chicago, "AI Weather Forecasts for Health: The Case for a Decision-First Approach", 22 September 2026, led by Amir Jina. <a href="https://climate.uchicago.edu/ai-weather-forecasts-for-health/">climate.uchicago.edu</a></li>
+      <li>The Rockefeller Foundation, "New Report Warns AI Could Close a 70-Year Gap in Weather Forecasting for Health or Widen It Without Deliberate Action", 22 September 2026. <a href="https://www.rockefellerfoundation.org/news/report-ai-70-year-gap-weather-forecasting-health/">rockefellerfoundation.org</a></li>
+      <li>World Meteorological Organization, 2023 State of Climate Services, source of the 81 and 23 per cent figures as quoted in the report. <a href="https://wmo.int/">wmo.int</a></li>
+      <li>PAHO, Andean Health and Climate Change Plan 2026-2031 launch, 30 September 2026. <a href="https://www.paho.org/en/news/30-9-2026-paho-oras-conhu-and-andean-countries-launch-plan-protect-health-impacts-climate">paho.org</a></li>
+    </ol>
+  </div>
+
+  <p class="updated-line">Last updated: 3 October 2026</p>
+
+</article>
+
+
+<section class="cavs-band cavs-band--norule" aria-labelledby="cavs-band-h">
+  <div class="cavs-inner">
+    <div class="cavs-copy">
+      <p class="cavs-eyebrow">Free tool &middot; runs in your browser</p>
+      <p class="cavs-head" id="cavs-band-h">Now check the money side of the same year.</p>
+      <p class="cavs-sub">On 31 March, unspent CSR money goes one of two ways: into the company's own Unspent CSR Account, or out to a Schedule VII fund. The test is commencement, and board approval alone does not pass it. The calculator runs that test on your project list.</p>
+      <p class="cavs-note">Nothing you type is stored or sent.</p>
+    </div>
+    <div class="cavs-act">
+      <a class="btn btn-primary" href="/tools/unspent-csr-funds-calculator/" data-cavs="calc-article-prefooter">Check your unspent CSR position <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path class="arc" d="M 24,3 A 21,21 0 1,1 3,24" stroke="#FAF4E8" stroke-width="1.75" stroke-linecap="round"/>
+        <path class="arc arc-2" d="M 24,9 A 15,15 0 1,1 9,24" stroke="#8AAE98" stroke-width="1.4" stroke-linecap="round"/>
+        <path class="arc arc-3" d="M 24,15 A 9,9 0 0,1 33,24" stroke="#CF9B7D" stroke-width="1.4" stroke-linecap="round"/>
+        <circle class="dot" cx="24" cy="24" r="2.5" fill="#FAF4E8"/>
+      </svg>
+        <span class="wordmark">Syntropy Earth</span>
+      </div>
+      <p class="footer-tag">Impact &middot; Strategy &middot; Growth</p>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="/social-impact/">Social Impact</a>
+        <a href="/conversations/">Conversations</a>
+        <a href="/brand-growth/">Brand &amp; Growth</a>
+        <a href="/tools/unspent-csr-funds-calculator/" data-cavs="calc-footer">CSR calculator</a>
+        <a href="/thinking/">Thinking</a>
+        <a href="/guide/">Guide</a>
+        <a href="/climate-access/">Climate access (CAST)</a>
+        <a href="/about/">About</a>
+        <a href="/about/questions/">Common questions</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <span class="nl-block">
+          <a class="nl-link" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7267182407571644416" target="_blank" rel="noopener" data-newsletter="footer">Entropy Unplugged, the newsletter &rarr;</a>
+          <span class="nl-note">Fortnightly &middot; free on LinkedIn</span>
+        </span>
+        <a href="https://www.linkedin.com/in/abhijithmagal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/@abhijithmagal" target="_blank" rel="noopener">YouTube</a>
+        <a href="mailto:hello@syntropyearth.com">hello@syntropyearth.com</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="footer-clock-line">The <a href="https://climateclock.world/get" target="_blank" rel="noopener">Climate Clock</a> counts the time left to hold warming to 1.5&deg;C, the line set in the Paris Agreement. It runs live at the top of the <a href="/">homepage</a>.</p>
+
+  <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
+    <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved. <a href="/privacy/">Privacy Policy</a></span>
+  </div>
+</footer>
+
+
+
+<script src="/js/main.js?v=330d"></script>
+</body>
+</html>
