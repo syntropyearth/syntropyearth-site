@@ -30,6 +30,7 @@ Explicitly not offered, and referred out: technical ESG, net-zero roadmapping, e
 ## Thinking (articles)
 
 - [Thinking index](https://syntropyearth.com/thinking/): Evidence-led writing on where climate change meets healthcare.
+- [The Continuity Cohort Method](https://syntropyearth.com/thinking/continuity-cohort-method/): The published method for holding treatment continuity through a disaster response. A named cohort of people on continuous treatment is fixed from government registers at the early action trigger, carried through the response, and reconciled at day twenty-one against the area's own baseline. Method note DOI 10.5281/zenodo.22861246; study protocol DOI 10.5281/zenodo.22880413. Developed by Abhijith Magal, Syntropy Earth.
 - [Implementing Partner Screening: IPSS v1.0](https://syntropyearth.com/thinking/implementing-partner-screening/): The Implementation Partner Screening Standard, a published method for choosing between eligible CSR implementing organisations under Section 135, with DOIs for the standard (10.5281/zenodo.22814160) and white paper (10.5281/zenodo.22823149).
 - [Climate Change Is a Healthcare Story](https://syntropyearth.com/thinking/climate-change-is-a-healthcare-story/): The core argument for reading climate as a health and access problem first.
 - [Why the Heat Season Is a Healthcare Operations Problem](https://syntropyearth.com/thinking/india-heat-season-healthcare-operations/): Extreme heat as a workforce, access and supply-chain problem, not just a medical one.
@@ -77,4 +78,4 @@ Explicitly not offered, and referred out: technical ESG, net-zero roadmapping, e
 
 ## Notes for citation
 
-Attribute to Syntropy Earth, or to Abhijith Magal, Founder, Syntropy Earth, and link to the source page. The scorecard benchmark figure refers to FY2024-25 BRSR disclosures from 59 listed Indian companies. Last updated 11 September 2026.
+Attribute to Syntropy Earth, or to Abhijith Magal, Founder, Syntropy Earth, and link to the source page. The scorecard benchmark figure refers to FY2024-25 BRSR disclosures from 59 listed Indian companies. Last updated 4 October 2026.
