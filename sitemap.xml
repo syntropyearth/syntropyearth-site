@@ -11,6 +11,8 @@
      That date is the whole recrawl signal.
   21 September 2026: ten thinking articles added; /thinking/ lastmod bumped
      for the regrouped index. No other dates touched.
+  3 November 2026: eight thinking articles added from the Climate Health Radar
+     briefings of 19 October to 3 November; /thinking/ lastmod bumped.
   NOT ADDED: /guide/frameworks/ has no index.html. Listing it would feed a 404.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -21,7 +23,7 @@
   <url><loc>https://syntropyearth.com/about/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://syntropyearth.com/about/questions/</loc><lastmod>2026-08-14</lastmod></url>
 
-  <url><loc>https://syntropyearth.com/thinking/</loc><lastmod>2026-10-03</lastmod></url>
+  <url><loc>https://syntropyearth.com/thinking/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://syntropyearth.com/thinking/implementing-partner-screening/</loc><lastmod>2026-09-18</lastmod></url>
   <url><loc>https://syntropyearth.com/thinking/climate-change-is-a-healthcare-story/</loc><lastmod>2026-09-18</lastmod></url>
   <url><loc>https://syntropyearth.com/thinking/india-heat-season-healthcare-operations/</loc><lastmod>2026-09-11</lastmod></url>
@@ -78,6 +80,14 @@
   <url><loc>https://syntropyearth.com/thinking/csrd-omnibus-non-eu-parent-health-disclosure/</loc><lastmod>2026-09-24</lastmod></url>
   <url><loc>https://syntropyearth.com/thinking/physical-risk-versus-access-risk/</loc><lastmod>2026-09-24</lastmod></url>
   <url><loc>https://syntropyearth.com/thinking/reporting-standards-health-access-coverage/</loc><lastmod>2026-09-24</lastmod></url>
+  <url><loc>https://syntropyearth.com/thinking/lancet-countdown-2026-india-operating-terms/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://syntropyearth.com/thinking/heat-worker-research-india-nine-percent-tests-a-fix/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://syntropyearth.com/thinking/who-cop31-health-adaptation-return-per-dollar/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://syntropyearth.com/thinking/heat-kills-people-on-treatment/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://syntropyearth.com/thinking/heatwatch-2026-heat-deaths-alert-reach/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://syntropyearth.com/thinking/delhi-heat-smog-co-extreme-days/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://syntropyearth.com/thinking/heat-ready-schools-measure-at-the-site/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://syntropyearth.com/thinking/cyclone-arnab-murasu-chronic-patient-register/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://syntropyearth.com/thinking/water-health-facilities-access/</loc><lastmod>2026-09-24</lastmod></url>
   <url><loc>https://syntropyearth.com/thinking/continuity-cohort-method/</loc><lastmod>2026-10-04</lastmod></url>
 </urlset>
