@@ -58,6 +58,7 @@
         walk.setAttribute('data-band', band);
         if (hudB) hudB.textContent = BANDNAME[band] || '';
         if (hudT) hudT.innerHTML = st.getAttribute('data-when') || '';
+        var hud = walk.querySelector('.w-hud'); if (hud) hud.classList.toggle('no-val', !val);
         if (hudV) { if (val) tween(hudV, parseFloat(val), 900); else { if (hudV._raf) cancelAnimationFrame(hudV._raf); hudV.textContent = '--.-'; } }
       }
       if (!seen[n]) { seen[n] = 1; push({ event: 'se_walk_step', walk_id: walk.getAttribute('data-walk'), walk_step: n }); }
@@ -113,6 +114,59 @@
     }, { threshold: .6 });
     Array.prototype.forEach.call(document.querySelectorAll('[data-count]'), function (n) { cio.observe(n); });
   }
+
+  /* ---------- 2d. BAND FINDER: global reference, national alert, state plan ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-bandtool]'), function (tool) {
+    function q(s) { return tool.querySelector(s); }
+    var sState = q('[data-bt-state]'), sTer = q('[data-bt-terrain]'), sWork = q('[data-bt-work]');
+    if (!sState || !sTer || !sWork) return;
+    /* ISO 7243:2017 reference values, degrees C WBGT: [acclimatised, not acclimatised] */
+    var ISO = { '0': [33, 32, 'rest'], '1': [30, 29, 'light work'], '2': [28, 26, 'moderate work'], '3': [26, 23, 'heavy work'], '4': [25, 20, 'very heavy work'] };
+    /* India Meteorological Department heat wave criteria */
+    var IMD = {
+      plains: [40, 'In the plains a heat wave is declared when the day’s maximum reaches 40 °C and runs 4.5 °C or more above normal, or touches 45 °C outright. Yellow means be updated, orange be prepared, red take action.'],
+      coast: [37, 'On the coast a heat wave is declared when the day’s maximum reaches 37 °C and runs 4.5 °C or more above normal. Coastal humidity loads the body harder than the air temperature shows, which is why the site reading is taken in WBGT.'],
+      hills: [30, 'In the hills a heat wave is declared when the day’s maximum reaches 30 °C and runs 4.5 °C or more above normal. Yellow means be updated, orange be prepared, red take action.']
+    };
+    var LISTED = ['Andhra Pradesh', 'Arunachal Pradesh', 'Bihar', 'Chhattisgarh', 'Delhi', 'Gujarat', 'Goa', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Jammu and Kashmir', 'Karnataka', 'Kerala', 'Maharashtra', 'Madhya Pradesh', 'Odisha', 'Punjab', 'Rajasthan', 'Tamil Nadu', 'Telangana', 'Uttarakhand', 'Uttar Pradesh', 'West Bengal'];
+    var MOES = '<a href="https://www.moes.gov.in/sites/default/files/LS-English-924-26-07-2023.pdf" target="_blank" rel="noopener">Ministry of Earth Sciences, Lok Sabha reply, 26 July 2023</a>';
+    var CEEW = '<a href="https://www.ceew.in/blogs/scientific-heat-action-plans-indian-cities" target="_blank" rel="noopener">CEEW, 2026</a>';
+    var SPECIAL = {
+      'Karnataka': ['A plan with its own WBGT table',
+        'The Karnataka Heat Action Plan 2026 covers 31 districts and Greater Bengaluru. It is one of the few state plans to publish a WBGT table for work: normal below 26 °C, moderate 26 to 28, high 28 to 31, extreme above 31. Our four-band card uses the same cut points.',
+        '<a href="https://ksndmc.org/Content/Documents/General/Karnataka_HAP_2026.pdf" target="_blank" rel="noopener">Karnataka Heat Action Plan 2026, section 2.3.4</a>'],
+      'Gujarat': ['Where India’s first plan was written',
+        'Ahmedabad launched India’s first heat action plan in 2013. Its alerts run on the forecast maximum air temperature: yellow from 41.1 °C, orange from 43.1 °C, red at 45 °C and above. The plan protects the city. A site reading in WBGT tells you what those days mean on your own floor.',
+        '<a href="https://heathealth.info/wp-content/uploads/ahmedabad-heat-action-plan-2018.pdf" target="_blank" rel="noopener">Ahmedabad Heat Action Plan</a> &middot; ' + MOES]
+    };
+    var isoB = q('[data-bt-iso]'), isoT = q('[data-bt-isotext]'), imdB = q('[data-bt-imd]'), imdT = q('[data-bt-imdtext]'),
+        stH = q('[data-bt-statehead]'), stT = q('[data-bt-statetext]'), stS = q('[data-bt-statesrc]');
+    function flash(n) { var c = n && n.closest('.v-tool-col'); if (!c) return; c.classList.remove('flash'); void c.offsetWidth; c.classList.add('flash'); }
+    function iso() {
+      var r = ISO[sWork.value] || ISO['2'];
+      isoB.textContent = r[0];
+      isoT.textContent = 'The reference limit for ' + r[2] + ' by a person used to the heat. For someone new to it, the limit is ' + r[1] + ' °C. Above the limit, work needs rest breaks or a detailed assessment.';
+      flash(isoB);
+    }
+    function imd() { var r = IMD[sTer.value] || IMD.plains; imdB.textContent = r[0]; imdT.textContent = r[1]; flash(imdB); }
+    function state() {
+      var s = sState.value;
+      if (!s) return;
+      if (SPECIAL[s]) { stH.textContent = SPECIAL[s][0]; stT.textContent = SPECIAL[s][1]; stS.innerHTML = SPECIAL[s][2]; }
+      else if (LISTED.indexOf(s) > -1) {
+        stH.textContent = 'On the national heat list';
+        stT.innerHTML = s + ' is one of the 23 heat-prone states and territories that work with the national disaster authority and the weather department on heat action plans. Most such plans trigger on the air-temperature alert in rule 2. We have not found a published WBGT table for work in this plan, so the global reference in rule 1 is the limit to work to. <a href="/book/#write">Tell us if your plan has one.</a>';
+        stS.innerHTML = MOES + ' &middot; ' + CEEW;
+      } else {
+        stH.textContent = 'Not on the 2023 heat list';
+        stT.innerHTML = s + ' was not among the 23 heat-prone states and territories named to Parliament in 2023. The weather department’s alerts still reach every district, and humid heat can pass the global limit for heavy work well below a declared heat wave. Rule 1 is the one to work to. <a href="/book/#write">Tell us if a plan now exists.</a>';
+        stS.innerHTML = MOES;
+      }
+      flash(stH);
+      push({ event: 'se_band_tool', bt_state: s, bt_terrain: sTer.value, bt_work: (ISO[sWork.value] || ISO['2'])[2] });
+    }
+    sWork.addEventListener('change', iso); sTer.addEventListener('change', imd); sState.addEventListener('change', state);
+  });
 
   /* ---------- 3. REGISTER PREVIEW (illustrative data only) ---------- */
   var dash = document.querySelector('[data-dash]');

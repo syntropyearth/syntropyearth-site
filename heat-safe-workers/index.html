@@ -34,7 +34,7 @@
 
 <!-- Bump ?v= whenever styles.css or v11.css changes. -->
 <link rel="stylesheet" href="/styles.css?v=330">
-<link rel="stylesheet" href="/v11.css?v=2">
+<link rel="stylesheet" href="/v11.css?v=3">
 
 <!-- ANALYTICS: GTM-WG7CWTHG is injected site-wide by Netlify Snippet Injection.
      It must NOT be hardcoded here, and gtag.js is not loaded on this site.
@@ -147,7 +147,7 @@
           "name": "Does work have to stop on hot days?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Only heavy outdoor work, only in the red band, and only in the peak hours. Several states already order this on alert days. The season gives your site the reading that tells you when the rule applies, moves heavy tasks to cooler hours, and records that you did it."
+            "text": "Only heavy outdoor work, only in the red band, and only in the peak hours. Heat action plans already advise moving outdoor work out of the afternoon peak on alert days. The season gives your site the reading that tells you when the rule applies, moves heavy tasks to cooler hours, and records that you did it."
           }
         },
         {
@@ -326,17 +326,68 @@
 </div>
 </section>
 
+<section class="v-sec" id="measures"><div class="v-wrap">
+  <span class="v-kicker">What we read at your site</span>
+  <h2 class="v-h2">Heat is one reading. What it does to people takes seven.</h2>
+  <p class="v-lede">The instruments are simple. The value is in keeping every reading against the same clock.</p>
+  <div class="v-meas">
+  <div class="v-meas-row head"><span>What we read</span><span>How</span><span>What it tells you</span></div>
+  <div class="v-meas-row"><span><b>Heat load on the body</b>Wet-bulb globe temperature (WBGT)</span><span>Logging instruments at the point of work and the point of rest, every 15 minutes</span><span>Which band the site is in, hour by hour, and whether the rest area gives real recovery</span></div>
+  <div class="v-meas-row"><span><b>Air temperature and humidity</b>In the shade</span><span>A shielded logger, every 15 minutes, day and night</span><span>How your site compares with the weather office reading, and how many hot nights left people unrecovered</span></div>
+  <div class="v-meas-row"><span><b>Surface heat</b>Slab, rebar, tin roof, playground</span><span>Infrared spot readings on the weekly round</span><span>Where shade, a cool roof or a change of hours would pay back first</span></div>
+  <div class="v-meas-row"><span><b>Air quality</b>Fine particles, PM2.5</span><span>A logging sensor beside the shaded reference, added from the 2027 season where the air demands it</span><span>The days when heat and bad air arrive together, which ask more of a body than either does alone</span></div>
+  <div class="v-meas-row"><span><b>Health</b>At worksites, with consent</span><span>A doctor-led camp at the start and the end: blood pressure, blood sugar, hydration, a heat-symptom questionnaire</span><span>Who is most at risk before the season, and what changed by the end of it</span></div>
+  <div class="v-meas-row"><span><b>Actions</b>What the site did</span><span>A phone form the supervisor or teacher fills twice a day</span><span>Whether the protocol was followed on the days it mattered</span></div>
+  <div class="v-meas-row"><span><b>Outcomes</b>What it cost</span><span>The site's own attendance, incident and output records</span><span>Days lost, cases caught early, attendance on alert days</span></div>
+</div>
+<p class="v-p" style="margin-top:1.6rem">Read alone, each line is a log. Read against one clock, they answer the question a site head or a principal cannot answer today: on the days the reading crossed the line, what happened to the people, and did what we did make a difference. Why heat and air belong together is set out in <a class="v-link" href="/thinking/delhi-heat-smog-co-extreme-days/">this piece on Delhi's co-extreme days</a>.</p>
+</div></section>
+
 <section class="v-sec panel"><div class="v-wrap">
   <span class="v-kicker">The band card</span>
   <h2 class="v-h2">Four bands. One card. Everyone on site knows what today asks of them.</h2>
-  <p class="v-lede">The bands are the state's own. The season puts a reading behind them, so your site does what the heat action plan already expects, and can show it.</p>
+  <p class="v-lede">The limits come from the international standard for heat stress, the same one India has adopted. The season puts a reading behind them, so your site does what its state's heat action plan already expects, and can show it.</p>
   <div class="v-bands">
 <div class="v-band b-green"><span class="sw"><i></i>Green</span><span class="t">below 26 &deg;C</span><p>Normal work. Water at every zone. The card is updated and the hours are counted.</p></div>
 <div class="v-band b-yellow"><span class="sw"><i></i>Yellow</span><span class="t">26 to 28 &deg;C</span><p>Water prompted every 20 minutes. A ten-minute shade break each hour for heavy work. The first-aider is briefed.</p></div>
 <div class="v-band b-orange"><span class="sw"><i></i>Orange</span><span class="t">28 to 31 &deg;C</span><p>Heavy outdoor work limited. Fifteen minutes of rest in every hour. Roof and slab work moves to cooler hours. Buddy checks begin.</p></div>
 <div class="v-band b-red"><span class="sw"><i></i>Red</span><span class="t">above 31 &deg;C</span><p>Heavy outdoor work stops in the peak hours. The cooling station is staffed. Any case is cooled on site first and transported second.</p></div>
 </div>
-<span class="v-src">Bands in wet-bulb globe temperature (WBGT), following the <a href="https://ksndmc.org/Content/Documents/General/Karnataka_HAP_2026.pdf" target="_blank" rel="noopener">Karnataka Heat Action Plan 2026</a> (KSNDMC). Other states' rules are written into the site's card where they apply.</span>
+<span class="v-src">The card reads in wet-bulb globe temperature (WBGT). Its four cut points sit inside the international reference range of <a href="https://www.iso.org/standard/67188.html" target="_blank" rel="noopener">ISO 7243:2017</a>, adopted in India as IS 16559:2019, and match the WBGT table published in the <a href="https://ksndmc.org/Content/Documents/General/Karnataka_HAP_2026.pdf" target="_blank" rel="noopener">Karnataka Heat Action Plan 2026</a>. The colours are the four alert colours the India Meteorological Department uses nationwide.</span>
+
+<div class="v-tool" data-bandtool>
+  <div class="v-tool-head">
+    <span class="k">Find your bands</span>
+    <h3 class="v-h3">Three rules meet at your site. See all three.</h3>
+    <p>The world sets a limit for the body. India sets an alert for the district. Your state writes a plan. Choose where you are and what the work is.</p>
+  </div>
+  <div class="v-tool-pick">
+    <label>State or union territory<select data-bt-state><option value="">Choose a state</option><option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option><option>Andaman and Nicobar Islands</option><option>Chandigarh</option><option>Dadra and Nagar Haveli and Daman and Diu</option><option>Delhi</option><option>Jammu and Kashmir</option><option>Ladakh</option><option>Lakshadweep</option><option>Puducherry</option></select></label>
+    <label>The site sits in<select data-bt-terrain><option value="plains">The plains</option><option value="coast">A coastal district</option><option value="hills">The hills</option></select></label>
+    <label>The work is<select data-bt-work><option value="2">Moderate: walking with loads, plastering</option><option value="1">Light: standing, supervising, classroom</option><option value="3">Heavy: shovelling, rebar, carrying</option><option value="4">Very heavy: fast digging, climbing with loads</option><option value="0">Resting</option></select></label>
+  </div>
+  <div class="v-tool-out" aria-live="polite">
+    <div class="v-tool-col">
+      <span class="k">1 &middot; The global reference, for the body</span>
+      <p class="big"><b data-bt-iso>28</b> &deg;C WBGT</p>
+      <p data-bt-isotext>The reference limit for moderate work by a person used to the heat. For someone new to it, the limit is 26 &deg;C. Above the limit, work needs rest breaks or a detailed assessment.</p>
+      <span class="v-src"><a href="https://www.iso.org/standard/67188.html" target="_blank" rel="noopener">ISO 7243:2017</a>, Annex A; in India, IS 16559:2019</span>
+    </div>
+    <div class="v-tool-col">
+      <span class="k">2 &middot; The national alert, for the district</span>
+      <p class="big"><b data-bt-imd>40</b> &deg;C air temperature</p>
+      <p data-bt-imdtext>In the plains a heat wave is declared when the day's maximum reaches 40 &deg;C and runs 4.5 &deg;C or more above normal, or touches 45 &deg;C outright. Yellow means be updated, orange be prepared, red take action.</p>
+      <span class="v-src"><a href="https://mausam.imd.gov.in/pdfs/heatcolduser/morning_heat_bulletin.pdf" target="_blank" rel="noopener">India Meteorological Department, heat wave criteria and colour codes</a></span>
+    </div>
+    <div class="v-tool-col">
+      <span class="k">3 &middot; Your state's plan</span>
+      <p class="big" data-bt-statehead>Choose a state</p>
+      <p data-bt-statetext>Twenty-three heat-prone states work with the national disaster authority and the weather department on heat action plans. Pick yours to see where it stands.</p>
+      <span class="v-src" data-bt-statesrc><a href="https://www.moes.gov.in/sites/default/files/LS-English-924-26-07-2023.pdf" target="_blank" rel="noopener">Ministry of Earth Sciences, Lok Sabha reply, 26 July 2023</a></span>
+    </div>
+  </div>
+  <p class="v-tool-foot">Rules 2 and 3 read the air over a district. Rule 1 reads the load on a body, and needs an instrument where that body is. A measured season puts that instrument on your site and writes all three onto one card.</p>
+</div>
 </div></section>
 
 <section class="v-sec dark"><div class="v-wrap">
@@ -389,7 +440,7 @@
 <section class="v-sec"><div class="v-wrap">
   <span class="v-kicker">Heat stress at work: questions a safety head asks first</span>
   <h2 class="v-h2">Straight answers before the call.</h2>
-  <div class="v-faq"><details><summary>What is a Heat-Safe Workers season?</summary><p>It is one full heat season measured at your site. Instruments record wet-bulb globe temperature every 15 minutes at the point of work and the point of rest. Supervisors run a four-band card with set actions. A doctor screens workers at the start and the end. Three weeks after the season you receive a Site Heat Report, a heat-safe protocol and a reporting paragraph.</p></details><details><summary>How do you measure heat stress at a worksite?</summary><p>With wet-bulb globe temperature, or WBGT. It combines air temperature, humidity, radiant heat from the sun and hot surfaces, and air movement into one reading, which is why it tracks what a working body feels far better than a weather forecast does. The method follows IS 16559:2019, the Indian standard identical to ISO 7243:2017.</p></details><details><summary>Does work have to stop on hot days?</summary><p>Only heavy outdoor work, only in the red band, and only in the peak hours. Several states already order this on alert days. The season gives your site the reading that tells you when the rule applies, moves heavy tasks to cooler hours, and records that you did it.</p></details><details><summary>Who is covered: our employees or contract workers too?</summary><p>Everyone on the site roster: employees, contract workers and migrant workers. The register holds codes and cohorts, never names, in our copy. Your site keeps its own full record.</p></details><details><summary>What does the season ask of our team?</summary><p>A safety officer who owns the protocol, shift supervisors who update the card twice a day and log actions on a phone form, and a wall for the card. Supervisor training takes 45 minutes. We place the instruments, run the readouts and write the pack.</p></details><details><summary>How does it show up in our BRSR and GRI reporting?</summary><p>The evidence pack includes one paragraph written for BRSR Principle 3 on the well-being of employees and workers, and a one-page table that maps each season number to GRI 403 disclosures on occupational health services, worker health promotion, injuries and ill health. For a CSR-funded season it also names the Schedule VII item. The pack says maps to, never satisfies: your assurer makes that call.</p></details><details><summary>What does a season cost?</summary><p>A fixed figure agreed in writing before anything starts, set by the number of sites and the number of people on them. Nothing is priced on this page because nothing is priced before we have seen the site.</p></details><details><summary>We are outside Karnataka. Can we still do this?</summary><p>Yes. Site walks in person happen in Karnataka. Everywhere else starts with a 20-minute call and a few photographs of the site, and the walk follows once a season is agreed. The band card is written to your own state's heat rules.</p></details></div>
+  <div class="v-faq"><details><summary>What is a Heat-Safe Workers season?</summary><p>It is one full heat season measured at your site. Instruments record wet-bulb globe temperature every 15 minutes at the point of work and the point of rest. Supervisors run a four-band card with set actions. A doctor screens workers at the start and the end. Three weeks after the season you receive a Site Heat Report, a heat-safe protocol and a reporting paragraph.</p></details><details><summary>How do you measure heat stress at a worksite?</summary><p>With wet-bulb globe temperature, or WBGT. It combines air temperature, humidity, radiant heat from the sun and hot surfaces, and air movement into one reading, which is why it tracks what a working body feels far better than a weather forecast does. The method follows IS 16559:2019, the Indian standard identical to ISO 7243:2017.</p></details><details><summary>Does work have to stop on hot days?</summary><p>Only heavy outdoor work, only in the red band, and only in the peak hours. Heat action plans already advise moving outdoor work out of the afternoon peak on alert days. The season gives your site the reading that tells you when the rule applies, moves heavy tasks to cooler hours, and records that you did it.</p></details><details><summary>Who is covered: our employees or contract workers too?</summary><p>Everyone on the site roster: employees, contract workers and migrant workers. The register holds codes and cohorts, never names, in our copy. Your site keeps its own full record.</p></details><details><summary>What does the season ask of our team?</summary><p>A safety officer who owns the protocol, shift supervisors who update the card twice a day and log actions on a phone form, and a wall for the card. Supervisor training takes 45 minutes. We place the instruments, run the readouts and write the pack.</p></details><details><summary>How does it show up in our BRSR and GRI reporting?</summary><p>The evidence pack includes one paragraph written for BRSR Principle 3 on the well-being of employees and workers, and a one-page table that maps each season number to GRI 403 disclosures on occupational health services, worker health promotion, injuries and ill health. For a CSR-funded season it also names the Schedule VII item. The pack says maps to, never satisfies: your assurer makes that call.</p></details><details><summary>What does a season cost?</summary><p>A fixed figure agreed in writing before anything starts, set by the number of sites and the number of people on them. Nothing is priced on this page because nothing is priced before we have seen the site.</p></details><details><summary>We are outside Karnataka. Can we still do this?</summary><p>Yes. Site walks in person happen in Karnataka. Everywhere else starts with a 20-minute call and a few photographs of the site, and the walk follows once a season is agreed. The band card is written to your own state's heat rules.</p></details></div>
 </div></section>
 
 <section class="v-sec dark"><div class="v-wrap">
@@ -459,6 +510,6 @@
 </footer>
 
 <script src="/js/main.js?v=340"></script>
-<script src="/js/v11.js?v=2"></script>
+<script src="/js/v11.js?v=3"></script>
 </body>
 </html>

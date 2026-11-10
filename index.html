@@ -34,7 +34,7 @@
 
 <!-- Bump ?v= whenever styles.css or v11.css changes. -->
 <link rel="stylesheet" href="/styles.css?v=330">
-<link rel="stylesheet" href="/v11.css?v=2">
+<link rel="stylesheet" href="/v11.css?v=3">
 
 <!-- ANALYTICS: GTM-WG7CWTHG is injected site-wide by Netlify Snippet Injection.
      It must NOT be hardcoded here, and gtag.js is not loaded on this site.
@@ -184,7 +184,7 @@ window.addEventListener('load',function(){ setTimeout(function(){
 <header class="v-hero h-hero"><div class="v-wrap"><div class="h-hero-grid">
   <div>
     <span class="v-kicker">Heat and health, measured at the site</span>
-    <h1 class="v-h1 xl">Every summer takes something from your people. <em>We measure what.</em></h1>
+    <h1 class="v-h1 xl">Every summer takes something from your people. <em class="nb">We measure what.</em></h1>
     <p class="v-lede">Syntropy Earth sells one thing: a measured heat season at your worksite or your school. Instruments go up in March. In August you hold the number, a heat-safe protocol, and a record your board can read.</p>
     <div class="v-cta"><a class="v-btn" href="/book/" data-ev="home_hero">Book a 20-minute site call <span aria-hidden="true">&rarr;</span></a><a class="v-btn ghost" href="/heat-safe-workers/#walk" data-ev="home_hero_2">Watch a season unfold</a></div>
   </div>
@@ -198,8 +198,8 @@ window.addEventListener('load',function(){ setTimeout(function(){
   </div>
 </div></div>
 <div class="h-marquee" aria-label="What a season maps to"><div class="h-marquee-track">
-  <span>Maps to</span><span>BRSR Principle 3</span><span>GRI 403</span><span>SDG 3.d</span><span>SDG 8.8</span><span>Schedule VII</span><span>Method</span><span>IS 16559:2019</span><span>Karnataka Heat Action Plan 2026</span>
-  <span aria-hidden="true">Maps to</span><span aria-hidden="true">BRSR Principle 3</span><span aria-hidden="true">GRI 403</span><span aria-hidden="true">SDG 3.d</span><span aria-hidden="true">SDG 8.8</span><span aria-hidden="true">Schedule VII</span><span aria-hidden="true">Method</span><span aria-hidden="true">IS 16559:2019</span><span aria-hidden="true">Karnataka Heat Action Plan 2026</span>
+  <span>Maps to</span><span>BRSR Principle 3</span><span>GRI 403</span><span>SDG 3.d</span><span>SDG 8.8</span><span>Schedule VII</span><span>Method</span><span>ISO 7243 and IS 16559</span><span>State heat action plans</span>
+  <span aria-hidden="true">Maps to</span><span aria-hidden="true">BRSR Principle 3</span><span aria-hidden="true">GRI 403</span><span aria-hidden="true">SDG 3.d</span><span aria-hidden="true">SDG 8.8</span><span aria-hidden="true">Schedule VII</span><span aria-hidden="true">Method</span><span aria-hidden="true">ISO 7243 and IS 16559</span><span aria-hidden="true">State heat action plans</span>
 </div></div>
 </header>
 
@@ -207,9 +207,9 @@ window.addEventListener('load',function(){ setTimeout(function(){
   <span class="v-kicker">What we do</span>
   <h2 class="h-big">We put instruments where your people work or learn, measure one full hot season, and hand you <em>the proof and the plan.</em></h2>
   <div class="h-three">
-    <div><span class="h-num">01</span><h3>Measure</h3><p>Heat stress, read as wet-bulb globe temperature every 15 minutes at the point of work and the point of rest.</p></div>
-    <div><span class="h-num">02</span><h3>Act</h3><p>A four-band card on the wall. Your own supervisors or teachers run it, twice a day.</p></div>
-    <div><span class="h-num">03</span><h3>Prove</h3><p>A report three weeks after the season, mapped to BRSR, GRI 403 and two SDG targets.</p></div>
+    <div><svg class="h-glyph" viewBox="0 0 120 72" aria-hidden="true"><path class="g-line" d="M4 60 C22 58,30 40,46 36 S70 12,84 14 S104 30,116 26" fill="none" stroke="#E4571B" stroke-width="2.5" stroke-linecap="round"/><line x1="4" y1="24" x2="116" y2="24" stroke="rgba(21,27,30,.3)" stroke-dasharray="2 5"/><circle class="g-dot" cx="84" cy="14" r="4.5" fill="#E4571B"/></svg><span class="h-num">01</span><h3>Measure</h3><p>Heat stress, read as wet-bulb globe temperature every 15 minutes at the point of work and the point of rest.</p></div>
+    <div><svg class="h-glyph" viewBox="0 0 120 72" aria-hidden="true"><rect x="8" y="8" width="52" height="12" rx="2" fill="#4E8A5F"/><rect x="8" y="23" width="52" height="12" rx="2" fill="#C99A1B"/><rect x="8" y="38" width="52" height="12" rx="2" fill="#D4741F"/><rect x="8" y="53" width="52" height="12" rx="2" fill="#B3331F"/><path class="g-ptr" d="M84 14 L68 8 V20 Z" fill="#151B1E"/></svg><span class="h-num">02</span><h3>Act</h3><p>A four-band card on the wall. Your own supervisors or teachers run it, twice a day.</p></div>
+    <div><svg class="h-glyph" viewBox="0 0 120 72" aria-hidden="true"><rect x="10" y="4" width="50" height="64" rx="4" fill="none" stroke="#151B1E" stroke-width="2"/><path d="M20 20 H50 M20 31 H50 M20 42 H38" stroke="#151B1E" stroke-width="2" stroke-linecap="round"/><path class="g-tick" pathLength="1" d="M72 40 L84 52 L108 22" fill="none" stroke="#E4571B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="h-num">03</span><h3>Prove</h3><p>A report three weeks after the season, mapped to BRSR, GRI 403 and two SDG targets.</p></div>
   </div>
 </div></section>
 
@@ -270,7 +270,18 @@ window.addEventListener('load',function(){ setTimeout(function(){
   <div class="h-stats">
     <div><span class="h-stat"><b data-count="242">242</b> million</span><p>students or more had their schooling disrupted by climate events in 2024, 171 million of them by heatwaves.</p><span class="v-src">Source: <a href="https://www.unicef.org/reports/learning-interrupted-global-snapshot-2024" target="_blank" rel="noopener">UNICEF, Learning Interrupted, 2025</a></span></div>
     <div><span class="h-stat"><b data-count="91">91</b>%</span><p>of people surveyed in India said they were concerned about climate change, in a 2026 study of more than 30,000 people across four countries.</p><span class="v-src">Source: <a href="https://wellcome.org/news/highlighting-health-impacts-climate-change-and-climate-solutions-sparks-public-support-climate" target="_blank" rel="noopener">Wellcome and CORE, 2026</a></span></div>
-    <div><span class="h-stat"><b data-count="4">4</b> bands</span><p>in Karnataka's Heat Action Plan 2026 say what a hot day demands. The plan tells a district what to do. It cannot see inside your site.</p><span class="v-src">Source: <a href="https://ksndmc.org/Content/Documents/General/Karnataka_HAP_2026.pdf" target="_blank" rel="noopener">Karnataka Heat Action Plan 2026, KSNDMC</a></span></div>
+    <div><span class="h-stat"><b data-count="23">23</b> states</span><p>now work on heat action plans, with more than 250 cities and districts running one. Every plan reads the air over a district. None reads your slab or your classroom.</p><span class="v-src">Source: <a href="https://www.downtoearth.org.in/climate-change/indias-heat-plans-are-growing-but-the-real-test-lies-beyond-policy-experts" target="_blank" rel="noopener">Down To Earth, 12 May 2026</a>; <a href="https://www.moes.gov.in/sites/default/files/LS-English-924-26-07-2023.pdf" target="_blank" rel="noopener">Ministry of Earth Sciences, 2023</a></span></div>
+  </div>
+  <div class="h-story">
+    <span class="v-kicker">How India got here</span>
+    <ol>
+      <li><b>2010</b><h3>A city counts its dead</h3><p>A May heat wave in Ahmedabad is followed by 1,344 more deaths than the city would expect.</p></li>
+      <li><b>2013</b><h3>India's first heat action plan</h3><p>Ahmedabad's city corporation writes it with the Indian Institute of Public Health Gandhinagar and partners. Early warning, colour-coded alerts, trained health staff. Research later credits it with about 1,100 deaths avoided a year.</p></li>
+      <li><b>2016</b><h3>The model goes national</h3><p>The National Disaster Management Authority issues guidelines so every state can write its own plan, and revises them in 2019.</p></li>
+      <li><b>2026</b><h3>Twenty-three states, 250 cities and districts</h3><p>The plans now cover most of the country. Most still trigger on the weather office's air temperature for a whole district.</p></li>
+      <li class="next"><b>Next</b><h3>The last hundred metres</h3><p>From the district alert to the slab, the kiln and the classroom. That is the part nobody measures, and the part we do.</p></li>
+    </ol>
+    <span class="v-src">Source: <a href="https://heathealth.info/wp-content/uploads/ahmedabad-heat-action-plan-2018.pdf" target="_blank" rel="noopener">Ahmedabad Heat Action Plan</a>; <a href="https://www.nrdc.org/stories/temperatures-soar-india-one-citys-efforts-are-saving-lives" target="_blank" rel="noopener">NRDC</a>; <a href="https://www.downtoearth.org.in/climate-change/indias-heat-plans-are-growing-but-the-real-test-lies-beyond-policy-experts" target="_blank" rel="noopener">Down To Earth, 2026</a>; <a href="https://www.ceew.in/blogs/scientific-heat-action-plans-indian-cities" target="_blank" rel="noopener">CEEW, 2026</a></span>
   </div>
   <p class="h-close">Each site-season enters one register. One season answers a site's question. Many of them give India a measured picture of what heat does to people at work and at school. <a class="v-link" href="/heat/">See the register and the published methods</a></p>
 </div></section>
@@ -350,6 +361,6 @@ window.addEventListener('load',function(){ setTimeout(function(){
 </footer>
 
 <script src="/js/main.js?v=340"></script>
-<script src="/js/v11.js?v=2"></script>
+<script src="/js/v11.js?v=3"></script>
 </body>
 </html>

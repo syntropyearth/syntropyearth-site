@@ -34,7 +34,7 @@
 
 <!-- Bump ?v= whenever styles.css or v11.css changes. -->
 <link rel="stylesheet" href="/styles.css?v=330">
-<link rel="stylesheet" href="/v11.css?v=2">
+<link rel="stylesheet" href="/v11.css?v=3">
 
 <!-- ANALYTICS: GTM-WG7CWTHG is injected site-wide by Netlify Snippet Injection.
      It must NOT be hardcoded here, and gtag.js is not loaded on this site.
@@ -205,17 +205,68 @@
   <span class="v-src">Readings every 15 minutes, synced daily, with a calibration check each fortnight. The method follows IS 16559:2019, the Indian standard for assessing heat stress with WBGT, identical to ISO 7243:2017. Large sites take a third WBGT point.</span>
 </div></section>
 
+<section class="v-sec" id="measures"><div class="v-wrap">
+  <span class="v-kicker">What we measure</span>
+  <h2 class="v-h2">Seven readings. One clock. The link between them is the finding.</h2>
+  <p class="v-lede">WBGT is the spine. Around it sit the readings that explain it and the records that show what it did.</p>
+  <div class="v-meas">
+  <div class="v-meas-row head"><span>What we read</span><span>How</span><span>What it tells you</span></div>
+  <div class="v-meas-row"><span><b>Heat load on the body</b>Wet-bulb globe temperature (WBGT)</span><span>Logging instruments at the point of work and the point of rest, every 15 minutes</span><span>Which band the site is in, hour by hour, and whether the rest area gives real recovery</span></div>
+  <div class="v-meas-row"><span><b>Air temperature and humidity</b>In the shade</span><span>A shielded logger, every 15 minutes, day and night</span><span>How your site compares with the weather office reading, and how many hot nights left people unrecovered</span></div>
+  <div class="v-meas-row"><span><b>Surface heat</b>Slab, rebar, tin roof, playground</span><span>Infrared spot readings on the weekly round</span><span>Where shade, a cool roof or a change of hours would pay back first</span></div>
+  <div class="v-meas-row"><span><b>Air quality</b>Fine particles, PM2.5</span><span>A logging sensor beside the shaded reference, added from the 2027 season where the air demands it</span><span>The days when heat and bad air arrive together, which ask more of a body than either does alone</span></div>
+  <div class="v-meas-row"><span><b>Health</b>At worksites, with consent</span><span>A doctor-led camp at the start and the end: blood pressure, blood sugar, hydration, a heat-symptom questionnaire</span><span>Who is most at risk before the season, and what changed by the end of it</span></div>
+  <div class="v-meas-row"><span><b>Actions</b>What the site did</span><span>A phone form the supervisor or teacher fills twice a day</span><span>Whether the protocol was followed on the days it mattered</span></div>
+  <div class="v-meas-row"><span><b>Outcomes</b>What it cost</span><span>The site's own attendance, incident and output records</span><span>Days lost, cases caught early, attendance on alert days</span></div>
+</div>
+<p class="v-p" style="margin-top:1.6rem">Read alone, each line is a log. Read against one clock, they answer the question a site head or a principal cannot answer today: on the days the reading crossed the line, what happened to the people, and did what we did make a difference. Why heat and air belong together is set out in <a class="v-link" href="/thinking/delhi-heat-smog-co-extreme-days/">this piece on Delhi's co-extreme days</a>.</p>
+</div></section>
+
 <section class="v-sec panel"><div class="v-wrap">
   <span class="v-kicker">The bands</span>
   <h2 class="v-h2">A reading becomes an action through four bands.</h2>
-  <p class="v-lede">We did not invent the thresholds. They are the state's. What the season adds is a reading taken at your site, so the right band is on the wall at the right hour.</p>
+  <p class="v-lede">We did not invent the thresholds. They follow the international standard India has adopted. What the season adds is a reading taken at your site, so the right band is on the wall at the right hour, in any state.</p>
   <div class="v-bands">
 <div class="v-band b-green"><span class="sw"><i></i>Green</span><span class="t">below 26 &deg;C</span><p>Normal work. Water at every zone. The card is updated and the hours are counted.</p></div>
 <div class="v-band b-yellow"><span class="sw"><i></i>Yellow</span><span class="t">26 to 28 &deg;C</span><p>Water prompted every 20 minutes. A ten-minute shade break each hour for heavy work. The first-aider is briefed.</p></div>
 <div class="v-band b-orange"><span class="sw"><i></i>Orange</span><span class="t">28 to 31 &deg;C</span><p>Heavy outdoor work limited. Fifteen minutes of rest in every hour. Roof and slab work moves to cooler hours. Buddy checks begin.</p></div>
 <div class="v-band b-red"><span class="sw"><i></i>Red</span><span class="t">above 31 &deg;C</span><p>Heavy outdoor work stops in the peak hours. The cooling station is staffed. Any case is cooled on site first and transported second.</p></div>
 </div>
-<span class="v-src">Bands in wet-bulb globe temperature (WBGT), following the <a href="https://ksndmc.org/Content/Documents/General/Karnataka_HAP_2026.pdf" target="_blank" rel="noopener">Karnataka Heat Action Plan 2026</a> (KSNDMC). Other states' rules are written into the site's card where they apply.</span>
+<span class="v-src">The card reads in wet-bulb globe temperature (WBGT). Its four cut points sit inside the international reference range of <a href="https://www.iso.org/standard/67188.html" target="_blank" rel="noopener">ISO 7243:2017</a>, adopted in India as IS 16559:2019, and match the WBGT table published in the <a href="https://ksndmc.org/Content/Documents/General/Karnataka_HAP_2026.pdf" target="_blank" rel="noopener">Karnataka Heat Action Plan 2026</a>. The colours are the four alert colours the India Meteorological Department uses nationwide.</span>
+
+<div class="v-tool" data-bandtool>
+  <div class="v-tool-head">
+    <span class="k">Find your bands</span>
+    <h3 class="v-h3">Three rules meet at your site. See all three.</h3>
+    <p>The world sets a limit for the body. India sets an alert for the district. Your state writes a plan. Choose where you are and what the work is.</p>
+  </div>
+  <div class="v-tool-pick">
+    <label>State or union territory<select data-bt-state><option value="">Choose a state</option><option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option><option>Andaman and Nicobar Islands</option><option>Chandigarh</option><option>Dadra and Nagar Haveli and Daman and Diu</option><option>Delhi</option><option>Jammu and Kashmir</option><option>Ladakh</option><option>Lakshadweep</option><option>Puducherry</option></select></label>
+    <label>The site sits in<select data-bt-terrain><option value="plains">The plains</option><option value="coast">A coastal district</option><option value="hills">The hills</option></select></label>
+    <label>The work is<select data-bt-work><option value="2">Moderate: walking with loads, plastering</option><option value="1">Light: standing, supervising, classroom</option><option value="3">Heavy: shovelling, rebar, carrying</option><option value="4">Very heavy: fast digging, climbing with loads</option><option value="0">Resting</option></select></label>
+  </div>
+  <div class="v-tool-out" aria-live="polite">
+    <div class="v-tool-col">
+      <span class="k">1 &middot; The global reference, for the body</span>
+      <p class="big"><b data-bt-iso>28</b> &deg;C WBGT</p>
+      <p data-bt-isotext>The reference limit for moderate work by a person used to the heat. For someone new to it, the limit is 26 &deg;C. Above the limit, work needs rest breaks or a detailed assessment.</p>
+      <span class="v-src"><a href="https://www.iso.org/standard/67188.html" target="_blank" rel="noopener">ISO 7243:2017</a>, Annex A; in India, IS 16559:2019</span>
+    </div>
+    <div class="v-tool-col">
+      <span class="k">2 &middot; The national alert, for the district</span>
+      <p class="big"><b data-bt-imd>40</b> &deg;C air temperature</p>
+      <p data-bt-imdtext>In the plains a heat wave is declared when the day's maximum reaches 40 &deg;C and runs 4.5 &deg;C or more above normal, or touches 45 &deg;C outright. Yellow means be updated, orange be prepared, red take action.</p>
+      <span class="v-src"><a href="https://mausam.imd.gov.in/pdfs/heatcolduser/morning_heat_bulletin.pdf" target="_blank" rel="noopener">India Meteorological Department, heat wave criteria and colour codes</a></span>
+    </div>
+    <div class="v-tool-col">
+      <span class="k">3 &middot; Your state's plan</span>
+      <p class="big" data-bt-statehead>Choose a state</p>
+      <p data-bt-statetext>Twenty-three heat-prone states work with the national disaster authority and the weather department on heat action plans. Pick yours to see where it stands.</p>
+      <span class="v-src" data-bt-statesrc><a href="https://www.moes.gov.in/sites/default/files/LS-English-924-26-07-2023.pdf" target="_blank" rel="noopener">Ministry of Earth Sciences, Lok Sabha reply, 26 July 2023</a></span>
+    </div>
+  </div>
+  <p class="v-tool-foot">Rules 2 and 3 read the air over a district. Rule 1 reads the load on a body, and needs an instrument where that body is. A measured season puts that instrument on your site and writes all three onto one card.</p>
+</div>
 </div></section>
 
 <section class="v-sec"><div class="v-wrap">
@@ -333,6 +384,6 @@
 </footer>
 
 <script src="/js/main.js?v=340"></script>
-<script src="/js/v11.js?v=2"></script>
+<script src="/js/v11.js?v=3"></script>
 </body>
 </html>
