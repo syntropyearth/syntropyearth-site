@@ -34,7 +34,7 @@
 
 <!-- Bump ?v= whenever styles.css or v11.css changes. -->
 <link rel="stylesheet" href="/styles.css?v=330">
-<link rel="stylesheet" href="/v11.css?v=1">
+<link rel="stylesheet" href="/v11.css?v=2">
 
 <!-- ANALYTICS: GTM-WG7CWTHG is injected site-wide by Netlify Snippet Injection.
      It must NOT be hardcoded here, and gtag.js is not loaded on this site.
@@ -181,136 +181,104 @@ window.addEventListener('load',function(){ setTimeout(function(){
 
 <main id="main">
 
-<header class="v-hero"><div class="v-wrap"><div class="v-hero-grid">
+<header class="v-hero h-hero"><div class="v-wrap"><div class="h-hero-grid">
   <div>
     <span class="v-kicker">Heat and health, measured at the site</span>
-    <h1 class="v-h1 wide">Every summer takes something from the people you depend on. <em>We measure what. Then we help you take it back.</em></h1>
-    <p class="v-lede">Syntropy Earth measures heat stress where people work and learn. One site, one season, one register. You finish with the number, a heat-safe protocol your site runs itself, and a record your board, your auditor and your funder can read.</p>
-    <div class="v-cta"><a class="v-btn" href="/book/" data-ev="home_hero">Book a 20-minute site call <span aria-hidden="true">&rarr;</span></a><a class="v-btn ghost" href="/heat/" data-ev="home_hero_2">See what a season delivers</a></div>
+    <h1 class="v-h1 xl">Every summer takes something from your people. <em>We measure what.</em></h1>
+    <p class="v-lede">Syntropy Earth sells one thing: a measured heat season at your worksite or your school. Instruments go up in March. In August you hold the number, a heat-safe protocol, and a record your board can read.</p>
+    <div class="v-cta"><a class="v-btn" href="/book/" data-ev="home_hero">Book a 20-minute site call <span aria-hidden="true">&rarr;</span></a><a class="v-btn ghost" href="/heat-safe-workers/#walk" data-ev="home_hero_2">Watch a season unfold</a></div>
   </div>
-  <a class="v-card-dark" href="/heat/#register" data-ev="home_register_card">
-    <span class="k">The site register &middot; preview</span>
-    <h3>What one season looks like</h3>
-    <p>Wet-bulb globe temperature through the day, alert days, rest and water logged, cases caught early, days lost. Open the interactive preview.</p>
-    <svg viewBox="0 0 520 150" role="img" aria-label="Preview of a season chart: daily peak wet-bulb globe temperature rising above the alert band in April and May. Illustrative, not a measured site.">
-<line x1="0" y1="42" x2="520" y2="42" stroke="rgba(245,242,235,.3)" stroke-dasharray="3 5"/>
-<text x="2" y="34" fill="rgba(245,242,235,.7)" font-size="10" font-family="Space Mono, monospace">RED BAND, ABOVE 31 &#176;C WBGT</text>
-<path d="M0 124 C40 118,62 92,92 94 S150 56,190 60 S250 26,292 32 S352 70,392 64 S452 48,520 78 L520 150 L0 150Z" fill="rgba(232,112,58,.18)"/>
-<path d="M0 124 C40 118,62 92,92 94 S150 56,190 60 S250 26,292 32 S352 70,392 64 S452 48,520 78" fill="none" stroke="#E8703A" stroke-width="2.2"/>
-<text x="2" y="146" fill="rgba(245,242,235,.6)" font-size="10" font-family="Space Mono, monospace">1 MAR</text><text x="474" y="146" fill="rgba(245,242,235,.6)" font-size="10" font-family="Space Mono, monospace">15 JUL</text>
-</svg>
-    <span class="v-src" style="color:rgba(245,242,235,.6)">Illustrative curve, not a measured site. The first measured season runs March to July 2027.</span>
-  </a>
-</div></div></header>
+  <div class="h-live" data-live role="img" aria-label="Illustrative example: a reading of 31.6 degrees Celsius wet-bulb globe temperature on a slab at 14:15 puts the site in the red band, and heavy outdoor work stops.">
+    <div class="h-live-top"><span>Slab, level 3 &middot; point of work</span><span data-live-t>14:15</span></div>
+    <div class="h-live-v"><b data-live-v>31.6</b><i>&deg;C<br>WBGT</i></div>
+    <div class="h-live-band" data-live-band data-band="red"><i></i><span data-live-name>Red band</span></div>
+    <p class="h-live-act" data-live-act>Heavy outdoor work stops from 12 to 3. Cooling station staffed.</p>
+    <svg viewBox="0 0 320 70" aria-hidden="true"><path d="M0 60 C30 58,50 44,80 40 S130 14,165 10 S220 22,250 30 S300 50,320 54" fill="none" stroke="rgba(245,242,235,.28)" stroke-width="1.5"/><line x1="0" y1="20" x2="320" y2="20" stroke="rgba(255,122,61,.5)" stroke-dasharray="2 5"/><circle data-live-dot cx="165" cy="10" r="5" fill="#FF7A3D"/></svg>
+    <span class="h-live-note">Illustrative reading, not a measured site. The first measured season starts in March 2027.</span>
+  </div>
+</div></div>
+<div class="h-marquee" aria-label="What a season maps to"><div class="h-marquee-track">
+  <span>Maps to</span><span>BRSR Principle 3</span><span>GRI 403</span><span>SDG 3.d</span><span>SDG 8.8</span><span>Schedule VII</span><span>Method</span><span>IS 16559:2019</span><span>Karnataka Heat Action Plan 2026</span>
+  <span aria-hidden="true">Maps to</span><span aria-hidden="true">BRSR Principle 3</span><span aria-hidden="true">GRI 403</span><span aria-hidden="true">SDG 3.d</span><span aria-hidden="true">SDG 8.8</span><span aria-hidden="true">Schedule VII</span><span aria-hidden="true">Method</span><span aria-hidden="true">IS 16559:2019</span><span aria-hidden="true">Karnataka Heat Action Plan 2026</span>
+</div></div>
+</header>
 
-<section class="v-tiles" aria-label="The season in four numbers">
-  <div class="v-tile"><span class="n s">15 min</span><span class="l">between readings at every instrument, all season, at the point of work and the point of rest</span></div>
-  <div class="v-tile"><span class="n">4 records</span><span class="l">kept together for the first time: exposure, actions taken, health, and outcomes counted</span></div>
-  <div class="v-tile"><span class="n">3 weeks</span><span class="l">from the last day of the season to the evidence pack on your desk</span></div>
-  <div class="v-tile"><span class="n s">2 SDG targets</span><span class="l">where every site-season reports: 3.d on health risk and 8.8 on safe work, with BRSR and GRI 403 mapped</span></div>
-</section>
+<section class="v-sec h-sell"><div class="v-wrap">
+  <span class="v-kicker">What we do</span>
+  <h2 class="h-big">We put instruments where your people work or learn, measure one full hot season, and hand you <em>the proof and the plan.</em></h2>
+  <div class="h-three">
+    <div><span class="h-num">01</span><h3>Measure</h3><p>Heat stress, read as wet-bulb globe temperature every 15 minutes at the point of work and the point of rest.</p></div>
+    <div><span class="h-num">02</span><h3>Act</h3><p>A four-band card on the wall. Your own supervisors or teachers run it, twice a day.</p></div>
+    <div><span class="h-num">03</span><h3>Prove</h3><p>A report three weeks after the season, mapped to BRSR, GRI 403 and two SDG targets.</p></div>
+  </div>
+</div></section>
 
-<section class="v-sec"><div class="v-wrap">
-  <span class="v-kicker">Two programmes</span>
-  <h2 class="v-h2">One measurement. Two places it matters most.</h2>
-  <p class="v-lede">Heat stress does its damage where people cannot step away from it: on a slab at noon, in a top-floor classroom in April. We work in exactly those two places.</p>
-  <div class="v-grid2" style="margin-top:2.2rem">
-    <a class="v-card" href="/heat-safe-workers/" data-ev="home_offer_workers">
-      <span class="k">For construction sites, plants, yards, campuses and field teams</span>
-      <h3 class="v-h3">Heat-Safe Workers season</h3>
-      <p>A measured heat season at your site. Instruments at the point of work, a band card your supervisors run, health screening at the start and the end, and the record your safety head hands up.</p>
-      <span><span class="v-pill">March to July</span><span class="v-pill c">Workers, contract and migrant included</span></span>
-      <span class="more">Walk through a worksite season <span aria-hidden="true">&rarr;</span></span>
+<section class="v-sec dark h-prog"><div class="v-wrap">
+  <span class="v-kicker">Two programmes &middot; heat stress, measured where it lands</span>
+  <h2 class="v-h2">Pick the place heat hits hardest.</h2>
+  <div class="h-panels">
+    <a class="h-panel" href="/heat-safe-workers/" data-ev="home_offer_workers">
+      <div class="h-panel-art"><svg class="scene still" viewBox="0 0 640 440" role="img" aria-label="Line drawing of a construction site through one measured heat season: the site as it is, the site walk, two WBGT instruments and a shaded reference, the band card and water points, a red-band day with heavy work paused, the screening camp, the Friday readout and the evidence pack."><g class="base shown"><path pathLength="1" class="st" d="M-400 380 H1040"/><path pathLength="1" class="st" d="M370 380 V170 M446 380 V170 M522 380 V170 M600 380 V170 M370 170 H600 M370 240 H600 M370 310 H600"/><path pathLength="1" class="st2" d="M380 170 v-12 M400 170 v-12 M420 170 v-12 M560 170 v-12 M580 170 v-12"/><path pathLength="1" class="st" d="M330 380 V64 M330 78 H540 M330 78 L300 78 M330 64 L420 78 M490 78 V124"/><path pathLength="1" class="st2" d="M322 380 H338 M330 120 l-8 16 h16 Z"/><path pathLength="1" class="st" d="M30 380 V304 M150 380 V296 M20 306 L160 290 M50 380 V356 H130 V380"/></g><g class="ly on"><circle class="st" cx="420" cy="136.0" r="5.5"/><path class="st" d="M420 141.5 V158.0 M420 158.0 L414.0 170 M420 158.0 L426.0 170 M412.0 150.0 L428.0 150.0"/><circle class="st" cx="540" cy="136.0" r="5.5"/><path class="st" d="M540 141.5 V158.0 M540 158.0 L534.0 170 M540 158.0 L546.0 170 M532.0 150.0 L548.0 150.0"/></g><g class="ly off" style="display:none"><circle class="st" cx="420" cy="136.0" r="5.5"/><path class="st" d="M420 141.5 V158.0 M420 158.0 L414.0 170 M420 158.0 L426.0 170 M412.0 150.0 L428.0 150.0"/><circle class="st" cx="540" cy="136.0" r="5.5"/><path class="st" d="M540 141.5 V158.0 M540 158.0 L534.0 170 M540 158.0 L546.0 170 M532.0 150.0 L548.0 150.0"/></g><g class="ly on"><circle class="st" cx="238" cy="346.0" r="5.5"/><path class="st" d="M238 351.5 V368.0 M238 368.0 L232.0 380 M238 368.0 L244.0 380 M230.0 360.0 L246.0 360.0"/><circle class="st" cx="264" cy="346.0" r="5.5"/><path class="st" d="M264 351.5 V368.0 M264 368.0 L258.0 380 M264 368.0 L270.0 380 M256.0 360.0 L272.0 360.0"/></g><g class="ly off" style="display:none"><circle class="st" cx="238" cy="346.0" r="5.5"/><path class="st" d="M238 351.5 V368.0 M238 368.0 L232.0 380 M238 368.0 L244.0 380 M230.0 360.0 L246.0 360.0"/><circle class="st" cx="264" cy="346.0" r="5.5"/><path class="st" d="M264 351.5 V368.0 M264 368.0 L258.0 380 M264 368.0 L270.0 380 M256.0 360.0 L272.0 360.0"/></g><g class="ly off" style="display:none"><g class="shimmer"><path class="sig" d="M396 140 q11 -8 22 0 t22 0 t22 0 t22 0"/><path class="sig" opacity=".55" d="M404 126 q11 -8 22 0 t22 0 t22 0"/></g><g class="shimmer"><path class="sig" d="M210 330 q9 -8 18 0 t18 0 t18 0 t18 0"/><path class="sig" opacity=".55" d="M218 316 q9 -8 18 0 t18 0 t18 0"/></g><text class="sm" x="318" y="150" text-anchor="end">No reading here</text></g><g class="ly off" style="display:none"><path class="sig" stroke-dasharray="2 9" d="M90 372 H300 C350 372,350 300,392 300 V200 H470"/><circle class="sigf" cx="90" cy="340" r="11"/><text x="90" y="345" text-anchor="middle" style="fill:#151B1E;font-size:13px;font-weight:700">1</text><circle class="sigf" cx="300" cy="345" r="11"/><text x="300" y="350" text-anchor="middle" style="fill:#151B1E;font-size:13px;font-weight:700">2</text><circle class="sigf" cx="490" cy="200" r="11"/><text x="490" y="205" text-anchor="middle" style="fill:#151B1E;font-size:13px;font-weight:700">3</text><text class="sm sg" x="204" y="262" text-anchor="middle">Site walk: where is it worst?</text></g><g class="ly on"><path class="st" d="M480 130 L467 170 M480 130 L493 170 M480 130 V162 M480 130 V108 M468 108 H492"/><circle class="sigf" cx="468" cy="100" r="7.5"/><rect class="inkf" x="486" y="96" width="11" height="12" rx="2"/><circle class="pulse" cx="468" cy="100" r="4"/><path class="st" d="M108 340 L95 380 M108 340 L121 380 M108 340 V372 M108 340 V318 M96 318 H120"/><circle class="sigf" cx="96" cy="310" r="7.5"/><rect class="inkf" x="114" y="306" width="11" height="12" rx="2"/><circle class="pulse" cx="96" cy="310" r="4"/><rect class="inkf" x="36" y="312" width="14" height="18" rx="2"/><circle class="sigf" cx="43" cy="321" r="3"/></g><g class="ly off" style="display:none"><text class="sg" x="500" y="88" text-anchor="start">WBGT 1</text><text class="sm" x="500" y="106">work zone</text><text class="sg" x="66" y="272" text-anchor="start">WBGT 2</text><text class="sm" x="66" y="254">rest area</text><text class="sm" x="196" y="324">every 15 minutes</text></g><g class="ly on"><rect class="inkf" x="162" y="322" width="30" height="50" rx="2"/><rect x="166" y="326" width="22" height="9" fill="#4E8A5F"/><rect x="166" y="337" width="22" height="9" fill="#C99A1B"/><rect x="166" y="348" width="22" height="9" fill="#D4741F"/><rect x="166" y="359" width="22" height="9" fill="#B3331F"/><rect class="st" x="202" y="346" width="22" height="26" rx="4"/><path class="st" d="M205 372 V380 M221 372 V380 M224 364 h7 v5"/><path class="sig" d="M231 373 v3"/><rect class="st" x="556" y="136" width="22" height="26" rx="4"/><path class="st" d="M559 162 V170 M575 162 V170 M578 154 h7 v5"/><path class="sig" d="M585 163 v3"/></g><g class="ly on"><path class="bonef" d="M202 336.5 L194 341.5 L202 346.5 Z"/><text class="sg" x="150" y="244">Band card</text><text class="sm" x="150" y="260">updated twice a day</text></g><g class="ly off" style="display:none"><path class="bonef" d="M202 336.5 L194 341.5 L202 346.5 Z"/></g><g class="ly off" style="display:none"><path class="bonef" d="M202 358.5 L194 363.5 L202 368.5 Z"/><circle class="st" cx="70" cy="328.8" r="4.4"/><path class="st" d="M70 333.2 V346.4 M70 346.4 L65.2 356 M70 346.4 L74.8 356 M63.6 340.0 L76.4 340.0"/><circle class="st" cx="92" cy="328.8" r="4.4"/><path class="st" d="M92 333.2 V346.4 M92 346.4 L87.2 356 M92 346.4 L96.8 356 M85.6 340.0 L98.4 340.0"/><circle class="st" cx="114" cy="328.8" r="4.4"/><path class="st" d="M114 333.2 V346.4 M114 346.4 L109.2 356 M114 346.4 L118.8 356 M107.6 340.0 L120.4 340.0"/><circle class="st" cx="136" cy="349.4" r="5.0"/><path class="st" d="M136 354.3 V369.2 M136 369.2 L130.6 380 M136 369.2 L141.4 380 M128.8 362.0 L143.2 362.0"/><path class="sig" stroke-dasharray="6 7" d="M376 164 H594"/><text class="sg" x="246" y="318">Red band</text><text class="sm" x="246" y="336">12 to 3: heavy work stops</text><text class="sm" x="318" y="150" text-anchor="end">Slab work rescheduled</text></g><g class="ly off" style="display:none"><path class="st" d="M222 380 L260 322 L298 380 Z M260 322 V380"/><path class="sig" d="M241 350 v14 M234 357 h14"/><circle class="st" cx="206" cy="351.1" r="4.7"/><path class="st" d="M206 355.8 V369.8 M206 369.8 L200.9 380 M206 369.8 L211.1 380 M199.2 363.0 L212.8 363.0"/><circle class="st" cx="190" cy="351.1" r="4.7"/><path class="st" d="M190 355.8 V369.8 M190 369.8 L184.9 380 M190 369.8 L195.1 380 M183.2 363.0 L196.8 363.0"/><text class="sg" x="262" y="300" text-anchor="middle">Screening camp</text></g><g class="ly off" style="display:none"><rect class="bonef" x="118" y="126" width="190" height="124" rx="5"/><text x="132" y="150" style="fill:#151B1E;font-size:12px;letter-spacing:.08em">FRIDAY READOUT</text><path d="M132 178 H294" stroke="#B3331F" stroke-width="1.2" stroke-dasharray="3 4"/><path d="M132 224 C158 218,170 196,192 198 S222 170,242 176 S274 204,294 192" fill="none" stroke="#D4551F" stroke-width="2.6" stroke-linecap="round"/><path d="M132 234 H294" stroke="#151B1E" stroke-width="1.4"/></g><g class="ly off" style="display:none"><rect class="bonef" x="84" y="128" width="52" height="68" rx="3"/><path d="M93 144 h34 M93 155 h34 M93 166 h22" stroke="#151B1E" stroke-width="2.2" stroke-linecap="round"/><rect x="93" y="176" width="34" height="10" fill="#D4551F"/><text class="sm" x="110" y="216" text-anchor="middle">Report</text><rect class="bonef" x="146" y="128" width="52" height="68" rx="3"/><path d="M155 144 h34 M155 155 h34 M155 166 h22" stroke="#151B1E" stroke-width="2.2" stroke-linecap="round"/><rect x="155" y="176" width="34" height="10" fill="#D4551F"/><text class="sm" x="172" y="216" text-anchor="middle">Protocol</text><rect class="bonef" x="208" y="128" width="52" height="68" rx="3"/><path d="M217 144 h34 M217 155 h34 M217 166 h22" stroke="#151B1E" stroke-width="2.2" stroke-linecap="round"/><rect x="217" y="176" width="34" height="10" fill="#D4551F"/><text class="sm" x="234" y="216" text-anchor="middle">BRSR</text><rect class="bonef" x="270" y="128" width="52" height="68" rx="3"/><path d="M279 144 h34 M279 155 h34 M279 166 h22" stroke="#151B1E" stroke-width="2.2" stroke-linecap="round"/><path d="M279 182 l6 6 l11 -13" stroke="#D4551F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text class="sm" x="296" y="216" text-anchor="middle">Register</text></g></svg></div>
+      <div class="h-panel-body">
+        <span class="k">Construction sites, plants, yards, campuses, field teams</span>
+        <h3>Heat-Safe Workers</h3>
+        <p>One measured season at your site, contract and migrant workers included.</p>
+        <span class="h-meta"><i>March to July</i><i>Health screening at start and end</i></span>
+        <span class="more">Walk through a worksite season <span aria-hidden="true">&rarr;</span></span>
+      </div>
     </a>
-    <a class="v-card" href="/heat-ready-schools/" data-ev="home_offer_schools">
-      <span class="k">For schools, school groups and CSR committees</span>
-      <h3 class="v-h3">Heat-Ready Schools sprint</h3>
-      <p>A measured hot term. Loggers in classrooms and the playground, four project modules your pupils run, attendance read against alert days, and a School Heat Report parents and boards can follow.</p>
-      <span><span class="v-pill">January to April</span><span class="v-pill c">Classes 6 to 9</span></span>
-      <span class="more">Walk through a school term <span aria-hidden="true">&rarr;</span></span>
+    <a class="h-panel" href="/heat-ready-schools/" data-ev="home_offer_schools">
+      <div class="h-panel-art"><svg class="scene still" viewBox="0 0 640 440" role="img" aria-label="Line drawing of a school through one measured hot term: the school as it is, the walk, a playground WBGT instrument and classroom loggers, the signed protocol, pupils taking readings, a red-band day, the weekly readout and the School Heat Report."><g class="base shown"><path pathLength="1" class="st" d="M-400 380 H1040"/><path pathLength="1" class="st" d="M300 380 V200 H600 V380 M292 200 H608 M300 290 H600"/><rect pathLength="1" class="st" x="330" y="222" width="40" height="44"/><rect pathLength="1" class="st" x="400" y="222" width="40" height="44"/><rect pathLength="1" class="st" x="470" y="222" width="40" height="44"/><rect pathLength="1" class="st" x="540" y="222" width="40" height="44"/><rect pathLength="1" class="st" x="330" y="312" width="40" height="44"/><rect pathLength="1" class="st" x="400" y="312" width="40" height="44"/><rect pathLength="1" class="st" x="470" y="312" width="40" height="44"/><path pathLength="1" class="st" d="M546 380 V318 H584 V380"/><path pathLength="1" class="st" d="M450 200 V136 M450 138 h30 v18 h-30"/><path pathLength="1" class="st" d="M130 380 V316"/><circle pathLength="1" class="st" cx="130" cy="284" r="38"/><path pathLength="1" class="st2" d="M186 380 V342 H236 V380"/></g><g class="ly on"><circle class="st" cx="204" cy="353.5" r="4.3"/><path class="st" d="M204 357.8 V370.6 M204 370.6 L199.3 380 M204 370.6 L208.7 380 M197.8 364.4 L210.2 364.4"/><circle class="st" cx="226" cy="353.5" r="4.3"/><path class="st" d="M226 357.8 V370.6 M226 370.6 L221.3 380 M226 370.6 L230.7 380 M219.8 364.4 L232.2 364.4"/><circle class="st" cx="262" cy="353.5" r="4.3"/><path class="st" d="M262 357.8 V370.6 M262 370.6 L257.3 380 M262 370.6 L266.7 380 M255.8 364.4 L268.2 364.4"/></g><g class="ly off" style="display:none"><circle class="st" cx="204" cy="353.5" r="4.3"/><path class="st" d="M204 357.8 V370.6 M204 370.6 L199.3 380 M204 370.6 L208.7 380 M197.8 364.4 L210.2 364.4"/><circle class="st" cx="226" cy="353.5" r="4.3"/><path class="st" d="M226 357.8 V370.6 M226 370.6 L221.3 380 M226 370.6 L230.7 380 M219.8 364.4 L232.2 364.4"/><circle class="st" cx="262" cy="353.5" r="4.3"/><path class="st" d="M262 357.8 V370.6 M262 370.6 L257.3 380 M262 370.6 L266.7 380 M255.8 364.4 L268.2 364.4"/></g><g class="ly off" style="display:none"><g class="shimmer"><path class="sig" d="M196 322 q10 -8 20 0 t20 0 t20 0 t20 0"/><path class="sig" opacity=".55" d="M204 308 q10 -8 20 0 t20 0 t20 0"/></g><g class="shimmer"><path class="sig" d="M360 176 q14 -8 28 0 t28 0 t28 0 t28 0"/><path class="sig" opacity=".55" d="M368 162 q14 -8 28 0 t28 0 t28 0"/></g><text class="sm" x="450" y="112" text-anchor="middle">No reading here</text></g><g class="ly off" style="display:none"><path class="sig" stroke-dasharray="2 9" d="M150 372 H282 C320 372,300 300,316 300 V244"/><circle class="sigf" cx="226" cy="330" r="11"/><text x="226" y="335" text-anchor="middle" style="fill:#151B1E;font-size:13px;font-weight:700">1</text><circle class="sigf" cx="316" cy="300" r="11"/><text x="316" y="305" text-anchor="middle" style="fill:#151B1E;font-size:13px;font-weight:700">2</text><circle class="sigf" cx="420" cy="190" r="11"/><text x="420" y="195" text-anchor="middle" style="fill:#151B1E;font-size:13px;font-weight:700">3</text><text class="sm sg" x="430" y="150" text-anchor="middle">Top floor, under the roof</text></g><g class="ly on"><path class="st" d="M274 340 L261 380 M274 340 L287 380 M274 340 V372 M274 340 V318 M262 318 H286"/><circle class="sigf" cx="262" cy="310" r="7.5"/><rect class="inkf" x="280" y="306" width="11" height="12" rx="2"/><circle class="pulse" cx="262" cy="310" r="4"/><circle class="sigf" cx="350" cy="244" r="4.5"/><circle class="pulse" cx="350" cy="244" r="4"/><circle class="sigf" cx="420" cy="244" r="4.5"/><circle class="pulse" cx="420" cy="244" r="4"/><circle class="sigf" cx="560" cy="244" r="4.5"/><circle class="pulse" cx="560" cy="244" r="4"/><circle class="sigf" cx="420" cy="334" r="4.5"/><circle class="pulse" cx="420" cy="334" r="4"/></g><g class="ly off" style="display:none"><text class="sg" x="196" y="296">Playground WBGT</text><text class="sg" x="330" y="176">Classroom loggers</text></g><g class="ly on"><rect class="inkf" x="514" y="318" width="30" height="50" rx="2"/><rect x="518" y="322" width="22" height="9" fill="#4E8A5F"/><rect x="518" y="333" width="22" height="9" fill="#C99A1B"/><rect x="518" y="344" width="22" height="9" fill="#D4741F"/><rect x="518" y="355" width="22" height="9" fill="#B3331F"/><rect class="st" x="40" y="346" width="22" height="26" rx="4"/><path class="st" d="M43 372 V380 M59 372 V380 M62 364 h7 v5"/><path class="sig" d="M69 373 v3"/></g><g class="ly off" style="display:none"><path class="bonef" d="M554 332.5 L546 337.5 L554 342.5 Z"/><text class="sg" x="452" y="412" text-anchor="middle">School heat protocol, signed by the principal</text></g><g class="ly on"><path class="bonef" d="M554 332.5 L546 337.5 L554 342.5 Z"/><rect class="bonef" x="233" y="344" width="14" height="18" rx="1"/><rect class="bonef" x="211" y="346" width="12" height="16" rx="1"/><text class="sg" x="272" y="236" text-anchor="end">Pupils take the readings</text></g><g class="ly off" style="display:none"><path class="bonef" d="M554 332.5 L546 337.5 L554 342.5 Z"/></g><g class="ly off" style="display:none"><path class="bonef" d="M554 354.5 L546 359.5 L554 364.5 Z"/><circle class="st" cx="98" cy="353.5" r="4.3"/><path class="st" d="M98 357.8 V370.6 M98 370.6 L93.3 380 M98 370.6 L102.7 380 M91.8 364.4 L104.2 364.4"/><circle class="st" cx="120" cy="353.5" r="4.3"/><path class="st" d="M120 357.8 V370.6 M120 370.6 L115.3 380 M120 370.6 L124.7 380 M113.8 364.4 L126.2 364.4"/><circle class="st" cx="146" cy="353.5" r="4.3"/><path class="st" d="M146 357.8 V370.6 M146 370.6 L141.3 380 M146 370.6 L150.7 380 M139.8 364.4 L152.2 364.4"/><path class="sig" stroke-dasharray="6 7" d="M180 372 H292"/><text class="sg" x="40" y="212">Red band</text><text class="sm" x="40" y="230">sport moved, playground rested</text></g><g class="ly off" style="display:none"><rect class="bonef" x="118" y="116" width="190" height="124" rx="5"/><text x="132" y="140" style="fill:#151B1E;font-size:12px;letter-spacing:.08em">WEEKLY READOUT</text><path d="M132 168 H294" stroke="#B3331F" stroke-width="1.2" stroke-dasharray="3 4"/><path d="M132 214 C158 208,170 186,192 188 S222 160,242 166 S274 194,294 182" fill="none" stroke="#D4551F" stroke-width="2.6" stroke-linecap="round"/><path d="M132 224 H294" stroke="#151B1E" stroke-width="1.4"/></g><g class="ly off" style="display:none"><rect class="bonef" x="44" y="118" width="52" height="68" rx="3"/><path d="M53 134 h34 M53 145 h34 M53 156 h22" stroke="#151B1E" stroke-width="2.2" stroke-linecap="round"/><rect x="53" y="166" width="34" height="10" fill="#D4551F"/><text class="sm" x="70" y="206" text-anchor="middle">Report</text><rect class="bonef" x="106" y="118" width="52" height="68" rx="3"/><path d="M115 134 h34 M115 145 h34 M115 156 h22" stroke="#151B1E" stroke-width="2.2" stroke-linecap="round"/><rect x="115" y="166" width="34" height="10" fill="#D4551F"/><text class="sm" x="132" y="206" text-anchor="middle">Protocol</text><rect class="bonef" x="168" y="118" width="52" height="68" rx="3"/><path d="M177 134 h34 M177 145 h34 M177 156 h22" stroke="#151B1E" stroke-width="2.2" stroke-linecap="round"/><rect x="177" y="166" width="34" height="10" fill="#D4551F"/><text class="sm" x="194" y="206" text-anchor="middle">Parents</text><rect class="bonef" x="230" y="118" width="52" height="68" rx="3"/><path d="M239 134 h34 M239 145 h34 M239 156 h22" stroke="#151B1E" stroke-width="2.2" stroke-linecap="round"/><path d="M239 172 l6 6 l11 -13" stroke="#D4551F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text class="sm" x="256" y="206" text-anchor="middle">Register</text></g></svg></div>
+      <div class="h-panel-body">
+        <span class="k">Schools, school groups, CSR committees</span>
+        <h3>Heat-Ready Schools</h3>
+        <p>One measured hot term. Your pupils take the readings as project work.</p>
+        <span class="h-meta"><i>January to April</i><i>Classes 6 to 9</i></span>
+        <span class="more">Walk through a school term <span aria-hidden="true">&rarr;</span></span>
+      </div>
     </a>
   </div>
 </div></section>
 
-<section class="v-sec dark"><div class="v-wrap">
+<section class="v-sec h-hold"><div class="v-wrap">
   <span class="v-kicker">What you hold at the end</span>
-  <h2 class="v-h2">A season ends. The evidence stays with you.</h2>
-  <p class="v-lede">Three weeks after the last reading you receive one pack. Every item in it is written to be handed to someone: a board, an assurer, a CSR committee, a parent.</p>
-  <ol class="v-get">
-    <li><h3>The Site Heat Report</h3><p>Your season in twelve to fifteen pages: exposure by hour, days in each band, actions taken, cases by grade, outcomes against your own baseline, and three changes for next year.</p><p class="where"><b>Goes to</b>The board paper and the project file</p></li>
-    <li><h3>A heat-safe protocol for your site</h3><p>The band card, the rest and water rule, the alert-day actions and the referral path, written for your site and signed by the person who runs it.</p><p class="where"><b>Goes to</b>The site safety plan</p></li>
-    <li><h3>The reporting paragraph</h3><p>One paragraph in the disclosure's own voice, with the numbers the season counted.</p><p class="where"><b>Maps to</b>BRSR Principle 3, GRI 403, Schedule VII</p></li>
-    <li><h3>Outcomes, counted</h3><p>Cases caught early, referrals completed, days lost, attendance on alert days. Counted from the register, never estimated.</p><p class="where"><b>Maps to</b>SDG 3.d and SDG 8.8</p></li>
-  </ol>
-  <div class="v-cta"><a class="v-btn" href="/heat/" data-ev="home_pack">See the full evidence pack <span aria-hidden="true">&rarr;</span></a></div>
+  <h2 class="v-h2">The season ends. The evidence stays with you.</h2>
+  <div class="h-cards">
+    <div class="h-card"><span class="h-num">01</span><h3>The Site Heat Report</h3><p>Exposure by hour, days in each band, actions, cases, and three changes for next year.</p><span class="where">Goes to the board paper</span></div>
+    <div class="h-card"><span class="h-num">02</span><h3>A heat-safe protocol</h3><p>Written for your site, signed by the person who runs it.</p><span class="where">Goes to the site safety plan</span></div>
+    <div class="h-card"><span class="h-num">03</span><h3>The reporting paragraph</h3><p>In the disclosure's own voice, with the numbers the season counted.</p><span class="where">Maps to BRSR Principle 3, GRI 403, Schedule VII</span></div>
+    <div class="h-card"><span class="h-num">04</span><h3>Outcomes, counted</h3><p>Cases caught early, days lost, attendance on alert days. Counted, never estimated.</p><span class="where">Maps to SDG 3.d and SDG 8.8</span></div>
+  </div>
+  <div class="v-cta"><a class="v-btn ghost" href="/heat/" data-ev="home_pack">See the full evidence pack <span aria-hidden="true">&rarr;</span></a></div>
 </div></section>
 
-<section class="v-sec"><div class="v-wrap">
+<section class="v-sec dark h-run"><div class="v-wrap">
   <span class="v-kicker">How it runs</span>
   <h2 class="v-h2">Sign by February. Read your summer in August.</h2>
-  <div class="v-time">
-    <div><span class="when">December to February</span><h3>Walk and baseline</h3><p>A site walk, instruments placed, supervisors trained in 45 minutes, and a baseline fortnight of readings before anything changes.</p></div>
-    <div class="hot"><span class="when">1 March to 15 July</span><h3>The season</h3><p>Readings every 15 minutes. The band card updated twice a day. A one-page readout to the site head every Friday. Screening at the start and the end.</p></div>
-    <div><span class="when">Three weeks after</span><h3>The evidence pack</h3><p>The report, the protocol, the reporting paragraph and your entry in the register.</p></div>
-    <div><span class="when">From November</span><h3>Season two</h3><p>The same site, measured again. Now the number has a before and an after.</p></div>
+  <div class="h-line" data-line>
+    <div><span class="when">Dec to Feb</span><h3>Walk and baseline</h3><p>Site walk, instruments placed, supervisors trained in 45 minutes.</p></div>
+    <div class="hot"><span class="when">1 Mar to 15 Jul</span><h3>The season</h3><p>A reading every 15 minutes. A one-page readout every Friday.</p></div>
+    <div><span class="when">Three weeks after</span><h3>The evidence pack</h3><p>Report, protocol, reporting paragraph, register entry.</p></div>
+    <div><span class="when">From November</span><h3>Season two</h3><p>Now the number has a before and an after.</p></div>
   </div>
   <div class="v-cta"><a class="v-btn ghost" href="/season/" data-ev="home_season">See the method, week by week <span aria-hidden="true">&rarr;</span></a></div>
 </div></section>
 
-<section class="v-sec panel"><div class="v-wrap">
-  <span class="v-kicker">Why this, why now</span>
-  <h2 class="v-h2">The world has named the risk. India has written the rules. The site is still unmeasured.</h2>
-  <div class="v-grid3" style="margin-top:2rem">
-    <div class="v-card"><span class="k">A health story first</span><h3 class="v-h3">People act on climate when it is about health.</h3><p>A 2026 study of more than 30,000 people in Brazil, India, Japan and South Africa found health-framed climate messages twice as likely to shift attitudes as other climate messages. In India, 91 percent of respondents said they were concerned about climate change.</p><span class="v-src">Source: <a href="https://wellcome.org/news/highlighting-health-impacts-climate-change-and-climate-solutions-sparks-public-support-climate" target="_blank" rel="noopener">Wellcome Trust and CORE, Climate-health messages build support for climate action, 2026</a></span></div>
-    <div class="v-card"><span class="k">The rules exist</span><h3 class="v-h3">States now say what a hot day demands.</h3><p>Karnataka's Heat Action Plan 2026 sets alert bands in wet-bulb globe temperature and gives labour and education officers named duties on alert days. It tells a district what to do. It cannot see inside a private site.</p><span class="v-src">Source: <a href="https://ksndmc.org/Content/Documents/General/Karnataka_HAP_2026.pdf" target="_blank" rel="noopener">Karnataka Heat Action Plan 2026, KSNDMC</a></span></div>
-    <div class="v-card"><span class="k">The gap</span><h3 class="v-h3">Classrooms and worksites sit outside the count.</h3><p>UNICEF counted at least 242 million students whose schooling was disrupted by climate events in 2024, 171 million of them by heatwaves. Public health surveillance counts heat illness at the facility. Nobody counts what happened at the site that morning.</p><span class="v-src">Source: <a href="https://www.unicef.org/reports/learning-interrupted-global-snapshot-2024" target="_blank" rel="noopener">UNICEF, Learning Interrupted, January 2025</a></span></div>
+<section class="v-sec h-why"><div class="v-wrap">
+  <span class="v-kicker">Why now &middot; climate-health intelligence starts with a measurement</span>
+  <h2 class="v-h2">The risk is named. The rules are written. The site is still unmeasured.</h2>
+  <div class="h-stats">
+    <div><span class="h-stat"><b data-count="242">242</b> million</span><p>students or more had their schooling disrupted by climate events in 2024, 171 million of them by heatwaves.</p><span class="v-src">Source: <a href="https://www.unicef.org/reports/learning-interrupted-global-snapshot-2024" target="_blank" rel="noopener">UNICEF, Learning Interrupted, 2025</a></span></div>
+    <div><span class="h-stat"><b data-count="91">91</b>%</span><p>of people surveyed in India said they were concerned about climate change, in a 2026 study of more than 30,000 people across four countries.</p><span class="v-src">Source: <a href="https://wellcome.org/news/highlighting-health-impacts-climate-change-and-climate-solutions-sparks-public-support-climate" target="_blank" rel="noopener">Wellcome and CORE, 2026</a></span></div>
+    <div><span class="h-stat"><b data-count="4">4</b> bands</span><p>in Karnataka's Heat Action Plan 2026 say what a hot day demands. The plan tells a district what to do. It cannot see inside your site.</p><span class="v-src">Source: <a href="https://ksndmc.org/Content/Documents/General/Karnataka_HAP_2026.pdf" target="_blank" rel="noopener">Karnataka Heat Action Plan 2026, KSNDMC</a></span></div>
   </div>
-  <p class="v-p" style="margin-top:2rem">That is the piece we build. The health system counts cases at the clinic and trains the system. Syntropy Earth measures exposure and what follows from it at the place of work and learning, paid for by the people who own that place, and hands the result to them.</p>
+  <p class="h-close">Each site-season enters one register. One season answers a site's question. Many of them give India a measured picture of what heat does to people at work and at school. <a class="v-link" href="/heat/">See the register and the published methods</a></p>
 </div></section>
 
-<section class="v-sec"><div class="v-wrap v-split">
-  <div>
-    <span class="v-kicker">Where this is going</span>
-    <h2 class="v-h2">A climate-health intelligence company, built one measured season at a time.</h2>
-  </div>
-  <div>
-    <p class="v-p">Every site-season enters one register in one shape: exposure, actions, health, outcomes. One season answers a site's question. Ten seasons give a district a benchmark. Sixty give India something it does not have: a measured picture of what heat does to people at work and at school, site by site.</p>
-    <p class="v-p">We are plain about the order. Today the work is measurement and analytics. Forecasting models and machine learning come when the register holds enough seasons to train them on real records, and they will be published with their method. Clinics and anganwadis follow in 2028. A site-level heat-health index follows from 2029.</p>
-    <ul class="v-list"><li>2027: worksites and schools, first measured seasons</li><li>2028: clinics and anganwadis; continuity of care under heat</li><li>2029 onward: district benchmarks and the index</li></ul>
-  </div>
-</div></section>
-
-<section class="v-sec panel"><div class="v-wrap">
-  <span class="v-kicker">On the record</span>
-  <h2 class="v-h2">Published methods. A first programme in the field.</h2>
-  <div class="v-proof">
-  <div>
-    <span class="v-flag sig">In the field now</span>
-    <h3 class="v-h3" style="margin-top:1rem">The first programme record is being made this winter.</h3>
-    <p class="v-p">Worker health screening camps, designed and verified by Syntropy Earth with a foundation partner, run from December 2026 to mid-January 2027. The facts land on this card when the camps close, anonymised, with the consent of everyone involved.</p>
-  </div>
-  <dl>
-    <dt>Where</dt><dd>One state, Maharashtra. Four towns.</dd>
-    <dt>When</dt><dd>December 2026 to mid-January 2027</dd>
-    <dt>Who was reached</dt><dd class="tbc">To be published when the camps close</dd>
-    <dt>What was measured</dt><dd class="tbc">To be published when the camps close</dd>
-    <dt>What the funder received</dt><dd class="tbc">To be published when the camps close</dd>
-  </dl>
-</div>
-  <div class="v-doi">
-<a href="https://doi.org/10.5281/zenodo.22814160" target="_blank" rel="noopener"><b>Standard</b>Implementation Partner Screening Standard, v1.0, public edition</a>
-<a href="https://doi.org/10.5281/zenodo.22815666" target="_blank" rel="noopener"><b>Standard</b>Implementation Partner Screening Standard, v1.0, full edition</a>
-<a href="https://doi.org/10.5281/zenodo.22823149" target="_blank" rel="noopener"><b>White paper</b>Eligible Is Not Suitable: partner selection under Section 135</a>
-<a href="https://doi.org/10.5281/zenodo.22861246" target="_blank" rel="noopener"><b>Method</b>Continuity Cohort Method, Record A</a>
-<a href="https://doi.org/10.5281/zenodo.22880413" target="_blank" rel="noopener"><b>Method</b>Continuity Cohort Method, Record B</a>
-</div>
-<span class="v-src">All five are published on Zenodo under the Syntropy Earth imprint. Author: Abhijith Magal, ORCID 0009-0005-4026-5462. The Heat-Health Site Protocol joins them before the 2027 season.</span>
-</div></section>
-
-<section class="v-sec dark" id="contact"><div class="v-wrap">
+<section class="v-hero h-cta" id="contact"><div class="v-wrap">
   <span class="v-kicker">Start here</span>
-  <h2 class="v-h2">Twenty minutes on your site, your season and what it would take.</h2>
-  <p class="v-lede">Bring one site in mind. You leave the call knowing how heat stress would be measured there, what you would receive, and whether it is worth doing this summer. Site walks happen in Karnataka; everywhere else starts with a call and a few photographs of the site.</p>
+  <h2 class="v-h1 xl">Twenty minutes. <em>One site. One summer.</em></h2>
+  <p class="v-lede">Bring one site in mind. You leave the call knowing how heat stress would be measured there and what you would hold at the end. Site walks happen in Karnataka; everywhere else starts with a call and a few photographs.</p>
   <div class="v-cta"><a class="v-btn" href="/book/" data-ev="home_contact">Book a 20-minute site call <span aria-hidden="true">&rarr;</span></a><a class="v-btn ghost" href="/book/#write" data-ev="home_contact_2">Write to us instead</a></div>
 </div></section>
 
@@ -382,6 +350,6 @@ window.addEventListener('load',function(){ setTimeout(function(){
 </footer>
 
 <script src="/js/main.js?v=340"></script>
-<script src="/js/v11.js?v=1"></script>
+<script src="/js/v11.js?v=2"></script>
 </body>
 </html>

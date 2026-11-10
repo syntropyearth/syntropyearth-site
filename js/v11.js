@@ -23,16 +23,27 @@
     }
   });
 
-  /* ---------- 2. SCROLL WALKTHROUGH ---------- */
+  /* ---------- 2. SCROLL STORY ----------
+     A full-screen stage stays put while the step cards travel over it. Each
+     step switches the drawing's layers, the sky, the sun and the readout.
+     Readout values are illustrative and are labelled so on the page. */
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var BANDNAME = { none: 'Not measured', green: 'Green band', yellow: 'Yellow band', orange: 'Orange band', red: 'Red band' };
+  function tween(node, to, ms) {
+    var from = parseFloat(node.textContent); if (isNaN(from) || reduce) { node.textContent = to.toFixed(1); return; }
+    var t0 = null; if (node._raf) cancelAnimationFrame(node._raf);
+    function f(ts) { if (!t0) t0 = ts; var k = Math.min(1, (ts - t0) / ms); k = 1 - Math.pow(1 - k, 3); node.textContent = (from + (to - from) * k).toFixed(1); if (k < 1) node._raf = requestAnimationFrame(f); }
+    node._raf = requestAnimationFrame(f);
+  }
   var walks = document.querySelectorAll('[data-walk]');
   Array.prototype.forEach.call(walks, function (walk) {
     var steps = Array.prototype.slice.call(walk.querySelectorAll('.v-step'));
     var layers = Array.prototype.slice.call(walk.querySelectorAll('.ly'));
-    var capN = walk.querySelector('[data-cap-n]');
-    var capT = walk.querySelector('[data-cap-t]');
     var dots = Array.prototype.slice.call(walk.querySelectorAll('.v-walk-dots i'));
-    var seen = {};
+    var hudV = walk.querySelector('[data-hud-v]'), hudB = walk.querySelector('[data-hud-band]'), hudT = walk.querySelector('[data-hud-t]');
+    var seen = {}, current = 0;
     function show(n) {
+      if (n === current) return; current = n;
       layers.forEach(function (l) {
         var from = parseInt(l.getAttribute('data-from') || '1', 10);
         var to = parseInt(l.getAttribute('data-to') || '99', 10);
@@ -41,17 +52,67 @@
       steps.forEach(function (s, i) { s.classList.toggle('is-active', i + 1 === n); });
       dots.forEach(function (d, i) { d.classList.toggle('on', i < n); });
       var st = steps[n - 1];
-      if (st && capN) capN.textContent = (n < 10 ? '0' + n : n) + ' / ' + (steps.length < 10 ? '0' + steps.length : steps.length);
-      if (st && capT) capT.textContent = st.getAttribute('data-title') || '';
+      if (st) {
+        var band = st.getAttribute('data-band') || 'none', val = st.getAttribute('data-val');
+        walk.setAttribute('data-sky', st.getAttribute('data-sky') || 'still');
+        walk.setAttribute('data-band', band);
+        if (hudB) hudB.textContent = BANDNAME[band] || '';
+        if (hudT) hudT.innerHTML = st.getAttribute('data-when') || '';
+        if (hudV) { if (val) tween(hudV, parseFloat(val), 900); else { if (hudV._raf) cancelAnimationFrame(hudV._raf); hudV.textContent = '--.-'; } }
+      }
       if (!seen[n]) { seen[n] = 1; push({ event: 'se_walk_step', walk_id: walk.getAttribute('data-walk'), walk_step: n }); }
     }
-    if (!('IntersectionObserver' in window)) { layers.forEach(function (l) { l.classList.add('on'); }); steps.forEach(function (s) { s.classList.add('is-active'); }); return; }
+    if (!('IntersectionObserver' in window)) { layers.forEach(function (l) { l.classList.add('on'); }); steps.forEach(function (s) { s.classList.add('is-active'); }); walk.classList.add('is-in'); return; }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { if (en.isIntersecting) show(steps.indexOf(en.target) + 1); });
-    }, { rootMargin: '-55% 0px -40% 0px', threshold: 0 });
+    }, { rootMargin: '-50% 0px -49% 0px', threshold: 0 });
     steps.forEach(function (s) { io.observe(s); });
-    show(1); seen = { 1: 1 };
+    new IntersectionObserver(function (es, o) { es.forEach(function (en) { if (en.isIntersecting) { walk.classList.add('is-in'); o.disconnect(); } }); }, { threshold: .15 }).observe(walk.querySelector('.w-stage') || walk);
+    seen = { 1: 1 }; show(1);
   });
+
+  /* ---------- 2b. HOME READOUT: one illustrative day, reading to band to action ---------- */
+  var live = document.querySelector('[data-live]');
+  if (live && !reduce) {
+    var DAY = [
+      ['06:30', 24.1, 'green', 'Normal work. Water at every zone.', 30, 58],
+      ['09:15', 26.8, 'yellow', 'Water prompted every 20 minutes. Shade break each hour.', 80, 40],
+      ['11:30', 29.4, 'orange', 'Heavy work limited. Fifteen minutes of rest in every hour.', 125, 19],
+      ['14:15', 31.6, 'red', 'Heavy outdoor work stops from 12 to 3. Cooling station staffed.', 165, 10],
+      ['16:30', 30.1, 'orange', 'Slab work resumes in short shifts. Buddy checks continue.', 232, 25],
+      ['18:45', 26.2, 'yellow', 'Day closes. Hours in each band go into the register.', 292, 47]
+    ];
+    var li = 3, lv = live.querySelector('[data-live-v]'), lt = live.querySelector('[data-live-t]'), lb = live.querySelector('[data-live-band]'),
+        ln = live.querySelector('[data-live-name]'), la = live.querySelector('[data-live-act]'), ld = live.querySelector('[data-live-dot]');
+    setInterval(function () {
+      if (document.hidden) return;
+      li = (li + 1) % DAY.length; var d = DAY[li];
+      lt.textContent = d[0]; tween(lv, d[1], 800); lb.setAttribute('data-band', d[2]); ln.textContent = BANDNAME[d[2]]; la.textContent = d[3];
+      ld.setAttribute('cx', d[4]); ld.setAttribute('cy', d[5]);
+    }, 2800);
+  }
+
+  /* ---------- 2c. REVEAL ON SCROLL AND COUNT-UP ---------- */
+  if ('IntersectionObserver' in window && !reduce && document.body.classList.contains('v11')) {
+    var targets = document.querySelectorAll('.v-sec .v-wrap > *, .w-intro > *, .h-three > div, .h-panel, .h-card, .h-line > div, .h-stats > div, .v-grid2 > *, .v-grid3 > *, .v-get > li, .v-bands > div, .v-time > div');
+    var rio = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); rio.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .05 });
+    Array.prototype.forEach.call(targets, function (n) {
+      if (n.closest('.v-walk2') || n.closest('[data-dash]')) return;
+      var sibs = n.parentNode.children, idx = Array.prototype.indexOf.call(sibs, n);
+      n.style.setProperty('--d', Math.min(idx, 5) * 0.08 + 's');
+      n.classList.add('rv'); rio.observe(n);
+    });
+    var cio = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return; cio.unobserve(en.target);
+        var n = en.target, to = parseFloat(n.getAttribute('data-count')), t0 = null;
+        (function f(ts) { if (!t0) t0 = ts; var k = Math.min(1, (ts - t0) / 1400); k = 1 - Math.pow(1 - k, 3); n.textContent = Math.round(to * k); if (k < 1) requestAnimationFrame(f); })(performance.now());
+      });
+    }, { threshold: .6 });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-count]'), function (n) { cio.observe(n); });
+  }
 
   /* ---------- 3. REGISTER PREVIEW (illustrative data only) ---------- */
   var dash = document.querySelector('[data-dash]');
