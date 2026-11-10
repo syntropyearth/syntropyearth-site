@@ -279,6 +279,7 @@
   var eligible = (path === '/' || path === '/services' || path === '/thinking' ||
                   path.indexOf('/thinking/') === 0);
   if (!eligible) return;
+  if (document.body.classList.contains('v11')) return;   /* 1.1 pages carry their own calls to action */
   if (path.indexOf('/climate-access') === 0) return;
 
   try { if (sessionStorage.getItem(KEY) === '1') return; } catch (e) {}

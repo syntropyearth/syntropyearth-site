@@ -35,6 +35,7 @@
 <!-- Bump ?v= whenever styles.css changes. netlify.toml sets a one-year
      immutable cache, so an un-bumped string means nobody sees the new CSS. -->
 <link rel="stylesheet" href="/styles.css?v=330">
+<link rel="stylesheet" href="/v11.css?v=1">
 
 <!-- ANALYTICS: GTM-WG7CWTHG is injected site-wide by Netlify Snippet Injection.
      It must NOT be hardcoded here, and gtag.js is not loaded on this site.
@@ -97,6 +98,54 @@
       "@type": "FAQPage",
       "@id": "https://syntropyearth.com/about/questions/#faq",
       "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a measured heat season?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One site, one summer, one register. Instruments at the point of work and the point of rest read wet-bulb globe temperature every 15 minutes, from 1 March to 15 July in Bengaluru. Next to the readings we keep the actions the site took, the health screening and the outcomes counted. Three weeks after the last reading you receive the evidence pack."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Heat-Safe Workers and Heat-Ready Schools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The measurement is the same and the setting differs. Heat-Safe Workers runs at a worksite for the full season, with supervisors running a four-band card and a doctor screening workers at the start and the end. Heat-Ready Schools runs through the hot term, with loggers in classrooms and the playground and pupils in classes 6 to 9 taking the readings as project work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do we hold at the end of a season?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Site Heat Report or School Heat Report, a heat-safe protocol written for your site and signed by the person who runs it, a reporting paragraph with the season's numbers, and the outcomes counted from the register."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the evidence pack satisfy BRSR or GRI disclosure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The pack maps to BRSR Principle 3, GRI 403 and SDG targets 3.d and 8.8, and for a funded cohort it names the Schedule VII item. Whether it satisfies a disclosure is for your assurer or counsel to confirm. We write it so that they can."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work outside Karnataka?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Site walks in person happen in Karnataka. Everywhere else starts with a 20-minute call and a few photographs of the site, and the walk follows once a season is agreed. The band card is written to your own state's heat rules."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a season cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A fixed figure agreed in writing before anything starts, set by the number of sites and the number of people on them. Nothing is priced on the website because nothing is priced before we have seen the site. The first call is free."
+          }
+        },
         {
           "@type": "Question",
           "name": "What does Syntropy Earth actually do?",
@@ -229,52 +278,60 @@
       <span class="wordmark">Syntropy Earth</span>
     </a>
     <div class="nav-links">
-      <a href="/social-impact/">Social Impact</a>
-      <a href="/conversations/">Conversations</a>
-      <a href="/brand-growth/">Brand &amp; Growth</a>
+      <a href="/heat-safe-workers/">Heat-Safe Workers</a>
+      <a href="/heat-ready-schools/">Heat-Ready Schools</a>
+      <a href="/season/">The season</a>
+      <a href="/heat/">Evidence</a>
+      <a href="/thinking/">Thinking</a>
       <span class="has-drop">
-        <a href="#" class="nav-drop-toggle" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
+        <a href="/about/" aria-haspopup="true">About</a>
         <span class="nav-drop">
           <span class="nav-drop-panel">
-            <a href="/thinking/">Thinking</a>
-            <a href="/guide/">Guide</a>
-            <a href="/climate-access/">Climate access (CAST)</a>
+            <a href="/about/">Company and founder</a>
+            <a href="/about/questions/" aria-current="page">Common questions</a>
+          </span>
+        </span>
+      </span>
+      <span class="has-drop">
+        <a href="#" class="nav-drop-toggle" role="button" aria-haspopup="true" aria-expanded="false">More</a>
+        <span class="nav-drop">
+          <span class="nav-drop-panel">
+            <a href="/social-impact/">Social Impact: CSR design</a>
             <a href="/tools/unspent-csr-funds-calculator/" data-cavs="calc-nav">CSR calculator</a>
+            <a href="/climate-access/">Climate access (CAST)</a>
+            <a href="/guide/">Guide</a>
+            <a href="/conversations/">Conversations</a>
+            <a href="/brand-growth/">Brand &amp; Growth</a>
           </span>
         </span>
       </span>
-      <span class="has-drop">
-        <a href="/about/" aria-current="page" aria-haspopup="true">About</a>
-        <span class="nav-drop">
-          <span class="nav-drop-panel">
-            <a href="/about/">Founder</a>
-            <a href="/about/questions/">Common questions</a>
-          </span>
-        </span>
-      </span>
-      <a class="btn btn-primary" href="/#contact">Work with us</a>
+      <a class="btn btn-primary" href="/book/" data-ev="nav_book">Book a site call</a>
     </div>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="/social-impact/">Social Impact</a>
-  <a href="/conversations/">Conversations</a>
-  <a href="/brand-growth/">Brand &amp; Growth</a>
-  <span class="mm-group">
-    <span class="mm-group-label">Resources</span>
-    <a class="mm-sub" href="/thinking/">Thinking</a>
-    <a class="mm-sub" href="/guide/">Guide</a>
-    <a class="mm-sub" href="/climate-access/">Climate access (CAST)</a>
-    <a class="mm-sub" href="/tools/unspent-csr-funds-calculator/" data-cavs="calc-nav-mobile">CSR calculator</a>
-  </span>
+  <a href="/heat-safe-workers/">Heat-Safe Workers</a>
+  <a href="/heat-ready-schools/">Heat-Ready Schools</a>
+  <a href="/season/">The season</a>
+  <a href="/heat/">Evidence</a>
+  <a href="/thinking/">Thinking</a>
   <span class="mm-group">
     <a href="/about/">About</a>
-    <a class="mm-sub" href="/about/">Founder</a>
+    <a class="mm-sub" href="/about/">Company and founder</a>
     <a class="mm-sub" href="/about/questions/">Common questions</a>
   </span>
-  <a class="btn btn-primary" href="/#contact">Work with us</a>
+  <span class="mm-group">
+    <span class="mm-group-label">More</span>
+    <a class="mm-sub" href="/social-impact/">Social Impact: CSR design</a>
+    <a class="mm-sub" href="/tools/unspent-csr-funds-calculator/" data-cavs="calc-nav-mobile">CSR calculator</a>
+    <a class="mm-sub" href="/climate-access/">Climate access (CAST)</a>
+    <a class="mm-sub" href="/guide/">Guide</a>
+    <a class="mm-sub" href="/conversations/">Conversations</a>
+    <a class="mm-sub" href="/brand-growth/">Brand &amp; Growth</a>
+  </span>
+  <a class="btn btn-primary" href="/book/" data-ev="nav_book_mobile">Book a site call</a>
 </div>
 
 <header class="page-hero">
@@ -292,6 +349,37 @@
 <section class="section section--warm">
   <div class="wrap">
     <div class="faq faq--page">
+<!-- v1.1 heat block -->
+    <div class="faq-group faq-group--split reveal">
+      <div class="faq-head"><svg class="ico ico--lg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg><p class="label">Heat programmes</p><p class="faq-head-line">The measured season, for worksites and schools. <a href="/heat-safe-workers/">Workers</a> &middot; <a href="/heat-ready-schools/">Schools</a> &middot; <a href="/book/" data-ev="questions_book">Book a site call</a></p></div>
+      <div class="faq-items">
+      <details class="faq-item">
+        <summary><h3>What is a measured heat season?</h3><span class="faq-chev" aria-hidden="true"></span></summary>
+        <div class="faq-a"><p>One site, one summer, one register. Instruments at the point of work and the point of rest read wet-bulb globe temperature every 15 minutes, from 1 March to 15 July in Bengaluru. Next to the readings we keep the actions the site took, the health screening and the outcomes counted. Three weeks after the last reading you receive the evidence pack.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>What is the difference between Heat-Safe Workers and Heat-Ready Schools?</h3><span class="faq-chev" aria-hidden="true"></span></summary>
+        <div class="faq-a"><p>The measurement is the same and the setting differs. Heat-Safe Workers runs at a worksite for the full season, with supervisors running a four-band card and a doctor screening workers at the start and the end. Heat-Ready Schools runs through the hot term, with loggers in classrooms and the playground and pupils in classes 6 to 9 taking the readings as project work.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>What do we hold at the end of a season?</h3><span class="faq-chev" aria-hidden="true"></span></summary>
+        <div class="faq-a"><p>A Site Heat Report or School Heat Report, a heat-safe protocol written for your site and signed by the person who runs it, a reporting paragraph with the season's numbers, and the outcomes counted from the register.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>Does the evidence pack satisfy BRSR or GRI disclosure?</h3><span class="faq-chev" aria-hidden="true"></span></summary>
+        <div class="faq-a"><p>The pack maps to BRSR Principle 3, GRI 403 and SDG targets 3.d and 8.8, and for a funded cohort it names the Schedule VII item. Whether it satisfies a disclosure is for your assurer or counsel to confirm. We write it so that they can.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>Do you work outside Karnataka?</h3><span class="faq-chev" aria-hidden="true"></span></summary>
+        <div class="faq-a"><p>Yes. Site walks in person happen in Karnataka. Everywhere else starts with a 20-minute call and a few photographs of the site, and the walk follows once a season is agreed. The band card is written to your own state's heat rules.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>What does a season cost?</h3><span class="faq-chev" aria-hidden="true"></span></summary>
+        <div class="faq-a"><p>A fixed figure agreed in writing before anything starts, set by the number of sites and the number of people on them. Nothing is priced on the website because nothing is priced before we have seen the site. The first call is free.</p></div>
+      </details>
+      </div>
+    </div>
+    <!-- /v1.1 heat block -->
     <div class="faq-group faq-group--split reveal">
       <div class="faq-head"><svg class="ico ico--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7a5 5 0 1 0 5 5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg><p class="label">The firm</p><p class="faq-head-line">Who you would be working with, and where.</p></div>
       <div class="faq-items">
@@ -401,6 +489,7 @@
 </section>
 
 <footer class="footer">
+  <p class="footer-line">Syntropy Earth measures what heat does to the people a workplace or school depends on, one season at a time. <a href="/heat-safe-workers/">Heat-Safe Workers</a>, <a href="/heat-ready-schools/">Heat-Ready Schools</a>, or <a href="/book/" data-ev="footer_book">book a site call</a>.</p>
   <div class="footer-inner">
     <div>
       <div class="footer-brand">
@@ -412,19 +501,27 @@
       </svg>
         <span class="wordmark">Syntropy Earth</span>
       </div>
-      <p class="footer-tag">Impact &middot; Strategy &middot; Growth</p>
+      <p class="footer-tag">Heat and health &middot; measured at the site</p>
     </div>
 
-    <div class="footer-cols">
+    <div class="footer-cols footer-cols-3">
       <div class="footer-col">
-        <h4>Navigate</h4>
-        <a href="/social-impact/">Social Impact</a>
+        <h4>Heat programmes</h4>
+        <a href="/heat-safe-workers/">Heat-Safe Workers season</a>
+        <a href="/heat-ready-schools/">Heat-Ready Schools sprint</a>
+        <a href="/season/">The season: how it works</a>
+        <a href="/heat/">Evidence and the register</a>
+        <a href="/book/" data-ev="footer_book_col">Book a site call</a>
+      </div>
+      <div class="footer-col">
+        <h4>Also from Syntropy Earth</h4>
+        <a href="/thinking/">Thinking</a>
+        <a href="/social-impact/">Social Impact: CSR design</a>
+        <a href="/tools/unspent-csr-funds-calculator/" data-cavs="calc-footer">CSR calculator</a>
+        <a href="/climate-access/">Climate access (CAST)</a>
+        <a href="/guide/">Guide</a>
         <a href="/conversations/">Conversations</a>
         <a href="/brand-growth/">Brand &amp; Growth</a>
-        <a href="/tools/unspent-csr-funds-calculator/" data-cavs="calc-footer">CSR calculator</a>
-        <a href="/thinking/">Thinking</a>
-        <a href="/guide/">Guide</a>
-        <a href="/climate-access/">Climate access (CAST)</a>
         <a href="/about/">About</a>
         <a href="/about/questions/">Common questions</a>
       </div>
@@ -441,13 +538,14 @@
     </div>
   </div>
 
-  <p class="footer-clock-line">The <a href="https://climateclock.world/get" target="_blank" rel="noopener">Climate Clock</a> counts the time left to hold warming to 1.5&deg;C, the line set in the Paris Agreement. It runs live at the top of the <a href="/">homepage</a>.</p>
+  <p class="footer-clock-line">The <a href="https://climateclock.world/get" target="_blank" rel="noopener">Climate Clock</a> counts the time left to hold warming to 1.5&deg;C, the line set in the Paris Agreement. It runs live at the foot of the <a href="/#clock">homepage</a>.</p>
 
   <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
     <span>&copy; <span id="year">2026</span> Syntropy Earth. All rights reserved. <a href="/privacy/">Privacy Policy</a></span>
   </div>
 </footer>
 
-<script src="/js/main.js?v=330"></script>
+<script src="/js/main.js?v=340"></script>
+<script src="/js/v11.js?v=1"></script>
 </body>
 </html>

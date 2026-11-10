@@ -1,12 +1,23 @@
 # Syntropy Earth
 
-> Social impact and CSR programme design for organisations already carrying an obligation: a Section 135 CSR mandate, a head-office commitment, a duty-of-care exposure or a BRSR assurance deadline. A brand and growth consultancy practice sits alongside it. Based in Bengaluru, India.
+> Syntropy Earth measures what heat does to the people a workplace or school depends on. One site, one season, one register: wet-bulb globe temperature every 15 minutes, the actions taken, health screening and the outcomes counted. The site finishes with a heat-safe protocol it runs itself and an evidence pack that maps to BRSR Principle 3, GRI 403 and SDG targets 3.d and 8.8. Based in Bengaluru, India.
 
-Syntropy Earth is a founder-led advisory practice run by Abhijith Magal, who spent nine years across two global pharmaceutical multinationals before founding it, including brand and commercial work across more than 40 countries, a landmark obesity treatment launch, and health-equity and social responsibility leadership working directly with the WHO-Foundation and UNICEF.
+Syntropy Earth is a climate and health measurement company founded in 2026 by Abhijith Magal. It runs two programmes. Heat-Safe Workers is a measured heat season (1 March to 15 July in Bengaluru) at a construction site, plant, warehouse, yard, campus or field team. Heat-Ready Schools is a measured hot term in which pupils in classes 6 to 9 take the readings as project work. The method follows IS 16559:2019, the Indian standard identical to ISO 7243:2017, and uses the four alert bands of the Karnataka Heat Action Plan 2026. Every site-season enters one register, which is the start of a site-level heat and health record for India.
 
-The governing idea is that climate change reaches people first as a health and access problem rather than an environmental one. The sharper operating statement is the completion spine: closing the gap between an entitlement existing and a person actually receiving it. Work attaches to a budget that is already moving rather than to a category, which means mandated CSR spend under Section 135 of the Companies Act 2013, headquarters duty-of-care mandates, employer duty of care to a workforce, or a BRSR assurance clock.
+Status, stated plainly: the first measured season runs March to July 2027. Until then the charts on the evidence page are illustrative previews with invented values, and are labelled so. No prices are published; a season is quoted in writing after a site call.
 
-## The two practices
+## Heat programmes (start here)
+
+- [Homepage](https://syntropyearth.com/): What Syntropy Earth measures, the two programmes, what a site holds at the end, and why now.
+- [Heat-Safe Workers](https://syntropyearth.com/heat-safe-workers/): The worksite season step by step: site walk, instruments, band card, health screening, Friday readout, evidence pack. Eight common questions answered.
+- [Heat-Ready Schools](https://syntropyearth.com/heat-ready-schools/): The school sprint step by step: loggers, band card, four pupil project modules, attendance read against alert days, School Heat Report.
+- [The season](https://syntropyearth.com/season/): The method. Four records kept against one clock, the alert bands, the calendar, who does what, and how data is handled.
+- [Evidence and the register](https://syntropyearth.com/heat/): The evidence pack line by line with the disclosure each line maps to, an illustrative preview of the register by site, district and state, and the published standards and methods with DOIs.
+- [Book a site call](https://syntropyearth.com/book/): A 20-minute call with the founder, by calendar or by form.
+
+## Also from Syntropy Earth
+
+The earlier advisory practices remain available and their pages remain live.
 
 **Social Impact.** The flagship. CSR programme design under Section 135, health equity and patient access programme design, workforce heat and duty of care, and BRSR assurance readiness. Programmes are built around the company's own mission and designed to survive a board question, an auditor and a change of CSR head. Work usually starts by reading the existing portfolio, because valuable activity is normally already being undercounted or tagged against the wrong goal. Measurement maps to BRSR and GRI. Implementing-partner screening runs to a published standard, and Syntropy Earth takes no money from implementing partners in any form. Design comes first, with implementation and handover behind it.
 
@@ -16,9 +27,8 @@ The governing idea is that climate change reaches people first as a health and a
 
 Explicitly not offered, and referred out: technical ESG, net-zero roadmapping, emissions accounting, and disclosure assurance.
 
-## Core pages
+## Other pages
 
-- [Homepage](https://syntropyearth.com/): The thesis, the problem, and how the practice works.
 - [Social Impact](https://syntropyearth.com/social-impact/): CSR and health equity programme design, workforce heat and duty of care, BRSR assurance readiness.
 - [Brand and Growth](https://syntropyearth.com/brand-growth/): Brand strategy, launch packs, operational improvement, agency orchestration.
 - [About](https://syntropyearth.com/about/): Founder background, nine years in global pharma and healthcare, and why the practice exists.

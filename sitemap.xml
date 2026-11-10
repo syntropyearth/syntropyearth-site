@@ -16,14 +16,14 @@
   NOT ADDED: /guide/frameworks/ has no index.html. Listing it would feed a 404.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://syntropyearth.com/</loc><lastmod>2026-09-21</lastmod></url>
+  <url><loc>https://syntropyearth.com/</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://syntropyearth.com/social-impact/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://syntropyearth.com/brand-growth/</loc><lastmod>2026-08-14</lastmod></url>
   <url><loc>https://syntropyearth.com/climate-access/</loc><lastmod>2026-08-14</lastmod></url>
-  <url><loc>https://syntropyearth.com/about/</loc><lastmod>2026-08-14</lastmod></url>
-  <url><loc>https://syntropyearth.com/about/questions/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://syntropyearth.com/about/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://syntropyearth.com/about/questions/</loc><lastmod>2026-11-10</lastmod></url>
 
-  <url><loc>https://syntropyearth.com/thinking/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://syntropyearth.com/thinking/</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://syntropyearth.com/thinking/implementing-partner-screening/</loc><lastmod>2026-09-18</lastmod></url>
   <url><loc>https://syntropyearth.com/thinking/climate-change-is-a-healthcare-story/</loc><lastmod>2026-09-18</lastmod></url>
   <url><loc>https://syntropyearth.com/thinking/india-heat-season-healthcare-operations/</loc><lastmod>2026-09-11</lastmod></url>
@@ -60,7 +60,7 @@
 
   <url><loc>https://syntropyearth.com/tools/unspent-csr-funds-calculator/</loc><lastmod>2026-09-21</lastmod></url>
 
-  <url><loc>https://syntropyearth.com/privacy/</loc><lastmod>2026-08-14</lastmod></url>
+  <url><loc>https://syntropyearth.com/privacy/</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://syntropyearth.com/conversations/</loc><lastmod>2026-10-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://syntropyearth.com/thinking/ncd-deaths-climate-shock-chronic-care/</loc><lastmod>2026-10-03</lastmod></url>
   <url><loc>https://syntropyearth.com/thinking/europe-heat-deaths-india-counting-gap/</loc><lastmod>2026-10-03</lastmod></url>
@@ -90,4 +90,9 @@
   <url><loc>https://syntropyearth.com/thinking/cyclone-arnab-murasu-chronic-patient-register/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://syntropyearth.com/thinking/water-health-facilities-access/</loc><lastmod>2026-09-24</lastmod></url>
   <url><loc>https://syntropyearth.com/thinking/continuity-cohort-method/</loc><lastmod>2026-10-04</lastmod></url>
+  <url><loc>https://syntropyearth.com/heat-safe-workers/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://syntropyearth.com/heat-ready-schools/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://syntropyearth.com/season/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://syntropyearth.com/heat/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://syntropyearth.com/book/</loc><lastmod>2026-11-10</lastmod></url>
 </urlset>
