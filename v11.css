@@ -271,7 +271,9 @@ a.v-card:hover .more span { transform: translateX(5px); }
 .v11 .nav .wordmark, .v11 .nav .nav-links > a:not(.btn), .v11 .nav .has-drop > a { color: #F5F2EB; }
 .v11 .nav .nav-links > a:not(.btn):hover, .v11 .nav .has-drop > a:hover, .v11 .nav .nav-links > a[aria-current="page"] { color: var(--ember); }
 .v11 .nav .mark .arc:first-of-type { stroke: #F5F2EB; }
-.v11 .nav .mark .dot { fill: #F5F2EB; }
+.v11 .nav .mark .dot { fill: #FF7A3D; }
+.v11 .nav .mark .arc-2 { stroke: #A9B1B4; }
+.v11 .nav .mark .arc-3 { stroke: #FF7A3D; }
 .v11 .nav .nav-toggle span { background: #F5F2EB; }
 .v11 .nav .btn-primary, .v11 .mobile-menu .btn-primary { background: var(--signal); color: #fff; border-color: var(--signal); }
 .v11 .nav .btn-primary:hover { background: var(--ember); }

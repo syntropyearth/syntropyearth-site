@@ -1,0 +1,9 @@
+Syntropy Earth website: icon, mark and 404 update, 10 November 2026
+
+What this changes (84 files, nothing deleted, no page copy touched):
+- favicon.svg, favicon.ico, apple-touch-icon.png: the mark in the 1.1 colours on night.
+- 404.html: rebuilt in the 1.1 look (night hero, heat programme links, same dataLayer page_not_found push).
+- Every page: the nav and footer mark recoloured (ink or bone arcs, ember centre); v11.css link bumped to ?v=4.
+- v11.css: nav mark colours on the dark 1.1 pages.
+
+How to apply: unzip, drop the contents over the root of syntropyearth-site-git-repo, choose Replace for everything, then commit and push in GitHub Desktop. Netlify deploys in about a minute. Hard-refresh once to see the new favicon; browsers cache the old one for a day or so.
